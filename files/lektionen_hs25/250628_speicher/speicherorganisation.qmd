@@ -1,0 +1,27 @@
+---
+title: "Speicherorganisation"
+date: 2025-06-28
+date-format: DD.MM.YYYY
+author: "Jacques Mock Schindler"
+---
+
+Informationen sind in Computern in Dateien gespeichert. Die
+gespeicherten Informationen können dabei ganz unterschiedlicher Art, wie
+zum Beispiel Texte, Bilder oder
+Videos, sein.  
+Als Modell, wie man sich Dateien vorstellen kann, hat sich das Bild von
+Dossiers in Ordnern etabliert. Die einzelnen Dossiers sind die Dateien
+und die Ordner sind die Strukturen, in denen die Dateien abgelegt sind.
+Diese Konstruktion kann über mehrere Ebenen hinaus verschachtelt werde
+(Ordner in Gestellen, die wiederum in einzelnen Räumen stehen, etc.).
+
+Aktuell hat man praktisch überall und jederzeit Zugriff auf riesige
+Datenmengen. Dies gilt sowohl für allgemein zugängliche Daten wie
+Informationen im Internet, als auch für persönlich erstellte Dateien.  
+Aus diesem Umstand ergibt sich die Frage, wo diese Daten gespeichert
+sind. 
+
+## Internet (Cloud)
+
+Informationen im Internet sind in Dateien  erfasst. Die Dateien sind auf
+Servern gespeichert.
