@@ -15,13 +15,35 @@ und die Ordner sind die Strukturen, in denen die Dateien abgelegt sind.
 Diese Konstruktion kann über mehrere Ebenen hinaus verschachtelt werde
 (Ordner in Gestellen, die wiederum in einzelnen Räumen stehen, etc.).
 
-Aktuell hat man praktisch überall und jederzeit Zugriff auf riesige
-Datenmengen. Dies gilt sowohl für allgemein zugängliche Daten wie
-Informationen im Internet, als auch für persönlich erstellte Dateien.  
-Aus diesem Umstand ergibt sich die Frage, wo diese Daten gespeichert
-sind. 
+## Dateinamen und Pfade
 
-## Internet (Cloud)
+Damit Dateien identifiziert und gefunden werden können, müssen sie einen
+Namen haben. Grundsätzlich gibt es keine Einschränkungen, wie Dateien
+benannt werden. Die meisten Dateinamen bestehen allerdings aus
+zwei Teilen: dem eigentlichen Dateinamen und der
+Dateinamenserweiterung.
 
-Informationen im Internet sind in Dateien  erfasst. Die Dateien sind auf
-Servern gespeichert.
+Der eigentliche Dateiname wird idealerweise so festgelegt, dass er einen
+Rückschluss auf den Inhalt der Datei zulässt.  
+Die Dateinamenserweiterung ist ein Zusatz, der Auskunft über den
+Dateityp gibt. Sie steht hinter einem Punkt hinter dem eigentlichen
+Dateinamen. Auf Windows Rechnern wird die Dateinamenserweiterung im
+Dateimanager in der Standardeinstellung nicht angezeigt. Um dies zu
+ändern, muss in den Einstellungen des Dateimanagers die Option
+"Dateinamenerweiterungen anzeigen" aktiviert werden (Ansicht > Anzeigen > Dateinamenserweiterung). 
+
+Damit Dateien besser ausgetauscht werden können, empfiehlt es sich, für
+die Namen lediglich Buchstaben, Zahlen und Unterstriche (sog.
+[ASCII](https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange)-Zeichen)
+zu verwenden. 
+
+Damit man Dateien finden kann, muss man wissen, wo sie abgelegt worden
+sind. Übertragen auf das Modell von Dossiers in Ordnern bedeutet das, zu
+wissen, welches Dossier in welchem Ordner in welchem Gestell in welchem
+Raum abgelegt ist. Wie in einem realen Archiv, geht man dabei vom Raum
+zum Gestell, zum Ordner und schliesslich zum Dossier.
+In der Informatik wird dieser Weg als Pfad bezeichnet. Auf einem
+Windows-Rechner beginnt dieser Pfad mit dem sogenannten
+Laufwerksbuchstaben, gefolgt von einem Doppelpunkt und einem Backslash
+(`\`). Aus historischen Gründen ist der Laufwerksbuchstabe auf
+Windows-Rechnern Standardmässig der Buchstabe `C`.
