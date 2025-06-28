@@ -66,3 +66,41 @@ und darin Dateien oder Underordner anzulegen.
 Der Dateiname `text.docx` verweist mit seiner Dateinamenserweiterung
 `.docx` auf eine Datei, die mit dem Programm Microsoft Word erstellt
 worden ist.
+
+## Dateien in der Cloud
+
+Dateien können nicht nur lokal auf dem Computer gespeichert werden.
+Damit von überall und jederzeit auf Dateien zugegriffen werden kann,
+werden Dateien in der *Cloud* gespeichert. Dabei handelt es sich um
+Server in Rechenzentren, die über das Internet erreichbar sind.
+Beispiele für solche Cloud-Dienst sind OneDrive von Microsoft oder
+Google Drive.  
+Ablageorte auf OneDrive werden in Windows direkt in der
+Verzeichnisstruktur des Betriebssystems angezeigt, solche von Google
+erhalten auf Windows einen eigenen Laufwerksbuchstaben (`G:\`).
+
+Damit auf die Dateien in der Cloud zugegriffen werden kann, ist eine
+Internetverbindung erforderlich.
+
+## Dateistruktur für die Schule
+
+Für den schulischen Bedarf erscheint es sinnvoll eine Dateistruktur nach
+Fächern anzulegen. Im Ordner `Documents` wird dazu für jedes Fach ein
+eigener Unterordner angelegt. Innerhalb der jeweiligen Fachordner kann
+eine weitere Struktur nach Semester oder nach Thema sinnvoll sein. Ein
+Beispiel für die Ordnerstruktur eines Erstklässlers an der KBW kann so
+aussehen:
+
+```txt
+Documents\
+         ├──Schule\
+         |       ├──Deutsch
+         |       ├──Franz
+         |       ├──Mathe
+         |       ├──WR
+         |       └──...
+         ├──Privat\
+         |       ├──Rechnungen
+         |       └──...
+```
+

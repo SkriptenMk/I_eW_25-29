@@ -154,6 +154,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#dateinamen-und-pfade" id="toc-dateinamen-und-pfade" class="nav-link active" data-scroll-target="#dateinamen-und-pfade">Dateinamen und Pfade</a></li>
+  <li><a href="#dateien-in-der-cloud" id="toc-dateien-in-der-cloud" class="nav-link" data-scroll-target="#dateien-in-der-cloud">Dateien in der Cloud</a></li>
+  <li><a href="#dateistruktur-für-die-schule" id="toc-dateistruktur-für-die-schule" class="nav-link" data-scroll-target="#dateistruktur-für-die-schule">Dateistruktur für die Schule</a></li>
   </ul>
 </nav>
     </div>
@@ -204,6 +206,26 @@ Die Dateinamenserweiterung ist ein Zusatz, der Auskunft über den Dateityp gibt.
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">C:\Users\fritz\Documents\text.docx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In diesem Beispiel ist <code>C:</code> der Laufwerksbuchstabe, <code>Users</code> der Ordner, <code>fritz</code> der Unterordner, <code>Documents</code> der Unterordner von <code>fritz</code> und <code>text.docx</code> die Datei, die im Ordner <code>Documents</code> abgelegt ist. <code>Users</code> ist ein von Windows standardmässig angelegter Ordner, in dem die persönlichen Daten der Benutzer abgelegt werden. Der Ordner <code>fritz</code> ist der persönliche Ordner des Benutzers <code>fritz</code>. Der Ordner <code>Documents</code> wird ebenfalls standardmässig von Windows im Ordner jedes Benutzers angelegt. Dem Benutzer <code>fritz</code> steht es frei, diesen Ordner zu verwenden und darin Dateien oder Underordner anzulegen.<br>
 Der Dateiname <code>text.docx</code> verweist mit seiner Dateinamenserweiterung <code>.docx</code> auf eine Datei, die mit dem Programm Microsoft Word erstellt worden ist.</p>
+</section>
+<section id="dateien-in-der-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="dateien-in-der-cloud">Dateien in der Cloud</h2>
+<p>Dateien können nicht nur lokal auf dem Computer gespeichert werden. Damit von überall und jederzeit auf Dateien zugegriffen werden kann, werden Dateien in der <em>Cloud</em> gespeichert. Dabei handelt es sich um Server in Rechenzentren, die über das Internet erreichbar sind. Beispiele für solche Cloud-Dienst sind OneDrive von Microsoft oder Google Drive.<br>
+Ablageorte auf OneDrive werden in Windows direkt in der Verzeichnisstruktur des Betriebssystems angezeigt, solche von Google erhalten auf Windows einen eigenen Laufwerksbuchstaben (<code>G:\</code>).</p>
+<p>Damit auf die Dateien in der Cloud zugegriffen werden kann, ist eine Internetverbindung erforderlich.</p>
+</section>
+<section id="dateistruktur-für-die-schule" class="level2">
+<h2 class="anchored" data-anchor-id="dateistruktur-für-die-schule">Dateistruktur für die Schule</h2>
+<p>Für den schulischen Bedarf erscheint es sinnvoll eine Dateistruktur nach Fächern anzulegen. Im Ordner <code>Documents</code> wird dazu für jedes Fach ein eigener Unterordner angelegt. Innerhalb der jeweiligen Fachordner kann eine weitere Struktur nach Semester oder nach Thema sinnvoll sein. Ein Beispiel für die Ordnerstruktur eines Erstklässlers an der KBW kann so aussehen:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Documents\</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         ├──Schule\</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         |       ├──Deutsch</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         |       ├──Franz</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         |       ├──Mathe</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         |       ├──WR</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         |       └──...</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         ├──Privat\</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>         |       ├──Rechnungen</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         |       └──...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
