@@ -25,7 +25,7 @@
     "href": "files/HS_25.html",
     "title": "Unterlagen für das Herbstsemester 2025/2026",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nJun 28, 2025\n\n\nSpeicher\n\n\n \n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -33,5 +33,19 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "files/lektionen_hs25/speicherorganisation.html",
+    "href": "files/lektionen_hs25/speicherorganisation.html",
+    "title": "Speicherorganisation",
+    "section": "",
+    "text": "Aktuell hat man praktisch überall und jederzeit Zugriff auf riesige Datenmengen. Dies gilt sowohl für allgemein zugängliche Daten wie Informationen im Internet, als auch für persönlich erstellte Daten. Aus diesem Umstand ergibt sich die Frage, wo diese Daten gespeichert sind."
+  },
+  {
+    "objectID": "files/lektionen_hs25/speicherorganisation.html#lokaler-speicher",
+    "href": "files/lektionen_hs25/speicherorganisation.html#lokaler-speicher",
+    "title": "Speicherorganisation",
+    "section": "Lokaler Speicher",
+    "text": "Lokaler Speicher"
   }
 ]
