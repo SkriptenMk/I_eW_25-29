@@ -47,3 +47,22 @@ Windows-Rechner beginnt dieser Pfad mit dem sogenannten
 Laufwerksbuchstaben, gefolgt von einem Doppelpunkt und einem Backslash
 (`\`). Aus historischen Gründen ist der Laufwerksbuchstabe auf
 Windows-Rechnern Standardmässig der Buchstabe `C`.
+
+Ein Beispiel für einen Pfad könnte so aussehen:
+
+```bash
+C:\Users\fritz\Documents\text.docx
+```
+
+In diesem Beispiel ist `C:` der Laufwerksbuchstabe, `Users` der Ordner,
+`fritz` der Unterordner, `Documents` der Unterordner von `fritz` und
+`text.docx` die Datei, die im Ordner `Documents` abgelegt ist. `Users`
+ist ein von Windows standardmässig angelegter Ordner, in dem die
+persönlichen Daten der Benutzer abgelegt werden. Der Ordner `fritz` ist
+der persönliche Ordner des Benutzers `fritz`. Der Ordner `Documents`
+wird ebenfalls standardmässig von Windows im Ordner jedes Benutzers
+angelegt. Dem Benutzer `fritz` steht es frei, diesen Ordner zu verwenden
+und darin Dateien oder Underordner anzulegen.  
+Der Dateiname `text.docx` verweist mit seiner Dateinamenserweiterung
+`.docx` auf eine Datei, die mit dem Programm Microsoft Word erstellt
+worden ist.
