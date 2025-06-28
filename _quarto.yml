@@ -3,12 +3,14 @@ project:
   output-dir: docs
 
 website:
-  title: "Unterlagen für den Informatikunterricht 1 eW (Schuljahr 2025/2026)"
+  title: "Unterlagen für den Informatikunterricht 1eW (Schuljahr 2025/2026)"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - text: Herbstsemester 2025/2026
+        href: files/HS_25.qmd
 
 format:
   html:

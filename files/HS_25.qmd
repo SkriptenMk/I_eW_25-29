@@ -1,0 +1,8 @@
+---
+title: "Unterlagen für das Herbstsemester 2025/2026"
+listing:
+  contents: lektionen_hs25
+  type: table
+  sort: date
+---
+
