@@ -7,3 +7,12 @@ Hier finden Sie die Unterlagen für den Informatikunterricht.
 ## Programm
 
 ## Beurteilung
+
+Pro Semester sind zwei schriftliche Prüfungen vorgesehen. Ausserdem wird
+die mündliche Beteiligung benotet. Als mündliche Beteiligung gilt
+insbesondere auch das Stellen von Fragen.  
+Die
+Zeugnisnote berechnet sich als gewichteter Durchschnitt aus den beiden
+schriftlichen Prüfungen und der Note für die mündliche Beteiligung. Die
+Durchschnittsnote der beiden schriftlichen Prüfungen wird mit 90%, die
+Note für die mündliche Beteiligung mit 10% gewichtet.
