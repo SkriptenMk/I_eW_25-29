@@ -56,3 +56,72 @@ aus:
    ![Python Shell](hello_world.png)
 
 Gratuliere; Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!
+
+## Arbeitsumgebung
+
+Im Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern
+mit sogenannten Jupyter Notebooks. Dies erfordert ein paar weitere
+Vorbereitungsarbeiten.
+
+1. Erstellen Sie im Ordner "Informatik" einen Unterordner mit dem
+   Heutigen Datum als Namen. Formatieren Sie das Datum nach dem Schema
+   "YYMMDD", für den 1. August 2025 wäre das zum Beispiel "250801".
+2. Öffnen Sie den soeben erstellten Ordner.
+3. Geben Sie die Tastenfolge `Ctrl + L` ein, um die Adresszeile des
+   Dateimanagers zu aktivieren.
+4. Überschreiben Sie den Inhalt der Adresszeile mit dem Text
+   `cmd` und drücken Sie die Eingabetaste. Dadurch wird ein Terminal
+   geöffnet, das direkt im aktuellen Ordner arbeitet.
+5. Geben Sie im neu geöffneten Terminal den folgenden Befehl ein und
+   drücken Sie die Eingabetaste:
+
+   ```bash
+   python -m venv .venv
+   ```
+
+    Dadurch wird eine sogenannte Python Virtual Environment erstellt
+    (venv wegen **V**irtual **Env**ironment). Dieses Python Virtual
+    Environment dient dazu, die eigenen Programmierprojekte unabhängig
+    voneinander gestalten zu können.
+6. Aktivieren Sie das Python Virtual Environment mit dem folgenden
+   Befehl:
+
+   ```bash
+    .venv\Scripts\activate
+    ```
+
+7. In der nun aktivierten Python Virtual Environment installieren Sie
+   die benötigten Pakete mit dem folgenden Befehl:
+
+   ```bash
+   pip install jupyter
+   ```
+
+   Das dauert eine Weile.  
+   Alle in einer Python Virtual Environment installierten Pakete sind
+   innerhalb dieser Umgebung dauerhaft verfügbar und müssen daher kein
+   zweites Mal installiert werden.
+
+8. Starten Sie Jupyter Notebook mit dem folgenden Befehl:
+
+   ```bash
+    jupyter notebook
+    ```
+
+    Dies startet den Jupyter Notebook Server und öffnet automatisch ein
+    Browserfenster mit der Jupyter Notebook Oberfläche.
+
+9. Klicken Sie auf den Button "New" und wählen Sie "Python 3" aus,
+   um ein neues Jupyter Notebook zu erstellen.
+
+   In einem Jupyter Notebook können Sie Text (formatiert in <a
+   href="https://www.markdownguide.org/basic-syntax/"
+   target="blank">Markdown</a>) und ausführbaren Python Code
+   kombinieren.
+
+10. Geben Sie in die erste Zelle des Jupyter Notebooks den folgenden
+    Code ein:
+
+    ```python
+    print("Hello World")
+    ```

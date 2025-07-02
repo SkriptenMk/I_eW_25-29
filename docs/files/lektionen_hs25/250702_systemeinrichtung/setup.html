@@ -181,6 +181,7 @@ window.Quarto = {
   <li><a href="#ausgangslage" id="toc-ausgangslage" class="nav-link active" data-scroll-target="#ausgangslage">Ausgangslage</a></li>
   <li><a href="#installation-von-python" id="toc-installation-von-python" class="nav-link" data-scroll-target="#installation-von-python">Installation von Python</a></li>
   <li><a href="#hello-world" id="toc-hello-world" class="nav-link" data-scroll-target="#hello-world">Hello World</a></li>
+  <li><a href="#arbeitsumgebung" id="toc-arbeitsumgebung" class="nav-link" data-scroll-target="#arbeitsumgebung">Arbeitsumgebung</a></li>
   </ul>
 </nav>
     </div>
@@ -251,11 +252,37 @@ Im folgenden findet sich eine Anleitung für die Installation der für den Unter
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="hello_world.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
+<figcaption>Python Shell</figcaption>
 </figure>
 </div></li>
 </ol>
 <p>Gratuliere; Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!</p>
+</section>
+<section id="arbeitsumgebung" class="level2">
+<h2 class="anchored" data-anchor-id="arbeitsumgebung">Arbeitsumgebung</h2>
+<p>Im Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern mit sogenannten Jupyter Notebooks. Dies erfordert ein paar weitere Vorbereitungsarbeiten.</p>
+<ol type="1">
+<li><p>Erstellen Sie im Ordner “Informatik” einen Unterordner mit dem Heutigen Datum als Namen. Formatieren Sie das Datum nach dem Schema “YYMMDD”, für den 1. August 2025 wäre das zum Beispiel “250801”.</p></li>
+<li><p>Öffnen Sie den soeben erstellten Ordner.</p></li>
+<li><p>Geben Sie die Tastenfolge <code>Ctrl + L</code> ein, um die Adresszeile des Dateimanagers zu aktivieren.</p></li>
+<li><p>Überschreiben Sie den Inhalt der Adresszeile mit dem Text <code>cmd</code> und drücken Sie die Eingabetaste. Dadurch wird ein Terminal geöffnet, das direkt im aktuellen Ordner arbeitet.</p></li>
+<li><p>Geben Sie im neu geöffneten Terminal den folgenden Befehl ein und drücken Sie die Eingabetaste:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dadurch wird eine sogenannte Python Virtual Environment erstellt (venv wegen <strong>V</strong>irtual <strong>Env</strong>ironment). Dieses Python Virtual Environment dient dazu, die eigenen Programmierprojekte unabhängig voneinander gestalten zu können.</p></li>
+<li><p>Aktivieren Sie das Python Virtual Environment mit dem folgenden Befehl:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">.venv\Scripts\activate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>In der nun aktivierten Python Virtual Environment installieren Sie die benötigten Pakete mit dem folgenden Befehl:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Das dauert eine Weile.<br>
+Alle in einer Python Virtual Environment installierten Pakete sind innerhalb dieser Umgebung dauerhaft verfügbar und müssen daher kein zweites Mal installiert werden.</p></li>
+<li><p>Starten Sie Jupyter Notebook mit dem folgenden Befehl:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">jupyter</span> notebook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dies startet den Jupyter Notebook Server und öffnet automatisch ein Browserfenster mit der Jupyter Notebook Oberfläche.</p></li>
+<li><p>Klicken Sie auf den Button “New” und wählen Sie “Python 3” aus, um ein neues Jupyter Notebook zu erstellen.</p>
+<p>In einem Jupyter Notebook können Sie Text (formatiert in <a href="https://www.markdownguide.org/basic-syntax/" target="blank">Markdown</a>) und ausführbaren Python Code kombinieren.</p></li>
+<li><p>Geben Sie in die erste Zelle des Jupyter Notebooks den folgenden Code ein:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
 
 
 </section>
