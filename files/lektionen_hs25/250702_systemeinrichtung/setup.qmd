@@ -1,0 +1,10 @@
+---
+title: "Systemeinrichtung"
+date: 2025-07-02
+date-format: DD.MM.YYYY
+author: "Jacques Mock Schindler"
+---
+
+## Vorbereitung
+
+## Hello World
