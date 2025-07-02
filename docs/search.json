@@ -21,20 +21,6 @@
     "text": "Beurteilung\nPro Semester sind zwei schriftliche Prüfungen vorgesehen. Ausserdem wird die mündliche Beteiligung benotet. Als mündliche Beteiligung gilt insbesondere auch das Stellen von Fragen.\nDie Zeugnisnote berechnet sich als gewichteter Durchschnitt aus den beiden schriftlichen Prüfungen und der Note für die mündliche Beteiligung. Die Durchschnittsnote der beiden schriftlichen Prüfungen wird mit 90%, die Note für die mündliche Beteiligung mit 10% gewichtet."
   },
   {
-    "objectID": "files/HS_25.html",
-    "href": "files/HS_25.html",
-    "title": "Unterlagen für das Herbstsemester 2025/2026",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "files/lektionen_hs25/250628_speicher/speicherorganisation.html",
     "href": "files/lektionen_hs25/250628_speicher/speicherorganisation.html",
     "title": "Speicherorganisation",
@@ -61,5 +47,47 @@
     "title": "Speicherorganisation",
     "section": "Dateistruktur für die Schule",
     "text": "Dateistruktur für die Schule\nFür den schulischen Bedarf erscheint es sinnvoll eine Dateistruktur nach Fächern anzulegen. Im Ordner Documents wird dazu für jedes Fach ein eigener Unterordner angelegt. Innerhalb der jeweiligen Fachordner kann eine weitere Struktur nach Semester oder nach Thema sinnvoll sein. Ein Beispiel für die Ordnerstruktur eines Erstklässlers an der KBW kann so aussehen:\nDocuments\\\n         ├──Schule\\\n         |       ├──Deutsch\n         |       ├──Franz\n         |       ├──Mathe\n         |       ├──WR\n         |       └──...\n         ├──Privat\\\n         |       ├──Rechnungen\n         |       └──..."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "files/HS_25.html",
+    "href": "files/HS_25.html",
+    "title": "Unterlagen für das Herbstsemester 2025/2026",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n02.07.2025\n\n\nSystemeinrichtung\n\n\nJacques Mock Schindler\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250702_systemeinrichtung/setup.html",
+    "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html",
+    "title": "Systemeinrichtung",
+    "section": "",
+    "text": "In der Informatik geht es darum, wie Informationsverarbeitung mit Hilfe von Computern automatisiert werden kann.\nDie Automatisierung der Informationsverarbeitung erfordert die Verwendung von Programmiersprachen. Im Informatikunterricht wird in erster Linie mit der Programmiersprache Python gearbeitet.\nIm folgenden findet sich eine Anleitung für die Installation der für den Unterricht erforderlichen Programme."
+  },
+  {
+    "objectID": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#ausgangslage",
+    "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#ausgangslage",
+    "title": "Systemeinrichtung",
+    "section": "",
+    "text": "In der Informatik geht es darum, wie Informationsverarbeitung mit Hilfe von Computern automatisiert werden kann.\nDie Automatisierung der Informationsverarbeitung erfordert die Verwendung von Programmiersprachen. Im Informatikunterricht wird in erster Linie mit der Programmiersprache Python gearbeitet.\nIm folgenden findet sich eine Anleitung für die Installation der für den Unterricht erforderlichen Programme."
+  },
+  {
+    "objectID": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#vorbereitung",
+    "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#vorbereitung",
+    "title": "Systemeinrichtung",
+    "section": "Vorbereitung",
+    "text": "Vorbereitung"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#hello-world",
+    "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#hello-world",
+    "title": "Systemeinrichtung",
+    "section": "Hello World",
+    "text": "Hello World"
   }
 ]

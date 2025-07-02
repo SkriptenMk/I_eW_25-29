@@ -4,6 +4,15 @@ date: 2025-07-02
 date-format: DD.MM.YYYY
 author: "Jacques Mock Schindler"
 ---
+## Ausgangslage
+
+In der Informatik geht es darum, wie Informationsverarbeitung mit Hilfe
+von Computern automatisiert werden kann.  
+Die Automatisierung der Informationsverarbeitung erfordert die
+Verwendung von Programmiersprachen. Im Informatikunterricht wird in
+erster Linie mit der Programmiersprache Python gearbeitet.  
+Im folgenden findet sich eine Anleitung für die Installation der für den
+Unterricht erforderlichen Programme.
 
 ## Vorbereitung
 
