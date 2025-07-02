@@ -14,6 +14,22 @@ erster Linie mit der Programmiersprache Python gearbeitet.
 Im folgenden findet sich eine Anleitung für die Installation der für den
 Unterricht erforderlichen Programme.
 
-## Vorbereitung
+## Installation von Python
+
+Dieser Abschnitt führt Sie Schritt für Schritt durch die Installation
+von Python auf einem Windows-Rechner.
+
+1. Laden Sie die neueste Version von Python von der offiziellen Website
+   herunter:
+   <a href="https://www.python.org/downloads/" target="blank">python.org</a>.
+2. Führen Sie das heruntergeladene Installationsprogramm durch
+   Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die
+   Option "Add Python to PATH" aktivieren, bevor Sie auf "Install Now"
+   klicken.
+3. Überprüfen Sie die Installation, indem Sie die Eingabeaufforderung
+   öffnen (Windows-Taste + R, dann `cmd` eingeben) und den Befehl
+   `python --version` eingeben. Dies sollte die installierte Python-Version
+   anzeigen.
 
 ## Hello World
+

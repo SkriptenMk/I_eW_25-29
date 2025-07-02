@@ -77,11 +77,11 @@
     "text": "In der Informatik geht es darum, wie Informationsverarbeitung mit Hilfe von Computern automatisiert werden kann.\nDie Automatisierung der Informationsverarbeitung erfordert die Verwendung von Programmiersprachen. Im Informatikunterricht wird in erster Linie mit der Programmiersprache Python gearbeitet.\nIm folgenden findet sich eine Anleitung für die Installation der für den Unterricht erforderlichen Programme."
   },
   {
-    "objectID": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#vorbereitung",
-    "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#vorbereitung",
+    "objectID": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#installation-von-python",
+    "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#installation-von-python",
     "title": "Systemeinrichtung",
-    "section": "Vorbereitung",
-    "text": "Vorbereitung"
+    "section": "Installation von Python",
+    "text": "Installation von Python\nDieser Abschnitt führt Sie Schritt für Schritt durch die Installation von Python auf einem Windows-Rechner.\n\nLaden Sie die neueste Version von Python von der offiziellen Website herunter: python.org.\nFühren Sie das heruntergeladene Installationsprogramm durch Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die Option “Add Python to PATH” aktivieren, bevor Sie auf “Install Now” klicken.\nÜberprüfen Sie die Installation, indem Sie die Eingabeaufforderung öffnen (Windows-Taste + R, dann cmd eingeben) und den Befehl python --version eingeben. Dies sollte die installierte Python-Version anzeigen."
   },
   {
     "objectID": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#hello-world",
