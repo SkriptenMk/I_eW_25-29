@@ -60,7 +60,7 @@
     "href": "files/HS_25.html",
     "title": "Unterlagen für das Herbstsemester 2025/2026",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n02.07.2025\n\n\nSystemeinrichtung\n\n\nJacques Mock Schindler\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n02.07.2025\n\n\nSystemeinrichtung\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "files/lektionen_hs25/250702_systemeinrichtung/setup.html",
@@ -81,13 +81,13 @@
     "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#installation-von-python",
     "title": "Systemeinrichtung",
     "section": "Installation von Python",
-    "text": "Installation von Python\nDieser Abschnitt führt Sie Schritt für Schritt durch die Installation von Python auf einem Windows-Rechner.\n\nLaden Sie die neueste Version von Python von der offiziellen Website herunter: python.org.\nFühren Sie das heruntergeladene Installationsprogramm durch Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die Option “Add Python to PATH” aktivieren, bevor Sie auf “Install Now” klicken.\nÜberprüfen Sie die Installation, indem Sie die Eingabeaufforderung öffnen (Windows-Taste + R, dann cmd eingeben) und den Befehl python --version eingeben. Dies sollte die installierte Python-Version anzeigen."
+    "text": "Installation von Python\nDieser Abschnitt führt Sie Schritt für Schritt durch die Installation von Python auf einem Windows-Rechner.\n\nLaden Sie die neueste Version von Python von der offiziellen Website herunter: python.org.\nFühren Sie das heruntergeladene Installationsprogramm durch Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die Option “Add Python to PATH” aktivieren, bevor Sie auf “Install Now” klicken.\nÜberprüfen Sie die Installation, indem Sie die Eingabeaufforderung öffnen (Terminal \\(\\rightarrow\\) Windows-Taste + R, dann cmd eingeben) und den Befehl python --version eingeben. Dies sollte die installierte Python-Version anzeigen."
   },
   {
     "objectID": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#hello-world",
     "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#hello-world",
     "title": "Systemeinrichtung",
     "section": "Hello World",
-    "text": "Hello World"
+    "text": "Hello World\nEs hat sich eingebürgert, dass das erste Programm, das ausgeführt wird, ein Programm ist, das den Text “Hello World” auf dem Bildschirm ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte aus:\n\nÖffnen Sie ein Terminal (Windows-Taste + R, dann cmd eingeben).\nGeben Sie den Befehl python ein, um die Python-Shell zu starten. Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.\n\n\n\nPython Shell\n\n\nGeben Sie den folgenden Befehl ein und drücken Sie anschliessend die Eingabetaste:\nprint(\"Hello World\")\nDas Resultat sollte wie das folgende Bild aussehen.\n\n\n\nalt text\n\n\n\nGratuliere; Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!"
   }
 ]

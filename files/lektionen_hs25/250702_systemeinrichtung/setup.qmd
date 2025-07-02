@@ -27,9 +27,32 @@ von Python auf einem Windows-Rechner.
    Option "Add Python to PATH" aktivieren, bevor Sie auf "Install Now"
    klicken.
 3. Überprüfen Sie die Installation, indem Sie die Eingabeaufforderung
-   öffnen (Windows-Taste + R, dann `cmd` eingeben) und den Befehl
+   öffnen (Terminal $\rightarrow$ Windows-Taste + R, dann `cmd` eingeben) und den Befehl
    `python --version` eingeben. Dies sollte die installierte Python-Version
    anzeigen.
 
 ## Hello World
 
+Es hat sich eingebürgert, dass das erste Programm, das ausgeführt
+wird, ein Programm ist, das den Text "Hello World" auf dem Bildschirm
+ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte
+aus:
+
+1. Öffnen Sie ein Terminal (Windows-Taste + R, dann `cmd` eingeben).
+2. Geben Sie den Befehl `python` ein, um die Python-Shell zu starten.
+   Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.
+
+   ![Python Shell](python_shell.png)
+
+3. Geben Sie den folgenden Befehl ein und drücken Sie anschliessend die
+   Eingabetaste:
+
+   ```python
+   print("Hello World")
+   ```
+
+   Das Resultat sollte wie das folgende Bild aussehen.
+
+   ![Python Shell](hello_world.png)
+
+Gratuliere; Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!

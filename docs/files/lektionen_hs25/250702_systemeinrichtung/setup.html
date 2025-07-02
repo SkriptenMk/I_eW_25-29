@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -166,11 +230,32 @@ Im folgenden findet sich eine Anleitung für die Installation der für den Unter
 <ol type="1">
 <li>Laden Sie die neueste Version von Python von der offiziellen Website herunter: <a href="https://www.python.org/downloads/" target="blank">python.org</a>.</li>
 <li>Führen Sie das heruntergeladene Installationsprogramm durch Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die Option “Add Python to PATH” aktivieren, bevor Sie auf “Install Now” klicken.</li>
-<li>Überprüfen Sie die Installation, indem Sie die Eingabeaufforderung öffnen (Windows-Taste + R, dann <code>cmd</code> eingeben) und den Befehl <code>python --version</code> eingeben. Dies sollte die installierte Python-Version anzeigen.</li>
+<li>Überprüfen Sie die Installation, indem Sie die Eingabeaufforderung öffnen (Terminal <span class="math inline">\(\rightarrow\)</span> Windows-Taste + R, dann <code>cmd</code> eingeben) und den Befehl <code>python --version</code> eingeben. Dies sollte die installierte Python-Version anzeigen.</li>
 </ol>
 </section>
 <section id="hello-world" class="level2">
 <h2 class="anchored" data-anchor-id="hello-world">Hello World</h2>
+<p>Es hat sich eingebürgert, dass das erste Programm, das ausgeführt wird, ein Programm ist, das den Text “Hello World” auf dem Bildschirm ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte aus:</p>
+<ol type="1">
+<li><p>Öffnen Sie ein Terminal (Windows-Taste + R, dann <code>cmd</code> eingeben).</p></li>
+<li><p>Geben Sie den Befehl <code>python</code> ein, um die Python-Shell zu starten. Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="python_shell.png" class="img-fluid figure-img"></p>
+<figcaption>Python Shell</figcaption>
+</figure>
+</div></li>
+<li><p>Geben Sie den folgenden Befehl ein und drücken Sie anschliessend die Eingabetaste:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Das Resultat sollte wie das folgende Bild aussehen.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hello_world.png" class="img-fluid figure-img"></p>
+<figcaption>alt text</figcaption>
+</figure>
+</div></li>
+</ol>
+<p>Gratuliere; Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!</p>
 
 
 </section>
