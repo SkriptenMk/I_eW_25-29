@@ -1,5 +1,5 @@
 ---
-title: "Systemeinrichtung"
+title: "Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)"
 date: 2025-07-02
 date-format: DD.MM.YYYY
 author: "Jacques Mock Schindler"
@@ -175,3 +175,32 @@ Vorbereitungsarbeiten.
     Notebooks und wählen Sie die Option "Rename" aus dem Kontextmenü.
     Anschliessend können Sie den Namen des Jupyter Notebooks
     eingeben.
+
+## Öffnen bestehender Jupyter Notebooks
+
+Häufiger als das Erstellen eines neuen Jupyter Notebooks ist das
+Öffnen eines bereits bestehenden Jupyter Notebooks. Hier wird das
+entsprechende Vorgehen beschrieben.
+
+1. Navigieren Sie in den Ordner in dem sich das Jupyter Notebook befindet.
+2. Stellen Sie sicher, dass der Ordner über eine Python Virtual Environment
+   mit installierten Jupyter Paketen verfügt.
+
+   Um zu überprüfen, welche Pakete in der Python Virtual Environment
+   installiert sind, starten Sie die Python Virtual Environment und
+   geben den Befehl `pip list` ein. Dieser Listet alle in der
+   Python Virtual Environment installierten Pakete auf.
+3. Starten Sie den Jupyter Server mit dem Befehl `jupyter-lab`.
+4. Öffnen Sie das Dateiverzeichnis. Dazu müssen Sie auf dem linken Rand
+   das Ordner-Symbol anklicken.
+5. Wählen Sie das Jupyter Notebook aus, das Sie öffnen möchten. Mit
+   einem Doppelklick auf das Jupyter Notebook wird dieses geöffnet.
+
+   Wenn Sie das Dateiverzeichnis wieder schliessen möchten, klicken Sie
+   auf das Ordner-Symbol auf der linken Seite erneut.
+   
+Diese Schritte funktionieren auch, wenn Sie ein Jupyter Notebook öffnen
+möchten, das Sie von jemand anderem erhalten haben. Sie müssen dieses
+dazu lediglich in den Ordner kopieren, in dem sich die Python
+Virtual Environment mit den installierten Jupyter Paketen
+befindet.

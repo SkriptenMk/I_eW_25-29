@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jacques Mock Schindler">
 
-<title>Systemeinrichtung – Unterlagen für den Informatikunterricht 1eW (Schuljahr 2025/2026)</title>
+<title>Arbeitsumgebung (Arbeiten mit Jupyter Notebooks) – Unterlagen für den Informatikunterricht 1eW (Schuljahr 2025/2026)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -182,6 +182,7 @@ window.Quarto = {
   <li><a href="#installation-von-python" id="toc-installation-von-python" class="nav-link" data-scroll-target="#installation-von-python">Installation von Python</a></li>
   <li><a href="#hello-world" id="toc-hello-world" class="nav-link" data-scroll-target="#hello-world">Hello World</a></li>
   <li><a href="#arbeitsumgebung" id="toc-arbeitsumgebung" class="nav-link" data-scroll-target="#arbeitsumgebung">Arbeitsumgebung</a></li>
+  <li><a href="#öffnen-bestehender-jupyter-notebooks" id="toc-öffnen-bestehender-jupyter-notebooks" class="nav-link" data-scroll-target="#öffnen-bestehender-jupyter-notebooks">Öffnen bestehender Jupyter Notebooks</a></li>
   </ul>
 </nav>
     </div>
@@ -190,7 +191,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Systemeinrichtung</h1>
+<h1 class="title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</h1>
 </div>
 
 
@@ -321,6 +322,20 @@ Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Da
 <p>Eine Zelle ist entweder eine Code-Zelle oder eine Text-Zelle. Für den Wechsel zwischen Code- und Text-Darstellung müssen Sie je eine neue Zelle anlegen. Das geht mit der Tastenfolge <code>Esc + B</code> (für “Below”) oder <code>Esc + A</code> (für “Above”) während Sie sich in einer Zelle befinden. Alternativ können Sie auch die Buttons “Insert Cell Below” oder “Insert Cell Above” aus den Werkzeugen der Zelle verwenden.</p></li>
 <li><p>Das Jupyter Notebook ist eine Datei mit der Endung <code>.ipynb</code>. Neu erstellte Jupyter Notebooks erhalten den Namen “Untitled.ipynb”. Um diesen Namen zu ändern, klicken Sie mit der rechten Maustatste auf den Titel “Untitled” in der oberen linken Ecke des Jupyter Notebooks und wählen Sie die Option “Rename” aus dem Kontextmenü. Anschliessend können Sie den Namen des Jupyter Notebooks eingeben.</p></li>
 </ol>
+</section>
+<section id="öffnen-bestehender-jupyter-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="öffnen-bestehender-jupyter-notebooks">Öffnen bestehender Jupyter Notebooks</h2>
+<p>Häufiger als das Erstellen eines neuen Jupyter Notebooks ist das Öffnen eines bereits bestehenden Jupyter Notebooks. Hier wird das entsprechende Vorgehen beschrieben.</p>
+<ol type="1">
+<li><p>Navigieren Sie in den Ordner in dem sich das Jupyter Notebook befindet.</p></li>
+<li><p>Stellen Sie sicher, dass der Ordner über eine Python Virtual Environment mit installierten Jupyter Paketen verfügt.</p>
+<p>Um zu überprüfen, welche Pakete in der Python Virtual Environment installiert sind, starten Sie die Python Virtual Environment und geben den Befehl <code>pip list</code> ein. Dieser Listet alle in der Python Virtual Environment installierten Pakete auf.</p></li>
+<li><p>Starten Sie den Jupyter Server mit dem Befehl <code>jupyter-lab</code>.</p></li>
+<li><p>Öffnen Sie das Dateiverzeichnis. Dazu müssen Sie auf dem linken Rand das Ordner-Symbol anklicken.</p></li>
+<li><p>Wählen Sie das Jupyter Notebook aus, das Sie öffnen möchten. Mit einem Doppelklick auf das Jupyter Notebook wird dieses geöffnet.</p>
+<p>Wenn Sie das Dateiverzeichnis wieder schliessen möchten, klicken Sie auf das Ordner-Symbol auf der linken Seite erneut.</p></li>
+</ol>
+<p>Diese Schritte funktionieren auch, wenn Sie ein Jupyter Notebook öffnen möchten, das Sie von jemand anderem erhalten haben. Sie müssen dieses dazu lediglich in den Ordner kopieren, in dem sich die Python Virtual Environment mit den installierten Jupyter Paketen befindet.</p>
 
 
 </section>
