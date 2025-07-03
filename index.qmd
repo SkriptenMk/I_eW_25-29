@@ -8,23 +8,23 @@ Hier finden Sie die Informationen für den Informatikunterricht.
 
 | Datum | Thema |
 | :--- | :--- |
-| 18.08.2025 | 1eW I Was ist Informatik |
-| 25.08.2025 | 1eW I Vorbereiten der Arbeitsumgebung |
-| 01.09.2025 | 1eW I Problemlösung in der Informatik |
-| 08.09.2025 | 1eW I Variablen als Wegweiser zu Objekten |
-| 15.09.2025 | 1eW I Schlaufen |
-| 22.09.2025 | 1eW I Bedingungen |
-| 20.10.2025 | 1eW I Anwendungsübung |
-| 27.10.2025 | 1eW I Individuelle Prüfungsvorbereitung |
-| 03.11.2025 | 1eW I Test |
-| 10.11.2025 | 1eW I Datenstrukturen |
-| 17.11.2025 | 1eW I Datenstrukturen |
-| 24.11.2025 | 1eW I Algorithmen |
-| 01.12.2025 | 1eW I Algorithmen |
-| 08.12.2025 | 1eW I Wiederholung ohne Schleife (Rekursion) |
-| 15.12.2025 | 1eW I Anwendungsübungen |
-| 05.01.2026 | 1eW I Individuelle Prüfungsvorbereitung |
-| 12.01.2026 | 1eW I Test |
+| 18.08.2025 | Was ist Informatik |
+| 25.08.2025 | Vorbereiten der Arbeitsumgebung |
+| 01.09.2025 | Problemlösung in der Informatik |
+| 08.09.2025 | Variablen als Wegweiser zu Objekten |
+| 15.09.2025 | Schlaufen |
+| 22.09.2025 | Bedingungen |
+| 20.10.2025 | Anwendungsübung |
+| 27.10.2025 | Individuelle Prüfungsvorbereitung |
+| 03.11.2025 | Test |
+| 10.11.2025 | Datenstrukturen |
+| 17.11.2025 | Datenstrukturen |
+| 24.11.2025 | Algorithmen |
+| 01.12.2025 | Algorithmen |
+| 08.12.2025 | Wiederholung ohne Schleife (Rekursion) |
+| 15.12.2025 | Anwendungsübungen |
+| 05.01.2026 | Individuelle Prüfungsvorbereitung |
+| 12.01.2026 | Test |
 
 Das Programm widerspiegelt den aktuellen Stand der Planung. Es ist im
 Verlauf des Semesters mit Änderungen zu rechnen.
