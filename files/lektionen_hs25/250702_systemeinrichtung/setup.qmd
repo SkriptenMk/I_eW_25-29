@@ -1,0 +1,206 @@
+---
+title: "Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)"
+date: 2025-07-02
+date-format: DD.MM.YYYY
+author: "Jacques Mock Schindler"
+---
+## Ausgangslage
+
+In der Informatik geht es darum, wie Informationsverarbeitung mit Hilfe
+von Computern automatisiert werden kann.  
+Die Automatisierung der Informationsverarbeitung erfordert die
+Verwendung von Programmiersprachen. Im Informatikunterricht wird in
+erster Linie mit der Programmiersprache Python gearbeitet.  
+Im folgenden findet sich eine Anleitung für die Installation der für den
+Unterricht erforderlichen Programme.
+
+## Installation von Python
+
+Dieser Abschnitt führt Sie Schritt für Schritt durch die Installation
+von Python auf einem Windows-Rechner.
+
+1. Laden Sie die neueste Version von Python von der offiziellen Website
+   herunter:
+   <a href="https://www.python.org/downloads/" target="blank">python.org</a>.
+2. Führen Sie das heruntergeladene Installationsprogramm durch
+   Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die
+   Option "Add Python to PATH" aktivieren, bevor Sie auf "Install Now"
+   klicken.
+3. Überprüfen Sie die Installation, indem Sie die Eingabeaufforderung
+   öffnen (Terminal $\rightarrow$ Windows-Taste + R, dann `cmd` eingeben) und den Befehl
+   `python --version` eingeben. Dies sollte die installierte Python-Version
+   anzeigen.
+
+## Hello World
+
+Es hat sich eingebürgert, dass das erste Programm, das ausgeführt
+wird, ein Programm ist, das den Text "Hello World" auf dem Bildschirm
+ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte
+aus:
+
+1. Öffnen Sie ein Terminal (Windows-Taste + R, dann `cmd` eingeben).
+2. Geben Sie den Befehl `python` ein, um die Python-Shell zu starten.
+   Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.
+
+   ![Python Shell](python_shell.png)
+
+3. Geben Sie den folgenden Befehl ein und drücken Sie anschliessend die
+   Eingabetaste:
+
+   ```python
+   print("Hello World")
+   ```
+
+   Das Resultat sollte wie das folgende Bild aussehen.
+
+   ![Python Shell](hello_world.png)
+
+Gratuliere - Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!
+
+## Arbeitsumgebung
+
+Im Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern
+mit sogenannten Jupyter Notebooks. Dies erfordert ein paar weitere
+Vorbereitungsarbeiten.
+
+1. Erstellen Sie im Ordner "Informatik" einen Unterordner mit dem
+   Heutigen Datum als Namen. Formatieren Sie das Datum nach dem Schema
+   "YYMMDD", für den 1. August 2025 wäre das zum Beispiel "250801".
+2. Öffnen Sie den soeben erstellten Ordner.
+3. Geben Sie die Tastenfolge `Ctrl + L` ein, um die Adresszeile des
+   Dateimanagers zu aktivieren.
+4. Überschreiben Sie den Inhalt der Adresszeile mit dem Text
+   `cmd` und drücken Sie die Eingabetaste. Dadurch wird ein Terminal
+   geöffnet, das direkt im aktuellen Ordner arbeitet.
+5. Geben Sie im neu geöffneten Terminal den folgenden Befehl ein und
+   drücken Sie die Eingabetaste:
+
+   ```bash
+   python -m venv .venv
+   ```
+
+    Dadurch wird eine sogenannte Python Virtual Environment erstellt
+    (venv wegen **V**irtual **Env**ironment). Dieses Python Virtual
+    Environment dient dazu, die eigenen Programmierprojekte unabhängig
+    voneinander gestalten zu können.
+6. Aktivieren Sie das Python Virtual Environment mit dem folgenden
+   Befehl:
+
+   ```bash
+    .venv\Scripts\activate
+    ```
+
+   Ihr Terminal sieht nach dem Erstellen und Aktivieren der Python
+   Virtual Environment ungefähr so aus:
+
+   ![Aktivierte Python Virtual Environment](venv.png)
+
+   Das Wort in der Klammer am Anfang der Zeile zeigt den Namen der
+   aktiven Python Virtual Environment an. Im vorliegenden Fall ist das
+   .venv. 
+
+7. In der nun aktivierten Python Virtual Environment installieren Sie
+   die benötigten Pakete mit dem folgenden Befehl:
+
+   ```bash
+   pip install jupyter
+   ```
+
+   Das dauert eine Weile.
+
+   Während der Installation werden die benötigten Pakete (Ergänzungen
+   zur bestehenden Python Installation) heruntergeladen und in der
+   Python Virtual Environment gespeichert. Das Terminal sieht dabei
+   ungefähr so aus:
+
+   ![Terminal während der Jupyter Installation](installation.png)
+
+   Alle in einer Python Virtual Environment installierten Pakete sind
+   innerhalb dieser Umgebung dauerhaft verfügbar und müssen daher für
+   das gleiche Projekt kein zweites Mal installiert werden.
+
+8. Starten Sie den Jupyter Server mit dem folgenden Befehl:
+
+   ```bash
+    jupyter-lab
+    ```
+
+    Dies startet den Jupyter Notebook Server und öffnet automatisch ein
+    Browserfenster mit der Jupyter Notebook Oberfläche.
+
+    ![Startseite Jupyter Lab](server.png)
+
+9. Klicken Sie auf den Button "Python 3 (ipykernel)" unter dem Titel Notebook.
+   
+   Damit starten Sie ein neues Jupyter Notebook. Der Cursor blinkt in
+   einer leeren Zelle. Bei dieser Zelle handelt es sich um eine
+   sogenannte Code-Zelle. In einer Code-Zelle können Sie Python Code
+   eingeben und ausführen.  
+   Überprüfen Sie das, indem Sie in der Zelle den Befehl `print("Hello World")`
+   eingeben und anschliessend die Tastenfolge `Shift + Enter` drücken
+   (alternativ können Sie auch auf den Button "Run" in der
+   Werkzeugleiste klicken).
+
+   Das Resultat sollte wie das folgende Bild aussehen.
+
+   ![Hello World in einem Jupyter Notebook](hello_world_ipynb.png)
+
+   In einem Jupyter Notebook können Sie nicht nur Python Code ausführen,
+   sondern auch Text (formatiert in <a
+   href="https://www.markdownguide.org/basic-syntax/"
+   target="blank">Markdown</a>) darstellen.  
+   Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren.
+   Dazu klicken Sie auf den Button "Code" in der Werkzeugleiste und
+   wählen im Dropdown-Menü die Option "Markdown" aus.
+
+   ![Umstellen der Zelle auf Markdown](cell_switch.png)
+
+   Probieren Sie das aus. Schreiben Sie einen Titel und einen kurzen
+   Text in die Zelle unterhalb der Code-Zelle mit `pringt("Hello
+   World")`. Damit der Text in der Zelle formatiert angezeigt wird,
+   müssen Sie die Zelle mit der Tastenfolge `Shift + Enter` ausführen
+   (analog zum Ausführen von Code-Zellen).
+   
+   Eine Zelle ist entweder eine Code-Zelle oder eine Text-Zelle. Für den
+   Wechsel zwischen Code- und Text-Darstellung müssen Sie je eine neue
+   Zelle anlegen. Das geht mit der Tastenfolge `Esc + B` (für "Below")
+   oder `Esc + A` (für "Above") während Sie sich in einer Zelle
+   befinden. Alternativ können Sie auch die Buttons "Insert Cell Below"
+   oder "Insert Cell Above" aus den Werkzeugen der Zelle verwenden.
+
+10. Das Jupyter Notebook ist eine Datei mit der Endung `.ipynb`. Neu
+    erstellte Jupyter Notebooks erhalten den Namen "Untitled.ipynb". Um
+    diesen Namen zu ändern, klicken Sie mit der rechten Maustatste auf
+    den Titel "Untitled" in der oberen linken Ecke des Jupyter
+    Notebooks und wählen Sie die Option "Rename" aus dem Kontextmenü.
+    Anschliessend können Sie den Namen des Jupyter Notebooks
+    eingeben.
+
+## Öffnen bestehender Jupyter Notebooks
+
+Häufiger als das Erstellen eines neuen Jupyter Notebooks ist das
+Öffnen eines bereits bestehenden Jupyter Notebooks. Hier wird das
+entsprechende Vorgehen beschrieben.
+
+1. Navigieren Sie in den Ordner in dem sich das Jupyter Notebook befindet.
+2. Stellen Sie sicher, dass der Ordner über eine Python Virtual Environment
+   mit installierten Jupyter Paketen verfügt.
+
+   Um zu überprüfen, welche Pakete in der Python Virtual Environment
+   installiert sind, starten Sie die Python Virtual Environment und
+   geben den Befehl `pip list` ein. Dieser Listet alle in der
+   Python Virtual Environment installierten Pakete auf.
+3. Starten Sie den Jupyter Server mit dem Befehl `jupyter-lab`.
+4. Öffnen Sie das Dateiverzeichnis. Dazu müssen Sie auf dem linken Rand
+   das Ordner-Symbol anklicken.
+5. Wählen Sie das Jupyter Notebook aus, das Sie öffnen möchten. Mit
+   einem Doppelklick auf das Jupyter Notebook wird dieses geöffnet.
+
+   Wenn Sie das Dateiverzeichnis wieder schliessen möchten, klicken Sie
+   auf das Ordner-Symbol auf der linken Seite erneut.
+   
+Diese Schritte funktionieren auch, wenn Sie ein Jupyter Notebook öffnen
+möchten, das Sie von jemand anderem erhalten haben. Sie müssen dieses
+dazu lediglich in den Ordner kopieren, in dem sich die Python
+Virtual Environment mit den installierten Jupyter Paketen
+befindet.
