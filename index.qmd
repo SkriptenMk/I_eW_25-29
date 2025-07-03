@@ -2,7 +2,7 @@
 title: "Willkommen"
 ---
 
-Hier finden Sie die Unterlagen für den Informatikunterricht.
+Hier finden Sie die Informationen für den Informatikunterricht.
 
 ## Programm
 
