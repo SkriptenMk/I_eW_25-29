@@ -256,7 +256,7 @@ Im folgenden findet sich eine Anleitung für die Installation der für den Unter
 </figure>
 </div></li>
 </ol>
-<p>Gratuliere; Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!</p>
+<p>Gratuliere - Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!</p>
 </section>
 <section id="arbeitsumgebung" class="level2">
 <h2 class="anchored" data-anchor-id="arbeitsumgebung">Arbeitsumgebung</h2>
@@ -270,18 +270,56 @@ Im folgenden findet sich eine Anleitung für die Installation der für den Unter
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dadurch wird eine sogenannte Python Virtual Environment erstellt (venv wegen <strong>V</strong>irtual <strong>Env</strong>ironment). Dieses Python Virtual Environment dient dazu, die eigenen Programmierprojekte unabhängig voneinander gestalten zu können.</p></li>
 <li><p>Aktivieren Sie das Python Virtual Environment mit dem folgenden Befehl:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">.venv\Scripts\activate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">.venv\Scripts\activate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ihr Terminal sieht nach dem Erstellen und Aktivieren der Python Virtual Environment ungefähr so aus:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="venv.png" class="img-fluid figure-img"></p>
+<figcaption>Aktivierte Python Virtual Environment</figcaption>
+</figure>
+</div>
+<p>Das Wort in der Klammer am Anfang der Zeile zeigt den Namen der aktiven Python Virtual Environment an. Im vorliegenden Fall ist das .venv.</p></li>
 <li><p>In der nun aktivierten Python Virtual Environment installieren Sie die benötigten Pakete mit dem folgenden Befehl:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Das dauert eine Weile.<br>
-Alle in einer Python Virtual Environment installierten Pakete sind innerhalb dieser Umgebung dauerhaft verfügbar und müssen daher kein zweites Mal installiert werden.</p></li>
-<li><p>Starten Sie Jupyter Notebook mit dem folgenden Befehl:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">jupyter</span> notebook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dies startet den Jupyter Notebook Server und öffnet automatisch ein Browserfenster mit der Jupyter Notebook Oberfläche.</p></li>
-<li><p>Klicken Sie auf den Button “New” und wählen Sie “Python 3” aus, um ein neues Jupyter Notebook zu erstellen.</p>
-<p>In einem Jupyter Notebook können Sie Text (formatiert in <a href="https://www.markdownguide.org/basic-syntax/" target="blank">Markdown</a>) und ausführbaren Python Code kombinieren.</p></li>
-<li><p>Geben Sie in die erste Zelle des Jupyter Notebooks den folgenden Code ein:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<p>Das dauert eine Weile.</p>
+<p>Während der Installation werden die benötigten Pakete (Ergänzungen zur bestehenden Python Installation) heruntergeladen und in der Python Virtual Environment gespeichert. Das Terminal sieht dabei ungefähr so aus:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="installation.png" class="img-fluid figure-img"></p>
+<figcaption>Terminal während der Jupyter Installation</figcaption>
+</figure>
+</div>
+<p>Alle in einer Python Virtual Environment installierten Pakete sind innerhalb dieser Umgebung dauerhaft verfügbar und müssen daher für das gleiche Projekt kein zweites Mal installiert werden.</p></li>
+<li><p>Starten Sie den Jupyter Server mit dem folgenden Befehl:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">jupyter-lab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dies startet den Jupyter Notebook Server und öffnet automatisch ein Browserfenster mit der Jupyter Notebook Oberfläche.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="server.png" class="img-fluid figure-img"></p>
+<figcaption>Startseite Jupyter Lab</figcaption>
+</figure>
+</div></li>
+<li><p>Klicken Sie auf den Button “Python 3 (ipykernel)” unter dem Titel Notebook.</p>
+<p>Damit starten Sie ein neues Jupyter Notebook. Der Cursor blinkt in einer leeren Zelle. Bei dieser Zelle handelt es sich um eine sogenannte Code-Zelle. In einer Code-Zelle können Sie Python Code eingeben und ausführen.<br>
+Überprüfen Sie das, indem Sie in der Zelle den Befehl <code>print("Hello World")</code> eingeben und anschliessend die Tastenfolge <code>Shift + Enter</code> drücken (alternativ können Sie auch auf den Button “Run” in der Werkzeugleiste klicken).</p>
+<p>Das Resultat sollte wie das folgende Bild aussehen.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hello_world_ipynb.png" class="img-fluid figure-img"></p>
+<figcaption>Hello World in einem Jupyter Notebook</figcaption>
+</figure>
+</div>
+<p>In einem Jupyter Notebook können Sie nicht nur Python Code ausführen, sondern auch Text (formatiert in <a href="https://www.markdownguide.org/basic-syntax/" target="blank">Markdown</a>) darstellen.<br>
+Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Dazu klicken Sie auf den Button “Code” in der Werkzeugleiste und wählen im Dropdown-Menü die Option “Markdown” aus.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cell_switch.png" class="img-fluid figure-img"></p>
+<figcaption>Umstellen der Zelle auf Markdown</figcaption>
+</figure>
+</div>
+<p>Probieren Sie das aus. Schreiben Sie einen Titel und einen kurzen Text in die Zelle unterhalb der Code-Zelle mit <code>pringt("Hello World")</code>. Damit der Text in der Zelle formatiert angezeigt wird, müssen Sie die Zelle mit der Tastenfolge <code>Shift + Enter</code> ausführen (analog zum Ausführen von Code-Zellen).</p>
+<p>Eine Zelle ist entweder eine Code-Zelle oder eine Text-Zelle. Für den Wechsel zwischen Code- und Text-Darstellung müssen Sie je eine neue Zelle anlegen. Das geht mit der Tastenfolge <code>Esc + B</code> (für “Below”) oder <code>Esc + A</code> (für “Above”) während Sie sich in einer Zelle befinden. Alternativ können Sie auch die Buttons “Insert Cell Below” oder “Insert Cell Above” aus den Werkzeugen der Zelle verwenden.</p></li>
+<li><p>Das Jupyter Notebook ist eine Datei mit der Endung <code>.ipynb</code>. Neu erstellte Jupyter Notebooks erhalten den Namen “Untitled.ipynb”. Um diesen Namen zu ändern, klicken Sie mit der rechten Maustatste auf den Titel “Untitled” in der oberen linken Ecke des Jupyter Notebooks und wählen Sie die Option “Rename” aus dem Kontextmenü. Anschliessend können Sie den Namen des Jupyter Notebooks eingeben.</p></li>
 </ol>
 
 
