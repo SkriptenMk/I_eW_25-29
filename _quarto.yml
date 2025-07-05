@@ -2,9 +2,6 @@ project:
   type: website
   output-dir: docs
 
-resources:
-  - files/lektionen_hs25/250901_probleme/probleme.ipynb
-  
 website:
   title: "Unterlagen für den Informatikunterricht 1eW (Schuljahr 2025/2026)"
   navbar:

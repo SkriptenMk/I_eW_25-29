@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jacques Mock Schindler">
 
 <title>Problemlösung in der Informatik – Unterlagen für den Informatikunterricht 1eW (Schuljahr 2025/2026)</title>
 <style>
@@ -19,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -108,8 +144,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ausgangslage" id="toc-ausgangslage" class="nav-link active" data-scroll-target="#ausgangslage">Ausgangslage</a></li>
+  <li><a href="#beispiel-tricolore" id="toc-beispiel-tricolore" class="nav-link" data-scroll-target="#beispiel-tricolore">Beispiel: Tricolore</a>
+  <ul class="collapse">
+  <li><a href="#rechtecke-zeichnen" id="toc-rechtecke-zeichnen" class="nav-link" data-scroll-target="#rechtecke-zeichnen">Rechtecke zeichnen</a></li>
+  </ul></li>
+  <li><a href="#beispiel-österreichische-flagge" id="toc-beispiel-österreichische-flagge" class="nav-link" data-scroll-target="#beispiel-österreichische-flagge">Beispiel: Österreichische Flagge</a></li>
+  <li><a href="#beispiel-schweizerfahne" id="toc-beispiel-schweizerfahne" class="nav-link" data-scroll-target="#beispiel-schweizerfahne">Beispiel: Schweizerfahne</a></li>
+  <li><a href="#tessiner-wappen" id="toc-tessiner-wappen" class="nav-link" data-scroll-target="#tessiner-wappen">Tessiner Wappen</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -123,7 +172,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jacques Mock Schindler </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">01.09.2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -133,9 +194,136 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="../../..\lektionen_hs25/250901_probleme/probleme.ipynb">Link für den Download dieses Notebooks</a></p>
+<p><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250901_probleme/probleme.ipynb" download="250901_probleme_loesen.ipynb">Dieses Jupyter Notebook herunterladen</a></p>
+<section id="ausgangslage" class="level2">
+<h2 class="anchored" data-anchor-id="ausgangslage">Ausgangslage</h2>
+<p>Jede Disziplin hat ihre eigene Art, Probleme zu lösen. Das ist in der Informatik nicht anders.<br>
+In der Informatik versucht man, grosse Probleme in kleinere Teilprobleme zu zerlegen. Das macht man so lange, bis die Teilprobleme so klein sind, dass sie einfach zu lösen sind.</p>
+<p>Dies soll hier anhand von verschidenen Grafiken gezigt werden.</p>
+<p>Damit in Python einfach mit Grafiken gearbeitet werden kann, wird das Paket <code>PyTamaro</code> verwendet. Dieses Paket wurde von der Università della Svizzera italiana (USI) extra für die Informatik-Ausbildung entwickelt.</p>
+<p>Damit das Paket verwendet werden kann, muss es zuerst in der aktuellen Python Virtual Environment installiert werden.<br>
+Dazu öffnen Sie ein Terminal im Ordner, in dem sich dieses Jupyter Notebook befindet. Anschliessend starten Sie die Python Virtual Environment mit dem Befehl:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv\Scripts\activate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Danach können Sie <code>PyTamaro</code> mit dem Befehl</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pytamaro</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>installieren.</p>
+<p>Um das Paket zu verwenden, muss es <em>importiert</em> werden. Die genauen Zusammenhänge müssen im Moment nicht bekannt sein. Wichtig ist lediglich, dass die folgende Zelle ausgeführt wird.</p>
+<div id="6cdc9c1e" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> (</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    rechteck, kreis_sektor,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    blau, rot, weiss, schwarz,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    neben, ueber, ueberlagere,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    drehe, kombiniere,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    zeige_grafik, speichere_grafik,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="beispiel-tricolore" class="level2">
+<h2 class="anchored" data-anchor-id="beispiel-tricolore">Beispiel: Tricolore</h2>
+<p>Die Vorgehensweise wird anhand der Französischen Nationalflagge (Tricolore) gezigt.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="probleme_files/figure-html/a1ea6170-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Tricolore Française</figcaption>
+</figure>
+</div>
+<p>Um die Zeichnung der Tricolore zu planen, wird die Grafik in ihre Einzelteile zerlegt.<br>
+Die Tricolore besteht aus drei gleich grossen Rechtecken in den Farben blau, rot und weiss. Diese Rechtecke werden nebeneinander angeordnet.</p>
+<p>Das bedeutet, dass die Länge und die Breite der Rechtecke definiert werden muss und basierend auf diesen Werten die drei Rechtecke gezeichnet werden. Anschliessend werden die drei Rechtecke nebeneinander angeordnet.</p>
+<p>Der Befehl zum Zeichnen eines Rechtecks lautet</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> rechteck(länge, breite, farbe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bevor die Zeichnung tatsächlich erstellt wird, soll hier der Befehl im Detail erklärt werden:</p>
+<ul>
+<li><code>name</code> ist der Name, unter dem das Rechteck gespeichert wird. Dieser Name kann später verwendet werden, um auf das Rechteck zuzugreifen.</li>
+<li><code>rechteck</code> ist der Befehl, der ein Rechteck zeichnet. In der Klammer hinter dem Befehl werden die sogenannten <em>Argumente</em> angegeben. Diese steuern, wie das Rechteck aussieht.</li>
+<li><code>länge</code> und <code>breite</code> sind die Argumente, die die Grösse des Rechtecks bestimmen. Diese Werte können beliebig gewählt werden.</li>
+<li><code>farbe</code> ist das Argument, das die Farbe des Rechtecks bestimmt. Aufgrund der Eigenheiten von <code>PyTamaro</code> können ausschliesslich die Farben verwendet werden, welche importiert worden sind.</li>
+</ul>
+<section id="rechtecke-zeichnen" class="level3">
+<h3 class="anchored" data-anchor-id="rechtecke-zeichnen">Rechtecke zeichnen</h3>
+<p>Als erstes wird hier gezeigt, wie das blaue Rechteck gezeichnetwird.</p>
+<p>Damit das Resultat kontrolliert werden kann, wird die Grafik mit dem Befehl</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>zeige_grafik(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>angezeigt.</p>
+<div id="ee5030b7" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bleu <span class="op">=</span> rechteck(<span class="dv">50</span>, <span class="dv">100</span>, blau)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>zeige_grafik(bleu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="probleme_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Nachdem das blaue Rechteck gezeichnet wurde, kann das weisse und das rote Rechteck analog gezeichnet und angzeigt werden.</p>
+<div id="a15d7abe" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Rechtecke blanc und rouge zeichnen -&gt; Schreiben Sie hier Ihren</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Code</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>blanc <span class="op">=</span> rechteck(<span class="dv">50</span>, <span class="dv">100</span>, weiss)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>rouge <span class="op">=</span> rechteck(<span class="dv">50</span>, <span class="dv">100</span>, rot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Als nächstes werden die drei Rechtecke nebeninander angeordnet. Dazu wird der Befehl <code>neben</code> verwendet. Dieser Befehl nimmt zwei Argumente entgegen: das erste Rechteck und das zweite Rechteck. Das erste Rechteck wird links vom zweiten Rechteck gezeichnet.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>resultat <span class="op">=</span> neben(linke grafik, rechte grafik)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d5ca5bf6" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>zwei_drittel <span class="op">=</span> neben(bleu, blanc)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>zeige_grafik(zwei_drittel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="probleme_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Analog können Sie nun das rote Rechteck rechts der zwei Drittel anordnen. Nennen Sie das Resultat <code>tricolore</code> und zeigen Sie es an.</p>
+<div id="3f7e42ac" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Trcolore zusammenfügen -&gt; Schreiben Sie hier Ihren</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="beispiel-österreichische-flagge" class="level2">
+<h2 class="anchored" data-anchor-id="beispiel-österreichische-flagge">Beispiel: Österreichische Flagge</h2>
+<p>Zeichnen Sie die Österreichische Flagge. Um Elemente übereinander anzuordnen, wird der Befehl <code>ueber</code> verwendet. Die Syntax dieses Befehls lautet:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>resultat <span class="op">=</span> ueber(obere grafik, untere grafik)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7c96506a" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Östereichische Flagge zeichnen -&gt; Schreiben Sie hier Ihren</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="beispiel-schweizerfahne" class="level2">
+<h2 class="anchored" data-anchor-id="beispiel-schweizerfahne">Beispiel: Schweizerfahne</h2>
+<p>Zeichnen Sie eine korrekt propotionierte Schweizerfahne. Die Dimensionen können Sie der folgenden Grafik entnehmen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="probleme_files/figure-html/7f58b8b7-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Schweizerfahne gemäss Anhang 2 des Wappenschutzgesetzes</figcaption>
+</figure>
+</div>
+<p>Verwenden Sie dazu die Befehle <code>rechteck</code>, <a href="https://pytamaro.readthedocs.io/en/stable/German/operations.html#pytamaro.de.operations.drehe" target="_blank"><code>drehe</code></a> und <a href="https://pytamaro.readthedocs.io/en/stable/German/operations.html#pytamaro.de.operations.ueberlagere" target="_blank"><code>ueberlagere</code></a>.</p>
+<div id="256f9777" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Schweizerfahne zeichnen -&gt; Schreiben Sie hier Ihren</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tessiner-wappen" class="level2">
+<h2 class="anchored" data-anchor-id="tessiner-wappen">Tessiner Wappen</h2>
+<p>Als Referenz an die USI zeichnen Sie als letztes Beispiel das Tessiner Wappen.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="probleme_files/figure-html/8478f519-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Tessiner Wappen</figcaption>
+</figure>
+</div>
+<p>Verwenden Sie dazu neben den bereits bekannten Befehlen zusätzlich die Befehle <a href="https://pytamaro.readthedocs.io/en/stable/German/operations.html#pytamaro.de.operations.ueber" target="_blank"><code>ueber</code></a> und <a href="https://pytamaro.readthedocs.io/en/stable/German/primitives.html#pytamaro.de.primitives.kreis_sektor" target="_blank"><code>kreis_sektor</code></a>.</p>
+<div id="cd8e47ce" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Tessiner Wappen zeichnen -&gt; Schreiben Sie hier Ihren</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

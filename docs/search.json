@@ -67,7 +67,7 @@
     "href": "files/HS_25.html",
     "title": "Unterlagen für das Herbstsemester 2025/2026",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n02.07.2025\n\n\nArbeitsumgebung (Arbeiten mit Jupyter Notebooks)\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\nProblemlösung in der Informatik\n\n\n \n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n02.07.2025\n\n\nArbeitsumgebung (Arbeiten mit Jupyter Notebooks)\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n01.09.2025\n\n\nProblemlösung in der Informatik\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -109,6 +109,41 @@
     "href": "files/lektionen_hs25/250901_probleme/probleme.html",
     "title": "Problemlösung in der Informatik",
     "section": "",
-    "text": "Link für den Download dieses Notebooks"
+    "text": "Dieses Jupyter Notebook herunterladen"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#ausgangslage",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#ausgangslage",
+    "title": "Problemlösung in der Informatik",
+    "section": "Ausgangslage",
+    "text": "Ausgangslage\nJede Disziplin hat ihre eigene Art, Probleme zu lösen. Das ist in der Informatik nicht anders.\nIn der Informatik versucht man, grosse Probleme in kleinere Teilprobleme zu zerlegen. Das macht man so lange, bis die Teilprobleme so klein sind, dass sie einfach zu lösen sind.\nDies soll hier anhand von verschidenen Grafiken gezigt werden.\nDamit in Python einfach mit Grafiken gearbeitet werden kann, wird das Paket PyTamaro verwendet. Dieses Paket wurde von der Università della Svizzera italiana (USI) extra für die Informatik-Ausbildung entwickelt.\nDamit das Paket verwendet werden kann, muss es zuerst in der aktuellen Python Virtual Environment installiert werden.\nDazu öffnen Sie ein Terminal im Ordner, in dem sich dieses Jupyter Notebook befindet. Anschliessend starten Sie die Python Virtual Environment mit dem Befehl:\n.venv\\Scripts\\activate\nDanach können Sie PyTamaro mit dem Befehl\npip install pytamaro\ninstallieren.\nUm das Paket zu verwenden, muss es importiert werden. Die genauen Zusammenhänge müssen im Moment nicht bekannt sein. Wichtig ist lediglich, dass die folgende Zelle ausgeführt wird.\n\nfrom pytamaro.de import (\n    rechteck, kreis_sektor,\n    blau, rot, weiss, schwarz,\n    neben, ueber, ueberlagere,\n    drehe, kombiniere,\n    zeige_grafik, speichere_grafik,\n)"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tricolore",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tricolore",
+    "title": "Problemlösung in der Informatik",
+    "section": "Beispiel: Tricolore",
+    "text": "Beispiel: Tricolore\nDie Vorgehensweise wird anhand der Französischen Nationalflagge (Tricolore) gezigt.\n\n\n\nTricolore Française\n\n\nUm die Zeichnung der Tricolore zu planen, wird die Grafik in ihre Einzelteile zerlegt.\nDie Tricolore besteht aus drei gleich grossen Rechtecken in den Farben blau, rot und weiss. Diese Rechtecke werden nebeneinander angeordnet.\nDas bedeutet, dass die Länge und die Breite der Rechtecke definiert werden muss und basierend auf diesen Werten die drei Rechtecke gezeichnet werden. Anschliessend werden die drei Rechtecke nebeneinander angeordnet.\nDer Befehl zum Zeichnen eines Rechtecks lautet\nname = rechteck(länge, breite, farbe)\nBevor die Zeichnung tatsächlich erstellt wird, soll hier der Befehl im Detail erklärt werden:\n\nname ist der Name, unter dem das Rechteck gespeichert wird. Dieser Name kann später verwendet werden, um auf das Rechteck zuzugreifen.\nrechteck ist der Befehl, der ein Rechteck zeichnet. In der Klammer hinter dem Befehl werden die sogenannten Argumente angegeben. Diese steuern, wie das Rechteck aussieht.\nlänge und breite sind die Argumente, die die Grösse des Rechtecks bestimmen. Diese Werte können beliebig gewählt werden.\nfarbe ist das Argument, das die Farbe des Rechtecks bestimmt. Aufgrund der Eigenheiten von PyTamaro können ausschliesslich die Farben verwendet werden, welche importiert worden sind.\n\n\nRechtecke zeichnen\nAls erstes wird hier gezeigt, wie das blaue Rechteck gezeichnetwird.\nDamit das Resultat kontrolliert werden kann, wird die Grafik mit dem Befehl\nzeige_grafik(name)\nangezeigt.\n\nbleu = rechteck(50, 100, blau)\nzeige_grafik(bleu)\n\n\n\n\n\n\n\n\nNachdem das blaue Rechteck gezeichnet wurde, kann das weisse und das rote Rechteck analog gezeichnet und angzeigt werden.\n\n# TODO: Rechtecke blanc und rouge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code\nblanc = rechteck(50, 100, weiss)\nrouge = rechteck(50, 100, rot)\n\nAls nächstes werden die drei Rechtecke nebeninander angeordnet. Dazu wird der Befehl neben verwendet. Dieser Befehl nimmt zwei Argumente entgegen: das erste Rechteck und das zweite Rechteck. Das erste Rechteck wird links vom zweiten Rechteck gezeichnet.\nresultat = neben(linke grafik, rechte grafik)\n\nzwei_drittel = neben(bleu, blanc)\nzeige_grafik(zwei_drittel)\n\n\n\n\n\n\n\n\nAnalog können Sie nun das rote Rechteck rechts der zwei Drittel anordnen. Nennen Sie das Resultat tricolore und zeigen Sie es an.\n\n# TODO: Trcolore zusammenfügen -&gt; Schreiben Sie hier Ihren\n# Code"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-österreichische-flagge",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-österreichische-flagge",
+    "title": "Problemlösung in der Informatik",
+    "section": "Beispiel: Österreichische Flagge",
+    "text": "Beispiel: Österreichische Flagge\nZeichnen Sie die Österreichische Flagge. Um Elemente übereinander anzuordnen, wird der Befehl ueber verwendet. Die Syntax dieses Befehls lautet:\nresultat = ueber(obere grafik, untere grafik)\n\n# TODO: Östereichische Flagge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-schweizerfahne",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-schweizerfahne",
+    "title": "Problemlösung in der Informatik",
+    "section": "Beispiel: Schweizerfahne",
+    "text": "Beispiel: Schweizerfahne\nZeichnen Sie eine korrekt propotionierte Schweizerfahne. Die Dimensionen können Sie der folgenden Grafik entnehmen:\n\n\n\nSchweizerfahne gemäss Anhang 2 des Wappenschutzgesetzes\n\n\nVerwenden Sie dazu die Befehle rechteck, drehe und ueberlagere.\n\n# TODO: Schweizerfahne zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#tessiner-wappen",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#tessiner-wappen",
+    "title": "Problemlösung in der Informatik",
+    "section": "Tessiner Wappen",
+    "text": "Tessiner Wappen\nAls Referenz an die USI zeichnen Sie als letztes Beispiel das Tessiner Wappen.\n\n\n\nTessiner Wappen\n\n\nVerwenden Sie dazu neben den bereits bekannten Befehlen zusätzlich die Befehle ueber und kreis_sektor.\n\n# TODO: Tessiner Wappen zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
   }
 ]
