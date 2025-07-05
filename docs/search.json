@@ -21,48 +21,6 @@
     "text": "Beurteilung\nPro Semester sind zwei schriftliche Prüfungen vorgesehen. Ausserdem wird die mündliche Beteiligung benotet. Als mündliche Beteiligung gilt insbesondere auch das Stellen von Fragen.\nDie Zeugnisnote berechnet sich als gewichteter Durchschnitt aus den beiden schriftlichen Prüfungen und der Note für die mündliche Beteiligung. Die Durchschnittsnote der beiden schriftlichen Prüfungen wird mit 90%, die Note für die mündliche Beteiligung mit 10% gewichtet."
   },
   {
-    "objectID": "files/lektionen_hs25/250628_speicher/speicherorganisation.html",
-    "href": "files/lektionen_hs25/250628_speicher/speicherorganisation.html",
-    "title": "Speicherorganisation",
-    "section": "",
-    "text": "Informationen sind in Computern in Dateien gespeichert. Die gespeicherten Informationen können dabei ganz unterschiedlicher Art, wie zum Beispiel Texte, Bilder oder Videos, sein.\nAls Modell, wie man sich Dateien vorstellen kann, hat sich das Bild von Dossiers in Ordnern etabliert. Die einzelnen Dossiers sind die Dateien und die Ordner sind die Strukturen, in denen die Dateien abgelegt sind. Diese Konstruktion kann über mehrere Ebenen hinaus verschachtelt werde (Ordner in Gestellen, die wiederum in einzelnen Räumen stehen, etc.)."
-  },
-  {
-    "objectID": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateinamen-und-pfade",
-    "href": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateinamen-und-pfade",
-    "title": "Speicherorganisation",
-    "section": "Dateinamen und Pfade",
-    "text": "Dateinamen und Pfade\nDamit Dateien identifiziert und gefunden werden können, müssen sie einen Namen haben. Grundsätzlich gibt es keine Einschränkungen, wie Dateien benannt werden. Die meisten Dateinamen bestehen allerdings aus zwei Teilen: dem eigentlichen Dateinamen und der Dateinamenserweiterung.\nDer eigentliche Dateiname wird idealerweise so festgelegt, dass er einen Rückschluss auf den Inhalt der Datei zulässt.\nDie Dateinamenserweiterung ist ein Zusatz, der Auskunft über den Dateityp gibt. Sie steht hinter einem Punkt hinter dem eigentlichen Dateinamen. Auf Windows Rechnern wird die Dateinamenserweiterung im Dateimanager in der Standardeinstellung nicht angezeigt. Um dies zu ändern, muss in den Einstellungen des Dateimanagers die Option “Dateinamenerweiterungen anzeigen” aktiviert werden (Ansicht &gt; Anzeigen &gt; Dateinamenserweiterung).\nDamit Dateien besser ausgetauscht werden können, empfiehlt es sich, für die Namen lediglich Buchstaben, Zahlen und Unterstriche (sog. ASCII-Zeichen) zu verwenden.\nDamit man Dateien finden kann, muss man wissen, wo sie abgelegt worden sind. Übertragen auf das Modell von Dossiers in Ordnern bedeutet das, zu wissen, welches Dossier in welchem Ordner in welchem Gestell in welchem Raum abgelegt ist. Wie in einem realen Archiv, geht man dabei vom Raum zum Gestell, zum Ordner und schliesslich zum Dossier. In der Informatik wird dieser Weg als Pfad bezeichnet. Auf einem Windows-Rechner beginnt dieser Pfad mit dem sogenannten Laufwerksbuchstaben, gefolgt von einem Doppelpunkt und einem Backslash (\\). Aus historischen Gründen ist der Laufwerksbuchstabe auf Windows-Rechnern Standardmässig der Buchstabe C.\nEin Beispiel für einen Pfad könnte so aussehen:\nC:\\Users\\fritz\\Documents\\text.docx\nIn diesem Beispiel ist C: der Laufwerksbuchstabe, Users der Ordner, fritz der Unterordner, Documents der Unterordner von fritz und text.docx die Datei, die im Ordner Documents abgelegt ist. Users ist ein von Windows standardmässig angelegter Ordner, in dem die persönlichen Daten der Benutzer abgelegt werden. Der Ordner fritz ist der persönliche Ordner des Benutzers fritz. Der Ordner Documents wird ebenfalls standardmässig von Windows im Ordner jedes Benutzers angelegt. Dem Benutzer fritz steht es frei, diesen Ordner zu verwenden und darin Dateien oder Underordner anzulegen.\nDer Dateiname text.docx verweist mit seiner Dateinamenserweiterung .docx auf eine Datei, die mit dem Programm Microsoft Word erstellt worden ist."
-  },
-  {
-    "objectID": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateien-in-der-cloud",
-    "href": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateien-in-der-cloud",
-    "title": "Speicherorganisation",
-    "section": "Dateien in der Cloud",
-    "text": "Dateien in der Cloud\nDateien können nicht nur lokal auf dem Computer gespeichert werden. Damit von überall und jederzeit auf Dateien zugegriffen werden kann, werden Dateien in der Cloud gespeichert. Dabei handelt es sich um Server in Rechenzentren, die über das Internet erreichbar sind. Beispiele für solche Cloud-Dienst sind OneDrive von Microsoft oder Google Drive.\nAblageorte auf OneDrive werden in Windows direkt in der Verzeichnisstruktur des Betriebssystems angezeigt, solche von Google erhalten auf Windows einen eigenen Laufwerksbuchstaben (G:\\).\nDamit auf die Dateien in der Cloud zugegriffen werden kann, ist eine Internetverbindung erforderlich."
-  },
-  {
-    "objectID": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateistruktur-für-die-schule",
-    "href": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateistruktur-für-die-schule",
-    "title": "Speicherorganisation",
-    "section": "Dateistruktur für die Schule",
-    "text": "Dateistruktur für die Schule\nFür den schulischen Bedarf erscheint es sinnvoll eine Dateistruktur nach Fächern anzulegen. Im Ordner Documents wird dazu für jedes Fach ein eigener Unterordner angelegt. Innerhalb der jeweiligen Fachordner kann eine weitere Struktur nach Semester oder nach Thema sinnvoll sein. Ein Beispiel für die Ordnerstruktur eines Erstklässlers an der KBW kann so aussehen:\nDocuments\\\n         ├──Schule\\\n         |       ├──Deutsch\n         |       ├──Franz\n         |       ├──Mathe\n         |       ├──WR\n         |       └──...\n         ├──Privat\\\n         |       ├──Rechnungen\n         |       └──..."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "files/HS_25.html",
-    "href": "files/HS_25.html",
-    "title": "Unterlagen für das Herbstsemester 2025/2026",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n02.07.2025\n\n\nArbeitsumgebung (Arbeiten mit Jupyter Notebooks)\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "files/lektionen_hs25/250702_systemeinrichtung/setup.html",
     "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html",
     "title": "Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)",
@@ -103,5 +61,89 @@
     "title": "Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)",
     "section": "Öffnen bestehender Jupyter Notebooks",
     "text": "Öffnen bestehender Jupyter Notebooks\nHäufiger als das Erstellen eines neuen Jupyter Notebooks ist das Öffnen eines bereits bestehenden Jupyter Notebooks. Hier wird das entsprechende Vorgehen beschrieben.\n\nNavigieren Sie in den Ordner in dem sich das Jupyter Notebook befindet.\nStellen Sie sicher, dass der Ordner über eine Python Virtual Environment mit installierten Jupyter Paketen verfügt.\nUm zu überprüfen, welche Pakete in der Python Virtual Environment installiert sind, starten Sie die Python Virtual Environment und geben den Befehl pip list ein. Dieser Listet alle in der Python Virtual Environment installierten Pakete auf.\nStarten Sie den Jupyter Server mit dem Befehl jupyter-lab.\nÖffnen Sie das Dateiverzeichnis. Dazu müssen Sie auf dem linken Rand das Ordner-Symbol anklicken.\nWählen Sie das Jupyter Notebook aus, das Sie öffnen möchten. Mit einem Doppelklick auf das Jupyter Notebook wird dieses geöffnet.\nWenn Sie das Dateiverzeichnis wieder schliessen möchten, klicken Sie auf das Ordner-Symbol auf der linken Seite erneut.\n\nDiese Schritte funktionieren auch, wenn Sie ein Jupyter Notebook öffnen möchten, das Sie von jemand anderem erhalten haben. Sie müssen dieses dazu lediglich in den Ordner kopieren, in dem sich die Python Virtual Environment mit den installierten Jupyter Paketen befindet."
+  },
+  {
+    "objectID": "files/HS_25.html",
+    "href": "files/HS_25.html",
+    "title": "Unterlagen für das Herbstsemester 2025/2026",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n02.07.2025\n\n\nArbeitsumgebung (Arbeiten mit Jupyter Notebooks)\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n01.09.2025\n\n\nProblemlösung in der Informatik\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250628_speicher/speicherorganisation.html",
+    "href": "files/lektionen_hs25/250628_speicher/speicherorganisation.html",
+    "title": "Speicherorganisation",
+    "section": "",
+    "text": "Informationen sind in Computern in Dateien gespeichert. Die gespeicherten Informationen können dabei ganz unterschiedlicher Art, wie zum Beispiel Texte, Bilder oder Videos, sein.\nAls Modell, wie man sich Dateien vorstellen kann, hat sich das Bild von Dossiers in Ordnern etabliert. Die einzelnen Dossiers sind die Dateien und die Ordner sind die Strukturen, in denen die Dateien abgelegt sind. Diese Konstruktion kann über mehrere Ebenen hinaus verschachtelt werde (Ordner in Gestellen, die wiederum in einzelnen Räumen stehen, etc.)."
+  },
+  {
+    "objectID": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateinamen-und-pfade",
+    "href": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateinamen-und-pfade",
+    "title": "Speicherorganisation",
+    "section": "Dateinamen und Pfade",
+    "text": "Dateinamen und Pfade\nDamit Dateien identifiziert und gefunden werden können, müssen sie einen Namen haben. Grundsätzlich gibt es keine Einschränkungen, wie Dateien benannt werden. Die meisten Dateinamen bestehen allerdings aus zwei Teilen: dem eigentlichen Dateinamen und der Dateinamenserweiterung.\nDer eigentliche Dateiname wird idealerweise so festgelegt, dass er einen Rückschluss auf den Inhalt der Datei zulässt.\nDie Dateinamenserweiterung ist ein Zusatz, der Auskunft über den Dateityp gibt. Sie steht hinter einem Punkt hinter dem eigentlichen Dateinamen. Auf Windows Rechnern wird die Dateinamenserweiterung im Dateimanager in der Standardeinstellung nicht angezeigt. Um dies zu ändern, muss in den Einstellungen des Dateimanagers die Option “Dateinamenerweiterungen anzeigen” aktiviert werden (Ansicht &gt; Anzeigen &gt; Dateinamenserweiterung).\nDamit Dateien besser ausgetauscht werden können, empfiehlt es sich, für die Namen lediglich Buchstaben, Zahlen und Unterstriche (sog. ASCII-Zeichen) zu verwenden.\nDamit man Dateien finden kann, muss man wissen, wo sie abgelegt worden sind. Übertragen auf das Modell von Dossiers in Ordnern bedeutet das, zu wissen, welches Dossier in welchem Ordner in welchem Gestell in welchem Raum abgelegt ist. Wie in einem realen Archiv, geht man dabei vom Raum zum Gestell, zum Ordner und schliesslich zum Dossier. In der Informatik wird dieser Weg als Pfad bezeichnet. Auf einem Windows-Rechner beginnt dieser Pfad mit dem sogenannten Laufwerksbuchstaben, gefolgt von einem Doppelpunkt und einem Backslash (\\). Aus historischen Gründen ist der Laufwerksbuchstabe auf Windows-Rechnern Standardmässig der Buchstabe C.\nEin Beispiel für einen Pfad könnte so aussehen:\nC:\\Users\\fritz\\Documents\\text.docx\nIn diesem Beispiel ist C: der Laufwerksbuchstabe, Users der Ordner, fritz der Unterordner, Documents der Unterordner von fritz und text.docx die Datei, die im Ordner Documents abgelegt ist. Users ist ein von Windows standardmässig angelegter Ordner, in dem die persönlichen Daten der Benutzer abgelegt werden. Der Ordner fritz ist der persönliche Ordner des Benutzers fritz. Der Ordner Documents wird ebenfalls standardmässig von Windows im Ordner jedes Benutzers angelegt. Dem Benutzer fritz steht es frei, diesen Ordner zu verwenden und darin Dateien oder Underordner anzulegen.\nDer Dateiname text.docx verweist mit seiner Dateinamenserweiterung .docx auf eine Datei, die mit dem Programm Microsoft Word erstellt worden ist."
+  },
+  {
+    "objectID": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateien-in-der-cloud",
+    "href": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateien-in-der-cloud",
+    "title": "Speicherorganisation",
+    "section": "Dateien in der Cloud",
+    "text": "Dateien in der Cloud\nDateien können nicht nur lokal auf dem Computer gespeichert werden. Damit von überall und jederzeit auf Dateien zugegriffen werden kann, werden Dateien in der Cloud gespeichert. Dabei handelt es sich um Server in Rechenzentren, die über das Internet erreichbar sind. Beispiele für solche Cloud-Dienst sind OneDrive von Microsoft oder Google Drive.\nAblageorte auf OneDrive werden in Windows direkt in der Verzeichnisstruktur des Betriebssystems angezeigt, solche von Google erhalten auf Windows einen eigenen Laufwerksbuchstaben (G:\\).\nDamit auf die Dateien in der Cloud zugegriffen werden kann, ist eine Internetverbindung erforderlich."
+  },
+  {
+    "objectID": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateistruktur-für-die-schule",
+    "href": "files/lektionen_hs25/250628_speicher/speicherorganisation.html#dateistruktur-für-die-schule",
+    "title": "Speicherorganisation",
+    "section": "Dateistruktur für die Schule",
+    "text": "Dateistruktur für die Schule\nFür den schulischen Bedarf erscheint es sinnvoll eine Dateistruktur nach Fächern anzulegen. Im Ordner Documents wird dazu für jedes Fach ein eigener Unterordner angelegt. Innerhalb der jeweiligen Fachordner kann eine weitere Struktur nach Semester oder nach Thema sinnvoll sein. Ein Beispiel für die Ordnerstruktur eines Erstklässlers an der KBW kann so aussehen:\nDocuments\\\n         ├──Schule\\\n         |       ├──Deutsch\n         |       ├──Franz\n         |       ├──Mathe\n         |       ├──WR\n         |       └──...\n         ├──Privat\\\n         |       ├──Rechnungen\n         |       └──..."
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html",
+    "title": "Problemlösung in der Informatik",
+    "section": "",
+    "text": "Dieses Jupyter Notebook herunterladen"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#ausgangslage",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#ausgangslage",
+    "title": "Problemlösung in der Informatik",
+    "section": "Ausgangslage",
+    "text": "Ausgangslage\nJede Disziplin hat ihre eigene Art, Probleme zu lösen. Das ist in der Informatik nicht anders.\nIn der Informatik versucht man, grosse Probleme in kleinere Teilprobleme zu zerlegen. Das macht man so lange, bis die Teilprobleme so klein sind, dass sie einfach zu lösen sind.\nDies soll hier anhand von verschidenen Grafiken gezigt werden.\nDamit in Python einfach mit Grafiken gearbeitet werden kann, wird das Paket PyTamaro verwendet. Dieses Paket wurde von der Università della Svizzera italiana (USI) extra für die Informatik-Ausbildung entwickelt.\nDamit das Paket verwendet werden kann, muss es zuerst in der aktuellen Python Virtual Environment installiert werden.\nDazu öffnen Sie ein Terminal im Ordner, in dem sich dieses Jupyter Notebook befindet. Anschliessend starten Sie die Python Virtual Environment mit dem Befehl:\n.venv\\Scripts\\activate\nDanach können Sie PyTamaro mit dem Befehl\npip install pytamaro\ninstallieren.\nUm das Paket zu verwenden, muss es importiert werden. Die genauen Zusammenhänge müssen im Moment nicht bekannt sein. Wichtig ist lediglich, dass die folgende Zelle ausgeführt wird.\n\nfrom pytamaro.de import (\n    rechteck, kreis_sektor,\n    blau, rot, weiss, schwarz,\n    neben, ueber, ueberlagere,\n    drehe, kombiniere,\n    zeige_grafik, speichere_grafik,\n)"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tricolore",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tricolore",
+    "title": "Problemlösung in der Informatik",
+    "section": "Beispiel: Tricolore",
+    "text": "Beispiel: Tricolore\nDie Vorgehensweise wird anhand der Französischen Nationalflagge (Tricolore) gezigt.\n\n\n\nTricolore Française\n\n\nUm die Zeichnung der Tricolore zu planen, wird die Grafik in ihre Einzelteile zerlegt.\nDie Tricolore besteht aus drei gleich grossen Rechtecken in den Farben blau, rot und weiss. Diese Rechtecke werden nebeneinander angeordnet.\nDas bedeutet, dass die Länge und die Breite der Rechtecke definiert werden muss und basierend auf diesen Werten die drei Rechtecke gezeichnet werden. Anschliessend werden die drei Rechtecke nebeneinander angeordnet.\nDer Befehl zum Zeichnen eines Rechtecks lautet\nname = rechteck(länge, breite, farbe)\nBevor die Zeichnung tatsächlich erstellt wird, soll hier der Befehl im Detail erklärt werden:\n\nname ist der Name, unter dem das Rechteck gespeichert wird. Dieser Name kann später verwendet werden, um auf das Rechteck zuzugreifen.\nrechteck ist der Befehl, der ein Rechteck zeichnet. In der Klammer hinter dem Befehl werden die sogenannten Argumente angegeben. Diese steuern, wie das Rechteck aussieht.\nlänge und breite sind die Argumente, die die Grösse des Rechtecks bestimmen. Diese Werte können beliebig gewählt werden.\nfarbe ist das Argument, das die Farbe des Rechtecks bestimmt. Aufgrund der Eigenheiten von PyTamaro können ausschliesslich die Farben verwendet werden, welche importiert worden sind.\n\n\nRechtecke zeichnen\nAls erstes wird hier gezeigt, wie das blaue Rechteck gezeichnetwird.\nDamit das Resultat kontrolliert werden kann, wird die Grafik mit dem Befehl\nzeige_grafik(name)\nangezeigt.\n\nbleu = rechteck(50, 100, blau)\nzeige_grafik(bleu)\n\n\n\n\n\n\n\n\nNachdem das blaue Rechteck gezeichnet wurde, kann das weisse und das rote Rechteck analog gezeichnet und angzeigt werden.\n\n# TODO: Rechtecke blanc und rouge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code\nblanc = rechteck(50, 100, weiss)\nrouge = rechteck(50, 100, rot)\n\nAls nächstes werden die drei Rechtecke nebeninander angeordnet. Dazu wird der Befehl neben verwendet. Dieser Befehl nimmt zwei Argumente entgegen: das erste Rechteck und das zweite Rechteck. Das erste Rechteck wird links vom zweiten Rechteck gezeichnet.\nresultat = neben(linke grafik, rechte grafik)\n\nzwei_drittel = neben(bleu, blanc)\nzeige_grafik(zwei_drittel)\n\n\n\n\n\n\n\n\nAnalog können Sie nun das rote Rechteck rechts der zwei Drittel anordnen. Nennen Sie das Resultat tricolore und zeigen Sie es an.\n\n# TODO: Trcolore zusammenfügen -&gt; Schreiben Sie hier Ihren\n# Code"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-österreichische-flagge",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-österreichische-flagge",
+    "title": "Problemlösung in der Informatik",
+    "section": "Beispiel: Österreichische Flagge",
+    "text": "Beispiel: Österreichische Flagge\nZeichnen Sie die Österreichische Flagge. Um Elemente übereinander anzuordnen, wird der Befehl ueber verwendet. Die Syntax dieses Befehls lautet:\nresultat = ueber(obere grafik, untere grafik)\n\n# TODO: Östereichische Flagge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-schweizerfahne",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-schweizerfahne",
+    "title": "Problemlösung in der Informatik",
+    "section": "Beispiel: Schweizerfahne",
+    "text": "Beispiel: Schweizerfahne\nZeichnen Sie eine korrekt propotionierte Schweizerfahne. Die Dimensionen können Sie der folgenden Grafik entnehmen:\n\n\n\nSchweizerfahne gemäss Anhang 2 des Wappenschutzgesetzes\n\n\nVerwenden Sie dazu die Befehle rechteck, drehe und ueberlagere.\n\n# TODO: Schweizerfahne zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#tessiner-wappen",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#tessiner-wappen",
+    "title": "Problemlösung in der Informatik",
+    "section": "Tessiner Wappen",
+    "text": "Tessiner Wappen\nAls Referenz an die USI zeichnen Sie als letztes Beispiel das Tessiner Wappen.\n\n\n\nTessiner Wappen\n\n\nVerwenden Sie dazu neben den bereits bekannten Befehlen zusätzlich die Befehle ueber und kreis_sektor.\n\n# TODO: Tessiner Wappen zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
   }
 ]
