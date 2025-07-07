@@ -67,7 +67,7 @@
     "href": "files/HS_25.html",
     "title": "Unterlagen für das Herbstsemester 2025/2026",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n02.07.2025\n\n\nArbeitsumgebung (Arbeiten mit Jupyter Notebooks)\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n01.09.2025\n\n\nProblemlösung in der Informatik\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n28.06.2025\n\n\nSpeicherorganisation\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n02.07.2025\n\n\nArbeitsumgebung (Arbeiten mit Jupyter Notebooks)\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n01.09.2025\n\n\nProblemlösung in der Informatik\n\n\nJacques Mock Schindler\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -130,7 +130,7 @@
     "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-österreichische-flagge",
     "title": "Problemlösung in der Informatik",
     "section": "Beispiel: Österreichische Flagge",
-    "text": "Beispiel: Österreichische Flagge\nZeichnen Sie die Österreichische Flagge. Um Elemente übereinander anzuordnen, wird der Befehl ueber verwendet. Die Syntax dieses Befehls lautet:\nresultat = ueber(obere grafik, untere grafik)\n\n# TODO: Östereichische Flagge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
+    "text": "Beispiel: Österreichische Flagge\nZeichnen Sie die Österreichische Flagge.\n\n\n\nFallge der Republik Österreich (Seitenverhältnis 2:3)\n\n\nUm Elemente übereinander anzuordnen, wird der Befehl ueber verwendet. Die Syntax dieses Befehls lautet:\nresultat = ueber(obere grafik, untere grafik)\n\n# TODO: Östereichische Flagge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
   },
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-schweizerfahne",
@@ -140,10 +140,10 @@
     "text": "Beispiel: Schweizerfahne\nZeichnen Sie eine korrekt propotionierte Schweizerfahne. Die Dimensionen können Sie der folgenden Grafik entnehmen:\n\n\n\nSchweizerfahne gemäss Anhang 2 des Wappenschutzgesetzes\n\n\nVerwenden Sie dazu die Befehle rechteck, drehe und ueberlagere.\n\n# TODO: Schweizerfahne zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
   },
   {
-    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#tessiner-wappen",
-    "href": "files/lektionen_hs25/250901_probleme/probleme.html#tessiner-wappen",
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tessiner-wappen",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tessiner-wappen",
     "title": "Problemlösung in der Informatik",
-    "section": "Tessiner Wappen",
-    "text": "Tessiner Wappen\nAls Referenz an die USI zeichnen Sie als letztes Beispiel das Tessiner Wappen.\n\n\n\nTessiner Wappen\n\n\nVerwenden Sie dazu neben den bereits bekannten Befehlen zusätzlich die Befehle ueber und kreis_sektor.\n\n# TODO: Tessiner Wappen zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
+    "section": "Beispiel: Tessiner Wappen",
+    "text": "Beispiel: Tessiner Wappen\nAls Referenz an die USI zeichnen Sie als letztes Beispiel das Tessiner Wappen.\n\n\n\nTessiner Wappen\n\n\nVerwenden Sie dazu neben den bereits bekannten Befehlen zusätzlich die Befehle ueber und kreis_sektor.\n\n# TODO: Tessiner Wappen zeichnen -&gt; Schreiben Sie hier Ihren\n# Code"
   }
 ]
