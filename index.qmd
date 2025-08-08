@@ -39,3 +39,7 @@ Zeugnisnote berechnet sich als gewichteter Durchschnitt aus den beiden
 schriftlichen Prüfungen und der Note für die mündliche Beteiligung. Die
 Durchschnittsnote der beiden schriftlichen Prüfungen wird mit 90%, die
 Note für die mündliche Beteiligung mit 10% gewichtet.
+
+
+Falls jemand eine persönliche Besprechung wünscht, [kann er sich hier für
+eine Sprechstunde anmelden](https://calendar.app.google/XdTippvkrbHJct3Y9).
