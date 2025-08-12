@@ -31,9 +31,12 @@ Verlauf des Semesters mit Änderungen zu rechnen.
 
 ## Materielle Voraussetzungen
 
-Für den Informatikunterricht ist ein Laptop erforderlich. Sie brauchen
-auf dem Laptop Administrationsrechte, um Software installieren zu
-können. Ausserdem muss der Ladestand eine Doppelstunde lang ausreichen.
+Für den Informatikunterricht ist ein Laptop erforderlich (mit einem iPad
+können Sie die im Unterricht gestellten Aufgaben nicht lösen). Für Ihren
+Laptop brachen Sie zur Installation der erforderlichen Software
+Administratorenrechte.  
+Ausserdem müssen Sie sicherstellen, dass Ihr Akku zu Beginn des
+Unterrichts einen Ladestand aufweist, der eine Doppelstunde durchhält.
 
 ## Beurteilung
 
