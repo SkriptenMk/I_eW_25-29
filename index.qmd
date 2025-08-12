@@ -29,6 +29,12 @@ Hier finden Sie die Informationen für den Informatikunterricht.
 Das Programm widerspiegelt den aktuellen Stand der Planung. Es ist im
 Verlauf des Semesters mit Änderungen zu rechnen.
 
+## Materielle Voraussetzungen
+
+Für den Informatikunterricht ist ein Laptop erforderlich. Sie brauchen
+auf dem Laptop Administrationsrechte, um Software installieren zu
+können. Ausserdem muss der Ladestand eine Doppelstunde lang ausreichen.
+
 ## Beurteilung
 
 Pro Semester sind zwei schriftliche Prüfungen vorgesehen. Ausserdem wird
