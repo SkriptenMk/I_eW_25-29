@@ -1,11 +1,12 @@
 project:
   type: website
   output-dir: docs
-  resources:
-    - files/lektionen_hs25/250901_probleme/probleme.ipynb
-
+  
 website:
   title: "Unterlagen für den Informatikunterricht 1eW (Schuljahr 2025/2026)"
+  repo-url: https://github.com/SkriptenMk/I_eW_25-29
+  repo-actions: [source, edit, issue]
+  repo-link-target: _blank
   navbar:
     right:
       - text: Home
