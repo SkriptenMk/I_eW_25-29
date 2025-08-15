@@ -112,13 +112,6 @@
     "text": "Dateistruktur für die Schule\nFür den schulischen Bedarf erscheint es sinnvoll eine Dateistruktur nach Fächern anzulegen. Im Ordner Documents wird dazu für jedes Fach ein eigener Unterordner angelegt. Innerhalb der jeweiligen Fachordner kann eine weitere Struktur nach Semester oder nach Thema sinnvoll sein. Ein Beispiel für die Ordnerstruktur eines Erstklässlers an der KBW kann so aussehen:\nDocuments\\\n         ├──Schule\\\n         |       ├──Deutsch\n         |       ├──Franz\n         |       ├──Mathe\n         |       ├──WR\n         |       └──...\n         ├──Privat\\\n         |       ├──Rechnungen\n         |       └──..."
   },
   {
-    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html",
-    "href": "files/lektionen_hs25/250901_probleme/probleme.html",
-    "title": "Problemlösung in der Informatik",
-    "section": "",
-    "text": "Dieses Jupyter Notebook herunterladen"
-  },
-  {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#ausgangslage",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html#ausgangslage",
     "title": "Problemlösung in der Informatik",
