@@ -50,6 +50,6 @@ Durchschnittsnote der beiden schriftlichen Prüfungen wird mit 90%, die
 Note für die mündliche Beteiligung mit 10% gewichtet.
 
 
-Falls jemand eine persönliche Besprechung wünscht, 
+Falls jemand eine persönliche Besprechung wünscht,
 <a href="https://calendar.app.google/XdTippvkrbHJct3Y9" target="_blank">
-kann sich hier für eine Sprechstunde anmelden</a>.
+kann sich hier für eine Sprechstunde anmelden (Rent a Mock)</a>.
