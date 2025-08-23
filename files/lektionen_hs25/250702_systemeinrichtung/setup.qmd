@@ -19,6 +19,17 @@ Unterricht erforderlichen Programme.
 Dieser Abschnitt führt Sie Schritt für Schritt durch die Installation
 von Python auf einem Windows-Rechner.
 
+:::{.callout-warning title="Microsoft Store Falle"}
+Achten Sie beim Herunterladen von Python darauf, dass Sie sich auf der
+offiziellen Seite von Python (https://www.python.org) und **nicht** im
+Microsoft Store befinden. Wenn Sie versehentlich die Python Version aus
+dem Microsoft Store installiert haben, kann das bei der Arbeit an den
+Schulprojekten zu Problemen führen.
+
+Deinstallieren Sie die Microsoft Version von Python und installieren Sie die
+Version von der offiziellen Website.
+:::
+
 1. Laden Sie die neueste Version von Python von der offiziellen Website
    herunter:
    <a href="https://www.python.org/downloads/" target="blank">python.org</a>.
@@ -91,7 +102,7 @@ Diese Oberfläche nennt sich JupyterLab und läuft in einem Webbrowser.
 :::{.callout-tip title="Das Jupyter Ökosystem"}
 Die im Unterricht verwendeten Jupyter Notebooks sind Teil eines ganzen
 Jupyter Ökosystems. Der Name Jupyter setzt sich aus den drei
-Programmiersprachen **Ju**lia, **Py**thon und **R** zusammen, die in diesem
+Programmiersprachen **Ju**lia, **Pyt**hon und **R** zusammen, die in diesem
 Ökosystem eine zentrale Rolle spielen. Zum Jupyter Ökosystem gehören auch
 zahlreiche Erweiterungen und Tools, die die Arbeit mit Notebooks und Daten
 erleichtern.
