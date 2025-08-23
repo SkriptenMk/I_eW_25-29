@@ -184,7 +184,7 @@ window.Quarto = {
   <li><a href="#arbeitsumgebung" id="toc-arbeitsumgebung" class="nav-link" data-scroll-target="#arbeitsumgebung">Arbeitsumgebung</a></li>
   <li><a href="#öffnen-bestehender-jupyter-notebooks" id="toc-öffnen-bestehender-jupyter-notebooks" class="nav-link" data-scroll-target="#öffnen-bestehender-jupyter-notebooks">Öffnen bestehender Jupyter Notebooks</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250702_systemeinrichtung/setup.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/edit/main/files/lektionen_hs25/250702_systemeinrichtung/setup.qmd" target="_blank" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250702_systemeinrichtung/setup.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -280,7 +280,7 @@ Im folgenden findet sich eine Anleitung für die Installation der für den Unter
 </figure>
 </div>
 <p>Das Wort in der Klammer am Anfang der Zeile zeigt den Namen der aktiven Python Virtual Environment an. Im vorliegenden Fall ist das .venv.</p></li>
-<li><p>In der nun aktivierten Python Virtual Environment installieren Sie die benötigten Pakete mit dem folgenden Befehl:</p>
+<li><p><span id="sec-install-packages">In der nun aktivierten Python Virtual Environment installieren Sie die benötigten Pakete mit dem folgenden Befehl</span>:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Das dauert eine Weile.</p>
 <p>Während der Installation werden die benötigten Pakete (Ergänzungen zur bestehenden Python Installation) heruntergeladen und in der Python Virtual Environment gespeichert. Das Terminal sieht dabei ungefähr so aus:</p>
@@ -329,7 +329,7 @@ Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Da
 <ol type="1">
 <li><p>Navigieren Sie in den Ordner in dem sich das Jupyter Notebook befindet.</p></li>
 <li><p>Stellen Sie sicher, dass der Ordner über eine Python Virtual Environment mit installierten Jupyter Paketen verfügt.</p>
-<p>Um zu überprüfen, welche Pakete in der Python Virtual Environment installiert sind, starten Sie die Python Virtual Environment und geben den Befehl <code>pip list</code> ein. Dieser Listet alle in der Python Virtual Environment installierten Pakete auf.</p></li>
+<p>Öffnen Sie dazu im ausgewählten Ordner das Terminal (<code>ctrl + L</code> anschliessend <code>cmd</code> und Eingabetaste). Dann starten Sie die Python Virtual Environment und geben den Befehl <code>pip list</code> ein. Dieser Listet alle in der Python Virtual Environment installierten Pakete auf. Falls die Jupyter Pakete nicht aufgelistet werden, müssen Sie diese wie <a href="#sec-install-packages">oben</a> beschrieben installieren.</p></li>
 <li><p>Starten Sie den Jupyter Server mit dem Befehl <code>jupyter-lab</code>.</p></li>
 <li><p>Öffnen Sie das Dateiverzeichnis. Dazu müssen Sie auf dem linken Rand das Ordner-Symbol anklicken.</p></li>
 <li><p>Wählen Sie das Jupyter Notebook aus, das Sie öffnen möchten. Mit einem Doppelklick auf das Jupyter Notebook wird dieses geöffnet.</p>
@@ -745,4 +745,4 @@ Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Da
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250702_systemeinrichtung/setup.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/edit/main/files/lektionen_hs25/250702_systemeinrichtung/setup.qmd" target="_blank" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250702_systemeinrichtung/setup.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
