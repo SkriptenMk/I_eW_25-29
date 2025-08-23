@@ -52,6 +52,14 @@ ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte
 aus:
 
 1. Öffnen Sie ein Terminal (Windows-Taste + R, dann `cmd` eingeben).
+
+   :::{.callout-tip title="Das Terminal"}
+   Unter dem Begriff "Terminal" versteht man ein Programm, das eine
+   textbasierte Benutzeroberfläche bereitstellt, um mit dem Betriebssystem
+   zu interagieren. In einem Terminal können Sie Befehle eingeben und
+   erhalten die Ausgaben direkt im Fenster.
+   :::
+
 2. Geben Sie den Befehl `python` ein, um die Python-Shell zu starten.
    Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.
 
