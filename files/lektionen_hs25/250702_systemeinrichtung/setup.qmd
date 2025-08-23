@@ -80,6 +80,19 @@ Endung `.ipynb`. Vom Jupyter Notebook unterschieden werden muss die
 Arbeitsoberfläche in welcher die Jupyter Notebooks bearbeitet werden.
 Diese Oberfläche nennt sich JupyterLab und läuft in einem Webbrowser.
 
+:::{.callout-tip title="Das Jupyter Ökosystem"}
+Die im Unterricht verwendeten Jupyter Notebooks sind Teil eines ganzen
+Jupyter Ökosystems. Der Name Jupyter setzt sich aus den drei
+Programmiersprachen **Ju**lia, **Py**thon und **R** zusammen, die in diesem
+Ökosystem eine zentrale Rolle spielen. Zum Jupyter Ökosystem gehören auch
+zahlreiche Erweiterungen und Tools, die die Arbeit mit Notebooks und Daten
+erleichtern.
+
+Der Unterricht beschränkt sich auf die Verwendung von Jupyter Notebooks
+mit der Programmiersprache Python sowie den Einsatz von JupyterLab als
+Arbeitsumgebung. 
+:::
+
 Damit dies alles funktioniert, braucht es ein paar weitere
 Vorbereitungsarbeiten.
 
