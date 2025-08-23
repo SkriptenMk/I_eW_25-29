@@ -248,3 +248,100 @@ möchten, das Sie von jemand anderem erhalten haben. Sie müssen dieses
 dazu lediglich in den Ordner kopieren, in dem sich die Python
 Virtual Environment mit den installierten Jupyter Paketen
 befindet.
+
+## Häufige Fehlermeldungen
+```{=html}
+<div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Fehlerbehebung bei häufigen Einrichtungsproblemen</h1>
+        
+        <!-- Container for the table to allow horizontal scrolling on small screens -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow">
+            <table class="w-full min-w-max text-sm text-left text-gray-700">
+                <!-- Table Header -->
+                <thead class="bg-gray-100 text-xs text-gray-700 uppercase">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 font-semibold w-1/4">Problem / Fehlermeldung (Was Sie sehen)</th>
+                        <th scope="col" class="px-6 py-3 font-semibold w-1/4">Mögliche Ursache (Warum es passiert)</th>
+                        <th scope="col" class="px-6 py-3 font-semibold w-2/4">Lösung (Was Sie tun können)</th>
+                    </tr>
+                </thead>
+                <!-- Table Body -->
+                <tbody>
+                    <!-- Row 1: python not found -->
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td class="px-6 py-4 font-medium text-gray-900">
+                            Der Befehl <code>python</code> ist entweder falsch geschrieben oder konnte nicht gefunden werden.
+                        </td>
+                        <td class="px-6 py-4">
+                            Python wurde bei der Installation nicht zur PATH-Variable hinzugefügt. Der Computer weiss nicht, wo er <code>python.exe</code> finden soll.
+                        </td>
+                        <td class="px-6 py-4">
+                            <ol class="list-decimal list-inside space-y-1">
+                                <li>Deinstallieren Sie Python über die Systemsteuerung.</li>
+                                <li>Installieren Sie Python erneut.</li>
+                                <li>Achten Sie diesmal unbedingt darauf, das Häkchen bei "Add Python to PATH" zu setzen.</li>
+                            </ol>
+                        </td>
+                    </tr>
+                    <!-- Row 2: jupyter-lab not found -->
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td class="px-6 py-4 font-medium text-gray-900">
+                            Der Befehl <code>jupyter-lab</code> ist entweder falsch geschrieben oder konnte nicht gefunden werden.
+                        </td>
+                        <td class="px-6 py-4">
+                            Sie haben vergessen, die virtuelle Umgebung zu aktivieren. Der Befehl <code>jupyter-lab</code> existiert nur innerhalb der aktivierten Umgebung.
+                        </td>
+                        <td class="px-6 py-4">
+                            <ol class="list-decimal list-inside space-y-1">
+                                <li>Überprüfen Sie, ob <code>(.venv)</code> am Anfang der Kommandozeile steht.</li>
+                                <li>Falls nicht, führen Sie den Aktivierungsbefehl erneut aus: <code>.venv\Scripts\activate</code>.</li>
+                            </ol>
+                        </td>
+                    </tr>
+                    <!-- Row 3: ImportError -->
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td class="px-6 py-4 font-medium text-gray-900">
+                            <code>ImportError: DLL load failed...</code> oder ähnliche Fehler unter Windows
+                        </td>
+                        <td class="px-6 py-4">
+                            Ein häufiges Problem mit der Installation von <code>pywin32</code>, einer wichtigen Windows-Bibliothek, die von Jupyter benötigt wird.
+                        </td>
+                        <td class="px-6 py-4">
+                            <ol class="list-decimal list-inside space-y-1">
+                                <li>Stellen Sie sicher, dass Ihre virtuelle Umgebung aktiv ist.</li>
+                                <li>Führen Sie den Befehl <code>pip install --upgrade pywin32</code> aus, um die Bibliothek zu reparieren.</li>
+                            </ol>
+                        </td>
+                    </tr>
+                    <!-- Row 4: Kernel Error -->
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td class="px-6 py-4 font-medium text-gray-900">
+                            Kernel Error oder der Status "Kernel starting, please wait..." ändert sich nicht
+                        </td>
+                        <td class="px-6 py-4">
+                            Die Verbindung zwischen der Browser-Oberfläche und dem Python-"Gehirn" (dem Kernel) ist gestört. Dies kann viele Ursachen haben.
+                        </td>
+                        <td class="px-6 py-4">
+                            <ol class="list-decimal list-inside space-y-1">
+                                <li>Der einfachste erste Schritt: Klicken Sie im JupyterLab-Menü auf "Kernel" -> "Restart Kernel...".</li>
+                                <li>Wenn das nicht hilft, schliessen Sie JupyterLab im Terminal (mit der Tastenkombination Strg + C) und starten Sie es mit <code>jupyter-lab</code> neu.</li>
+                            </ol>
+                        </td>
+                    </tr>
+                    <!-- Row 5: Permission denied -->
+                    <tr class="bg-white hover:bg-gray-50">
+                        <td class="px-6 py-4 font-medium text-gray-900">
+                            <code>Permission denied</code> (Zugriff verweigert) bei der Installation von Paketen
+                        </td>
+                        <td class="px-6 py-4">
+                            Sie versuchen, Pakete an einem systemweiten Ort zu installieren (z. B. in <code>C:\Program Files</code>), für den Sie keine Schreibrechte haben.
+                        </td>
+                        <td class="px-6 py-4">
+                            Dies ist genau das Problem, das virtuelle Umgebungen lösen! Stellen Sie sicher, dass Ihre <code>venv</code> aktiv ist (<code>(.venv)</code> muss sichtbar sein). Dadurch wird sichergestellt, dass alle Pakete lokal in Ihren Projektordner installiert werden, wo Sie die vollen Rechte haben.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+```

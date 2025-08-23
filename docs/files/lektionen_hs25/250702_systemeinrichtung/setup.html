@@ -183,6 +183,7 @@ window.Quarto = {
   <li><a href="#hello-world" id="toc-hello-world" class="nav-link" data-scroll-target="#hello-world">Hello World</a></li>
   <li><a href="#arbeitsumgebung" id="toc-arbeitsumgebung" class="nav-link" data-scroll-target="#arbeitsumgebung">Arbeitsumgebung</a></li>
   <li><a href="#öffnen-bestehender-jupyter-notebooks" id="toc-öffnen-bestehender-jupyter-notebooks" class="nav-link" data-scroll-target="#öffnen-bestehender-jupyter-notebooks">Öffnen bestehender Jupyter Notebooks</a></li>
+  <li><a href="#häufige-fehlermeldungen" id="toc-häufige-fehlermeldungen" class="nav-link" data-scroll-target="#häufige-fehlermeldungen">Häufige Fehlermeldungen</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250702_systemeinrichtung/setup.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div><div class="quarto-alternate-formats"><h2>Andere Formate</h2><ul><li><a href="setup.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -253,7 +254,20 @@ Die ‘PATH’-Umgebungsvariable
 <h2 class="anchored" data-anchor-id="hello-world">Hello World</h2>
 <p>Es hat sich eingebürgert, dass das erste Programm, das ausgeführt wird, ein Programm ist, das den Text “Hello World” auf dem Bildschirm ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte aus:</p>
 <ol type="1">
-<li><p>Öffnen Sie ein Terminal (Windows-Taste + R, dann <code>cmd</code> eingeben).</p></li>
+<li><p>Öffnen Sie ein Terminal (Windows-Taste + R, dann <code>cmd</code> eingeben).</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Das Terminal">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Das Terminal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unter dem Begriff “Terminal” versteht man ein Programm, das eine textbasierte Benutzeroberfläche bereitstellt, um mit dem Betriebssystem zu interagieren. In einem Terminal können Sie Befehle eingeben und erhalten die Ausgaben direkt im Fenster.</p>
+</div>
+</div></li>
 <li><p>Geben Sie den Befehl <code>python</code> ein, um die Python-Shell zu starten. Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -275,7 +289,22 @@ Die ‘PATH’-Umgebungsvariable
 </section>
 <section id="arbeitsumgebung" class="level2">
 <h2 class="anchored" data-anchor-id="arbeitsumgebung">Arbeitsumgebung</h2>
-<p>Im Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern mit sogenannten Jupyter Notebooks. Dies erfordert ein paar weitere Vorbereitungsarbeiten.</p>
+<p>Im Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern mit sogenannten Jupyter Notebooks. Jupyter Notebooks ermöglichen es, in der gleichen Datei sowohl Code (Programm Teile) als auch formatierten Text (in Markdown) zu verarbeiten. Eine Jupyter Notebook Datei hat die Endung <code>.ipynb</code>. Vom Jupyter Notebook unterschieden werden muss die Arbeitsoberfläche in welcher die Jupyter Notebooks bearbeitet werden. Diese Oberfläche nennt sich JupyterLab und läuft in einem Webbrowser.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Das Jupyter Ökosystem">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Das Jupyter Ökosystem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die im Unterricht verwendeten Jupyter Notebooks sind Teil eines ganzen Jupyter Ökosystems. Der Name Jupyter setzt sich aus den drei Programmiersprachen <strong>Ju</strong>lia, <strong>Py</strong>thon und <strong>R</strong> zusammen, die in diesem Ökosystem eine zentrale Rolle spielen. Zum Jupyter Ökosystem gehören auch zahlreiche Erweiterungen und Tools, die die Arbeit mit Notebooks und Daten erleichtern.</p>
+<p>Der Unterricht beschränkt sich auf die Verwendung von Jupyter Notebooks mit der Programmiersprache Python sowie den Einsatz von JupyterLab als Arbeitsumgebung.</p>
+</div>
+</div>
+<p>Damit dies alles funktioniert, braucht es ein paar weitere Vorbereitungsarbeiten.</p>
 <ol type="1">
 <li><p>Erstellen Sie im Ordner “Informatik” einen Unterordner mit dem Heutigen Datum als Namen. Formatieren Sie das Datum nach dem Schema “YYMMDD”, für den 1. August 2025 wäre das zum Beispiel “250801”.</p></li>
 <li><p>Öffnen Sie den soeben erstellten Ordner.</p></li>
@@ -350,6 +379,72 @@ Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Da
 <p>Wenn Sie das Dateiverzeichnis wieder schliessen möchten, klicken Sie auf das Ordner-Symbol auf der linken Seite erneut.</p></li>
 </ol>
 <p>Diese Schritte funktionieren auch, wenn Sie ein Jupyter Notebook öffnen möchten, das Sie von jemand anderem erhalten haben. Sie müssen dieses dazu lediglich in den Ordner kopieren, in dem sich die Python Virtual Environment mit den installierten Jupyter Paketen befindet.</p>
+</section>
+<section id="häufige-fehlermeldungen" class="level2">
+<h2 class="anchored" data-anchor-id="häufige-fehlermeldungen">Häufige Fehlermeldungen</h2>
+<div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Fehlerbehebung bei häufigen Einrichtungsproblemen</h1>
+        
+        <!-- Container for the table to allow horizontal scrolling on small screens -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow">
+            
+<table class="w-full min-w-max text-sm text-left text-gray-700 caption-top table" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead class="bg-gray-100 text-xs text-gray-700 uppercase">
+<tr class="header">
+<th class="px-6 py-3 font-semibold w-1/4" data-quarto-table-cell-role="th" scope="col">Problem / Fehlermeldung (Was Sie sehen)</th>
+<th class="px-6 py-3 font-semibold w-1/4" data-quarto-table-cell-role="th" scope="col">Mögliche Ursache (Warum es passiert)</th>
+<th class="px-6 py-3 font-semibold w-2/4" data-quarto-table-cell-role="th" scope="col">Lösung (Was Sie tun können)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white border-b hover:bg-gray-50 odd">
+<td class="px-6 py-4 font-medium text-gray-900">Der Befehl <code>python</code> ist entweder falsch geschrieben oder konnte nicht gefunden werden.</td>
+<td class="px-6 py-4">Python wurde bei der Installation nicht zur PATH-Variable hinzugefügt. Der Computer weiss nicht, wo er <code>python.exe</code> finden soll.</td>
+<td class="px-6 py-4"><ol>
+<li>Deinstallieren Sie Python über die Systemsteuerung.</li>
+<li>Installieren Sie Python erneut.</li>
+<li>Achten Sie diesmal unbedingt darauf, das Häkchen bei "Add Python to PATH" zu setzen.</li>
+</ol></td>
+</tr>
+<tr class="bg-white border-b hover:bg-gray-50 even">
+<td class="px-6 py-4 font-medium text-gray-900">Der Befehl <code>jupyter-lab</code> ist entweder falsch geschrieben oder konnte nicht gefunden werden.</td>
+<td class="px-6 py-4">Sie haben vergessen, die virtuelle Umgebung zu aktivieren. Der Befehl <code>jupyter-lab</code> existiert nur innerhalb der aktivierten Umgebung.</td>
+<td class="px-6 py-4"><ol>
+<li>Überprüfen Sie, ob <code>(.venv)</code> am Anfang der Kommandozeile steht.</li>
+<li>Falls nicht, führen Sie den Aktivierungsbefehl erneut aus: <code>.venv\Scripts\activate</code>.</li>
+</ol></td>
+</tr>
+<tr class="bg-white border-b hover:bg-gray-50 odd">
+<td class="px-6 py-4 font-medium text-gray-900"><code>ImportError: DLL load failed...</code> oder ähnliche Fehler unter Windows</td>
+<td class="px-6 py-4">Ein häufiges Problem mit der Installation von <code>pywin32</code>, einer wichtigen Windows-Bibliothek, die von Jupyter benötigt wird.</td>
+<td class="px-6 py-4"><ol>
+<li>Stellen Sie sicher, dass Ihre virtuelle Umgebung aktiv ist.</li>
+<li>Führen Sie den Befehl <code>pip install --upgrade pywin32</code> aus, um die Bibliothek zu reparieren.</li>
+</ol></td>
+</tr>
+<tr class="bg-white border-b hover:bg-gray-50 even">
+<td class="px-6 py-4 font-medium text-gray-900">Kernel Error oder der Status "Kernel starting, please wait..." ändert sich nicht</td>
+<td class="px-6 py-4">Die Verbindung zwischen der Browser-Oberfläche und dem Python-"Gehirn" (dem Kernel) ist gestört. Dies kann viele Ursachen haben.</td>
+<td class="px-6 py-4"><ol>
+<li>Der einfachste erste Schritt: Klicken Sie im JupyterLab-Menü auf "Kernel" -&gt; "Restart Kernel...".</li>
+<li>Wenn das nicht hilft, schliessen Sie JupyterLab im Terminal (mit der Tastenkombination Strg + C) und starten Sie es mit <code>jupyter-lab</code> neu.</li>
+</ol></td>
+</tr>
+<tr class="bg-white hover:bg-gray-50 odd">
+<td class="px-6 py-4 font-medium text-gray-900"><code>Permission denied</code> (Zugriff verweigert) bei der Installation von Paketen</td>
+<td class="px-6 py-4">Sie versuchen, Pakete an einem systemweiten Ort zu installieren (z. B. in <code>C:\Program Files</code>), für den Sie keine Schreibrechte haben.</td>
+<td class="px-6 py-4">Dies ist genau das Problem, das virtuelle Umgebungen lösen! Stellen Sie sicher, dass Ihre <code>venv</code> aktiv ist (<code>(.venv)</code> muss sichtbar sein). Dadurch wird sichergestellt, dass alle Pakete lokal in Ihren Projektordner installiert werden, wo Sie die vollen Rechte haben.</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+    </div>
 
 
 </section>
