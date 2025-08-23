@@ -14,6 +14,8 @@ website:
       - text: Herbstsemester 2025/2026
         href: files/HS_25.qmd
 
+lang: de
+
 format:
   html:
     theme:
@@ -21,6 +23,13 @@ format:
       - brand
     css: styles.css
     toc: true
+  pdf:
+    pdf-engine: xelatex
+    mainfont: Arial
+    fontsize: 11pt
+    documentclass: article
+    classoption: a4paper
+    toc: false    
 
 
 

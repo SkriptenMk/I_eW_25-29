@@ -1,6 +1,6 @@
 ---
 title: "Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)"
-date: 2025-07-02
+date: 2025-08-25
 date-format: DD.MM.YYYY
 author: "Jacques Mock Schindler"
 ---
@@ -26,6 +26,19 @@ von Python auf einem Windows-Rechner.
    Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die
    Option "Add Python to PATH" aktivieren, bevor Sie auf "Install Now"
    klicken.
+
+   :::{.callout-tip title="Die 'PATH'-Umgebungsvariable"}
+   Stellen Sie sich die PATH-Variable wie ein Adressbuch für die
+   Kommandozeile (Terminal) vor. Wenn Sie einen Befehl wie `python`
+   eingeben, schaut der Computer in diesem Adressbuch nach, wo das
+   entsprechende Programm zu finden ist.  
+
+   Indem Sie das Häkchen bei "Add Python to PATH" setzen, fügen Sie die
+   Adresse des Python-Interpreters zu diesem Adressbuch hinzu. Ohne
+   diesen Eintrag weiss der Computer nicht, wo er suchen soll, und
+   meldet, dass er den Befehl nicht kennt.
+   :::
+
 3. Überprüfen Sie die Installation, indem Sie die Eingabeaufforderung
    öffnen (Terminal $\rightarrow$ Windows-Taste + R, dann `cmd` eingeben) und den Befehl
    `python --version` eingeben. Dies sollte die installierte Python-Version
