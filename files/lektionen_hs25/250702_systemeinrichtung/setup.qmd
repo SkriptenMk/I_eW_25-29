@@ -94,7 +94,9 @@ Gratuliere - Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!
 Im Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern
 mit sogenannten Jupyter Notebooks. Jupyter Notebooks ermöglichen es,
 in der gleichen Datei sowohl Code (Programm Teile) als auch formatierten
-Text (in Markdown) zu verarbeiten. Eine Jupyter Notebook Datei hat die
+Text (in <a href="https://www.markdownguide.org/"
+target="blank">Markdown</a>) zu verarbeiten. Eine Jupyter Notebook Datei
+hat die 
 Endung `.ipynb`. Vom Jupyter Notebook unterschieden werden muss die
 Arbeitsoberfläche in welcher die Jupyter Notebooks bearbeitet werden.
 Diese Oberfläche nennt sich JupyterLab und läuft in einem Webbrowser.
