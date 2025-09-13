@@ -104,6 +104,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -145,8 +174,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Andere Formate</h2><ul><li><a href="for_loop.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#schritt-1-zerlege-das-bild-in-seine-einzelteile" id="toc-schritt-1-zerlege-das-bild-in-seine-einzelteile" class="nav-link active" data-scroll-target="#schritt-1-zerlege-das-bild-in-seine-einzelteile">Schritt 1: Zerlege das Bild in seine Einzelteile</a></li>
+  <li><a href="#schritt-2-positioniere-die-blütenblätter" id="toc-schritt-2-positioniere-die-blütenblätter" class="nav-link" data-scroll-target="#schritt-2-positioniere-die-blütenblätter">Schritt 2: Positioniere die Blütenblätter</a></li>
+  <li><a href="#schritt-3-zeichnen-aller-erforderlichen-blütenblätter" id="toc-schritt-3-zeichnen-aller-erforderlichen-blütenblätter" class="nav-link" data-scroll-target="#schritt-3-zeichnen-aller-erforderlichen-blütenblätter">Schritt 3: Zeichnen aller erforderlichen Blütenblätter</a></li>
+  <li><a href="#schritt-4-kombiniere-alle-blütenblätter" id="toc-schritt-4-kombiniere-alle-blütenblätter" class="nav-link" data-scroll-target="#schritt-4-kombiniere-alle-blütenblätter">Schritt 4: Kombiniere alle Blütenblätter</a></li>
+  <li><a href="#schritt-5-scheibe-im-zentrum-der-blume" id="toc-schritt-5-scheibe-im-zentrum-der-blume" class="nav-link" data-scroll-target="#schritt-5-scheibe-im-zentrum-der-blume">Schritt 5: Scheibe im Zentrum der Blume</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250915_schlaufen/for_loop.ipynb" target="_blank" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div><div class="quarto-alternate-formats"><h2>Andere Formate</h2><ul><li><a href="for_loop.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -189,14 +228,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Das Ziel ist es, eine Blume wie die abgebildete zu zeichnen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="blume.png" class="img-fluid figure-img"></p>
+<p><img src="blume_komplett.svg" class="img-fluid figure-img"></p>
 <figcaption>Blume</figcaption>
 </figure>
 </div>
-<p>Dafür muss als erstes das Gesamtbild in seine Einzelteile zerlegt werden. Die Blume besteht aus 12 weissen Blütenblättern mit einem rosa Rand, die um einen Mittelpunkt angeordnet sind. Der Mittelpunkt besteht aus einem roten Punkt mit einem Farbverlauf in verschiedenen Rottönen.</p>
-<div id="0c900d4b" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>petal <span class="op">=</span> ellipse(<span class="dv">50</span>, <span class="dv">150</span>, weiss)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>zeige_grafik(petal)  </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Die wichtigsten Funktionen von PyTamaro für diese Aufgabe sind <code>fixiere()</code> und <code>kombiniere()</code>.</p>
+<p>Die Funktion <code>fixiere()</code> legt für eine Grafik einen frei gewählten Ankerpunkt fest. Dazu muss man wissen, dass jede in PyTamaro gezichnete Grafik von einer sogenannten “Bounding Box” umgeben ist. Diese Bounding Box ist ein Rechteck, das die Grafik vollständig umschliesst. Standardmässig liegt der Ankerpunkt einer Grafik in der Mitte der Bounding Box. Mit <code>fixiere()</code> kann man den Ankerpunkt jedoch an eine andere Stelle der Bounding Box verschieben. PyTamaro stellt die folgenden Positionen für Ankerpunkte zur Verfügung:</p>
+<ul>
+<li><code>mitte</code>: Mitte der Bounding Box (Standard)</li>
+<li><code>mitte_links</code>: Mitte der linken Seite der Bounding Box</li>
+<li><code>mitte_rechts</code>: Mitte der rechten Seite der Bounding Box</li>
+<li><code>oben_links</code>: Obere linke Ecke der Bounding Box</li>
+<li><code>oben_mitte</code>: Mitte der oberen Seite der Bounding Box</li>
+<li><code>oben_rechts</code>: Obere rechte Ecke der Bounding Box</li>
+<li><code>unten_links</code>: Untere linke Ecke der Bounding Box</li>
+<li><code>unten_mitte</code>: Mitte der unteren Seite der Bounding Box</li>
+<li><code>unten_rechts</code>: Obere rechte Ecke der Bounding Box</li>
+</ul>
+<p>Der Ankerpunkt wird mit dem Befehl <code>fixiere(position, grafik)</code> gesetzt.</p>
+<p>Der Ankerpunkt ist wichtig für die Funktion <code>drehe()</code>, die eine Grafik um einen bestimmten Winkel dreht. Die Drehung erfolgt immer um den Ankerpunkt.</p>
+<p>Die Funktion <code>kombiniere(vordere Grafik, hintere Grafik)</code> fügt zwei Grafiken zusammen. Die erste gegebene Grafik liegt im Vordergrund und die zweite im Hintergrund. Die Grafiken werden so ausgerichtet, dass ihre Ankerpunkte übereinanderliegen.</p>
+<section id="schritt-1-zerlege-das-bild-in-seine-einzelteile" class="level2">
+<h2 class="anchored" data-anchor-id="schritt-1-zerlege-das-bild-in-seine-einzelteile">Schritt 1: Zerlege das Bild in seine Einzelteile</h2>
+<p>Die Blume besteht im wesentlichen aus zwei Formen:</p>
+<ol type="1">
+<li>Blütenblätter in Form von Ellipsen sowie</li>
+<li>einer Scheibe in der Form eines Kreises in der Mitte.</li>
+</ol>
+<p>Um die Blume zu zeichnen, müssen diese beiden Formen zuerst einzeln erstellt werden.</p>
+<div id="8a8f2e5b" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>bluetenblatt <span class="op">=</span> ellipse(<span class="dv">50</span>, <span class="dv">150</span>, blau)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># die Farbe blau wurde gewhält, damit das Blatt vor dem Hintergrund</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># sichtbar ist</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>zeige_grafik(bluetenblatt)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -205,10 +270,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="a84983ea" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>rim <span class="op">=</span> ellipse(<span class="dv">55</span>, <span class="dv">155</span>, rose)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>rimed_petal <span class="op">=</span> ueberlagere(petal, rim)</span>
-<span id="cb3-3"><a href="#cb3-3"></a>zeige_grafik(rimed_petal)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="eb1cf07b" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>scheibe <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rot)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>zeige_grafik(scheibe)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -217,12 +281,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="51e7ac80" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>fixed_petal <span class="op">=</span> fixiere(unten_mitte, rimed_petal)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="schritt-2-positioniere-die-blütenblätter" class="level2">
+<h2 class="anchored" data-anchor-id="schritt-2-positioniere-die-blütenblätter">Schritt 2: Positioniere die Blütenblätter</h2>
+<p>Die Blütenblätter sind rund um die Mitte der Blume angeordnet. Da es zwölf Blütenblätter sind, beträgt der Winkel zwischen zwei Blütenblättern <span class="math inline">\(\frac{360°}{12} = 30°\)</span>. Die Drehung der Blütenblätter erfolgt um den Ankerpunkt <code>unten_mitte</code> der Blütenblätter.<br>
+Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
+<div id="0e3febf1" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>bluetenblatt_fixiert <span class="op">=</span> fixiere(unten_mitte, bluetenblatt)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>bluetenblatt_30 <span class="op">=</span> drehe(<span class="dv">30</span>, bluetenblatt_fixiert)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>zeige_grafik(bluetenblatt_30)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div id="b3d4ccaa" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>dot <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, gelb)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>zeige_grafik(dot)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="schritt-3-zeichnen-aller-erforderlichen-blütenblätter" class="level2">
+<h2 class="anchored" data-anchor-id="schritt-3-zeichnen-aller-erforderlichen-blütenblätter">Schritt 3: Zeichnen aller erforderlichen Blütenblätter</h2>
+<p>Die Blume hat zwölf Blütenblätter. Diese können von Hand jedes einzelne erstellt werden. Das dritte Blütenblatt ist um 60° gedreht und wird entsprechend mit</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>bluetenblatt_60 <span class="op">=</span> drehe(<span class="dv">60</span>, bluetenblatt_fixiert)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>erstllt. Das kann man für alle zwölf Blütenblätter machen bis man beim zwölften Blütenblatt angekommen ist, das um 330° gedreht ist.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>bluetenblatt_330 <span class="op">=</span> drehe(<span class="dv">330</span>, bluetenblatt_fixiert)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Das ist aber sehr mühsam und fehleranfällig. Viel einfacher ist es, eine Schlaufe (<code>for</code>-loop) zu verwenden, die die Blütenblätter basierend auf der Grundform automatisch erstellt.</p>
+<div id="4c528d26" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    winkel <span class="op">=</span> i <span class="op">*</span> <span class="dv">30</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>    bluetenblatt_gedreht <span class="op">=</span> drehe(winkel, bluetenblatt_fixiert)</span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a>zeige_grafik(bluetenblatt_gedreht)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -231,10 +320,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="48c32236" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>rose <span class="op">=</span> rgb_farbe(<span class="dv">252</span>, <span class="dv">3</span>, <span class="dv">244</span>)</span>
-<span id="cb6-2"><a href="#cb6-2"></a>rose_dot <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rose)</span>
-<span id="cb6-3"><a href="#cb6-3"></a>zeige_grafik(rose_dot)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Diese Schlaufe durchläuft die Zahlen von 0 bis 11 (also 12 Zahlen) und berechnet für jede Zahl den entsprechenden Drehwinkel. Dann wird das Blütenblatt um diesen Winkel gedreht. Allerdings wird das gedrehte Blütenblatt in jeder Iteration der Schlaufe in der gleichen Variable <code>bluetenblatt_gedreht</code> gespeichert. Am Ende der Schlaufe enthält diese Variable nur das letzte gedrehte Blütenblatt (das um 330° gedrehte Blütenblatt).</p>
+</section>
+<section id="schritt-4-kombiniere-alle-blütenblätter" class="level2">
+<h2 class="anchored" data-anchor-id="schritt-4-kombiniere-alle-blütenblätter">Schritt 4: Kombiniere alle Blütenblätter</h2>
+<p>Um das unerwünschte Verhalten zu vermeiden, dass am Ende der Schlaufe nur das letzte gedrehte Blütenblatt in der Variable <code>bluetenblatt_gedreht</code> enthalten ist, müssen die gedrehten Blütenblätter in jeder Iteration der gewünschten Gesamtgrafik hinzugefügt werden. Dazu wird die Funktion <code>kombiniere()</code> verwendet.</p>
+<div id="1e33310c" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>blume <span class="op">=</span> bluetenblatt_fixiert</span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    winkel <span class="op">=</span> i <span class="op">*</span> <span class="dv">30</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>    bluetenblatt_gedreht <span class="op">=</span> drehe(winkel, bluetenblatt_fixiert)</span>
+<span id="cb8-6"><a href="#cb8-6"></a>    blume <span class="op">=</span> kombiniere(blume, bluetenblatt_gedreht)</span>
+<span id="cb8-7"><a href="#cb8-7"></a>    </span>
+<span id="cb8-8"><a href="#cb8-8"></a>zeige_grafik(blume)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -243,32 +342,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="7876e2b2" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>petal_30 <span class="op">=</span> drehe(<span class="dv">30</span>, fixed_petal)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>petal_60 <span class="op">=</span> drehe(<span class="dv">60</span>, fixed_petal)</span>
-<span id="cb7-3"><a href="#cb7-3"></a>petal_90 <span class="op">=</span> drehe(<span class="dv">90</span>, fixed_petal)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>petal_120 <span class="op">=</span> drehe(<span class="dv">120</span>, fixed_petal)</span>
-<span id="cb7-5"><a href="#cb7-5"></a>petal_150 <span class="op">=</span> drehe(<span class="dv">150</span>, fixed_petal)</span>
-<span id="cb7-6"><a href="#cb7-6"></a>petal_180 <span class="op">=</span> drehe(<span class="dv">180</span>, fixed_petal)</span>
-<span id="cb7-7"><a href="#cb7-7"></a>petal_210 <span class="op">=</span> drehe(<span class="dv">210</span>, fixed_petal)</span>
-<span id="cb7-8"><a href="#cb7-8"></a>petal_240 <span class="op">=</span> drehe(<span class="dv">240</span>, fixed_petal)</span>
-<span id="cb7-9"><a href="#cb7-9"></a>petal_270 <span class="op">=</span> drehe(<span class="dv">270</span>, fixed_petal)</span>
-<span id="cb7-10"><a href="#cb7-10"></a>petal_300 <span class="op">=</span> drehe(<span class="dv">300</span>, fixed_petal)</span>
-<span id="cb7-11"><a href="#cb7-11"></a>petal_330 <span class="op">=</span> drehe(<span class="dv">330</span>, fixed_petal)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Damit sind die Blütenblätter in der gewünschten Position und Anzahl zusammengefügt. Damit Sie allerdings aussehen, wie die Blume in der Vorlage, müssen die einzelnen Blütenblätter weiss eingefärbt und mit einem rosa Rand versehen werden.</p>
+<p>Rosa ist keine vordefinierte Farbe in PyTamaro. Sie können jedoch eine beliebige Farbe mit der Funktion <code>rgb_farbe(rot, gruen, blau)</code> erstellen. Dabei sind <code>rot</code>, <code>gruen</code> und <code>blau</code> Zahlenwerte von 0 bis 255, die den Anteil der jeweiligen Farbe an der Gesamtfarbe angeben. Damit nicht alle Kombinationen durchprobiert werden müssen, können Sie mit einem Online-Tool wie <a href="https://www.w3schools.com/colors/colors_rgb.asp">RGB Color Picker</a> die gewünschte Farbe auswählen und die entsprechenden Werte für rot, grün und blau ablesen.</p>
+<div id="cca200f2" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>weisses_blatt <span class="op">=</span> ellipse(<span class="dv">50</span>, <span class="dv">150</span>, weiss)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>rosa_rand <span class="op">=</span> ellipse(<span class="dv">55</span>, <span class="dv">155</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">102</span>))</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a>bluetenblatt_mit_rand <span class="op">=</span> ueberlagere(weisses_blatt, rosa_rand)</span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>zeige_grafik(bluetenblatt_mit_rand)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div id="73ece5f0" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>flower <span class="op">=</span> kombiniere(fixed_petal, petal_30)</span>
-<span id="cb8-2"><a href="#cb8-2"></a>flower <span class="op">=</span> kombiniere(flower, petal_60)</span>
-<span id="cb8-3"><a href="#cb8-3"></a>flower <span class="op">=</span> kombiniere(flower, petal_90)</span>
-<span id="cb8-4"><a href="#cb8-4"></a>flower <span class="op">=</span> kombiniere(flower, petal_120)</span>
-<span id="cb8-5"><a href="#cb8-5"></a>flower <span class="op">=</span> kombiniere(flower, petal_150)</span>
-<span id="cb8-6"><a href="#cb8-6"></a>flower <span class="op">=</span> kombiniere(flower, petal_180)</span>
-<span id="cb8-7"><a href="#cb8-7"></a>flower <span class="op">=</span> kombiniere(flower, petal_210)</span>
-<span id="cb8-8"><a href="#cb8-8"></a>flower <span class="op">=</span> kombiniere(flower, petal_240)</span>
-<span id="cb8-9"><a href="#cb8-9"></a>flower <span class="op">=</span> kombiniere(flower, petal_270)</span>
-<span id="cb8-10"><a href="#cb8-10"></a>flower <span class="op">=</span> kombiniere(flower, petal_300)</span>
-<span id="cb8-11"><a href="#cb8-11"></a>flower <span class="op">=</span> kombiniere(flower, petal_330)</span>
-<span id="cb8-12"><a href="#cb8-12"></a>zeige_grafik(flower)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Anschliessend können die Blütenblätter mit Rand in der vorher geschriebenen Schlaufe zur Gesamtgrafik zusammengefügt werden.</p>
+<div id="e50f8d98" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>bluetenblatt_mit_rand_fixiert <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_mit_rand)</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>blume_weiss <span class="op">=</span> bluetenblatt_mit_rand_fixiert</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
+<span id="cb10-6"><a href="#cb10-6"></a>    winkel <span class="op">=</span> i <span class="op">*</span> <span class="dv">30</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>    bluetenblatt_gedreht <span class="op">=</span> drehe(winkel, bluetenblatt_mit_rand_fixiert)</span>
+<span id="cb10-8"><a href="#cb10-8"></a>    blume_weiss <span class="op">=</span> kombiniere(blume_weiss, bluetenblatt_gedreht)</span>
+<span id="cb10-9"><a href="#cb10-9"></a>    </span>
+<span id="cb10-10"><a href="#cb10-10"></a>zeige_grafik(blume_weiss)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -277,9 +379,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="d36444f5" class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>complete_flower <span class="op">=</span> kombiniere(dot, flower)</span>
-<span id="cb9-2"><a href="#cb9-2"></a>zeige_grafik(complete_flower)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="schritt-5-scheibe-im-zentrum-der-blume" class="level2">
+<h2 class="anchored" data-anchor-id="schritt-5-scheibe-im-zentrum-der-blume">Schritt 5: Scheibe im Zentrum der Blume</h2>
+<p>Bei genauer Betrachtung der Blume fällt auf, dass die Scheibe in der Mitte der Blume nicht einfach einfarbig gelb ist, sondern gegen die Mitte hin einen Farbverlauf aufweist. Diesen Farbverlauf wird erzeugt, indem mehrere Kreise mit kleiner werdendem Radius und abnehmender Farbintensität übereinandergelegt werden.</p>
+<div id="7aee95f8" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>scheibe <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>):</span>
+<span id="cb11-4"><a href="#cb11-4"></a>    tmp <span class="op">=</span> ellipse(<span class="dv">30</span> <span class="op">-</span> <span class="dv">3</span><span class="op">*</span>i, <span class="dv">30</span> <span class="op">-</span> <span class="dv">3</span><span class="op">*</span>i, rgb_farbe(<span class="dv">255</span>, i<span class="op">*</span><span class="dv">26</span>, i<span class="op">*</span><span class="dv">26</span>))</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    scheibe <span class="op">=</span> ueberlagere(tmp, scheibe)</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    </span>
+<span id="cb11-7"><a href="#cb11-7"></a>zeige_grafik(scheibe)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -288,42 +399,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="e3e6acb0" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>flower_automated <span class="op">=</span> fixed_petal</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">30</span>, <span class="dv">360</span>, <span class="dv">30</span>):</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    rotated_petal <span class="op">=</span> drehe(i, fixed_petal)</span>
-<span id="cb10-4"><a href="#cb10-4"></a>    flower_automated <span class="op">=</span> kombiniere(flower_automated, rotated_petal)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="c9cd88b6" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>zeige_grafik(flower_automated)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Zum Schluss wird die Scheibe auf die Blütenblätter gelegt und Blume so vervollständigt.</p>
+<div id="4fa961f4" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>blume_komplett <span class="op">=</span> ueberlagere(scheibe, blume_weiss)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>zeige_grafik(blume_komplett)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="for_loop_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="for_loop_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="b134fbe8" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>dot_1 <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb12-2"><a href="#cb12-2"></a>dot_2 <span class="op">=</span> ellipse(<span class="dv">28</span>, <span class="dv">28</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">26</span>, <span class="dv">26</span>))</span>
-<span id="cb12-3"><a href="#cb12-3"></a>dot_3 <span class="op">=</span> ellipse(<span class="dv">26</span>, <span class="dv">26</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">51</span>, <span class="dv">51</span>))</span>
-<span id="cb12-4"><a href="#cb12-4"></a>dot_4 <span class="op">=</span> ellipse(<span class="dv">24</span>, <span class="dv">24</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">77</span>, <span class="dv">77</span>))</span>
-<span id="cb12-5"><a href="#cb12-5"></a>dot_5 <span class="op">=</span> ellipse(<span class="dv">22</span>, <span class="dv">22</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">102</span>, <span class="dv">102</span>))</span>
-<span id="cb12-6"><a href="#cb12-6"></a>dot_6 <span class="op">=</span> ellipse(<span class="dv">20</span>, <span class="dv">20</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">128</span>, <span class="dv">128</span>))</span>
-<span id="cb12-7"><a href="#cb12-7"></a>dot_7 <span class="op">=</span> ellipse(<span class="dv">18</span>, <span class="dv">18</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">153</span>, <span class="dv">153</span>))</span>
-<span id="cb12-8"><a href="#cb12-8"></a>dot_8 <span class="op">=</span> ellipse(<span class="dv">16</span>, <span class="dv">16</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">179</span>, <span class="dv">179</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="82d7d885" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>speichere_grafik(<span class="st">'blume_komplett.svg'</span>, blume_komplett)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a3b3a4d2" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>middle <span class="op">=</span> ueberlagere(dot_8, dot_7)</span>
-<span id="cb13-2"><a href="#cb13-2"></a>middle <span class="op">=</span> ueberlagere(middle, dot_6)</span>
-<span id="cb13-3"><a href="#cb13-3"></a>middle <span class="op">=</span> ueberlagere(middle, dot_5)</span>
-<span id="cb13-4"><a href="#cb13-4"></a>middle <span class="op">=</span> ueberlagere(middle, dot_4)</span>
-<span id="cb13-5"><a href="#cb13-5"></a>middle <span class="op">=</span> ueberlagere(middle, dot_3)</span>
-<span id="cb13-6"><a href="#cb13-6"></a>middle <span class="op">=</span> ueberlagere(middle, dot_2)</span>
-<span id="cb13-7"><a href="#cb13-7"></a>middle <span class="op">=</span> ueberlagere(middle, dot_1)</span>
-<span id="cb13-8"><a href="#cb13-8"></a></span>
-<span id="cb13-9"><a href="#cb13-9"></a>zeige_grafik(middle)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0c900d4b" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>petal <span class="op">=</span> ellipse(<span class="dv">50</span>, <span class="dv">150</span>, weiss)</span>
+<span id="cb14-2"><a href="#cb14-2"></a>zeige_grafik(petal)  </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="a84983ea" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>rim <span class="op">=</span> ellipse(<span class="dv">55</span>, <span class="dv">155</span>, rose)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>rimed_petal <span class="op">=</span> ueberlagere(petal, rim)</span>
+<span id="cb15-3"><a href="#cb15-3"></a>zeige_grafik(rimed_petal)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -332,25 +437,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="db334397" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>flower_with_middle <span class="op">=</span> ueberlagere(middle, flower_automated)</span>
-<span id="cb14-2"><a href="#cb14-2"></a>zeige_grafik(flower_with_middle)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="for_loop_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+<div id="51e7ac80" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>fixed_petal <span class="op">=</span> fixiere(unten_mitte, rimed_petal)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<div id="65ef311d" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>dot_0 <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>):</span>
-<span id="cb15-4"><a href="#cb15-4"></a>    dot <span class="op">=</span> ellipse(<span class="dv">30</span> <span class="op">-</span> <span class="dv">3</span><span class="op">*</span>i, <span class="dv">30</span> <span class="op">-</span> <span class="dv">3</span><span class="op">*</span>i, rgb_farbe(<span class="dv">255</span>, i<span class="op">*</span><span class="dv">26</span>, i<span class="op">*</span><span class="dv">26</span>))</span>
-<span id="cb15-5"><a href="#cb15-5"></a>    dot_0 <span class="op">=</span> ueberlagere(dot, dot_0)</span>
-<span id="cb15-6"><a href="#cb15-6"></a>    </span>
-<span id="cb15-7"><a href="#cb15-7"></a>zeige_grafik(dot_0)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b3d4ccaa" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>dot <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, gelb)</span>
+<span id="cb17-2"><a href="#cb17-2"></a>zeige_grafik(dot)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -359,10 +451,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="b8badea2" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>result <span class="op">=</span> ueberlagere(dot_0, flower_automated)</span>
-<span id="cb16-2"><a href="#cb16-2"></a>zeige_grafik(result)</span>
-<span id="cb16-3"><a href="#cb16-3"></a>speichere_grafik(<span class="st">'blume.png'</span>, result)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="48c32236" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>rose <span class="op">=</span> rgb_farbe(<span class="dv">252</span>, <span class="dv">3</span>, <span class="dv">244</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>rose_dot <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rose)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>zeige_grafik(rose_dot)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -371,8 +463,137 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div id="7876e2b2" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>petal_30 <span class="op">=</span> drehe(<span class="dv">30</span>, fixed_petal)</span>
+<span id="cb19-2"><a href="#cb19-2"></a>petal_60 <span class="op">=</span> drehe(<span class="dv">60</span>, fixed_petal)</span>
+<span id="cb19-3"><a href="#cb19-3"></a>petal_90 <span class="op">=</span> drehe(<span class="dv">90</span>, fixed_petal)</span>
+<span id="cb19-4"><a href="#cb19-4"></a>petal_120 <span class="op">=</span> drehe(<span class="dv">120</span>, fixed_petal)</span>
+<span id="cb19-5"><a href="#cb19-5"></a>petal_150 <span class="op">=</span> drehe(<span class="dv">150</span>, fixed_petal)</span>
+<span id="cb19-6"><a href="#cb19-6"></a>petal_180 <span class="op">=</span> drehe(<span class="dv">180</span>, fixed_petal)</span>
+<span id="cb19-7"><a href="#cb19-7"></a>petal_210 <span class="op">=</span> drehe(<span class="dv">210</span>, fixed_petal)</span>
+<span id="cb19-8"><a href="#cb19-8"></a>petal_240 <span class="op">=</span> drehe(<span class="dv">240</span>, fixed_petal)</span>
+<span id="cb19-9"><a href="#cb19-9"></a>petal_270 <span class="op">=</span> drehe(<span class="dv">270</span>, fixed_petal)</span>
+<span id="cb19-10"><a href="#cb19-10"></a>petal_300 <span class="op">=</span> drehe(<span class="dv">300</span>, fixed_petal)</span>
+<span id="cb19-11"><a href="#cb19-11"></a>petal_330 <span class="op">=</span> drehe(<span class="dv">330</span>, fixed_petal)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="73ece5f0" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>flower <span class="op">=</span> kombiniere(fixed_petal, petal_30)</span>
+<span id="cb20-2"><a href="#cb20-2"></a>flower <span class="op">=</span> kombiniere(flower, petal_60)</span>
+<span id="cb20-3"><a href="#cb20-3"></a>flower <span class="op">=</span> kombiniere(flower, petal_90)</span>
+<span id="cb20-4"><a href="#cb20-4"></a>flower <span class="op">=</span> kombiniere(flower, petal_120)</span>
+<span id="cb20-5"><a href="#cb20-5"></a>flower <span class="op">=</span> kombiniere(flower, petal_150)</span>
+<span id="cb20-6"><a href="#cb20-6"></a>flower <span class="op">=</span> kombiniere(flower, petal_180)</span>
+<span id="cb20-7"><a href="#cb20-7"></a>flower <span class="op">=</span> kombiniere(flower, petal_210)</span>
+<span id="cb20-8"><a href="#cb20-8"></a>flower <span class="op">=</span> kombiniere(flower, petal_240)</span>
+<span id="cb20-9"><a href="#cb20-9"></a>flower <span class="op">=</span> kombiniere(flower, petal_270)</span>
+<span id="cb20-10"><a href="#cb20-10"></a>flower <span class="op">=</span> kombiniere(flower, petal_300)</span>
+<span id="cb20-11"><a href="#cb20-11"></a>flower <span class="op">=</span> kombiniere(flower, petal_330)</span>
+<span id="cb20-12"><a href="#cb20-12"></a>zeige_grafik(flower)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="d36444f5" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>complete_flower <span class="op">=</span> kombiniere(dot, flower)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>zeige_grafik(complete_flower)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="e3e6acb0" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>flower_automated <span class="op">=</span> fixed_petal</span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">30</span>, <span class="dv">360</span>, <span class="dv">30</span>):</span>
+<span id="cb22-3"><a href="#cb22-3"></a>    rotated_petal <span class="op">=</span> drehe(i, fixed_petal)</span>
+<span id="cb22-4"><a href="#cb22-4"></a>    flower_automated <span class="op">=</span> kombiniere(flower_automated, rotated_petal)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c9cd88b6" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>zeige_grafik(flower_automated)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="b134fbe8" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>dot_1 <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb24-2"><a href="#cb24-2"></a>dot_2 <span class="op">=</span> ellipse(<span class="dv">28</span>, <span class="dv">28</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">26</span>, <span class="dv">26</span>))</span>
+<span id="cb24-3"><a href="#cb24-3"></a>dot_3 <span class="op">=</span> ellipse(<span class="dv">26</span>, <span class="dv">26</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">51</span>, <span class="dv">51</span>))</span>
+<span id="cb24-4"><a href="#cb24-4"></a>dot_4 <span class="op">=</span> ellipse(<span class="dv">24</span>, <span class="dv">24</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">77</span>, <span class="dv">77</span>))</span>
+<span id="cb24-5"><a href="#cb24-5"></a>dot_5 <span class="op">=</span> ellipse(<span class="dv">22</span>, <span class="dv">22</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">102</span>, <span class="dv">102</span>))</span>
+<span id="cb24-6"><a href="#cb24-6"></a>dot_6 <span class="op">=</span> ellipse(<span class="dv">20</span>, <span class="dv">20</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">128</span>, <span class="dv">128</span>))</span>
+<span id="cb24-7"><a href="#cb24-7"></a>dot_7 <span class="op">=</span> ellipse(<span class="dv">18</span>, <span class="dv">18</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">153</span>, <span class="dv">153</span>))</span>
+<span id="cb24-8"><a href="#cb24-8"></a>dot_8 <span class="op">=</span> ellipse(<span class="dv">16</span>, <span class="dv">16</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">179</span>, <span class="dv">179</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a3b3a4d2" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>middle <span class="op">=</span> ueberlagere(dot_8, dot_7)</span>
+<span id="cb25-2"><a href="#cb25-2"></a>middle <span class="op">=</span> ueberlagere(middle, dot_6)</span>
+<span id="cb25-3"><a href="#cb25-3"></a>middle <span class="op">=</span> ueberlagere(middle, dot_5)</span>
+<span id="cb25-4"><a href="#cb25-4"></a>middle <span class="op">=</span> ueberlagere(middle, dot_4)</span>
+<span id="cb25-5"><a href="#cb25-5"></a>middle <span class="op">=</span> ueberlagere(middle, dot_3)</span>
+<span id="cb25-6"><a href="#cb25-6"></a>middle <span class="op">=</span> ueberlagere(middle, dot_2)</span>
+<span id="cb25-7"><a href="#cb25-7"></a>middle <span class="op">=</span> ueberlagere(middle, dot_1)</span>
+<span id="cb25-8"><a href="#cb25-8"></a></span>
+<span id="cb25-9"><a href="#cb25-9"></a>zeige_grafik(middle)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="db334397" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>flower_with_middle <span class="op">=</span> ueberlagere(middle, flower_automated)</span>
+<span id="cb26-2"><a href="#cb26-2"></a>zeige_grafik(flower_with_middle)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="65ef311d" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>dot_0 <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>):</span>
+<span id="cb27-4"><a href="#cb27-4"></a>    dot <span class="op">=</span> ellipse(<span class="dv">30</span> <span class="op">-</span> <span class="dv">3</span><span class="op">*</span>i, <span class="dv">30</span> <span class="op">-</span> <span class="dv">3</span><span class="op">*</span>i, rgb_farbe(<span class="dv">255</span>, i<span class="op">*</span><span class="dv">26</span>, i<span class="op">*</span><span class="dv">26</span>))</span>
+<span id="cb27-5"><a href="#cb27-5"></a>    dot_0 <span class="op">=</span> ueberlagere(dot, dot_0)</span>
+<span id="cb27-6"><a href="#cb27-6"></a>    </span>
+<span id="cb27-7"><a href="#cb27-7"></a>zeige_grafik(dot_0)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="b8badea2" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>result <span class="op">=</span> ueberlagere(dot_0, flower_automated)</span>
+<span id="cb28-2"><a href="#cb28-2"></a>zeige_grafik(result)</span>
+<span id="cb28-3"><a href="#cb28-3"></a>speichere_grafik(<span class="st">'blume.png'</span>, result)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -779,4 +1000,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250915_schlaufen/for_loop.ipynb" target="_blank" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250915_schlaufen/for_loop.ipynb" target="_blank" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
