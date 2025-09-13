@@ -7,6 +7,8 @@ listing:
     - "lektionen_hs25/**/*.qmd"
     - "lektionen_hs25/**/*.md"
   type: table
-  sort: date
+  sort: 
+    - "date"
+    - "title"
 ---
 
