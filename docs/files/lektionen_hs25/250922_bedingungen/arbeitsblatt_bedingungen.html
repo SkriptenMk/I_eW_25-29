@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jacques Mock Schindler">
 
-<title>Unterlagen für das Herbstsemester 2025/2026 – Unterlagen für den Informatikunterricht 1eW (Schuljahr 2025/2026)</title>
+<title>2 Arbeitsblatt zu Bedingungen in Python – Unterlagen für den Informatikunterricht 1eW (Schuljahr 2025/2026)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +21,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,67 +103,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -139,7 +115,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Unterlagen für den Informatikunterricht 1eW (Schuljahr 2025/2026)</span>
     </a>
   </div>
@@ -150,11 +126,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../files/HS_25.html" aria-current="page"> 
+    <a class="nav-link" href="../../../files/HS_25.html"> 
 <span class="menu-text">Herbstsemester 2025/2026</span></a>
   </li>  
 </ul>
@@ -168,22 +144,34 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <div class="quarto-alternate-formats"><h2>Andere Formate</h2><ul><li><a href="arbeitsblatt_bedingungen.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Unterlagen für das Herbstsemester 2025/2026</h1>
+<h1 class="title">2 Arbeitsblatt zu Bedingungen in Python</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jacques Mock Schindler </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22.09.2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -193,190 +181,32 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Sortieren nach" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Sortieren nach</option>
-      <option value="index" data-direction="asc">Voreinstellung</option>
-      <option value="listing-date-sort" data-direction="asc">
-        Datum - Datum (aufsteigend)
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Datum - Neueste
-      </option>
-      <option value="listing-title-sort" data-direction="asc">
-        Titel
-      </option>
-      <option value="listing-author" data-direction="asc">
-        Autor:in
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<p>Zeichnen Sie die folgende Blume.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="dreifachblume.svg" class="img-fluid figure-img"></p>
+<figcaption>Blumenvorlage</figcaption>
+</figure>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<p>Die erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.</p>
+<div id="62a471cf" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>lavender <span class="op">=</span> rgb_farbe(<span class="dv">230</span>, <span class="dv">230</span>, <span class="dv">250</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>mediumpurple <span class="op">=</span> rgb_farbe(<span class="dv">147</span>, <span class="dv">112</span>, <span class="dv">219</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>darkorchid <span class="op">=</span> rgb_farbe(<span class="dv">153</span>, <span class="dv">50</span>, <span class="dv">204</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>indigo <span class="op">=</span> rgb_farbe(<span class="dv">75</span>, <span class="dv">0</span>, <span class="dv">130</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="87fec7fe" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Hier ist Platz für Ihre Blume</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># dies die Zahlen 1, 2 oder 3 sein.</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Datum</a>
-</th>
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Titel</a>
-</th>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Autor:in</a>
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-date-sort="1751061600000" data-listing-file-modified-sort="1751118245555" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="634" data-listing-title-sort="Speicherorganisation" data-listing-filename-sort="speicherorganisation.qmd">
-<td>
-<span class="listing-date">28.06.2025</span>
-</td>
-<td>
-<a href="../files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="title listing-title">Speicherorganisation</a>
-</td>
-<td>
-<span class="listing-author">Jacques Mock Schindler</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-date-sort="1756072800000" data-listing-file-modified-sort="1756136773607" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4167" data-listing-title-sort="Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)" data-listing-filename-sort="setup.qmd">
-<td>
-<span class="listing-date">25.08.2025</span>
-</td>
-<td>
-<a href="../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="title listing-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</a>
-</td>
-<td>
-<span class="listing-author">Jacques Mock Schindler</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-listing-date-sort="1756677600000" data-listing-file-modified-sort="1755874899384" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="579" data-listing-title-sort="Problemlösung in der Informatik" data-listing-filename-sort="probleme.ipynb">
-<td>
-<span class="listing-date">01.09.2025</span>
-</td>
-<td>
-<a href="../files/lektionen_hs25/250901_probleme/probleme.html" class="title listing-title">Problemlösung in der Informatik</a>
-</td>
-<td>
-<span class="listing-author">Jacques Mock Schindler</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-listing-date-sort="1757196000000" data-listing-file-modified-sort="1757056652643" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="579" data-listing-title-sort="Problemlösung in der Informatik (Musterlösung)" data-listing-filename-sort="musterloesung.ipynb">
-<td>
-<span class="listing-date">07.09.2025</span>
-</td>
-<td>
-<a href="../files/lektionen_hs25/250901_musterloesung/musterloesung.html" class="title listing-title">Problemlösung in der Informatik (Musterlösung)</a>
-</td>
-<td>
-<span class="listing-author">Jacques Mock Schindler</span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-date-sort="1757282400000" data-listing-file-modified-sort="1757933580285" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1469" data-listing-title-sort="Variablen in Python" data-listing-filename-sort="Variablen.ipynb">
-<td>
-<span class="listing-date">08.09.2025</span>
-</td>
-<td>
-<a href="../files/lektionen_hs25/250908_variablen/Variablen.html" class="title listing-title">Variablen in Python</a>
-</td>
-<td>
-<span class="listing-author">Jacques Mock Schindler</span>
-</td>
-
-</tr>
-
-<tr data-index="5" data-listing-date-sort="1757800800000" data-listing-file-modified-sort="1757934689992" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1469" data-listing-title-sort="Variablen in Python (Musterlösung)" data-listing-filename-sort="Variablen.ipynb">
-<td>
-<span class="listing-date">14.09.2025</span>
-</td>
-<td>
-<a href="../files/lektionen_hs25/250914_muloe_variabeln/Variablen.html" class="title listing-title">Variablen in Python (Musterlösung)</a>
-</td>
-<td>
-<span class="listing-author">Jacques Mock Schindler</span>
-</td>
-
-</tr>
-
-<tr data-index="6" data-listing-date-sort="1757887200000" data-listing-file-modified-sort="1757756715811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="158" data-listing-title-sort="1 Wiederholungen in Python (For-Loops)" data-listing-filename-sort="main.md">
-<td>
-<span class="listing-date">15.09.2025</span>
-</td>
-<td>
-<a href="../files/lektionen_hs25/250915_schlaufen/main.html" class="title listing-title">1 Wiederholungen in Python (For-Loops)</a>
-</td>
-<td>
-<span class="listing-author">Jacques Mock Schindler</span>
-</td>
-
-</tr>
-
-<tr data-index="7" data-listing-date-sort="1757887200000" data-listing-file-modified-sort="1757932862101" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="645" data-listing-title-sort="2 Wiederholungen in Python (Übung)" data-listing-filename-sort="for_loop.ipynb">
-<td>
-<span class="listing-date">15.09.2025</span>
-</td>
-<td>
-<a href="../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="title listing-title">2 Wiederholungen in Python (Übung)</a>
-</td>
-<td>
-<span class="listing-author">Jacques Mock Schindler</span>
-</td>
-
-</tr>
-
-<tr data-index="8" data-listing-date-sort="1758492000000" data-listing-file-modified-sort="1758380956383" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="357" data-listing-title-sort="1 Programmverzweigungen (Bedingungen)" data-listing-filename-sort="bedingungen.ipynb">
-<td>
-<span class="listing-date">22.09.2025</span>
-</td>
-<td>
-<a href="../files/lektionen_hs25/250922_bedingungen/bedingungen.html" class="title listing-title">1 Programmverzweigungen (Bedingungen)</a>
-</td>
-<td>
-<span class="listing-author">Jacques Mock Schindler</span>
-</td>
-
-</tr>
-
-<tr data-index="9" data-listing-date-sort="1758492000000" data-listing-file-modified-sort="1758381269808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="15" data-listing-title-sort="2 Arbeitsblatt zu Bedingungen in Python" data-listing-filename-sort="arbeitsblatt_bedingungen.ipynb">
-<td>
-<span class="listing-date">22.09.2025</span>
-</td>
-<td>
-<a href="../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="title listing-title">2 Arbeitsblatt zu Bedingungen in Python</a>
-</td>
-<td>
-<span class="listing-author">Jacques Mock Schindler</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">Keine Treffer</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -781,4 +611,4 @@ window.Quarto = {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/HS_25.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.ipynb" target="_blank" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>

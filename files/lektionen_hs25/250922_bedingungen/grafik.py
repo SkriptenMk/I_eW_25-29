@@ -49,16 +49,16 @@ bluetenblatt_m_fix = fixiere(unten_mitte, bluetenblatt_m)
 bluetenblatt_l_fix = fixiere(unten_mitte, bluetenblatt_l)
 bluetenblatt_d_fix = fixiere(unten_mitte, bluetenblatt_d)
 blume3 = scheibe_i
-for i in range(24):
-    bm_temp = drehe(i * 15, bluetenblatt_m_fix)
-    bl_temp = drehe(i * 15, bluetenblatt_l_fix)
-    bd_temp = drehe(i * 15, bluetenblatt_d_fix)
+for i in range(24):  
     
     if i % 4 == 0:
+        bl_temp = drehe(i * 15, bluetenblatt_l_fix)
         blume3 = kombiniere(blume3, bl_temp)
     elif i % 4 == 2:
+        bd_temp = drehe(i * 15, bluetenblatt_d_fix)
         blume3 = kombiniere(blume3, bd_temp)
     else:
+        bm_temp = drehe(i * 15, bluetenblatt_m_fix)
         blume3 = kombiniere(blume3, bm_temp)
         
 zeige_grafik(blume3)
