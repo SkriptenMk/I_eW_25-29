@@ -1,19 +1,29 @@
 project:
-  type: website
+  type: book
   output-dir: docs
-  
-website:
-  title: "Unterlagen für den Informatikunterricht 1eW (Schuljahr 2025/2026)"
-  repo-url: https://github.com/SkriptenMk/I_eW_25-29
-  repo-actions: [source, issue]
-  repo-link-target: _blank
-  navbar:
-    right:
-      - text: Home
-        href: index.qmd
-      - text: Herbstsemester 2025/2026
-        href: files/HS_25.qmd
 
+book:
+  title: "Unterlagen für das obligatorische Fach Informatik"
+  author: "Jacques Mock Schindler"
+  date: 2025-10-01
+  date-format: DD.MM.YYYY
+  chapters:
+  
+
+  downloads: [pdf]
+  navbar: 
+    right: 
+      - icon: github
+        href: "https://github.com/SkriptenMk/I_eW_25-29/files"
+        aria-label: GitHub
+        target: "_blank"
+      - icon: bug
+        href: "https://github.com/SkriptenMk/I_eW_25-29/issues"
+        aria-label: "Fehler melden"
+        target: "_blank"
+    search: true
+
+bibliography: references.bib
 lang: de
 
 format:
@@ -21,22 +31,15 @@ format:
     theme:
       - cosmo
       - brand
-    css: styles.css
+    code-download: true
     toc: true
+    css: style.css
     code-line-numbers: true
   pdf:
-    pdf-engine: xelatex
-    pdf-engine-opts:
-      - -shell-escape
-    mainfont: Arial
-    fontsize: 11pt
-    documentclass: scrartcl
-    classoption: a4paper
-    toc: false   
-    code-line-numbers: true 
-    listings-package:
-      columns: fullflexible
-      break-at-whitespace: true
+    documentclass: scrreprt
+    code-line-numbers: true
+    columns: fullflexible
+    break-at-whitespace: true
 
 
 
