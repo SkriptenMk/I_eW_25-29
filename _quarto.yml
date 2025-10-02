@@ -8,6 +8,11 @@ book:
   date: 2025-10-01
   date-format: DD.MM.YYYY
   chapters:
+    - index.qmd
+    - part: "Anleitungen"
+      chapters:
+        - files/lektionen_hs25/250628_speicher/speicherorganisation.qmd
+        - files/lektionen_hs25/250702_systemeinrichtung/setup.qmd
   
 
   downloads: [pdf]
