@@ -363,7 +363,29 @@
     "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html",
     "title": "8  Arbeitsblatt zu Bedingungen in Python",
     "section": "",
-    "text": "8.1 Musterlösung\nZeichnen Sie die folgende Blume.\nDie erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.\nbluetenblatt_l = ellipse(30, 150, lavender)\nbluetenblatt_m = ellipse(30, 150, mediumpurple)\nbluetenblatt_d = ellipse(30, 150, darkorchid)\nscheibe_i = ellipse(25, 25, indigo)\nbluetenblatt_m_fix = fixiere(unten_mitte, bluetenblatt_m)\nbluetenblatt_l_fix = fixiere(unten_mitte, bluetenblatt_l)\nbluetenblatt_d_fix = fixiere(unten_mitte, bluetenblatt_d)\nblume3 = scheibe_i\nfor i in range(24):  \n    \n    if i % 4 == 0:\n        bl_temp = drehe(i * 15, bluetenblatt_l_fix)\n        blume3 = kombiniere(blume3, bl_temp)\n    elif i % 4 == 2:\n        bd_temp = drehe(i * 15, bluetenblatt_d_fix)\n        blume3 = kombiniere(blume3, bd_temp)\n    else:\n        bm_temp = drehe(i * 15, bluetenblatt_m_fix)\n        blume3 = kombiniere(blume3, bm_temp)\n        \nzeige_grafik(blume3)",
+    "text": "8.1 Aufgabenstellung\nZeichnen Sie die folgende Blume.\nDie erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.\nfrom pytamaro.de import *\n\nlavender = rgb_farbe(230, 230, 250)\nmediumpurple = rgb_farbe(147, 112, 219)\ndarkorchid = rgb_farbe(153, 50, 204)\nindigo = rgb_farbe(75, 0, 130)\n# Hier ist Platz für Ihre Blume\n# Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht\n# werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können\n# dies die Zahlen 1, 2 oder 3 sein.",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#aufgabenstellung",
+    "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#aufgabenstellung",
+    "title": "8  Arbeitsblatt zu Bedingungen in Python",
+    "section": "",
+    "text": "Blumenvorlage",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#musterlösung",
+    "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#musterlösung",
+    "title": "8  Arbeitsblatt zu Bedingungen in Python",
+    "section": "8.2 Musterlösung",
+    "text": "8.2 Musterlösung\n\nbluetenblatt_l = ellipse(30, 150, lavender)\nbluetenblatt_m = ellipse(30, 150, mediumpurple)\nbluetenblatt_d = ellipse(30, 150, darkorchid)\nscheibe_i = ellipse(25, 25, indigo)\n\n\nbluetenblatt_m_fix = fixiere(unten_mitte, bluetenblatt_m)\nbluetenblatt_l_fix = fixiere(unten_mitte, bluetenblatt_l)\nbluetenblatt_d_fix = fixiere(unten_mitte, bluetenblatt_d)\n\n\nblume3 = scheibe_i\nfor i in range(24):  \n    \n    if i % 4 == 0:\n        bl_temp = drehe(i * 15, bluetenblatt_l_fix)\n        blume3 = kombiniere(blume3, bl_temp)\n    elif i % 4 == 2:\n        bd_temp = drehe(i * 15, bluetenblatt_d_fix)\n        blume3 = kombiniere(blume3, bd_temp)\n    else:\n        bm_temp = drehe(i * 15, bluetenblatt_m_fix)\n        blume3 = kombiniere(blume3, bm_temp)\n        \nzeige_grafik(blume3)",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
