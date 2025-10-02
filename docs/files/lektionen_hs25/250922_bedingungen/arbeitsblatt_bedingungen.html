@@ -241,8 +241,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#musterlösung" id="toc-musterlösung" class="nav-link active" data-scroll-target="#musterlösung"><span class="header-section-number">8.1</span> Musterlösung</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -300,8 +306,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co"># werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="co"># dies die Zahlen 1, 2 oder 3 sein.</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="musterlösung" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="musterlösung"><span class="header-section-number">8.1</span> Musterlösung</h2>
+<div id="6e812f87" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>bluetenblatt_l <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, lavender)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>bluetenblatt_m <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, mediumpurple)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>bluetenblatt_d <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, darkorchid)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>scheibe_i <span class="op">=</span> ellipse(<span class="dv">25</span>, <span class="dv">25</span>, indigo)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="6d3de9e9" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>bluetenblatt_m_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_m)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>bluetenblatt_l_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_l)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>bluetenblatt_d_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_d)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="32e98f30" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>blume3 <span class="op">=</span> scheibe_i</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">24</span>):  </span>
+<span id="cb5-3"><a href="#cb5-3"></a>    </span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-5"><a href="#cb5-5"></a>        bl_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_l_fix)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bl_temp)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="cf">elif</span> i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb5-8"><a href="#cb5-8"></a>        bd_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_d_fix)</span>
+<span id="cb5-9"><a href="#cb5-9"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bd_temp)</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-11"><a href="#cb5-11"></a>        bm_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_m_fix)</span>
+<span id="cb5-12"><a href="#cb5-12"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bm_temp)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>        </span>
+<span id="cb5-14"><a href="#cb5-14"></a>zeige_grafik(blume3)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
