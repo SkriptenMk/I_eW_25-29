@@ -1,5 +1,5 @@
 ---
-title: "1 Wiederholungen in Python (For-Loops)"
+title: "Wiederholungen in Python (For-Loops)"
 author: Jacques Mock Schindler
 date: 2025-09-15
 date-format: DD.MM.YYYY
