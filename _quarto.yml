@@ -5,7 +5,7 @@ project:
 book:
   title: "Unterlagen für das obligatorische Fach Informatik"
   author: "Jacques Mock Schindler"
-  date: 2025-10-01
+  date: 2025-10-02
   date-format: DD.MM.YYYY
   chapters:
     - index.qmd
@@ -41,9 +41,21 @@ format:
     css: style.css
     code-line-numbers: true
   pdf:
+    # Alle PDF-Einstellungen sind jetzt hier zentralisiert
     documentclass: scrreprt
+    papersize: letter
+    classoption: 
+      - "DIV=11"
+    number-sections: true
+    toc: true
+    top-level-division: chapter
+    pdf-engine: xelatex
+    crossref:
+      chapters: true
+    header-includes:
+      - "\\KOMAoption{captions}{tableheading}"
+    block-headings: true
     code-line-numbers: true
-    columns: fullflexible
     break-at-whitespace: true
 
 

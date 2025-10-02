@@ -1,9 +1,4 @@
----
-title: "Speicherorganisation"
-date: 2025-06-28
-date-format: DD.MM.YYYY
-author: "Jacques Mock Schindler"
----
+# Speicherorganisation
 
 Informationen sind in Computern in Dateien gespeichert. Die
 gespeicherten Informationen können dabei ganz unterschiedlicher Art, wie

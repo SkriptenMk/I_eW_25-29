@@ -1,6 +1,4 @@
----
-title: "Willkommen"
----
+# Willkommen
 
 Hier finden Sie die Informationen für den Informatikunterricht.
 
