@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jacques Mock Schindler">
 
-<title>2&nbsp; Arbeitsumgebung (Arbeiten mit Jupyter Notebooks) – Unterlagen für das obligatorische Fach Informatik</title>
+<title>6&nbsp; 2 Wiederholungen in Python (Übung) – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../files/lektionen_hs25/250901_probleme/probleme.html" rel="next">
-<link href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" rel="prev">
+<link href="../../../files/lektionen_hs25/250922_bedingungen/bedingungen.html" rel="next">
+<link href="../../../files/lektionen_hs25/250915_schlaufen/main.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -178,7 +178,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html">Anleitungen</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">2 Wiederholungen in Python (Übung)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -213,7 +213,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></span></a>
   </div>
 </li>
@@ -248,7 +248,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">2 Wiederholungen in Python (Übung)</span></span></a>
   </div>
 </li>
@@ -276,21 +276,20 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#ausgangslage" id="toc-ausgangslage" class="nav-link active" data-scroll-target="#ausgangslage"><span class="header-section-number">2.1</span> Ausgangslage</a></li>
-  <li><a href="#installation-von-python" id="toc-installation-von-python" class="nav-link" data-scroll-target="#installation-von-python"><span class="header-section-number">2.2</span> Installation von Python</a></li>
-  <li><a href="#hello-world" id="toc-hello-world" class="nav-link" data-scroll-target="#hello-world"><span class="header-section-number">2.3</span> Hello World</a></li>
-  <li><a href="#arbeitsumgebung" id="toc-arbeitsumgebung" class="nav-link" data-scroll-target="#arbeitsumgebung"><span class="header-section-number">2.4</span> Arbeitsumgebung</a></li>
-  <li><a href="#öffnen-bestehender-jupyter-notebooks" id="toc-öffnen-bestehender-jupyter-notebooks" class="nav-link" data-scroll-target="#öffnen-bestehender-jupyter-notebooks"><span class="header-section-number">2.5</span> Öffnen bestehender Jupyter Notebooks</a></li>
-  <li><a href="#häufige-fehlermeldungen" id="toc-häufige-fehlermeldungen" class="nav-link" data-scroll-target="#häufige-fehlermeldungen"><span class="header-section-number">2.6</span> Häufige Fehlermeldungen</a></li>
+  <li><a href="#schritt-1-zerlege-das-bild-in-seine-einzelteile" id="toc-schritt-1-zerlege-das-bild-in-seine-einzelteile" class="nav-link active" data-scroll-target="#schritt-1-zerlege-das-bild-in-seine-einzelteile"><span class="header-section-number">6.1</span> Schritt 1: Zerlege das Bild in seine Einzelteile</a></li>
+  <li><a href="#schritt-2-positioniere-die-blütenblätter" id="toc-schritt-2-positioniere-die-blütenblätter" class="nav-link" data-scroll-target="#schritt-2-positioniere-die-blütenblätter"><span class="header-section-number">6.2</span> Schritt 2: Positioniere die Blütenblätter</a></li>
+  <li><a href="#schritt-3-zeichnen-aller-erforderlichen-blütenblätter" id="toc-schritt-3-zeichnen-aller-erforderlichen-blütenblätter" class="nav-link" data-scroll-target="#schritt-3-zeichnen-aller-erforderlichen-blütenblätter"><span class="header-section-number">6.3</span> Schritt 3: Zeichnen aller erforderlichen Blütenblätter</a></li>
+  <li><a href="#schritt-4-kombiniere-alle-blütenblätter" id="toc-schritt-4-kombiniere-alle-blütenblätter" class="nav-link" data-scroll-target="#schritt-4-kombiniere-alle-blütenblätter"><span class="header-section-number">6.4</span> Schritt 4: Kombiniere alle Blütenblätter</a></li>
+  <li><a href="#schritt-5-scheibe-im-zentrum-der-blume" id="toc-schritt-5-scheibe-im-zentrum-der-blume" class="nav-link" data-scroll-target="#schritt-5-scheibe-im-zentrum-der-blume"><span class="header-section-number">6.5</span> Schritt 5: Scheibe im Zentrum der Blume</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html">Anleitungen</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">2 Wiederholungen in Python (Übung)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">2 Wiederholungen in Python (Übung)</span></h1>
 </div>
 
 
@@ -307,7 +306,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">25.08.2025</p>
+      <p class="date">15.09.2025</p>
     </div>
   </div>
   
@@ -319,243 +318,197 @@ window.Quarto = {
 </header>
 
 
-<section id="ausgangslage" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="ausgangslage"><span class="header-section-number">2.1</span> Ausgangslage</h2>
-<p>In der Informatik geht es darum, wie Informationsverarbeitung mit Hilfe von Computern automatisiert werden kann.<br>
-Die Automatisierung der Informationsverarbeitung erfordert die Verwendung von Programmiersprachen. Im Informatikunterricht wird in erster Linie mit der Programmiersprache Python gearbeitet.<br>
-Im folgenden findet sich eine Anleitung für die Installation der für den Unterricht erforderlichen Programme.</p>
-</section>
-<section id="installation-von-python" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="installation-von-python"><span class="header-section-number">2.2</span> Installation von Python</h2>
-<p>Dieser Abschnitt führt Sie Schritt für Schritt durch die Installation von Python auf einem Windows-Rechner.</p>
-<div class="callout callout-style-default callout-warning callout-titled" title="Microsoft Store Falle">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>In diesem Arbeitsblatt bauen Sie eine Blume mit Python for-loops und PyTamaro.</p>
+<p>In der folgenden Zelle werden zuerst <a href="https://pytamaro.readthedocs.io/en/stable/German/index.html">alle von PyTamaro zur Verfügung gestellten Funktionen</a> importiert.</p>
+<div id="80b7b99a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-title-container flex-fill">
-Microsoft Store Falle
+<p>Das Ziel ist es, eine Blume wie die abgebildete zu zeichnen.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="blume_komplett.svg" class="img-fluid figure-img"></p>
+<figcaption>Blume</figcaption>
+</figure>
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Achten Sie beim Herunterladen von Python darauf, dass Sie sich auf der offiziellen Seite von Python (https://www.python.org) und <strong>nicht</strong> im Microsoft Store befinden. Wenn Sie versehentlich die Python Version aus dem Microsoft Store installiert haben, kann das bei der Arbeit an den Schulprojekten zu Problemen führen.</p>
-<p>Deinstallieren Sie die Microsoft Version von Python und installieren Sie die Version von der offiziellen Website.</p>
-</div>
-</div>
+<p>Die wichtigsten Funktionen von PyTamaro für diese Aufgabe sind <code>fixiere()</code> und <code>kombiniere()</code>.</p>
+<p>Die Funktion <code>fixiere()</code> legt für eine Grafik einen frei gewählten Ankerpunkt fest. Dazu muss man wissen, dass jede in PyTamaro gezichnete Grafik von einer sogenannten “Bounding Box” umgeben ist. Diese Bounding Box ist ein Rechteck, das die Grafik vollständig umschliesst. Standardmässig liegt der Ankerpunkt einer Grafik in der Mitte der Bounding Box. Mit <code>fixiere()</code> kann man den Ankerpunkt jedoch an eine andere Stelle der Bounding Box verschieben. PyTamaro stellt die folgenden Positionen für Ankerpunkte zur Verfügung:</p>
+<ul>
+<li><code>mitte</code>: Mitte der Bounding Box (Standard)</li>
+<li><code>mitte_links</code>: Mitte der linken Seite der Bounding Box</li>
+<li><code>mitte_rechts</code>: Mitte der rechten Seite der Bounding Box</li>
+<li><code>oben_links</code>: Obere linke Ecke der Bounding Box</li>
+<li><code>oben_mitte</code>: Mitte der oberen Seite der Bounding Box</li>
+<li><code>oben_rechts</code>: Obere rechte Ecke der Bounding Box</li>
+<li><code>unten_links</code>: Untere linke Ecke der Bounding Box</li>
+<li><code>unten_mitte</code>: Mitte der unteren Seite der Bounding Box</li>
+<li><code>unten_rechts</code>: Obere rechte Ecke der Bounding Box</li>
+</ul>
+<p>Der Ankerpunkt wird mit dem Befehl <code>fixiere(position, grafik)</code> gesetzt.</p>
+<p>Der Ankerpunkt ist wichtig für die Funktion <code>drehe()</code>, die eine Grafik um einen bestimmten Winkel dreht. Die Drehung erfolgt immer um den Ankerpunkt.</p>
+<p>Die Funktion <code>kombiniere(vordere Grafik, hintere Grafik)</code> fügt zwei Grafiken zusammen. Die erste gegebene Grafik liegt im Vordergrund und die zweite im Hintergrund. Die Grafiken werden so ausgerichtet, dass ihre Ankerpunkte übereinanderliegen.</p>
+<section id="schritt-1-zerlege-das-bild-in-seine-einzelteile" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="schritt-1-zerlege-das-bild-in-seine-einzelteile"><span class="header-section-number">6.1</span> Schritt 1: Zerlege das Bild in seine Einzelteile</h2>
+<p>Die Blume besteht im wesentlichen aus zwei Formen:</p>
 <ol type="1">
-<li><p>Laden Sie die neueste Version von Python von der offiziellen Website herunter: <a href="https://www.python.org/downloads/" target="blank">python.org</a>.</p></li>
-<li><p>Führen Sie das heruntergeladene Installationsprogramm durch Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die Option “Add Python to PATH” aktivieren, bevor Sie auf “Install Now” klicken.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Die 'PATH'-Umgebungsvariable">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Die ‘PATH’-Umgebungsvariable
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Stellen Sie sich die PATH-Variable wie ein Adressbuch für die Kommandozeile (Terminal) vor. Wenn Sie einen Befehl wie <code>python</code> eingeben, schaut der Computer in diesem Adressbuch nach, wo das entsprechende Programm zu finden ist.</p>
-<p>Indem Sie das Häkchen bei “Add Python to PATH” setzen, fügen Sie die Adresse des Python-Interpreters zu diesem Adressbuch hinzu. Ohne diesen Eintrag weiss der Computer nicht, wo er suchen soll, und meldet, dass er den Befehl nicht kennt.</p>
-</div>
-</div></li>
-<li><p>Überprüfen Sie die Installation, indem Sie die Eingabeaufforderung öffnen (Terminal <span class="math inline">\(\rightarrow\)</span> Windows-Taste + R, dann <code>cmd</code> eingeben) und den Befehl <code>python --version</code> eingeben. Dies sollte die installierte Python-Version anzeigen.</p></li>
+<li>Blütenblätter in Form von Ellipsen sowie</li>
+<li>einer Scheibe in der Form eines Kreises in der Mitte.</li>
 </ol>
+<p>Um die Blume zu zeichnen, müssen diese beiden Formen zuerst einzeln erstellt werden.</p>
+<div id="8a8f2e5b" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>bluetenblatt <span class="op">=</span> ellipse(<span class="dv">50</span>, <span class="dv">150</span>, blau)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># die Farbe blau wurde gewhält, damit das Blatt vor dem Hintergrund</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># sichtbar ist</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>zeige_grafik(bluetenblatt)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="eb1cf07b" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>scheibe <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rot)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>zeige_grafik(scheibe)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="hello-world" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="hello-world"><span class="header-section-number">2.3</span> Hello World</h2>
-<p>Es hat sich eingebürgert, dass das erste Programm, das ausgeführt wird, ein Programm ist, das den Text “Hello World” auf dem Bildschirm ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte aus:</p>
-<ol type="1">
-<li><p>Öffnen Sie ein Terminal (Windows-Taste + R, dann <code>cmd</code> eingeben).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Das Terminal">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Das Terminal
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Unter dem Begriff “Terminal” versteht man ein Programm, das eine textbasierte Benutzeroberfläche bereitstellt, um mit dem Betriebssystem zu interagieren. In einem Terminal können Sie Befehle eingeben und erhalten die Ausgaben direkt im Fenster.</p>
-</div>
-</div></li>
-<li><p>Geben Sie den Befehl <code>python</code> ein, um die Python-Shell zu starten. Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.</p>
-<div class="quarto-figure quarto-figure-center">
+<section id="schritt-2-positioniere-die-blütenblätter" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="schritt-2-positioniere-die-blütenblätter"><span class="header-section-number">6.2</span> Schritt 2: Positioniere die Blütenblätter</h2>
+<p>Die Blütenblätter sind rund um die Mitte der Blume angeordnet. Da es zwölf Blütenblätter sind, beträgt der Winkel zwischen zwei Blütenblättern <span class="math inline">\(\frac{360°}{12} = 30°\)</span>. Die Drehung der Blütenblätter erfolgt um den Ankerpunkt <code>unten_mitte</code> der Blütenblätter.<br>
+Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
+<div id="0e3febf1" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>bluetenblatt_fixiert <span class="op">=</span> fixiere(unten_mitte, bluetenblatt)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>bluetenblatt_30 <span class="op">=</span> drehe(<span class="dv">30</span>, bluetenblatt_fixiert)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>zeige_grafik(bluetenblatt_30)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="python_shell.png" class="img-fluid figure-img"></p>
-<figcaption>Python Shell</figcaption>
+<p><img src="for_loop_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
 </figure>
-</div></li>
-<li><p>Geben Sie den folgenden Befehl ein und drücken Sie anschliessend die Eingabetaste:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Das Resultat sollte wie das folgende Bild aussehen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hello_world.png" class="img-fluid figure-img"></p>
-<figcaption>Python Shell</figcaption>
-</figure>
-</div></li>
-</ol>
-<p>Gratuliere - Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!</p>
+</div>
+</div>
+</div>
 </section>
-<section id="arbeitsumgebung" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="arbeitsumgebung"><span class="header-section-number">2.4</span> Arbeitsumgebung</h2>
-<p>Im Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern mit sogenannten Jupyter Notebooks. Jupyter Notebooks ermöglichen es, in der gleichen Datei sowohl Code (Programm Teile) als auch formatierten Text (in <a href="https://www.markdownguide.org/" target="blank">Markdown</a>) zu verarbeiten. Eine Jupyter Notebook Datei hat die Endung <code>.ipynb</code>. Vom Jupyter Notebook unterschieden werden muss die Arbeitsoberfläche in welcher die Jupyter Notebooks bearbeitet werden. Diese Oberfläche nennt sich JupyterLab und läuft in einem Webbrowser.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Das Jupyter Ökosystem">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Das Jupyter Ökosystem
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die im Unterricht verwendeten Jupyter Notebooks sind Teil eines ganzen Jupyter Ökosystems. Der Name Jupyter setzt sich aus den drei Programmiersprachen <strong>Ju</strong>lia, <strong>Pyt</strong>hon und <strong>R</strong> zusammen, die in diesem Ökosystem eine zentrale Rolle spielen. Zum Jupyter Ökosystem gehören auch zahlreiche Erweiterungen und Tools, die die Arbeit mit Notebooks und Daten erleichtern.</p>
-<p>Der Unterricht beschränkt sich auf die Verwendung von Jupyter Notebooks mit der Programmiersprache Python sowie den Einsatz von JupyterLab als Arbeitsumgebung.</p>
-</div>
-</div>
-<p>Damit dies alles funktioniert, braucht es ein paar weitere Vorbereitungsarbeiten.</p>
-<ol type="1">
-<li><p>Erstellen Sie im Ordner “Informatik” einen Unterordner mit dem Heutigen Datum als Namen. Formatieren Sie das Datum nach dem Schema “YYMMDD”, für den 1. August 2025 wäre das zum Beispiel “250801”.</p></li>
-<li><p>Öffnen Sie den soeben erstellten Ordner.</p></li>
-<li><p>Geben Sie die Tastenfolge <code>Ctrl + L</code> ein, um die Adresszeile des Dateimanagers zu aktivieren.</p></li>
-<li><p>Überschreiben Sie den Inhalt der Adresszeile mit dem Text <code>cmd</code> und drücken Sie die Eingabetaste. Dadurch wird ein Terminal geöffnet, das direkt im aktuellen Ordner arbeitet.</p></li>
-<li><p>Geben Sie im neu geöffneten Terminal den folgenden Befehl ein und drücken Sie die Eingabetaste:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dadurch wird eine sogenannte Python Virtual Environment erstellt (venv wegen <strong>V</strong>irtual <strong>Env</strong>ironment). Dieses Python Virtual Environment dient dazu, die eigenen Programmierprojekte unabhängig voneinander gestalten zu können.</p></li>
-<li><p>Aktivieren Sie das Python Virtual Environment mit dem folgenden Befehl:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a> <span class="ex">.venv\Scripts\activate</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ihr Terminal sieht nach dem Erstellen und Aktivieren der Python Virtual Environment ungefähr so aus:</p>
-<div class="quarto-figure quarto-figure-center">
+<section id="schritt-3-zeichnen-aller-erforderlichen-blütenblätter" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="schritt-3-zeichnen-aller-erforderlichen-blütenblätter"><span class="header-section-number">6.3</span> Schritt 3: Zeichnen aller erforderlichen Blütenblätter</h2>
+<p>Die Blume hat zwölf Blütenblätter. Diese können von Hand jedes einzelne erstellt werden. Das dritte Blütenblatt ist um 60° gedreht und wird entsprechend mit</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>bluetenblatt_60 <span class="op">=</span> drehe(<span class="dv">60</span>, bluetenblatt_fixiert)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>erstllt. Das kann man für alle zwölf Blütenblätter machen bis man beim zwölften Blütenblatt angekommen ist, das um 330° gedreht ist.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>bluetenblatt_330 <span class="op">=</span> drehe(<span class="dv">330</span>, bluetenblatt_fixiert)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Das ist aber sehr mühsam und fehleranfällig. Viel einfacher ist es, eine Schlaufe (<code>for</code>-loop) zu verwenden, die die Blütenblätter basierend auf der Grundform automatisch erstellt.</p>
+<div id="4c528d26" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    winkel <span class="op">=</span> i <span class="op">*</span> <span class="dv">30</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>    bluetenblatt_gedreht <span class="op">=</span> drehe(winkel, bluetenblatt_fixiert)</span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a>zeige_grafik(bluetenblatt_gedreht)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="venv.png" class="img-fluid figure-img"></p>
-<figcaption>Aktivierte Python Virtual Environment</figcaption>
+<p><img src="for_loop_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
-<p>Das Wort in der Klammer am Anfang der Zeile zeigt den Namen der aktiven Python Virtual Environment an. Im vorliegenden Fall ist das .venv.</p></li>
-<li><p><span id="sec-install-packages">In der nun aktivierten Python Virtual Environment installieren Sie die benötigten Pakete mit dem folgenden Befehl</span>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">pip</span> install jupyter</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Das dauert eine Weile.</p>
-<p>Während der Installation werden die benötigten Pakete (Ergänzungen zur bestehenden Python Installation) heruntergeladen und in der Python Virtual Environment gespeichert. Das Terminal sieht dabei ungefähr so aus:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="installation.png" class="img-fluid figure-img"></p>
-<figcaption>Terminal während der Jupyter Installation</figcaption>
-</figure>
 </div>
-<p>Alle in einer Python Virtual Environment installierten Pakete sind innerhalb dieser Umgebung dauerhaft verfügbar und müssen daher für das gleiche Projekt kein zweites Mal installiert werden.</p></li>
-<li><p>Starten Sie den Jupyter Server mit dem folgenden Befehl:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a> <span class="ex">jupyter-lab</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dies startet den Jupyter Notebook Server und öffnet automatisch ein Browserfenster mit der Jupyter Notebook Oberfläche.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="server.png" class="img-fluid figure-img"></p>
-<figcaption>Startseite Jupyter Lab</figcaption>
-</figure>
-</div></li>
-<li><p>Klicken Sie auf den Button “Python 3 (ipykernel)” unter dem Titel Notebook.</p>
-<p>Damit starten Sie ein neues Jupyter Notebook. Der Cursor blinkt in einer leeren Zelle. Bei dieser Zelle handelt es sich um eine sogenannte Code-Zelle. In einer Code-Zelle können Sie Python Code eingeben und ausführen.<br>
-Überprüfen Sie das, indem Sie in der Zelle den Befehl <code>print("Hello World")</code> eingeben und anschliessend die Tastenfolge <code>Shift + Enter</code> drücken (alternativ können Sie auch auf den Button “Run” in der Werkzeugleiste klicken).</p>
-<p>Das Resultat sollte wie das folgende Bild aussehen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hello_world_ipynb.png" class="img-fluid figure-img"></p>
-<figcaption>Hello World in einem Jupyter Notebook</figcaption>
-</figure>
 </div>
-<p>In einem Jupyter Notebook können Sie nicht nur Python Code ausführen, sondern auch Text (formatiert in <a href="https://www.markdownguide.org/basic-syntax/" target="blank">Markdown</a>) darstellen.<br>
-Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Dazu klicken Sie auf den Button “Code” in der Werkzeugleiste und wählen im Dropdown-Menü die Option “Markdown” aus.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cell_switch.png" class="img-fluid figure-img"></p>
-<figcaption>Umstellen der Zelle auf Markdown</figcaption>
-</figure>
-</div>
-<p>Probieren Sie das aus. Schreiben Sie einen Titel und einen kurzen Text in die Zelle unterhalb der Code-Zelle mit <code>pringt("Hello World")</code>. Damit der Text in der Zelle formatiert angezeigt wird, müssen Sie die Zelle mit der Tastenfolge <code>Shift + Enter</code> ausführen (analog zum Ausführen von Code-Zellen).</p>
-<p>Eine Zelle ist entweder eine Code-Zelle oder eine Text-Zelle. Für den Wechsel zwischen Code- und Text-Darstellung müssen Sie je eine neue Zelle anlegen. Das geht mit der Tastenfolge <code>Esc + B</code> (für “Below”) oder <code>Esc + A</code> (für “Above”) während Sie sich in einer Zelle befinden. Alternativ können Sie auch die Buttons “Insert Cell Below” oder “Insert Cell Above” aus den Werkzeugen der Zelle verwenden.</p></li>
-<li><p>Das Jupyter Notebook ist eine Datei mit der Endung <code>.ipynb</code>. Neu erstellte Jupyter Notebooks erhalten den Namen “Untitled.ipynb”. Um diesen Namen zu ändern, klicken Sie mit der rechten Maustatste auf den Titel “Untitled” in der oberen linken Ecke des Jupyter Notebooks und wählen Sie die Option “Rename” aus dem Kontextmenü. Anschliessend können Sie den Namen des Jupyter Notebooks eingeben.</p></li>
-</ol>
+<p>Diese Schlaufe durchläuft die Zahlen von 0 bis 11 (also 12 Zahlen) und berechnet für jede Zahl den entsprechenden Drehwinkel. Dann wird das Blütenblatt um diesen Winkel gedreht. Allerdings wird das gedrehte Blütenblatt in jeder Iteration der Schlaufe in der gleichen Variable <code>bluetenblatt_gedreht</code> gespeichert. Am Ende der Schlaufe enthält diese Variable nur das letzte gedrehte Blütenblatt (das um 330° gedrehte Blütenblatt).</p>
 </section>
-<section id="öffnen-bestehender-jupyter-notebooks" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="öffnen-bestehender-jupyter-notebooks"><span class="header-section-number">2.5</span> Öffnen bestehender Jupyter Notebooks</h2>
-<p>Häufiger als das Erstellen eines neuen Jupyter Notebooks ist das Öffnen eines bereits bestehenden Jupyter Notebooks. Hier wird das entsprechende Vorgehen beschrieben.</p>
-<ol type="1">
-<li><p>Navigieren Sie in den Ordner in dem sich das Jupyter Notebook befindet.</p></li>
-<li><p>Stellen Sie sicher, dass der Ordner über eine Python Virtual Environment mit installierten Jupyter Paketen verfügt.</p>
-<p>Öffnen Sie dazu im ausgewählten Ordner das Terminal (<code>ctrl + L</code> anschliessend <code>cmd</code> und Eingabetaste). Dann starten Sie die Python Virtual Environment und geben den Befehl <code>pip list</code> ein. Dieser Listet alle in der Python Virtual Environment installierten Pakete auf. Falls die Jupyter Pakete nicht aufgelistet werden, müssen Sie diese wie <a href="#sec-install-packages">oben</a> beschrieben installieren.</p></li>
-<li><p>Starten Sie den Jupyter Server mit dem Befehl <code>jupyter-lab</code>.</p></li>
-<li><p>Öffnen Sie das Dateiverzeichnis. Dazu müssen Sie auf dem linken Rand das Ordner-Symbol anklicken.</p></li>
-<li><p>Wählen Sie das Jupyter Notebook aus, das Sie öffnen möchten. Mit einem Doppelklick auf das Jupyter Notebook wird dieses geöffnet.</p>
-<p>Wenn Sie das Dateiverzeichnis wieder schliessen möchten, klicken Sie auf das Ordner-Symbol auf der linken Seite erneut.</p></li>
-</ol>
-<p>Diese Schritte funktionieren auch, wenn Sie ein Jupyter Notebook öffnen möchten, das Sie von jemand anderem erhalten haben. Sie müssen dieses dazu lediglich in den Ordner kopieren, in dem sich die Python Virtual Environment mit den installierten Jupyter Paketen befindet.</p>
+<section id="schritt-4-kombiniere-alle-blütenblätter" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="schritt-4-kombiniere-alle-blütenblätter"><span class="header-section-number">6.4</span> Schritt 4: Kombiniere alle Blütenblätter</h2>
+<p>Um das unerwünschte Verhalten zu vermeiden, dass am Ende der Schlaufe nur das letzte gedrehte Blütenblatt in der Variable <code>bluetenblatt_gedreht</code> enthalten ist, müssen die gedrehten Blütenblätter in jeder Iteration der gewünschten Gesamtgrafik hinzugefügt werden. Dazu wird die Funktion <code>kombiniere()</code> verwendet.</p>
+<div id="1e33310c" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>blume <span class="op">=</span> bluetenblatt_fixiert</span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    winkel <span class="op">=</span> i <span class="op">*</span> <span class="dv">30</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>    bluetenblatt_gedreht <span class="op">=</span> drehe(winkel, bluetenblatt_fixiert)</span>
+<span id="cb8-6"><a href="#cb8-6"></a>    blume <span class="op">=</span> kombiniere(blume, bluetenblatt_gedreht)</span>
+<span id="cb8-7"><a href="#cb8-7"></a>    </span>
+<span id="cb8-8"><a href="#cb8-8"></a>zeige_grafik(blume)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Damit sind die Blütenblätter in der gewünschten Position und Anzahl zusammengefügt. Damit Sie allerdings aussehen, wie die Blume in der Vorlage, müssen die einzelnen Blütenblätter weiss eingefärbt und mit einem rosa Rand versehen werden.</p>
+<p>Rosa ist keine vordefinierte Farbe in PyTamaro. Sie können jedoch eine beliebige Farbe mit der Funktion <code>rgb_farbe(rot, gruen, blau)</code> erstellen. Dabei sind <code>rot</code>, <code>gruen</code> und <code>blau</code> Zahlenwerte von 0 bis 255, die den Anteil der jeweiligen Farbe an der Gesamtfarbe angeben. Damit nicht alle Kombinationen durchprobiert werden müssen, können Sie mit einem Online-Tool wie <a href="https://www.w3schools.com/colors/colors_rgb.asp">RGB Color Picker</a> die gewünschte Farbe auswählen und die entsprechenden Werte für rot, grün und blau ablesen.</p>
+<div id="cca200f2" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>weisses_blatt <span class="op">=</span> ellipse(<span class="dv">50</span>, <span class="dv">150</span>, weiss)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>rosa_rand <span class="op">=</span> ellipse(<span class="dv">55</span>, <span class="dv">155</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">102</span>))</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a>bluetenblatt_mit_rand <span class="op">=</span> ueberlagere(weisses_blatt, rosa_rand)</span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>zeige_grafik(bluetenblatt_mit_rand)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Anschliessend können die Blütenblätter mit Rand in der vorher geschriebenen Schlaufe zur Gesamtgrafik zusammengefügt werden.</p>
+<div id="e50f8d98" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>bluetenblatt_mit_rand_fixiert <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_mit_rand)</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>blume_weiss <span class="op">=</span> bluetenblatt_mit_rand_fixiert</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
+<span id="cb10-6"><a href="#cb10-6"></a>    winkel <span class="op">=</span> i <span class="op">*</span> <span class="dv">30</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>    bluetenblatt_gedreht <span class="op">=</span> drehe(winkel, bluetenblatt_mit_rand_fixiert)</span>
+<span id="cb10-8"><a href="#cb10-8"></a>    blume_weiss <span class="op">=</span> kombiniere(blume_weiss, bluetenblatt_gedreht)</span>
+<span id="cb10-9"><a href="#cb10-9"></a>    </span>
+<span id="cb10-10"><a href="#cb10-10"></a>zeige_grafik(blume_weiss)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="häufige-fehlermeldungen" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="häufige-fehlermeldungen"><span class="header-section-number">2.6</span> Häufige Fehlermeldungen</h2>
-<div class="max-w-7xl mx-auto">
-                
-        <!-- Container for the table to allow horizontal scrolling on small screens -->
-        <div class="overflow-x-auto bg-white rounded-lg shadow">
-            
-<table class="w-full min-w-max text-sm text-left text-gray-700 caption-top table" data-quarto-postprocess="true">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead class="bg-gray-100 text-xs text-gray-700 uppercase">
-<tr class="header">
-<th class="px-6 py-3 font-semibold w-1/4" data-quarto-table-cell-role="th" scope="col">Problem / Fehlermeldung (Was Sie sehen)</th>
-<th class="px-6 py-3 font-semibold w-1/4" data-quarto-table-cell-role="th" scope="col">Mögliche Ursache (Warum es passiert)</th>
-<th class="px-6 py-3 font-semibold w-2/4" data-quarto-table-cell-role="th" scope="col">Lösung (Was Sie tun können)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="bg-white border-b hover:bg-gray-50 odd">
-<td class="px-6 py-4 font-medium text-gray-900">Der Befehl <code>python</code> ist entweder falsch geschrieben oder konnte nicht gefunden werden.</td>
-<td class="px-6 py-4">Python wurde bei der Installation nicht zur PATH-Variable hinzugefügt. Der Computer weiss nicht, wo er <code>python.exe</code> finden soll.</td>
-<td class="px-6 py-4"><ol>
-<li>Deinstallieren Sie Python über die Systemsteuerung.</li>
-<li>Installieren Sie Python erneut.</li>
-<li>Achten Sie diesmal unbedingt darauf, das Häkchen bei "Add Python to PATH" zu setzen.</li>
-</ol></td>
-</tr>
-<tr class="bg-white border-b hover:bg-gray-50 even">
-<td class="px-6 py-4 font-medium text-gray-900">Der Befehl <code>jupyter-lab</code> ist entweder falsch geschrieben oder konnte nicht gefunden werden.</td>
-<td class="px-6 py-4">Sie haben vergessen, die virtuelle Umgebung zu aktivieren. Der Befehl <code>jupyter-lab</code> existiert nur innerhalb der aktivierten Umgebung.</td>
-<td class="px-6 py-4"><ol>
-<li>Überprüfen Sie, ob <code>(.venv)</code> am Anfang der Kommandozeile steht.</li>
-<li>Falls nicht, führen Sie den Aktivierungsbefehl erneut aus: <code>.venv\Scripts\activate</code>.</li>
-</ol></td>
-</tr>
-<tr class="bg-white border-b hover:bg-gray-50 odd">
-<td class="px-6 py-4 font-medium text-gray-900"><code>ImportError: DLL load failed...</code> oder ähnliche Fehler unter Windows</td>
-<td class="px-6 py-4">Ein häufiges Problem mit der Installation von <code>pywin32</code>, einer wichtigen Windows-Bibliothek, die von Jupyter benötigt wird.</td>
-<td class="px-6 py-4"><ol>
-<li>Stellen Sie sicher, dass Ihre virtuelle Umgebung aktiv ist.</li>
-<li>Führen Sie den Befehl <code>pip install --upgrade pywin32</code> aus, um die Bibliothek zu reparieren.</li>
-</ol></td>
-</tr>
-<tr class="bg-white border-b hover:bg-gray-50 even">
-<td class="px-6 py-4 font-medium text-gray-900">Kernel Error oder der Status "Kernel starting, please wait..." ändert sich nicht</td>
-<td class="px-6 py-4">Die Verbindung zwischen der Browser-Oberfläche und dem Python-"Gehirn" (dem Kernel) ist gestört. Dies kann viele Ursachen haben.</td>
-<td class="px-6 py-4"><ol>
-<li>Der einfachste erste Schritt: Klicken Sie im JupyterLab-Menü auf "Kernel" -&gt; "Restart Kernel...".</li>
-<li>Wenn das nicht hilft, schliessen Sie JupyterLab im Terminal (mit der Tastenkombination Strg + C) und starten Sie es mit <code>jupyter-lab</code> neu.</li>
-</ol></td>
-</tr>
-<tr class="bg-white hover:bg-gray-50 odd">
-<td class="px-6 py-4 font-medium text-gray-900"><code>Permission denied</code> (Zugriff verweigert) bei der Installation von Paketen</td>
-<td class="px-6 py-4">Sie versuchen, Pakete an einem systemweiten Ort zu installieren (z. B. in <code>C:\Program Files</code>), für den Sie keine Schreibrechte haben.</td>
-<td class="px-6 py-4">Dies ist genau das Problem, das virtuelle Umgebungen lösen! Stellen Sie sicher, dass Ihre <code>venv</code> aktiv ist (<code>(.venv)</code> muss sichtbar sein). Dadurch wird sichergestellt, dass alle Pakete lokal in Ihren Projektordner installiert werden, wo Sie die vollen Rechte haben.</td>
-</tr>
-</tbody>
-</table>
-
-        </div>
-    </div>
+<section id="schritt-5-scheibe-im-zentrum-der-blume" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="schritt-5-scheibe-im-zentrum-der-blume"><span class="header-section-number">6.5</span> Schritt 5: Scheibe im Zentrum der Blume</h2>
+<p>Bei genauer Betrachtung der Blume fällt auf, dass die Scheibe in der Mitte der Blume nicht einfach einfarbig gelb ist, sondern gegen die Mitte hin einen Farbverlauf aufweist. Diesen Farbverlauf wird erzeugt, indem mehrere Kreise mit kleiner werdendem Radius und abnehmender Farbintensität übereinandergelegt werden.</p>
+<div id="7aee95f8" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>scheibe <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>):</span>
+<span id="cb11-4"><a href="#cb11-4"></a>    tmp <span class="op">=</span> ellipse(<span class="dv">30</span> <span class="op">-</span> <span class="dv">3</span><span class="op">*</span>i, <span class="dv">30</span> <span class="op">-</span> <span class="dv">3</span><span class="op">*</span>i, rgb_farbe(<span class="dv">255</span>, i<span class="op">*</span><span class="dv">26</span>, i<span class="op">*</span><span class="dv">26</span>))</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    scheibe <span class="op">=</span> ueberlagere(tmp, scheibe)</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    </span>
+<span id="cb11-7"><a href="#cb11-7"></a>zeige_grafik(scheibe)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Zum Schluss wird die Scheibe auf die Blütenblätter gelegt und Blume so vervollständigt.</p>
+<div id="4fa961f4" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>blume_komplett <span class="op">=</span> ueberlagere(scheibe, blume_weiss)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>zeige_grafik(blume_komplett)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="for_loop_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -962,13 +915,13 @@ Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Da
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="pagination-link" aria-label="Speicherorganisation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span>
+      <a href="../../../files/lektionen_hs25/250915_schlaufen/main.html" class="pagination-link" aria-label="1 Wiederholungen in Python (For-Loops)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">1 Wiederholungen in Python (For-Loops)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../files/lektionen_hs25/250901_probleme/probleme.html" class="pagination-link" aria-label="Problemlösung in der Informatik">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Problemlösung in der Informatik</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../files/lektionen_hs25/250922_bedingungen/bedingungen.html" class="pagination-link" aria-label="1 Programmverzweigungen (Bedingungen)">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">1 Programmverzweigungen (Bedingungen)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
