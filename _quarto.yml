@@ -27,7 +27,7 @@ book:
   navbar: 
     right: 
       - icon: github
-        href: "https://github.com/SkriptenMk/I_eW_25-29/files"
+        href: "https://github.com/SkriptenMk/I_eW_25-29/tree/main/files"
         aria-label: GitHub
         target: "_blank"
       - icon: bug
