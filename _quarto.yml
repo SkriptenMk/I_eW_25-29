@@ -1,12 +1,15 @@
 project:
   type: book
   output-dir: docs
+  resources:
+    - "files/"
 
 book:
   title: "Unterlagen für das obligatorische Fach Informatik"
   author: "Jacques Mock Schindler"
   date: 2025-10-02
   date-format: DD.MM.YYYY
+
   chapters:
     - index.qmd
     - part: "Anleitungen"
