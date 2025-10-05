@@ -152,9 +152,20 @@
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html",
-    "title": "3  Vorbemerkung",
+    "title": "3  Problemlösung in der Informatik",
     "section": "",
-    "text": "4 Ausgangslage\nJupyter Notebook Herunterladen\nDer Link “View source” am rechten Rand der Seite ermöglicht es Ihnen, den Quelltext der Seite anzuzeigen. Auf der Website, welche den Quelltext anzeigt, findet sich oben rechts ein Download-Button. Wenn Sie den anklicken, öffnet sich der Download-Dialog und Sie können die Datei am gewünschten Ort speichern.\nJede Disziplin hat ihre eigene Art, Probleme zu lösen. Das ist in der Informatik nicht anders.\nIn der Informatik versucht man, grosse Probleme in kleinere Teilprobleme zu zerlegen. Das macht man so lange, bis die Teilprobleme so klein sind, dass sie einfach zu lösen sind.\nDies soll hier anhand von verschidenen Grafiken gezigt werden.\nDamit in Python einfach mit Grafiken gearbeitet werden kann, wird das Paket PyTamaro verwendet. Dieses Paket wurde von der Università della Svizzera italiana (USI) extra für die Informatik-Ausbildung entwickelt.\nDamit das Paket verwendet werden kann, muss es zuerst in der aktuellen Python Virtual Environment installiert werden.\nDazu öffnen Sie ein Terminal im Ordner, in dem sich dieses Jupyter Notebook befindet. Anschliessend starten Sie die Python Virtual Environment mit dem Befehl:\nDanach können Sie PyTamaro mit dem Befehl\ninstallieren.\nUm das Paket zu verwenden, muss es importiert werden. Die genauen Zusammenhänge müssen im Moment nicht bekannt sein. Wichtig ist lediglich, dass die folgende Zelle ausgeführt wird.\nfrom pytamaro.de import (\n    rechteck, kreis_sektor,\n    blau, rot, weiss, schwarz,\n    neben, ueber, ueberlagere,\n    drehe, kombiniere,\n    zeige_grafik, speichere_grafik,\n)",
+    "text": "3.1 Ausgangslage\nVorbemerkung\nDamit Sie dieses Jupyter Notebook lokal (das heisst, auf Ihrem Computer) verwenden können, klicken Sie auf den Button . Es öffnet sich dann das Jupyter Notebook in Google Colab. Dort können Sie unter dem Menü Datei &gt; Herunterladen &gt; .ipynb herunterladen auswählen. Mit dieser Auswahl öffnet sich der Download Dialog und Sie können das Jupyter Notebook am gewünschen Ort speichern.\nJede Disziplin hat ihre eigene Art, Probleme zu lösen. Das ist in der Informatik nicht anders.\nIn der Informatik versucht man, grosse Probleme in kleinere Teilprobleme zu zerlegen. Das macht man so lange, bis die Teilprobleme so klein sind, dass sie einfach zu lösen sind.\nDies soll hier anhand von verschidenen Grafiken gezigt werden.\nDamit in Python einfach mit Grafiken gearbeitet werden kann, wird das Paket PyTamaro verwendet. Dieses Paket wurde von der Università della Svizzera italiana (USI) extra für die Informatik-Ausbildung entwickelt.\nDamit das Paket verwendet werden kann, muss es zuerst in der aktuellen Python Virtual Environment installiert werden.\nDazu öffnen Sie ein Terminal im Ordner, in dem sich dieses Jupyter Notebook befindet. Anschliessend starten Sie die Python Virtual Environment mit dem Befehl:\nDanach können Sie PyTamaro mit dem Befehl\ninstallieren.\nUm das Paket zu verwenden, muss es importiert werden. Die genauen Zusammenhänge müssen im Moment nicht bekannt sein. Wichtig ist lediglich, dass die folgende Zelle ausgeführt wird.\nfrom pytamaro.de import (\n    rechteck, kreis_sektor,\n    blau, rot, weiss, schwarz,\n    neben, ueber, ueberlagere,\n    drehe, kombiniere,\n    zeige_grafik, speichere_grafik,\n)",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#ausgangslage",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#ausgangslage",
+    "title": "3  Problemlösung in der Informatik",
+    "section": "",
+    "text": ".venv\\Scripts\\activate\n\npip install pytamaro",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
@@ -163,9 +174,9 @@
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tricolore",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tricolore",
-    "title": "3  Vorbemerkung",
-    "section": "4.1 Beispiel: Tricolore",
-    "text": "4.1 Beispiel: Tricolore\nDie Vorgehensweise wird anhand der Französischen Nationalflagge (Tricolore) gezigt.\n\nUm die Zeichnung der Tricolore zu planen, wird die Grafik in ihre Einzelteile zerlegt.\nDie Tricolore besteht aus drei gleich grossen Rechtecken in den Farben blau, rot und weiss. Diese Rechtecke werden nebeneinander angeordnet.\nDas bedeutet, dass die Länge und die Breite der Rechtecke definiert werden muss und basierend auf diesen Werten die drei Rechtecke gezeichnet werden. Anschliessend werden die drei Rechtecke nebeneinander angeordnet.\nDer Befehl zum Zeichnen eines Rechtecks lautet\nname = rechteck(länge, breite, farbe)\nBevor die Zeichnung tatsächlich erstellt wird, soll hier der Befehl im Detail erklärt werden:\n\nname ist der Name, unter dem das Rechteck gespeichert wird. Dieser Name kann später verwendet werden, um auf das Rechteck zuzugreifen.\nrechteck ist der Befehl, der ein Rechteck zeichnet. In der Klammer hinter dem Befehl werden die sogenannten Argumente angegeben. Diese steuern, wie das Rechteck aussieht.\nlänge und breite sind die Argumente, die die Grösse des Rechtecks bestimmen. Diese Werte können beliebig gewählt werden.\nfarbe ist das Argument, das die Farbe des Rechtecks bestimmt. Aufgrund der Eigenheiten von PyTamaro können ausschliesslich die Farben verwendet werden, welche importiert worden sind.\n\n\n4.1.1 Rechtecke zeichnen\nAls erstes wird hier gezeigt, wie das blaue Rechteck gezeichnetwird.\nDamit das Resultat kontrolliert werden kann, wird die Grafik mit dem Befehl\nzeige_grafik(name)\nangezeigt.\n\nbleu = rechteck(50, 100, blau)\nzeige_grafik(bleu)\n\n\n\n\n\n\n\n\nNachdem das blaue Rechteck gezeichnet wurde, kann das weisse und das rote Rechteck analog gezeichnet und angzeigt werden.\n\n# TODO: Rechtecke blanc und rouge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code\nblanc = rechteck(50, 100, weiss)\nrouge = rechteck(50, 100, rot)\n\nAls nächstes werden die drei Rechtecke nebeninander angeordnet. Dazu wird der Befehl neben verwendet. Dieser Befehl nimmt zwei Argumente entgegen: das erste Rechteck und das zweite Rechteck. Das erste Rechteck wird links vom zweiten Rechteck gezeichnet.\nresultat = neben(linke grafik, rechte grafik)\n\nzwei_drittel = neben(bleu, blanc)\nzeige_grafik(zwei_drittel)\n\n\n\n\n\n\n\n\nAnalog können Sie nun das rote Rechteck rechts der zwei Drittel anordnen. Nennen Sie das Resultat tricolore und zeigen Sie es an.\n\n# TODO: Trcolore zusammenfügen -&gt; Schreiben Sie hier Ihren\n# Code",
+    "title": "3  Problemlösung in der Informatik",
+    "section": "3.2 Beispiel: Tricolore",
+    "text": "3.2 Beispiel: Tricolore\nDie Vorgehensweise wird anhand der Französischen Nationalflagge (Tricolore) gezigt.\n\nUm die Zeichnung der Tricolore zu planen, wird die Grafik in ihre Einzelteile zerlegt.\nDie Tricolore besteht aus drei gleich grossen Rechtecken in den Farben blau, rot und weiss. Diese Rechtecke werden nebeneinander angeordnet.\nDas bedeutet, dass die Länge und die Breite der Rechtecke definiert werden muss und basierend auf diesen Werten die drei Rechtecke gezeichnet werden. Anschliessend werden die drei Rechtecke nebeneinander angeordnet.\nDer Befehl zum Zeichnen eines Rechtecks lautet\nname = rechteck(länge, breite, farbe)\nBevor die Zeichnung tatsächlich erstellt wird, soll hier der Befehl im Detail erklärt werden:\n\nname ist der Name, unter dem das Rechteck gespeichert wird. Dieser Name kann später verwendet werden, um auf das Rechteck zuzugreifen.\nrechteck ist der Befehl, der ein Rechteck zeichnet. In der Klammer hinter dem Befehl werden die sogenannten Argumente angegeben. Diese steuern, wie das Rechteck aussieht.\nlänge und breite sind die Argumente, die die Grösse des Rechtecks bestimmen. Diese Werte können beliebig gewählt werden.\nfarbe ist das Argument, das die Farbe des Rechtecks bestimmt. Aufgrund der Eigenheiten von PyTamaro können ausschliesslich die Farben verwendet werden, welche importiert worden sind.\n\n\n3.2.1 Rechtecke zeichnen\nAls erstes wird hier gezeigt, wie das blaue Rechteck gezeichnetwird.\nDamit das Resultat kontrolliert werden kann, wird die Grafik mit dem Befehl\nzeige_grafik(name)\nangezeigt.\n\nbleu = rechteck(50, 100, blau)\nzeige_grafik(bleu)\n\n\n\n\n\n\n\n\nNachdem das blaue Rechteck gezeichnet wurde, kann das weisse und das rote Rechteck analog gezeichnet und angzeigt werden.\n\n# TODO: Rechtecke blanc und rouge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code\nblanc = rechteck(50, 100, weiss)\nrouge = rechteck(50, 100, rot)\n\nAls nächstes werden die drei Rechtecke nebeninander angeordnet. Dazu wird der Befehl neben verwendet. Dieser Befehl nimmt zwei Argumente entgegen: das erste Rechteck und das zweite Rechteck. Das erste Rechteck wird links vom zweiten Rechteck gezeichnet.\nresultat = neben(linke grafik, rechte grafik)\n\nzwei_drittel = neben(bleu, blanc)\nzeige_grafik(zwei_drittel)\n\n\n\n\n\n\n\n\nAnalog können Sie nun das rote Rechteck rechts der zwei Drittel anordnen. Nennen Sie das Resultat tricolore und zeigen Sie es an.\n\n# TODO: Trcolore zusammenfügen -&gt; Schreiben Sie hier Ihren\n# Code",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
@@ -174,9 +185,9 @@
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-österreichische-flagge",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-österreichische-flagge",
-    "title": "3  Vorbemerkung",
-    "section": "4.2 Beispiel: Österreichische Flagge",
-    "text": "4.2 Beispiel: Österreichische Flagge\nZeichnen Sie die Österreichische Flagge. Das Seitenverhältnis der Flagge ist 2:3.\n\nUm Elemente übereinander anzuordnen, wird der Befehl ueber verwendet. Die Syntax dieses Befehls lautet:\nresultat = ueber(obere grafik, untere grafik)\n\n# TODO: Östereichische Flagge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
+    "title": "3  Problemlösung in der Informatik",
+    "section": "3.3 Beispiel: Österreichische Flagge",
+    "text": "3.3 Beispiel: Österreichische Flagge\nZeichnen Sie die Österreichische Flagge. Das Seitenverhältnis der Flagge ist 2:3.\n\nUm Elemente übereinander anzuordnen, wird der Befehl ueber verwendet. Die Syntax dieses Befehls lautet:\nresultat = ueber(obere grafik, untere grafik)\n\n# TODO: Östereichische Flagge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
@@ -185,9 +196,9 @@
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-schweizerfahne",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-schweizerfahne",
-    "title": "3  Vorbemerkung",
-    "section": "4.3 Beispiel: Schweizerfahne",
-    "text": "4.3 Beispiel: Schweizerfahne\nZeichnen Sie eine korrekt propotionierte Schweizerfahne. Die Dimensionen können Sie der folgenden Grafik entnehmen:\n\nVerwenden Sie dazu die Befehle rechteck, drehe und ueberlagere.\n\n# TODO: Schweizerfahne zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
+    "title": "3  Problemlösung in der Informatik",
+    "section": "3.4 Beispiel: Schweizerfahne",
+    "text": "3.4 Beispiel: Schweizerfahne\nZeichnen Sie eine korrekt propotionierte Schweizerfahne. Die Dimensionen können Sie der folgenden Grafik entnehmen:\n\nVerwenden Sie dazu die Befehle rechteck, drehe und ueberlagere.\n\n# TODO: Schweizerfahne zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
@@ -196,9 +207,20 @@
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tessiner-wappen",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tessiner-wappen",
-    "title": "3  Vorbemerkung",
-    "section": "4.4 Beispiel: Tessiner Wappen",
-    "text": "4.4 Beispiel: Tessiner Wappen\nAls Referenz an die USI zeichnen Sie als letztes Beispiel das Tessiner Wappen.\n\nVerwenden Sie dazu neben den bereits bekannten Befehlen zusätzlich die Befehle ueber und kreis_sektor.\n\n# TODO: Tessiner Wappen zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
+    "title": "3  Problemlösung in der Informatik",
+    "section": "3.5 Beispiel: Tessiner Wappen",
+    "text": "3.5 Beispiel: Tessiner Wappen\nAls Referenz an die USI zeichnen Sie als letztes Beispiel das Tessiner Wappen.\n\nVerwenden Sie dazu neben den bereits bekannten Befehlen zusätzlich die Befehle ueber und kreis_sektor.\n\n# TODO: Tessiner Wappen zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#musterlösungen",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#musterlösungen",
+    "title": "3  Problemlösung in der Informatik",
+    "section": "3.6 Musterlösungen",
+    "text": "3.6 Musterlösungen\n\n3.6.1 Trikolore\n\nbleu = rechteck(50, 100, blau)\nblanc = rechteck(50, 100, weiss)\nrouge = rechteck(50, 100, rot)\n\ndeux_tiers = neben(bleu, blanc)\ntricolore = neben(deux_tiers, rouge)\n\nzeige_grafik(tricolore)\n\n\n\n3.6.2 Österreichische Flagge\n\nroter_balken = rechteck(90, 20, rot)\nweisser_balken = rechteck(90, 20, weiss)\n\noberer_teil = ueber(roter_balken, weisser_balken)\nosterreichische_flagge = ueber(oberer_teil, roter_balken)\n\nzeige_grafik(osterreichische_flagge)\n\n\n\n3.6.3 Schweizerfahne\n\nhintergrund = rechteck(320, 320, rot)\nweisser_balken = rechteck(200, 60, weiss)\nweisser_balken2 = drehe(90, weisser_balken)\n\nkreuz = ueberlagere(weisser_balken, weisser_balken2)\n\nschweizerfahne = ueberlagere(kreuz, hintergrund)\n\nzeige_grafik(schweizerfahne)\n\n\n\n3.6.4 Tessiner Wappen\n\nroter_teil = rechteck(160, 240, rot)\nblauer_teil = rechteck(160, 240, blau)\nroter_sektor = kreis_sektor(160, 90, rot)\nroter_sektor = drehe(180, roter_sektor)\nblauer_sektor = kreis_sektor(160, 90, blau)\nblauer_sektor = drehe(270, blauer_sektor)\n\nti_unten = neben(roter_sektor, blauer_sektor)\nti_oben = neben(roter_teil, blauer_teil)\n\ntessin = ueber(ti_oben, ti_unten)\n\nzeige_grafik(tessin)",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
@@ -207,188 +229,122 @@
   {
     "objectID": "files/lektionen_hs25/250908_variablen/Variablen.html",
     "href": "files/lektionen_hs25/250908_variablen/Variablen.html",
-    "title": "4  Variablen in Python",
+    "title": "4  Variabeln in Python",
     "section": "",
     "text": "4.1 Vorbemerkungen: Python als Rechner\nPython verfügt über eingebaute mathematische Fähigkeiten. Es kann die Grundrechenarten und kennt die Hierarchie der Operationen. Sie können das überprüfen, in dem Sie in der folgenden Zelle die Rechnung \\[2+3\\cdot4\\] ausführen.\n# hier können Sie die Rechnung ausführen\nDie folgende Tabelle gibt einen Überblick über die direkt in Python verfügbaren mathematischen Funktionen:",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variablen in Python</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variabeln in Python</span>"
     ]
   },
   {
     "objectID": "files/lektionen_hs25/250908_variablen/Variablen.html#vorbemerkungen-python-als-rechner",
     "href": "files/lektionen_hs25/250908_variablen/Variablen.html#vorbemerkungen-python-als-rechner",
-    "title": "4  Variablen in Python",
+    "title": "4  Variabeln in Python",
     "section": "",
     "text": "Beschreibung\nBefehl\nBeispiel\nResultat\n\n\n\n\nAddition\n+\n2 + 3\n5\n\n\nSubtraktion\n-\n3 - 2\n1\n\n\nMultiplikation\n*\n3 * 2\n6\n\n\nDivision\n/\n3 / 2\n1.5\n\n\nPotenzen\n**\n3 ** 2\n9\n\n\nWurzeln\n**(1/n)\n16 ** (1/2)\n4.0\n\n\nGanzzahlige Division\n//\n7 // 2\n3\n\n\nModulo\n%\n7 % 2\n1",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variablen in Python</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variabeln in Python</span>"
     ]
   },
   {
     "objectID": "files/lektionen_hs25/250908_variablen/Variablen.html#variablen",
     "href": "files/lektionen_hs25/250908_variablen/Variablen.html#variablen",
-    "title": "4  Variablen in Python",
+    "title": "4  Variabeln in Python",
     "section": "4.2 Variablen",
     "text": "4.2 Variablen\nIn Python sind Variablen symbolische Namen für gespeicherte Daten. Variablen verweisen dabei auf den Speicherbereich im Computer, in welchem die entsprechenden Daten physikalisch abgelegt sind. Aus diesem Grund werden Variablen gelegentlich auch als Zeiger bezeichnet. Was genau für Daten in diesem Speicherbereich abgelegt werden, spielt keine Rolle und kann während der Ausführung eines Programmes auch ändern.\nIn Python werden Variablen Werte mit dem Gleichheitszeichen zugewiesen. Um der Variable \\(x\\) den Wert \\(2\\) zuzuweisen, ist die Eingabe x = 2 erfoderlich. Die Variable muss links vom Gleichheitszeichen, der zuzuweisende Wert rechts davon stehen.\nÜberprüfen Sie dies, indem Sie in der folgenden Zelle der Variabel \\(y\\) den Wert \\(3\\) und der Variabel \\(z\\) den Wert \\(4\\) zuweisen. Anschliessend multiplizieren Sie die beiden Variablen miteinander.\n\n# hier die Aufgabe einfüllen\n\nWenn Variablen neue Werte zugewiesen werden, wird die Referenz auf den Speicherbereich mit dem alten Wert gelöscht. Die Daten, welche ohne Verweis durch eine Variable im Speicher liegen, werden vom in Python eingebauten Garbage Collector im Hintergrund gelöscht und der so freigewordene Speicherplatz kann wieder verwendet werden.\nSie können überprüfen, dass Variablen neue Werte zugewiesen werden können, indem Sie in der untenstehenden Zelle die Variabeln \\(y\\) und \\(z\\) addieren. Sie erhalten dann das Resultat \\(7\\). Das heisst, den Variablen \\(y\\) und \\(z\\) sind immer noch die Werte \\(3\\) und \\(4\\) zugewiesen.\n\n# addieren Sie hier y und z\n\nWenn Sie in der folgenden Zelle der Variabel \\(y\\) den Wert \\(5\\) zuweisen und anschliessend \\(y\\) und \\(z\\) addieren erhalten Sie als neues Resultat \\(9\\).\n\n# weisen Sie hier y den neuen Wert zu\n\nVariablen können auch Resultate von Berechnungen zugewiesen werden. Ausserdem können Variablen ganze Wörter als Namen haben. Dies ist gegenüber einzelnen Buchstaben vorzuziehen, weil dann aussagekräftige Namen gewählt werden können. Grundsätzich sind die Namen von Variabeln frei wählbar. Es gibt allerdings eine Reihe von reservierten Begriffen, welche in der Programmiersprache Python eine eigene Bedeutung haben. Unzulässig sind ausserdem Namen, die mit Ziffern beginnen.\nFür die Darstellung von Namen für Variablen hat sich in Python eingebürgert, Variablen klein zu schreiben und Wörter durch Underlines zu trennen (\\(this\\_is\\_a\\_valid\\_variable\\)). Diese Darstellung nennt sich Snake Case. Zudem werden Variablen meist mit englischen Begriffen bezeichnet.\nWeisen Sie in der nächsten Zelle der Variable result das Resultat der Rechnung \\(y + z\\) zu und geben Sie das Resultat mit print(result) aus. print() ist eine Funktion, die Python zur Verfügung stellt. Was Funktionen sind, wird im nächsten Abschnitt erklärt.\n\n# weisen Sie hier der Variable result das Resultat zu",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variablen in Python</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variabeln in Python</span>"
     ]
   },
   {
     "objectID": "files/lektionen_hs25/250908_variablen/Variablen.html#funktionen-in-python",
     "href": "files/lektionen_hs25/250908_variablen/Variablen.html#funktionen-in-python",
-    "title": "4  Variablen in Python",
+    "title": "4  Variabeln in Python",
     "section": "4.3 Funktionen in Python",
     "text": "4.3 Funktionen in Python\nPython verfügt über viele bereits vordefinierte Funktionen. Die oben verwendete Funktion print() ist ein Beispiel dafür. Um zu demonstrieren, wie Funktionen in Python definiert werden, zeige ich Ihnen als Beispiel eine Funktion, mit der zwei Zahlen addiert werden.\n\n# Definition der Funktion\ndef get_sum(x, y):\n    return x + y\n\n# Aufruf der Funktion\nresult = get_sum(3,4)\n# Ausgabe des Resultats des Funktionsaufrufs\nprint(result)\n\ndef ist das Schlüsselwort für die Definition einer Funktion. get_sum ist der von mir gewählte Name dieser Funktion. Für die Wahl des Namens einer Funktion gelten die gleichen Regeln, wie für Variablen. In den Klammern stehen die sogenannten Parameter, welche der Funktion übergeben werden, damit sie etwas damit macht. Mit dem Doppelpunkt wird die Signatur der Funktion abgeschlossen. Die Signatur zeigt idealerweise, was eine Funktion womit macht. Sie gibt aber keine Auskunft darüber, wie sie das macht.\nPython gruppiert Befehle, die zusammengehören, durch die gleiche Tiefe der Einrückung. Eine Einrückung hat üblicherweise die Tiefe von vier Leerzeichen. Im Beispiel oben gibt es nur eine eingerückte Zeile, weil die Funktion nur aus einem Befehl besteht. Mit return gibt die Funktion das Resultat zurück.\nIm Beispiel wird das Resultat der Berechnung, welche die Funktion ausführt der Variable result zugewiesen. Der Wert der Variable result wird mit print(result) ausgegeben.\nDefinieren Sie in der folgenden Zelle eine Funktion, mit der zwei Zahlen multipliziert werden.\n\n# hier kommt Ihre Funktion hin",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variablen in Python</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variabeln in Python</span>"
     ]
   },
   {
     "objectID": "files/lektionen_hs25/250908_variablen/Variablen.html#datentypen",
     "href": "files/lektionen_hs25/250908_variablen/Variablen.html#datentypen",
-    "title": "4  Variablen in Python",
+    "title": "4  Variabeln in Python",
     "section": "4.4 Datentypen",
     "text": "4.4 Datentypen\nAls nächstes geht es um die Frage, auf welche Inhalte eine Variable zeigen kann.\nIm Grundsatz kann eine Variable auf beliebige Inhalte verweisen.\nAm einfachsten ist die Verwendung der grundlegenden Datenypen (basic data types), welche Python zur Verfügung stellt. Dies sind (mit ihren englischen Bezeichnungen):\n\nInteger (Ganzzahl)\nFloating-Point Number (Gleitkommazahl)\nComplex Number (komplexe Zahl)\nString (Zeichenkette)\nBoolean Type (Wahrheitswert)\n\nDarüber hinaus ist es möglich, eigene Datentypen zu programmieren. Hier aber zuerst eine Beschreibung der grundlegenden Datentypen von Python.\n\n4.4.1 Integer\nDie Bezeichnung für Integer in Python ist ein kurzes int.\nAnders als in anderen Progammiersprachen gibt es in Python theoretisch keine Beschränkung, wie gross ein Integer sein kann. Die einzige Grenze ist der Speicherplatz des auf dem der Integer gespeichert werden soll.\nWenn einer Variable ein grosser Integer zugewiesen wird, kann dieser zur besseren Lesbarkeit auch mit einem Underline als Tausendertrennzeichen geschrieben werden (100_000).\nUm das Auszuprobieren, weisen Sie in der folgenden Zelle der Variable \\(a\\) den Wert von einer Million und der Variable \\(b\\) den Wert von einer Milliarde zu. Anschliessend addieren Sie \\(a\\) und \\(b\\) und weisen das Resultat der Variable \\(big\\_sum\\) zu. Zum Schluss geben Sie den Wert von \\(big\\_sum\\) mit der Funktion print() aus.\n\n# hier können Sie Ihre Berechnung vornehmen\n\nEingegebene Zahlen werden automatisch als Dezimalzahlen interpretiert.\nIntegers können jedoch auch als Binär-, Oktal- oder Hexadezimalzahlen eingegeben werden. Die Eingabe erfordert dann allerdings ein Präfix, welches das Zahlensysten identifiziert. Die folgende Tabelle stellt die möglichen Präfixe zusammen.\n\n\n\nPräfix\nBedeutung\nBasis\n\n\n\n\n0b (Null + Kleinbuchstabe b)\nBinärzahl\n2\n\n\n0B (Null + Grossbuchstabe B)\n\n2\n\n\n0o (Null + Kleinbuchstabe o)\nOktalzahl\n8\n\n\n0O (Null + Grossbuchstabe O)\n\n8\n\n\n0x (Null + Kleinbuchstabe x)\nHexadezimalzahl\n16\n\n\n0X (Null + Grossbuchstabe X)\n\n16\n\n\n\nIn der folgende Zelle finden Sie ein entsprechendes Beispiel.\nPython kann Integer in verschiedenen Zahlensystemen darstellen. Um das Zahlensystem bei der Zuweisung zu spezifizieren, verwenden Sie die entsprechenden Präfixe. Die folgenden Beispiele zeigen die Zuweisung der Zahlen 10, 8, 255 und 16 in den Zahlensystemen Dezimal, Oktal, Hexadezimal und Binär:\ndezimal      = 10\noktal        = 0o10\nhexadezimal  = 0x10\nbinaer       = 0b10\nDie Anzeige der Werte der entsprechenden Variablen erfolgt grundsätzlich im Dezimalsystem.\n\nb = 0b101010\no = 0o52\nx = 0x2a\n\nprint(b, o, x)\n\n\n\n4.4.2 Gleitkommazahl\nDie Bezeichnung für Gleitkommazahlen in Python ist float. Python interpretiert Zahlen mit einem Dezimalpunkt als Gleitkommazahlen. Optional können Zahlen mit e oder E in “wissenschaftlicher” Schreibweise eigegeben werden (1000 = 1e3 bzw. 1e-3 = 0.001).\nWeisen Sie in der folgenden Zelle den Variablen million und billionth die passenden Werte in wissenschaftlicher Schreibweise zu.\n\n# hier die Werte den beiden Variablen zuweisen\n\n\n\n4.4.3 Komplexe Zahlen\nPython kann auch mit komplexen Zahlen umgehen. Der Abschnitt zu diesem Thema kann wieder aufgegriffen werden, wenn Sie in Mathe die komplexen Zahlen besprochen haben.\n\n\n4.4.4 String\nZeichenketten (String) werden von Python als str bezeichnet.\nZeichenketten sind beliebige Zeichenfolgen. Damit Python Zeichenketten als solche erkennt, müssen sie durch die Verwendung von einfachen oder doppelten Anführungs- und Schlusszeichen als solche gekennzeichnet werden.\n\"Ich bin eine Zeichenkette.\" oder 'Ich bin auch eine Zeichenkette.'\nWenn man innerhalb einer Zeichenkette Anführungszeichen braucht, müssen die eingrenzenden Anführungszeichen von der “anderen Sorte” sein (\"It's cool learning Python!\" oder 'Der Lehrer sagt: \"Es ist cool Python zu lernen.\"'). Eine andere Möglichkeit reservierte Zeichen zu verwenden ist der Gebrauch eines “escape”-Zeichens. In Python ist das der “backslash” (\\). Die beiden Beispielsätze von vorher hätten entsprechend auch folgendermassen geschrieben werden können:\n'It\\'s cool learning Python!' bzw. \"Der Lehrer sagt: \\\"Es ist cool Python zu lernen.\\\"\"\nDie Länge von Zeichenketten wird lediglich durch die Speicherkapazität des verwendeten Systems begrenzt. Zeichenketten können nicht nur sehr lang, sondern auch leer sein ('').\nZeichenketten können, wie alle Datentypen, Variablen zugewiesen werden. Dies zeigt das folgende Beispiel.\n\n# Zuweisung eines Strings zu einer Variabel\nstandard_greeting = \"Hello World\"\n\n# Ausgabe der Variabel\nprint(standard_greeting)\n\n\n\n4.4.5 Boolean Type\nWahrheitswerte werden in Python als bool bezeichnet. Wahrheitswerte können entweder “wahr” oder “falsch” sein.\nwahr      = True\nfalsch    = False\nDie Ausgabe findet sich in der folgenden Zelle.\n\nwahr      = True\nfalsch    = False\nprint(wahr, falsch)\n\nWelche Warheitswerte sich bei Vergleichen ergeben, kann mit den folgenden Operatoren überprüft werden:\n==   # Gleichheit\n!=   # Ungleichheit\n&gt;    # Größer als\n&lt;    # Kleiner als\n&gt;=   # Größer oder gleich\n&lt;=   # Kleiner oder gleich\n\n# Testen Sie hier den Wahrheitswert von Vergleichen mit Zahlen\n\nWahrheitswerte werden zur Steuerung von Programmflüssen verwendet. Mit einem Wahrheitswert kann zum Beispiel gesteuert werden, wie oft ein Programmteil wiederholt werden soll.",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variablen in Python</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variabeln in Python</span>"
     ]
   },
   {
     "objectID": "files/lektionen_hs25/250908_variablen/Variablen.html#funktionen-mit-type-hints",
     "href": "files/lektionen_hs25/250908_variablen/Variablen.html#funktionen-mit-type-hints",
-    "title": "4  Variablen in Python",
+    "title": "4  Variabeln in Python",
     "section": "4.5 Funktionen mit Type-Hints",
     "text": "4.5 Funktionen mit Type-Hints\nZum Abschluss komme ich noch einmal auf die Definition von Funktionen zurück. In Python können Variablen - anders als zum Beispiel in Java - beliebige Datentypen zugewiesen werden. Wenn Variablen im Verlauf eines Programms mehrfach verwendet werden, können ihnen auch unterschiedliche Datentypen zugewiesen werden. Dies ist allerdings schlechter Programmierstil.\nAus diesem Grund ist es sinnvoll, bei der Definition einer Funktion zu deklarieren, welche Datentypen die Parameter haben und welcher Datentyp der Rückgabewert hat. Dies soll mit dem Beispiel der Funktion get_quotient verdeutlicht werden.\n\ndef get_quotient(x : int, y : int) -&gt; float:\n    return x / y\n\nHier wird angegeben, dass die Parameter \\(x\\) und \\(y\\) vom Datentyp int sein sollen. Der Datentyp des Rückgabewertes wird hinter -&gt; geschrieben. Im Beispiel ist der Rückgabewert vom Typ float. Das ist so, weil die Funktion zum Beispiel \\(3 / 4 = 3.5\\) rechnet.\nAber Achtung: die Funktion arbeitet auch dann korrekt, wenn ein anderer als der deklarierte Datentyp übergeben wird. Voraussetzung ist lediglich, dass der Datentyp mit den verwendeten Operationen kompatibel ist. Die “Type-Hints” dienen lediglich der besseren Nachvollziehbarkeit, was die Funktion macht.",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variablen in Python</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variabeln in Python</span>"
     ]
   },
   {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/main.html",
-    "href": "files/lektionen_hs25/250915_schlaufen/main.html",
+    "objectID": "files/lektionen_hs25/250908_variablen/Variablen.html#ausgewählte-musterlösungen",
+    "href": "files/lektionen_hs25/250908_variablen/Variablen.html#ausgewählte-musterlösungen",
+    "title": "4  Variabeln in Python",
+    "section": "4.6 Ausgewählte Musterlösungen",
+    "text": "4.6 Ausgewählte Musterlösungen\n\n4.6.1 Funktion zur Multiplikation zweier Zahlen\n\ndef get_product(a, b):\n    return a * b\n\nproduct = get_product(3, 4)\nprint(product)\n\n\n\n4.6.2 Gleitkommazahlen in wissenschaftlicher Schreibweise\n\nmillion = 1e6\nbillonth = 1e-9\nprint(million, billonth)\n\n1000000.0 1e-09",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variabeln in Python</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html",
+    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html",
     "title": "5  Wiederholungen in Python (For-Loops)",
     "section": "",
-    "text": "Eine Stärke von Computerprogrammen ist die wiederholte Ausführung von Anweisungen. Viele Programmiersprachen stellen dafür ein Konstrukt mit dem Namen ‘For-Schleife’ zur Verfügung. Eine ‘For-Schleife’ funktioniert unabhängig von einer konkreten Programmiersprache folgendermassen:\nFÜR variable VON startwert BIS endwert [MIT schrittweite]\n    Anweisungen\nENDE FÜR\nÜbersetzt nach Python sieht das so aus:\nfor i in range(n):\n    do...\nstartwert BIS endwert [MIT schrittweite] wird dabei durch range(n) ausgedrückt. Dabei ist n der Endwert. Gezählt wird bis zum aber ohne den Endwert. Startwert und Schrittweite haben Vorgabewerte. Der Vorgabewert für den Start ist 0, derjenige der Schrittweite 1. Weil range() diese vorgegebenen Werte hat, müssen diese nicht explizit angegeben werden. Wenn der Startwert abweichend vom Vorgabewert festgelegt werden soll, kann dieser explizit angegeben werden. Der Aufruf von range() sieht dann so aus:\nrange(startwert, endwert)\nFalls eine von 1 abweichende Schrittweite festgelegt werden soll lautet der Aufruf\nrange(startwert, endwert, schrittweite)\nIn diesem Fall müssen neben dem Endwert sowohl der Startwert und die Schrittweite angegeben werden. Andernfalls kann nicht zwischen den einzelnen Angaben zu Endwert, Startwert und Schrittweite unterschieden werden.",
+    "text": "5.1 Anwendungsübung zu Wiederholungen in Python\nEine Stärke von Computerprogrammen ist die wiederholte Ausführung von Anweisungen. Viele Programmiersprachen stellen dafür ein Konstrukt mit dem Namen ‘For-Schleife’ zur Verfügung. Eine ‘For-Schleife’ funktioniert unabhängig von einer konkreten Programmiersprache folgendermassen:\nÜbersetzt nach Python sieht das so aus:\nstartwert BIS endwert [MIT schrittweite] wird dabei durch range(n) ausgedrückt. Dabei ist n der Endwert. Gezählt wird bis zum aber ohne den Endwert. Startwert und Schrittweite haben Vorgabewerte. Der Vorgabewert für den Start ist 0, derjenige der Schrittweite 1. Weil range() diese vorgegebenen Werte hat, müssen diese nicht explizit angegeben werden. Wenn der Startwert abweichend vom Vorgabewert festgelegt werden soll, kann dieser explizit angegeben werden. Der Aufruf von range() sieht dann so aus:\nFalls eine von 1 abweichende Schrittweite festgelegt werden soll lautet der Aufruf\nIn diesem Fall müssen neben dem Endwert sowohl der Startwert und die Schrittweite angegeben werden. Andernfalls kann nicht zwischen den einzelnen Angaben zu Endwert, Startwert und Schrittweite unterschieden werden.\nIm Folgenden bauen Sie eine Blume mit Python for-loops und PyTamaro.\nIn der folgenden Zelle werden zuerst alle von PyTamaro zur Verfügung gestellten Funktionen importiert.\nfrom pytamaro.de import *\nDas Ziel ist es, eine Blume wie die abgebildete zu zeichnen.\nDie wichtigsten Funktionen von PyTamaro für diese Aufgabe sind fixiere() und kombiniere().\nDie Funktion fixiere() legt für eine Grafik einen frei gewählten Ankerpunkt fest. Dazu muss man wissen, dass jede in PyTamaro gezichnete Grafik von einer sogenannten “Bounding Box” umgeben ist. Diese Bounding Box ist ein Rechteck, das die Grafik vollständig umschliesst. Standardmässig liegt der Ankerpunkt einer Grafik in der Mitte der Bounding Box. Mit fixiere() kann man den Ankerpunkt jedoch an eine andere Stelle der Bounding Box verschieben. PyTamaro stellt die folgenden Positionen für Ankerpunkte zur Verfügung:\nDer Ankerpunkt wird mit dem Befehl fixiere(position, grafik) gesetzt.\nDer Ankerpunkt ist wichtig für die Funktion drehe(), die eine Grafik um einen bestimmten Winkel dreht. Die Drehung erfolgt immer um den Ankerpunkt.\nDie Funktion kombiniere(vordere Grafik, hintere Grafik) fügt zwei Grafiken zusammen. Die erste gegebene Grafik liegt im Vordergrund und die zweite im Hintergrund. Die Grafiken werden so ausgerichtet, dass ihre Ankerpunkte übereinanderliegen.",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Wiederholungen in Python (For-Loops)</span>"
     ]
   },
   {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html",
-    "title": "6  Wiederholungen in Python (Übung)",
+    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#anwendungsübung-zu-wiederholungen-in-python",
+    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#anwendungsübung-zu-wiederholungen-in-python",
+    "title": "5  Wiederholungen in Python (For-Loops)",
     "section": "",
-    "text": "6.1 Schritt 1: Zerlege das Bild in seine Einzelteile\nIn diesem Arbeitsblatt bauen Sie eine Blume mit Python for-loops und PyTamaro.\nIn der folgenden Zelle werden zuerst alle von PyTamaro zur Verfügung gestellten Funktionen importiert.\nDas Ziel ist es, eine Blume wie die abgebildete zu zeichnen.\nDie wichtigsten Funktionen von PyTamaro für diese Aufgabe sind fixiere() und kombiniere().\nDie Funktion fixiere() legt für eine Grafik einen frei gewählten Ankerpunkt fest. Dazu muss man wissen, dass jede in PyTamaro gezichnete Grafik von einer sogenannten “Bounding Box” umgeben ist. Diese Bounding Box ist ein Rechteck, das die Grafik vollständig umschliesst. Standardmässig liegt der Ankerpunkt einer Grafik in der Mitte der Bounding Box. Mit fixiere() kann man den Ankerpunkt jedoch an eine andere Stelle der Bounding Box verschieben. PyTamaro stellt die folgenden Positionen für Ankerpunkte zur Verfügung:\nDer Ankerpunkt wird mit dem Befehl fixiere(position, grafik) gesetzt.\nDer Ankerpunkt ist wichtig für die Funktion drehe(), die eine Grafik um einen bestimmten Winkel dreht. Die Drehung erfolgt immer um den Ankerpunkt.\nDie Funktion kombiniere(vordere Grafik, hintere Grafik) fügt zwei Grafiken zusammen. Die erste gegebene Grafik liegt im Vordergrund und die zweite im Hintergrund. Die Grafiken werden so ausgerichtet, dass ihre Ankerpunkte übereinanderliegen.\nDie Blume besteht im wesentlichen aus zwei Formen:\nUm die Blume zu zeichnen, müssen diese beiden Formen zuerst einzeln erstellt werden.\nbluetenblatt = ellipse(50, 150, blau)\n# die Farbe blau wurde gewhält, damit das Blatt vor dem Hintergrund\n# sichtbar ist\n\nzeige_grafik(bluetenblatt)\nscheibe = ellipse(30, 30, rot)\nzeige_grafik(scheibe)",
+    "text": "Blume\n\n\n\n\n\nmitte: Mitte der Bounding Box (Standard)\nmitte_links: Mitte der linken Seite der Bounding Box\nmitte_rechts: Mitte der rechten Seite der Bounding Box\noben_links: Obere linke Ecke der Bounding Box\noben_mitte: Mitte der oberen Seite der Bounding Box\noben_rechts: Obere rechte Ecke der Bounding Box\nunten_links: Untere linke Ecke der Bounding Box\nunten_mitte: Mitte der unteren Seite der Bounding Box\nunten_rechts: Obere rechte Ecke der Bounding Box\n\n\n\n\n\n5.1.1 Schritt 1: Zerlege das Bild in seine Einzelteile\nDie Blume besteht im wesentlichen aus zwei Formen:\n\nBlütenblätter in Form von Ellipsen sowie\neiner Scheibe in der Form eines Kreises in der Mitte.\n\nUm die Blume zu zeichnen, müssen diese beiden Formen zuerst einzeln erstellt werden.\n\nbluetenblatt = ellipse(50, 150, blau)\n# die Farbe blau wurde gewhält, damit das Blatt vor dem Hintergrund\n# sichtbar ist\n\nzeige_grafik(bluetenblatt)\n\n\n\n\n\n\n\n\n\nscheibe = ellipse(30, 30, rot)\nzeige_grafik(scheibe)\n\n\n\n\n\n\n\n\n\n\n5.1.2 Schritt 2: Positioniere die Blütenblätter\nDie Blütenblätter sind rund um die Mitte der Blume angeordnet. Da es zwölf Blütenblätter sind, beträgt der Winkel zwischen zwei Blütenblättern \\(\\frac{360°}{12} = 30°\\). Die Drehung der Blütenblätter erfolgt um den Ankerpunkt unten_mitte der Blütenblätter.\nDie Blütenblätter müssen also zuerst fixiert und dann gedreht werden.\n\nbluetenblatt_fixiert = fixiere(unten_mitte, bluetenblatt)\nbluetenblatt_30 = drehe(30, bluetenblatt_fixiert)\nzeige_grafik(bluetenblatt_30)\n\n\n\n\n\n\n\n\n\n\n5.1.3 Schritt 3: Zeichnen aller erforderlichen Blütenblätter\nDie Blume hat zwölf Blütenblätter. Diese können von Hand jedes einzelne erstellt werden. Das dritte Blütenblatt ist um 60° gedreht und wird entsprechend mit\nbluetenblatt_60 = drehe(60, bluetenblatt_fixiert)\nerstllt. Das kann man für alle zwölf Blütenblätter machen bis man beim zwölften Blütenblatt angekommen ist, das um 330° gedreht ist.\nbluetenblatt_330 = drehe(330, bluetenblatt_fixiert)\nDas ist aber sehr mühsam und fehleranfällig. Viel einfacher ist es, eine Schlaufe (for-loop) zu verwenden, die die Blütenblätter basierend auf der Grundform automatisch erstellt.\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_fixiert)\n\nzeige_grafik(bluetenblatt_gedreht)\n\n\n\n\n\n\n\n\nDiese Schlaufe durchläuft die Zahlen von 0 bis 11 (also 12 Zahlen) und berechnet für jede Zahl den entsprechenden Drehwinkel. Dann wird das Blütenblatt um diesen Winkel gedreht. Allerdings wird das gedrehte Blütenblatt in jeder Iteration der Schlaufe in der gleichen Variable bluetenblatt_gedreht gespeichert. Am Ende der Schlaufe enthält diese Variable nur das letzte gedrehte Blütenblatt (das um 330° gedrehte Blütenblatt).\n\n\n5.1.4 Schritt 4: Kombiniere alle Blütenblätter\nUm das unerwünschte Verhalten zu vermeiden, dass am Ende der Schlaufe nur das letzte gedrehte Blütenblatt in der Variable bluetenblatt_gedreht enthalten ist, müssen die gedrehten Blütenblätter in jeder Iteration der gewünschten Gesamtgrafik hinzugefügt werden. Dazu wird die Funktion kombiniere() verwendet.\n\nblume = bluetenblatt_fixiert\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_fixiert)\n    blume = kombiniere(blume, bluetenblatt_gedreht)\n    \nzeige_grafik(blume)\n\n\n\n\n\n\n\n\nDamit sind die Blütenblätter in der gewünschten Position und Anzahl zusammengefügt. Damit Sie allerdings aussehen, wie die Blume in der Vorlage, müssen die einzelnen Blütenblätter weiss eingefärbt und mit einem rosa Rand versehen werden.\nRosa ist keine vordefinierte Farbe in PyTamaro. Sie können jedoch eine beliebige Farbe mit der Funktion rgb_farbe(rot, gruen, blau) erstellen. Dabei sind rot, gruen und blau Zahlenwerte von 0 bis 255, die den Anteil der jeweiligen Farbe an der Gesamtfarbe angeben. Damit nicht alle Kombinationen durchprobiert werden müssen, können Sie mit einem Online-Tool wie RGB Color Picker die gewünschte Farbe auswählen und die entsprechenden Werte für rot, grün und blau ablesen.\n\nweisses_blatt = ellipse(50, 150, weiss)\nrosa_rand = ellipse(55, 155, rgb_farbe(255, 0, 102))\n\nbluetenblatt_mit_rand = ueberlagere(weisses_blatt, rosa_rand)\n\nzeige_grafik(bluetenblatt_mit_rand)\n\n\n\n\n\n\n\n\nAnschliessend können die Blütenblätter mit Rand in der vorher geschriebenen Schlaufe zur Gesamtgrafik zusammengefügt werden.\n\nbluetenblatt_mit_rand_fixiert = fixiere(unten_mitte, bluetenblatt_mit_rand)\n\nblume_weiss = bluetenblatt_mit_rand_fixiert\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_mit_rand_fixiert)\n    blume_weiss = kombiniere(blume_weiss, bluetenblatt_gedreht)\n    \nzeige_grafik(blume_weiss)\n\n\n\n\n\n\n\n\n\n\n5.1.5 Schritt 5: Scheibe im Zentrum der Blume\nBei genauer Betrachtung der Blume fällt auf, dass die Scheibe in der Mitte der Blume nicht einfach einfarbig gelb ist, sondern gegen die Mitte hin einen Farbverlauf aufweist. Diesen Farbverlauf wird erzeugt, indem mehrere Kreise mit kleiner werdendem Radius und abnehmender Farbintensität übereinandergelegt werden.\n\nscheibe = ellipse(30, 30, rgb_farbe(255, 0, 0))\n\nfor i in range(1, 8):\n    tmp = ellipse(30 - 3*i, 30 - 3*i, rgb_farbe(255, i*26, i*26))\n    scheibe = ueberlagere(tmp, scheibe)\n    \nzeige_grafik(scheibe)\n\n\n\n\n\n\n\n\n\n\n5.1.6 Schritt 6: Kombination der Elemente zur vollständigen Blume\nZum Schluss wird die Scheibe auf die Blütenblätter gelegt und Blume so vervollständigt.\n\nblume_komplett = ueberlagere(scheibe, blume_weiss)\nzeige_grafik(blume_komplett)",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-1-zerlege-das-bild-in-seine-einzelteile",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-1-zerlege-das-bild-in-seine-einzelteile",
-    "title": "6  Wiederholungen in Python (Übung)",
-    "section": "",
-    "text": "Blütenblätter in Form von Ellipsen sowie\neiner Scheibe in der Form eines Kreises in der Mitte.",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-2-positioniere-die-blütenblätter",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-2-positioniere-die-blütenblätter",
-    "title": "6  Wiederholungen in Python (Übung)",
-    "section": "6.2 Schritt 2: Positioniere die Blütenblätter",
-    "text": "6.2 Schritt 2: Positioniere die Blütenblätter\nDie Blütenblätter sind rund um die Mitte der Blume angeordnet. Da es zwölf Blütenblätter sind, beträgt der Winkel zwischen zwei Blütenblättern \\(\\frac{360°}{12} = 30°\\). Die Drehung der Blütenblätter erfolgt um den Ankerpunkt unten_mitte der Blütenblätter.\nDie Blütenblätter müssen also zuerst fixiert und dann gedreht werden.\n\nbluetenblatt_fixiert = fixiere(unten_mitte, bluetenblatt)\nbluetenblatt_30 = drehe(30, bluetenblatt_fixiert)\nzeige_grafik(bluetenblatt_30)",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-3-zeichnen-aller-erforderlichen-blütenblätter",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-3-zeichnen-aller-erforderlichen-blütenblätter",
-    "title": "6  Wiederholungen in Python (Übung)",
-    "section": "6.3 Schritt 3: Zeichnen aller erforderlichen Blütenblätter",
-    "text": "6.3 Schritt 3: Zeichnen aller erforderlichen Blütenblätter\nDie Blume hat zwölf Blütenblätter. Diese können von Hand jedes einzelne erstellt werden. Das dritte Blütenblatt ist um 60° gedreht und wird entsprechend mit\nbluetenblatt_60 = drehe(60, bluetenblatt_fixiert)\nerstllt. Das kann man für alle zwölf Blütenblätter machen bis man beim zwölften Blütenblatt angekommen ist, das um 330° gedreht ist.\nbluetenblatt_330 = drehe(330, bluetenblatt_fixiert)\nDas ist aber sehr mühsam und fehleranfällig. Viel einfacher ist es, eine Schlaufe (for-loop) zu verwenden, die die Blütenblätter basierend auf der Grundform automatisch erstellt.\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_fixiert)\n\nzeige_grafik(bluetenblatt_gedreht)\n\n\n\n\n\n\n\n\nDiese Schlaufe durchläuft die Zahlen von 0 bis 11 (also 12 Zahlen) und berechnet für jede Zahl den entsprechenden Drehwinkel. Dann wird das Blütenblatt um diesen Winkel gedreht. Allerdings wird das gedrehte Blütenblatt in jeder Iteration der Schlaufe in der gleichen Variable bluetenblatt_gedreht gespeichert. Am Ende der Schlaufe enthält diese Variable nur das letzte gedrehte Blütenblatt (das um 330° gedrehte Blütenblatt).",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-4-kombiniere-alle-blütenblätter",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-4-kombiniere-alle-blütenblätter",
-    "title": "6  Wiederholungen in Python (Übung)",
-    "section": "6.4 Schritt 4: Kombiniere alle Blütenblätter",
-    "text": "6.4 Schritt 4: Kombiniere alle Blütenblätter\nUm das unerwünschte Verhalten zu vermeiden, dass am Ende der Schlaufe nur das letzte gedrehte Blütenblatt in der Variable bluetenblatt_gedreht enthalten ist, müssen die gedrehten Blütenblätter in jeder Iteration der gewünschten Gesamtgrafik hinzugefügt werden. Dazu wird die Funktion kombiniere() verwendet.\n\nblume = bluetenblatt_fixiert\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_fixiert)\n    blume = kombiniere(blume, bluetenblatt_gedreht)\n    \nzeige_grafik(blume)\n\n\n\n\n\n\n\n\nDamit sind die Blütenblätter in der gewünschten Position und Anzahl zusammengefügt. Damit Sie allerdings aussehen, wie die Blume in der Vorlage, müssen die einzelnen Blütenblätter weiss eingefärbt und mit einem rosa Rand versehen werden.\nRosa ist keine vordefinierte Farbe in PyTamaro. Sie können jedoch eine beliebige Farbe mit der Funktion rgb_farbe(rot, gruen, blau) erstellen. Dabei sind rot, gruen und blau Zahlenwerte von 0 bis 255, die den Anteil der jeweiligen Farbe an der Gesamtfarbe angeben. Damit nicht alle Kombinationen durchprobiert werden müssen, können Sie mit einem Online-Tool wie RGB Color Picker die gewünschte Farbe auswählen und die entsprechenden Werte für rot, grün und blau ablesen.\n\nweisses_blatt = ellipse(50, 150, weiss)\nrosa_rand = ellipse(55, 155, rgb_farbe(255, 0, 102))\n\nbluetenblatt_mit_rand = ueberlagere(weisses_blatt, rosa_rand)\n\nzeige_grafik(bluetenblatt_mit_rand)\n\n\n\n\n\n\n\n\nAnschliessend können die Blütenblätter mit Rand in der vorher geschriebenen Schlaufe zur Gesamtgrafik zusammengefügt werden.\n\nbluetenblatt_mit_rand_fixiert = fixiere(unten_mitte, bluetenblatt_mit_rand)\n\nblume_weiss = bluetenblatt_mit_rand_fixiert\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_mit_rand_fixiert)\n    blume_weiss = kombiniere(blume_weiss, bluetenblatt_gedreht)\n    \nzeige_grafik(blume_weiss)",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-5-scheibe-im-zentrum-der-blume",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-5-scheibe-im-zentrum-der-blume",
-    "title": "6  Wiederholungen in Python (Übung)",
-    "section": "6.5 Schritt 5: Scheibe im Zentrum der Blume",
-    "text": "6.5 Schritt 5: Scheibe im Zentrum der Blume\nBei genauer Betrachtung der Blume fällt auf, dass die Scheibe in der Mitte der Blume nicht einfach einfarbig gelb ist, sondern gegen die Mitte hin einen Farbverlauf aufweist. Diesen Farbverlauf wird erzeugt, indem mehrere Kreise mit kleiner werdendem Radius und abnehmender Farbintensität übereinandergelegt werden.\n\nscheibe = ellipse(30, 30, rgb_farbe(255, 0, 0))\n\nfor i in range(1, 8):\n    tmp = ellipse(30 - 3*i, 30 - 3*i, rgb_farbe(255, i*26, i*26))\n    scheibe = ueberlagere(tmp, scheibe)\n    \nzeige_grafik(scheibe)\n\n\n\n\n\n\n\n\nZum Schluss wird die Scheibe auf die Blütenblätter gelegt und Blume so vervollständigt.\n\nblume_komplett = ueberlagere(scheibe, blume_weiss)\nzeige_grafik(blume_komplett)",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250922_bedingungen/bedingungen.html",
-    "href": "files/lektionen_hs25/250922_bedingungen/bedingungen.html",
-    "title": "7  Programmverzweigungen (Bedingungen)",
-    "section": "",
-    "text": "Es gibt Situationen, in denen es wünschenswert ist, dass ein Teil eines Programms nur ausgeführt wird, wenn eine bestimmte Voraussetzung erfüllt ist.\nAls Beispiel dafür mag die Blume von vergangener Woche dienen. Wenn eine Blume gezeichnet werden soll, welche abwechslungsweise dunkelblaue und hellblaue Blütenblätter hat.\n\n\n\nBeispielblume\n\n\nDiese Blume wurde ebenfalls mit einer for-Schlaufe gezeichnet. Allerdings wurde abwechslungsweise ein dunkelblaues und ein hellblaues Blütenblatt verwendet.\nAbwechslungsweise kann auch als wenn eine gerade Zahl kommt bzw. wenn eine ungerade Zahl kommt verstanden werden. Kommen beim Zählen doch abwechslungsweise gerade und ungerade Zahlen. Übersetzt in die for i in range(12)-Schlaufe heisst das, immer wenn der Wert in der Variabel i eine gerade Zahl ist dann soll ein dunkelblaues Blüentblatt verwendet werden und immer wenn der Wert der Variabel i eine ungerade Zahl ist, soll ein hellblaues Blütenblatt verwendet werden.\nIn Python verwendet man dazu die folgende Syntax:\nif BEDINGUNG:\n    ANWEISUNG(en)\nelse:\n    ANWEISUNG(en)\nDas heisst, immer wenn die BEDINGUNG erfüllt ist (wenn sie wahr) ist, werden die eingerückten Anweisungen ausgeführt. In allen anderen Fällen werden die nach else: eingerückten Anweisungen ausgeführt.\nFür die Zeichnung der Blume bedeutet das also, dass immer wenn i eine gerade Zahl ist, soll ein dunkelblaues Blütenblatt verwendet werden. Eine gerade Zahl ist dabei jede Zahl, die ohne Rest durch zwei Teilbar ist.\nOb dies der Fall ist, kann mit dem Modulo Operator (%) getestet werden (vgl. Abschnitt  Vorbemerkungen: Python als Rechner.) Eine Zahl ist ohne Rest durch zwei Teilbar, wenn gilt\n\\[\ni\\ mod\\ 2 = 0\n\\]\nÜbersetzt nach Pyhton schreibt sich das als\nif i % 2 == 0:\nFür die Prüfung, ob das Resultat \\(0\\) ist, wird dabei == verwendet. Dies rührt daher, dass das einfache gleichheitszeichen bereits als Operator für die Zuweisung eines Wertes zu einer Variabel besetzt war.\nDer Vollständige Code für die Abwechslungsweise Verwendung eines dunkelblauen bzw. eines hellblauen Blütenblattes sieht folgendermassen aus:\nif i % 2 == 0:\n    blume = kombiniere(blume, bluetenblatt_dunkel)\nelse:\n    blume = kombiniere(blume, bluetenblatt_hell)\nFalls mehr als zwei Fälle unterschieden werden müssen, lautet die Python Syntax\nif BEDINGUNG:\n    ANWEISUNG(en)\nelif BEDINGUNG:\n    ANWEISUNG(en)\nelse:\n    ANWEISUNG(en)\nDabei können beliebig viele elif Bedingungen wiederholt werden.\nAls Bedingung kann nicht nur eine Gleichheit überprüft werden. Es ist auch möglich grösser &gt;, grösser oder gleich &gt;=, kleiner &lt; und kleiner oder gleich &lt;= zu prüfen.",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Programmverzweigungen (Bedingungen)</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Wiederholungen in Python (For-Loops)</span>"
     ]
   },
   {
     "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html",
     "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html",
-    "title": "8  Arbeitsblatt zu Bedingungen in Python",
+    "title": "6  Programmverzweigungen (Bedingungen)",
     "section": "",
-    "text": "8.1 Aufgabenstellung\nZeichnen Sie die folgende Blume.\nDie erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.\nfrom pytamaro.de import *\n\nlavender = rgb_farbe(230, 230, 250)\nmediumpurple = rgb_farbe(147, 112, 219)\ndarkorchid = rgb_farbe(153, 50, 204)\nindigo = rgb_farbe(75, 0, 130)\n# Hier ist Platz für Ihre Blume\n# Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht\n# werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können\n# dies die Zahlen 1, 2 oder 3 sein.",
+    "text": "6.1 Anwendungsübung zu Bedingungen in Python\nEs gibt Situationen, in denen es wünschenswert ist, dass ein Teil eines Programms nur ausgeführt wird, wenn eine bestimmte Voraussetzung erfüllt ist.\nAls Beispiel dafür mag die Blume von vergangener Woche dienen. Wenn eine Blume gezeichnet werden soll, welche abwechslungsweise dunkelblaue und hellblaue Blütenblätter hat.\nDiese Blume wurde ebenfalls mit einer for-Schlaufe gezeichnet. Allerdings wurde abwechslungsweise ein dunkelblaues und ein hellblaues Blütenblatt verwendet.\nAbwechslungsweise kann auch als wenn eine gerade Zahl kommt bzw. wenn eine ungerade Zahl kommt verstanden werden. Kommen beim Zählen doch abwechslungsweise gerade und ungerade Zahlen. Übersetzt in die for i in range(12)-Schlaufe heisst das, immer wenn der Wert in der Variabel i eine gerade Zahl ist dann soll ein dunkelblaues Blüentblatt verwendet werden und immer wenn der Wert der Variabel i eine ungerade Zahl ist, soll ein hellblaues Blütenblatt verwendet werden.\nIn Python verwendet man dazu die folgende Syntax:\nDas heisst, immer wenn die BEDINGUNG erfüllt ist (wenn sie wahr) ist, werden die eingerückten Anweisungen ausgeführt. In allen anderen Fällen werden die nach else: eingerückten Anweisungen ausgeführt.\nFür die Zeichnung der Blume bedeutet das also, dass immer wenn i eine gerade Zahl ist, soll ein dunkelblaues Blütenblatt verwendet werden. Eine gerade Zahl ist dabei jede Zahl, die ohne Rest durch zwei Teilbar ist.\nOb dies der Fall ist, kann mit dem Modulo Operator (%) getestet werden (vgl. Abschnitt  Vorbemerkungen: Python als Rechner.) Eine Zahl ist ohne Rest durch zwei Teilbar, wenn gilt\n\\[\ni\\ mod\\ 2 = 0\n\\]\nÜbersetzt nach Pyhton schreibt sich das als\nFür die Prüfung, ob das Resultat \\(0\\) ist, wird dabei == verwendet. Dies rührt daher, dass das einfache gleichheitszeichen bereits als Operator für die Zuweisung eines Wertes zu einer Variabel besetzt war.\nDer Vollständige Code für die Abwechslungsweise Verwendung eines dunkelblauen bzw. eines hellblauen Blütenblattes sieht folgendermassen aus:\nFalls mehr als zwei Fälle unterschieden werden müssen, lautet die Python Syntax\nDabei können beliebig viele elif Bedingungen wiederholt werden.\nAls Bedingung kann nicht nur eine Gleichheit überprüft werden. Es ist auch möglich grösser &gt;, grösser oder gleich &gt;=, kleiner &lt; und kleiner oder gleich &lt;= zu prüfen.",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Programmverzweigungen (Bedingungen)</span>"
     ]
   },
   {
-    "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#aufgabenstellung",
-    "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#aufgabenstellung",
-    "title": "8  Arbeitsblatt zu Bedingungen in Python",
+    "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#anwendungsübung-zu-bedingungen-in-python",
+    "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#anwendungsübung-zu-bedingungen-in-python",
+    "title": "6  Programmverzweigungen (Bedingungen)",
     "section": "",
-    "text": "Blumenvorlage",
+    "text": "6.1.1 Aufgabenstellung\nZeichnen Sie die folgende Blume.\n\n\n\nBlumenvorlage\n\n\nDie erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.\n\nfrom pytamaro.de import *\n\nlavender = rgb_farbe(230, 230, 250)\nmediumpurple = rgb_farbe(147, 112, 219)\ndarkorchid = rgb_farbe(153, 50, 204)\nindigo = rgb_farbe(75, 0, 130)\n\n\n# Hier ist Platz für Ihre Blume\n# Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht\n# werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können\n# dies die Zahlen 1, 2 oder 3 sein.\n\n\n\n6.1.2 Musterlösung\n\nbluetenblatt_l = ellipse(30, 150, lavender)\nbluetenblatt_m = ellipse(30, 150, mediumpurple)\nbluetenblatt_d = ellipse(30, 150, darkorchid)\nscheibe_i = ellipse(25, 25, indigo)\n\nbluetenblatt_m_fix = fixiere(unten_mitte, bluetenblatt_m)\nbluetenblatt_l_fix = fixiere(unten_mitte, bluetenblatt_l)\nbluetenblatt_d_fix = fixiere(unten_mitte, bluetenblatt_d)\n\nblume3 = scheibe_i\nfor i in range(24):  \n    \n    if i % 4 == 0:\n        bl_temp = drehe(i * 15, bluetenblatt_l_fix)\n        blume3 = kombiniere(blume3, bl_temp)\n    elif i % 4 == 2:\n        bd_temp = drehe(i * 15, bluetenblatt_d_fix)\n        blume3 = kombiniere(blume3, bd_temp)\n    else:\n        bm_temp = drehe(i * 15, bluetenblatt_m_fix)\n        blume3 = kombiniere(blume3, bm_temp)\n        \nzeige_grafik(blume3)",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#musterlösung",
-    "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#musterlösung",
-    "title": "8  Arbeitsblatt zu Bedingungen in Python",
-    "section": "8.2 Musterlösung",
-    "text": "8.2 Musterlösung\n\nbluetenblatt_l = ellipse(30, 150, lavender)\nbluetenblatt_m = ellipse(30, 150, mediumpurple)\nbluetenblatt_d = ellipse(30, 150, darkorchid)\nscheibe_i = ellipse(25, 25, indigo)\n\n\nbluetenblatt_m_fix = fixiere(unten_mitte, bluetenblatt_m)\nbluetenblatt_l_fix = fixiere(unten_mitte, bluetenblatt_l)\nbluetenblatt_d_fix = fixiere(unten_mitte, bluetenblatt_d)\n\n\nblume3 = scheibe_i\nfor i in range(24):  \n    \n    if i % 4 == 0:\n        bl_temp = drehe(i * 15, bluetenblatt_l_fix)\n        blume3 = kombiniere(blume3, bl_temp)\n    elif i % 4 == 2:\n        bd_temp = drehe(i * 15, bluetenblatt_d_fix)\n        blume3 = kombiniere(blume3, bd_temp)\n    else:\n        bm_temp = drehe(i * 15, bluetenblatt_m_fix)\n        blume3 = kombiniere(blume3, bm_temp)\n        \nzeige_grafik(blume3)",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Programmverzweigungen (Bedingungen)</span>"
     ]
   }
 ]

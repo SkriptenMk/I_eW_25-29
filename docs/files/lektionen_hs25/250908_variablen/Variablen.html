@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jacques Mock Schindler">
 
-<title>4&nbsp; Variablen in Python – Unterlagen für das obligatorische Fach Informatik</title>
+<title>4&nbsp; Variabeln in Python – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../files/lektionen_hs25/250915_schlaufen/main.html" rel="next">
+<link href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" rel="next">
 <link href="../../../files/lektionen_hs25/250901_probleme/probleme.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -178,7 +178,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variablen in Python</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabeln in Python</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -237,31 +237,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variablen in Python</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/250915_schlaufen/main.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabeln in Python</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (Übung)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/250922_bedingungen/bedingungen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbeitsblatt zu Bedingungen in Python</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
   </div>
 </li>
       </ul>
@@ -288,15 +276,20 @@ window.Quarto = {
   <li><a href="#boolean-type" id="toc-boolean-type" class="nav-link" data-scroll-target="#boolean-type"><span class="header-section-number">4.4.5</span> Boolean Type</a></li>
   </ul></li>
   <li><a href="#funktionen-mit-type-hints" id="toc-funktionen-mit-type-hints" class="nav-link" data-scroll-target="#funktionen-mit-type-hints"><span class="header-section-number">4.5</span> Funktionen mit Type-Hints</a></li>
+  <li><a href="#ausgewählte-musterlösungen" id="toc-ausgewählte-musterlösungen" class="nav-link" data-scroll-target="#ausgewählte-musterlösungen"><span class="header-section-number">4.6</span> Ausgewählte Musterlösungen</a>
+  <ul class="collapse">
+  <li><a href="#funktion-zur-multiplikation-zweier-zahlen" id="toc-funktion-zur-multiplikation-zweier-zahlen" class="nav-link" data-scroll-target="#funktion-zur-multiplikation-zweier-zahlen"><span class="header-section-number">4.6.1</span> Funktion zur Multiplikation zweier Zahlen</a></li>
+  <li><a href="#gleitkommazahlen-in-wissenschaftlicher-schreibweise" id="toc-gleitkommazahlen-in-wissenschaftlicher-schreibweise" class="nav-link" data-scroll-target="#gleitkommazahlen-in-wissenschaftlicher-schreibweise"><span class="header-section-number">4.6.2</span> Gleitkommazahlen in wissenschaftlicher Schreibweise</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variablen in Python</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabeln in Python</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variablen in Python</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabeln in Python</span></h1>
 </div>
 
 
@@ -325,6 +318,7 @@ window.Quarto = {
 </header>
 
 
+<p><a target="_blank" href="https://colab.research.google.com/github/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250908_variablen/Variablen.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
 <section id="vorbemerkungen-python-als-rechner" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="vorbemerkungen-python-als-rechner"><span class="header-section-number">4.1</span> Vorbemerkungen: Python als Rechner</h2>
 <p>Python verfügt über eingebaute mathematische Fähigkeiten. Es kann die Grundrechenarten und kennt die Hierarchie der Operationen. Sie können das überprüfen, in dem Sie in der folgenden Zelle die Rechnung <span class="math display">\[2+3\cdot4\]</span> ausführen.</p>
@@ -581,8 +575,32 @@ window.Quarto = {
 </div>
 <p>Hier wird angegeben, dass die Parameter <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> vom Datentyp <code>int</code> sein sollen. Der Datentyp des Rückgabewertes wird hinter <code>-&gt;</code> geschrieben. Im Beispiel ist der Rückgabewert vom Typ <code>float</code>. Das ist so, weil die Funktion zum Beispiel <span class="math inline">\(3 / 4 = 3.5\)</span> rechnet.</p>
 <p>Aber Achtung: die Funktion arbeitet auch dann korrekt, wenn ein anderer als der deklarierte Datentyp übergeben wird. Voraussetzung ist lediglich, dass der Datentyp mit den verwendeten Operationen kompatibel ist. Die “Type-Hints” dienen lediglich der besseren Nachvollziehbarkeit, was die Funktion macht.</p>
+</section>
+<section id="ausgewählte-musterlösungen" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="ausgewählte-musterlösungen"><span class="header-section-number">4.6</span> Ausgewählte Musterlösungen</h2>
+<section id="funktion-zur-multiplikation-zweier-zahlen" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="funktion-zur-multiplikation-zweier-zahlen"><span class="header-section-number">4.6.1</span> Funktion zur Multiplikation zweier Zahlen</h3>
+<div id="cell-39" class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">def</span> get_product(a, b):</span>
+<span id="cb18-2"><a href="#cb18-2"></a>    <span class="cf">return</span> a <span class="op">*</span> b</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a>product <span class="op">=</span> get_product(<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="bu">print</span>(product)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="gleitkommazahlen-in-wissenschaftlicher-schreibweise" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="gleitkommazahlen-in-wissenschaftlicher-schreibweise"><span class="header-section-number">4.6.2</span> Gleitkommazahlen in wissenschaftlicher Schreibweise</h3>
+<div id="cell-41" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>million <span class="op">=</span> <span class="fl">1e6</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>billonth <span class="op">=</span> <span class="fl">1e-9</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="bu">print</span>(million, billonth)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1000000.0 1e-09</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -992,7 +1010,7 @@ window.Quarto = {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../files/lektionen_hs25/250915_schlaufen/main.html" class="pagination-link" aria-label="Wiederholungen in Python (For-Loops)">
+      <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="pagination-link" aria-label="Wiederholungen in Python (For-Loops)">
         <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
