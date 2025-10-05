@@ -152,9 +152,9 @@
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html",
-    "title": "3  Vorbemerkung",
+    "title": "3  Ausgangslage",
     "section": "",
-    "text": "4 Ausgangslage\nDamit Sie dieses Jupyter Notebook lokal (das heisst, auf Ihrem Computer) verwenden können, klicken Sie auf den Button . Es öffnet sich dann das Jupyter Notebook in Google Colab. Dort können Sie unter dem Menü Datei &gt; Herunterladen &gt; .ipynb herunterladen auswählen. Mit dieser Auswahl öffnet sich der Download Dialog und Sie können das Jupyter Notebook am gewünschen Ort speichern.\nJede Disziplin hat ihre eigene Art, Probleme zu lösen. Das ist in der Informatik nicht anders.\nIn der Informatik versucht man, grosse Probleme in kleinere Teilprobleme zu zerlegen. Das macht man so lange, bis die Teilprobleme so klein sind, dass sie einfach zu lösen sind.\nDies soll hier anhand von verschidenen Grafiken gezigt werden.\nDamit in Python einfach mit Grafiken gearbeitet werden kann, wird das Paket PyTamaro verwendet. Dieses Paket wurde von der Università della Svizzera italiana (USI) extra für die Informatik-Ausbildung entwickelt.\nDamit das Paket verwendet werden kann, muss es zuerst in der aktuellen Python Virtual Environment installiert werden.\nDazu öffnen Sie ein Terminal im Ordner, in dem sich dieses Jupyter Notebook befindet. Anschliessend starten Sie die Python Virtual Environment mit dem Befehl:\nDanach können Sie PyTamaro mit dem Befehl\ninstallieren.\nUm das Paket zu verwenden, muss es importiert werden. Die genauen Zusammenhänge müssen im Moment nicht bekannt sein. Wichtig ist lediglich, dass die folgende Zelle ausgeführt wird.\nfrom pytamaro.de import (\n    rechteck, kreis_sektor,\n    blau, rot, weiss, schwarz,\n    neben, ueber, ueberlagere,\n    drehe, kombiniere,\n    zeige_grafik, speichere_grafik,\n)",
+    "text": "3.1 Beispiel: Tricolore\nVorbemerkung\nDamit Sie dieses Jupyter Notebook lokal (das heisst, auf Ihrem Computer) verwenden können, klicken Sie auf den Button . Es öffnet sich dann das Jupyter Notebook in Google Colab. Dort können Sie unter dem Menü Datei &gt; Herunterladen &gt; .ipynb herunterladen auswählen. Mit dieser Auswahl öffnet sich der Download Dialog und Sie können das Jupyter Notebook am gewünschen Ort speichern.\nJede Disziplin hat ihre eigene Art, Probleme zu lösen. Das ist in der Informatik nicht anders.\nIn der Informatik versucht man, grosse Probleme in kleinere Teilprobleme zu zerlegen. Das macht man so lange, bis die Teilprobleme so klein sind, dass sie einfach zu lösen sind.\nDies soll hier anhand von verschidenen Grafiken gezigt werden.\nDamit in Python einfach mit Grafiken gearbeitet werden kann, wird das Paket PyTamaro verwendet. Dieses Paket wurde von der Università della Svizzera italiana (USI) extra für die Informatik-Ausbildung entwickelt.\nDamit das Paket verwendet werden kann, muss es zuerst in der aktuellen Python Virtual Environment installiert werden.\nDazu öffnen Sie ein Terminal im Ordner, in dem sich dieses Jupyter Notebook befindet. Anschliessend starten Sie die Python Virtual Environment mit dem Befehl:\nDanach können Sie PyTamaro mit dem Befehl\ninstallieren.\nUm das Paket zu verwenden, muss es importiert werden. Die genauen Zusammenhänge müssen im Moment nicht bekannt sein. Wichtig ist lediglich, dass die folgende Zelle ausgeführt wird.\nDie Vorgehensweise wird anhand der Französischen Nationalflagge (Tricolore) gezigt.\nUm die Zeichnung der Tricolore zu planen, wird die Grafik in ihre Einzelteile zerlegt.\nDie Tricolore besteht aus drei gleich grossen Rechtecken in den Farben blau, rot und weiss. Diese Rechtecke werden nebeneinander angeordnet.\nDas bedeutet, dass die Länge und die Breite der Rechtecke definiert werden muss und basierend auf diesen Werten die drei Rechtecke gezeichnet werden. Anschliessend werden die drei Rechtecke nebeneinander angeordnet.\nDer Befehl zum Zeichnen eines Rechtecks lautet\nBevor die Zeichnung tatsächlich erstellt wird, soll hier der Befehl im Detail erklärt werden:",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
@@ -163,9 +163,9 @@
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tricolore",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tricolore",
-    "title": "3  Vorbemerkung",
-    "section": "4.1 Beispiel: Tricolore",
-    "text": "4.1 Beispiel: Tricolore\nDie Vorgehensweise wird anhand der Französischen Nationalflagge (Tricolore) gezigt.\n\nUm die Zeichnung der Tricolore zu planen, wird die Grafik in ihre Einzelteile zerlegt.\nDie Tricolore besteht aus drei gleich grossen Rechtecken in den Farben blau, rot und weiss. Diese Rechtecke werden nebeneinander angeordnet.\nDas bedeutet, dass die Länge und die Breite der Rechtecke definiert werden muss und basierend auf diesen Werten die drei Rechtecke gezeichnet werden. Anschliessend werden die drei Rechtecke nebeneinander angeordnet.\nDer Befehl zum Zeichnen eines Rechtecks lautet\nname = rechteck(länge, breite, farbe)\nBevor die Zeichnung tatsächlich erstellt wird, soll hier der Befehl im Detail erklärt werden:\n\nname ist der Name, unter dem das Rechteck gespeichert wird. Dieser Name kann später verwendet werden, um auf das Rechteck zuzugreifen.\nrechteck ist der Befehl, der ein Rechteck zeichnet. In der Klammer hinter dem Befehl werden die sogenannten Argumente angegeben. Diese steuern, wie das Rechteck aussieht.\nlänge und breite sind die Argumente, die die Grösse des Rechtecks bestimmen. Diese Werte können beliebig gewählt werden.\nfarbe ist das Argument, das die Farbe des Rechtecks bestimmt. Aufgrund der Eigenheiten von PyTamaro können ausschliesslich die Farben verwendet werden, welche importiert worden sind.\n\n\n4.1.1 Rechtecke zeichnen\nAls erstes wird hier gezeigt, wie das blaue Rechteck gezeichnetwird.\nDamit das Resultat kontrolliert werden kann, wird die Grafik mit dem Befehl\nzeige_grafik(name)\nangezeigt.\n\nbleu = rechteck(50, 100, blau)\nzeige_grafik(bleu)\n\n\n\n\n\n\n\n\nNachdem das blaue Rechteck gezeichnet wurde, kann das weisse und das rote Rechteck analog gezeichnet und angzeigt werden.\n\n# TODO: Rechtecke blanc und rouge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code\nblanc = rechteck(50, 100, weiss)\nrouge = rechteck(50, 100, rot)\n\nAls nächstes werden die drei Rechtecke nebeninander angeordnet. Dazu wird der Befehl neben verwendet. Dieser Befehl nimmt zwei Argumente entgegen: das erste Rechteck und das zweite Rechteck. Das erste Rechteck wird links vom zweiten Rechteck gezeichnet.\nresultat = neben(linke grafik, rechte grafik)\n\nzwei_drittel = neben(bleu, blanc)\nzeige_grafik(zwei_drittel)\n\n\n\n\n\n\n\n\nAnalog können Sie nun das rote Rechteck rechts der zwei Drittel anordnen. Nennen Sie das Resultat tricolore und zeigen Sie es an.\n\n# TODO: Trcolore zusammenfügen -&gt; Schreiben Sie hier Ihren\n# Code",
+    "title": "3  Ausgangslage",
+    "section": "",
+    "text": "name = rechteck(länge, breite, farbe)\n\n\nname ist der Name, unter dem das Rechteck gespeichert wird. Dieser Name kann später verwendet werden, um auf das Rechteck zuzugreifen.\nrechteck ist der Befehl, der ein Rechteck zeichnet. In der Klammer hinter dem Befehl werden die sogenannten Argumente angegeben. Diese steuern, wie das Rechteck aussieht.\nlänge und breite sind die Argumente, die die Grösse des Rechtecks bestimmen. Diese Werte können beliebig gewählt werden.\nfarbe ist das Argument, das die Farbe des Rechtecks bestimmt. Aufgrund der Eigenheiten von PyTamaro können ausschliesslich die Farben verwendet werden, welche importiert worden sind.\n\n\n3.1.1 Rechtecke zeichnen\nAls erstes wird hier gezeigt, wie das blaue Rechteck gezeichnetwird.\nDamit das Resultat kontrolliert werden kann, wird die Grafik mit dem Befehl\nzeige_grafik(name)\nangezeigt.\n\nbleu = rechteck(50, 100, blau)\nzeige_grafik(bleu)\n\n\n\n\n\n\n\n\nNachdem das blaue Rechteck gezeichnet wurde, kann das weisse und das rote Rechteck analog gezeichnet und angzeigt werden.\n\n# TODO: Rechtecke blanc und rouge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code\nblanc = rechteck(50, 100, weiss)\nrouge = rechteck(50, 100, rot)\n\nAls nächstes werden die drei Rechtecke nebeninander angeordnet. Dazu wird der Befehl neben verwendet. Dieser Befehl nimmt zwei Argumente entgegen: das erste Rechteck und das zweite Rechteck. Das erste Rechteck wird links vom zweiten Rechteck gezeichnet.\nresultat = neben(linke grafik, rechte grafik)\n\nzwei_drittel = neben(bleu, blanc)\nzeige_grafik(zwei_drittel)\n\n\n\n\n\n\n\n\nAnalog können Sie nun das rote Rechteck rechts der zwei Drittel anordnen. Nennen Sie das Resultat tricolore und zeigen Sie es an.\n\n# TODO: Trcolore zusammenfügen -&gt; Schreiben Sie hier Ihren\n# Code",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
@@ -174,9 +174,9 @@
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-österreichische-flagge",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-österreichische-flagge",
-    "title": "3  Vorbemerkung",
-    "section": "4.2 Beispiel: Österreichische Flagge",
-    "text": "4.2 Beispiel: Österreichische Flagge\nZeichnen Sie die Österreichische Flagge. Das Seitenverhältnis der Flagge ist 2:3.\n\nUm Elemente übereinander anzuordnen, wird der Befehl ueber verwendet. Die Syntax dieses Befehls lautet:\nresultat = ueber(obere grafik, untere grafik)\n\n# TODO: Östereichische Flagge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
+    "title": "3  Ausgangslage",
+    "section": "3.2 Beispiel: Österreichische Flagge",
+    "text": "3.2 Beispiel: Österreichische Flagge\nZeichnen Sie die Österreichische Flagge. Das Seitenverhältnis der Flagge ist 2:3.\n\nUm Elemente übereinander anzuordnen, wird der Befehl ueber verwendet. Die Syntax dieses Befehls lautet:\nresultat = ueber(obere grafik, untere grafik)\n\n# TODO: Östereichische Flagge zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
@@ -185,9 +185,9 @@
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-schweizerfahne",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-schweizerfahne",
-    "title": "3  Vorbemerkung",
-    "section": "4.3 Beispiel: Schweizerfahne",
-    "text": "4.3 Beispiel: Schweizerfahne\nZeichnen Sie eine korrekt propotionierte Schweizerfahne. Die Dimensionen können Sie der folgenden Grafik entnehmen:\n\nVerwenden Sie dazu die Befehle rechteck, drehe und ueberlagere.\n\n# TODO: Schweizerfahne zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
+    "title": "3  Ausgangslage",
+    "section": "3.3 Beispiel: Schweizerfahne",
+    "text": "3.3 Beispiel: Schweizerfahne\nZeichnen Sie eine korrekt propotionierte Schweizerfahne. Die Dimensionen können Sie der folgenden Grafik entnehmen:\n\nVerwenden Sie dazu die Befehle rechteck, drehe und ueberlagere.\n\n# TODO: Schweizerfahne zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
@@ -196,9 +196,20 @@
   {
     "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tessiner-wappen",
     "href": "files/lektionen_hs25/250901_probleme/probleme.html#beispiel-tessiner-wappen",
-    "title": "3  Vorbemerkung",
-    "section": "4.4 Beispiel: Tessiner Wappen",
-    "text": "4.4 Beispiel: Tessiner Wappen\nAls Referenz an die USI zeichnen Sie als letztes Beispiel das Tessiner Wappen.\n\nVerwenden Sie dazu neben den bereits bekannten Befehlen zusätzlich die Befehle ueber und kreis_sektor.\n\n# TODO: Tessiner Wappen zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
+    "title": "3  Ausgangslage",
+    "section": "3.4 Beispiel: Tessiner Wappen",
+    "text": "3.4 Beispiel: Tessiner Wappen\nAls Referenz an die USI zeichnen Sie als letztes Beispiel das Tessiner Wappen.\n\nVerwenden Sie dazu neben den bereits bekannten Befehlen zusätzlich die Befehle ueber und kreis_sektor.\n\n# TODO: Tessiner Wappen zeichnen -&gt; Schreiben Sie hier Ihren\n# Code",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/250901_probleme/probleme.html#musterlösungen",
+    "href": "files/lektionen_hs25/250901_probleme/probleme.html#musterlösungen",
+    "title": "3  Ausgangslage",
+    "section": "3.5 Musterlösungen",
+    "text": "3.5 Musterlösungen\n\n3.5.1 Trikolore\n\nbleu = rechteck(50, 100, blau)\nblanc = rechteck(50, 100, weiss)\nrouge = rechteck(50, 100, rot)\n\ndeux_tiers = neben(bleu, blanc)\ntricolore = neben(deux_tiers, rouge)\n\nzeige_grafik(tricolore)\n\n\n\n3.5.2 Österreichische Flagge\n\nroter_balken = rechteck(90, 20, rot)\nweisser_balken = rechteck(90, 20, weiss)\n\noberer_teil = ueber(roter_balken, weisser_balken)\nosterreichische_flagge = ueber(oberer_teil, roter_balken)\n\nzeige_grafik(osterreichische_flagge)\n\n\n\n3.5.3 Schweizerfahne\n\nhintergrund = rechteck(320, 320, rot)\nweisser_balken = rechteck(200, 60, weiss)\nweisser_balken2 = drehe(90, weisser_balken)\n\nkreuz = ueberlagere(weisser_balken, weisser_balken2)\n\nschweizerfahne = ueberlagere(kreuz, hintergrund)\n\nzeige_grafik(schweizerfahne)\n\n\n\n3.5.4 Tessiner Wappen\n\nroter_teil = rechteck(160, 240, rot)\nblauer_teil = rechteck(160, 240, blau)\nroter_sektor = kreis_sektor(160, 90, rot)\nroter_sektor = drehe(180, roter_sektor)\nblauer_sektor = kreis_sektor(160, 90, blau)\nblauer_sektor = drehe(270, blauer_sektor)\n\nti_unten = neben(roter_sektor, blauer_sektor)\nti_oben = neben(roter_teil, blauer_teil)\n\ntessin = ueber(ti_oben, ti_unten)\n\nzeige_grafik(tessin)",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Problemlösung in der Informatik</span>"
