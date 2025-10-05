@@ -304,124 +304,69 @@
     ]
   },
   {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/main.html",
-    "href": "files/lektionen_hs25/250915_schlaufen/main.html",
+    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html",
+    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html",
     "title": "5  Wiederholungen in Python (For-Loops)",
     "section": "",
-    "text": "Eine Stärke von Computerprogrammen ist die wiederholte Ausführung von Anweisungen. Viele Programmiersprachen stellen dafür ein Konstrukt mit dem Namen ‘For-Schleife’ zur Verfügung. Eine ‘For-Schleife’ funktioniert unabhängig von einer konkreten Programmiersprache folgendermassen:\nFÜR variable VON startwert BIS endwert [MIT schrittweite]\n    Anweisungen\nENDE FÜR\nÜbersetzt nach Python sieht das so aus:\nfor i in range(n):\n    do...\nstartwert BIS endwert [MIT schrittweite] wird dabei durch range(n) ausgedrückt. Dabei ist n der Endwert. Gezählt wird bis zum aber ohne den Endwert. Startwert und Schrittweite haben Vorgabewerte. Der Vorgabewert für den Start ist 0, derjenige der Schrittweite 1. Weil range() diese vorgegebenen Werte hat, müssen diese nicht explizit angegeben werden. Wenn der Startwert abweichend vom Vorgabewert festgelegt werden soll, kann dieser explizit angegeben werden. Der Aufruf von range() sieht dann so aus:\nrange(startwert, endwert)\nFalls eine von 1 abweichende Schrittweite festgelegt werden soll lautet der Aufruf\nrange(startwert, endwert, schrittweite)\nIn diesem Fall müssen neben dem Endwert sowohl der Startwert und die Schrittweite angegeben werden. Andernfalls kann nicht zwischen den einzelnen Angaben zu Endwert, Startwert und Schrittweite unterschieden werden.",
+    "text": "5.1 Anwendungsübung zu Wiederholungen in Python\nEine Stärke von Computerprogrammen ist die wiederholte Ausführung von Anweisungen. Viele Programmiersprachen stellen dafür ein Konstrukt mit dem Namen ‘For-Schleife’ zur Verfügung. Eine ‘For-Schleife’ funktioniert unabhängig von einer konkreten Programmiersprache folgendermassen:\nÜbersetzt nach Python sieht das so aus:\nstartwert BIS endwert [MIT schrittweite] wird dabei durch range(n) ausgedrückt. Dabei ist n der Endwert. Gezählt wird bis zum aber ohne den Endwert. Startwert und Schrittweite haben Vorgabewerte. Der Vorgabewert für den Start ist 0, derjenige der Schrittweite 1. Weil range() diese vorgegebenen Werte hat, müssen diese nicht explizit angegeben werden. Wenn der Startwert abweichend vom Vorgabewert festgelegt werden soll, kann dieser explizit angegeben werden. Der Aufruf von range() sieht dann so aus:\nFalls eine von 1 abweichende Schrittweite festgelegt werden soll lautet der Aufruf\nIn diesem Fall müssen neben dem Endwert sowohl der Startwert und die Schrittweite angegeben werden. Andernfalls kann nicht zwischen den einzelnen Angaben zu Endwert, Startwert und Schrittweite unterschieden werden.\nIm Folgenden bauen Sie eine Blume mit Python for-loops und PyTamaro.\nIn der folgenden Zelle werden zuerst alle von PyTamaro zur Verfügung gestellten Funktionen importiert.\nfrom pytamaro.de import *\nDas Ziel ist es, eine Blume wie die abgebildete zu zeichnen.\nDie wichtigsten Funktionen von PyTamaro für diese Aufgabe sind fixiere() und kombiniere().\nDie Funktion fixiere() legt für eine Grafik einen frei gewählten Ankerpunkt fest. Dazu muss man wissen, dass jede in PyTamaro gezichnete Grafik von einer sogenannten “Bounding Box” umgeben ist. Diese Bounding Box ist ein Rechteck, das die Grafik vollständig umschliesst. Standardmässig liegt der Ankerpunkt einer Grafik in der Mitte der Bounding Box. Mit fixiere() kann man den Ankerpunkt jedoch an eine andere Stelle der Bounding Box verschieben. PyTamaro stellt die folgenden Positionen für Ankerpunkte zur Verfügung:\nDer Ankerpunkt wird mit dem Befehl fixiere(position, grafik) gesetzt.\nDer Ankerpunkt ist wichtig für die Funktion drehe(), die eine Grafik um einen bestimmten Winkel dreht. Die Drehung erfolgt immer um den Ankerpunkt.\nDie Funktion kombiniere(vordere Grafik, hintere Grafik) fügt zwei Grafiken zusammen. Die erste gegebene Grafik liegt im Vordergrund und die zweite im Hintergrund. Die Grafiken werden so ausgerichtet, dass ihre Ankerpunkte übereinanderliegen.",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Wiederholungen in Python (For-Loops)</span>"
     ]
   },
   {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html",
-    "title": "6  Wiederholungen in Python (Übung)",
+    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#anwendungsübung-zu-wiederholungen-in-python",
+    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#anwendungsübung-zu-wiederholungen-in-python",
+    "title": "5  Wiederholungen in Python (For-Loops)",
     "section": "",
-    "text": "6.1 Schritt 1: Zerlege das Bild in seine Einzelteile\nIn diesem Arbeitsblatt bauen Sie eine Blume mit Python for-loops und PyTamaro.\nIn der folgenden Zelle werden zuerst alle von PyTamaro zur Verfügung gestellten Funktionen importiert.\nDas Ziel ist es, eine Blume wie die abgebildete zu zeichnen.\nDie wichtigsten Funktionen von PyTamaro für diese Aufgabe sind fixiere() und kombiniere().\nDie Funktion fixiere() legt für eine Grafik einen frei gewählten Ankerpunkt fest. Dazu muss man wissen, dass jede in PyTamaro gezichnete Grafik von einer sogenannten “Bounding Box” umgeben ist. Diese Bounding Box ist ein Rechteck, das die Grafik vollständig umschliesst. Standardmässig liegt der Ankerpunkt einer Grafik in der Mitte der Bounding Box. Mit fixiere() kann man den Ankerpunkt jedoch an eine andere Stelle der Bounding Box verschieben. PyTamaro stellt die folgenden Positionen für Ankerpunkte zur Verfügung:\nDer Ankerpunkt wird mit dem Befehl fixiere(position, grafik) gesetzt.\nDer Ankerpunkt ist wichtig für die Funktion drehe(), die eine Grafik um einen bestimmten Winkel dreht. Die Drehung erfolgt immer um den Ankerpunkt.\nDie Funktion kombiniere(vordere Grafik, hintere Grafik) fügt zwei Grafiken zusammen. Die erste gegebene Grafik liegt im Vordergrund und die zweite im Hintergrund. Die Grafiken werden so ausgerichtet, dass ihre Ankerpunkte übereinanderliegen.\nDie Blume besteht im wesentlichen aus zwei Formen:\nUm die Blume zu zeichnen, müssen diese beiden Formen zuerst einzeln erstellt werden.\nbluetenblatt = ellipse(50, 150, blau)\n# die Farbe blau wurde gewhält, damit das Blatt vor dem Hintergrund\n# sichtbar ist\n\nzeige_grafik(bluetenblatt)\nscheibe = ellipse(30, 30, rot)\nzeige_grafik(scheibe)",
+    "text": "Blume\n\n\n\n\n\nmitte: Mitte der Bounding Box (Standard)\nmitte_links: Mitte der linken Seite der Bounding Box\nmitte_rechts: Mitte der rechten Seite der Bounding Box\noben_links: Obere linke Ecke der Bounding Box\noben_mitte: Mitte der oberen Seite der Bounding Box\noben_rechts: Obere rechte Ecke der Bounding Box\nunten_links: Untere linke Ecke der Bounding Box\nunten_mitte: Mitte der unteren Seite der Bounding Box\nunten_rechts: Obere rechte Ecke der Bounding Box\n\n\n\n\n\n5.1.1 Schritt 1: Zerlege das Bild in seine Einzelteile\nDie Blume besteht im wesentlichen aus zwei Formen:\n\nBlütenblätter in Form von Ellipsen sowie\neiner Scheibe in der Form eines Kreises in der Mitte.\n\nUm die Blume zu zeichnen, müssen diese beiden Formen zuerst einzeln erstellt werden.\n\nbluetenblatt = ellipse(50, 150, blau)\n# die Farbe blau wurde gewhält, damit das Blatt vor dem Hintergrund\n# sichtbar ist\n\nzeige_grafik(bluetenblatt)\n\n\n\n\n\n\n\n\n\nscheibe = ellipse(30, 30, rot)\nzeige_grafik(scheibe)\n\n\n\n\n\n\n\n\n\n\n5.1.2 Schritt 2: Positioniere die Blütenblätter\nDie Blütenblätter sind rund um die Mitte der Blume angeordnet. Da es zwölf Blütenblätter sind, beträgt der Winkel zwischen zwei Blütenblättern \\(\\frac{360°}{12} = 30°\\). Die Drehung der Blütenblätter erfolgt um den Ankerpunkt unten_mitte der Blütenblätter.\nDie Blütenblätter müssen also zuerst fixiert und dann gedreht werden.\n\nbluetenblatt_fixiert = fixiere(unten_mitte, bluetenblatt)\nbluetenblatt_30 = drehe(30, bluetenblatt_fixiert)\nzeige_grafik(bluetenblatt_30)\n\n\n\n\n\n\n\n\n\n\n5.1.3 Schritt 3: Zeichnen aller erforderlichen Blütenblätter\nDie Blume hat zwölf Blütenblätter. Diese können von Hand jedes einzelne erstellt werden. Das dritte Blütenblatt ist um 60° gedreht und wird entsprechend mit\nbluetenblatt_60 = drehe(60, bluetenblatt_fixiert)\nerstllt. Das kann man für alle zwölf Blütenblätter machen bis man beim zwölften Blütenblatt angekommen ist, das um 330° gedreht ist.\nbluetenblatt_330 = drehe(330, bluetenblatt_fixiert)\nDas ist aber sehr mühsam und fehleranfällig. Viel einfacher ist es, eine Schlaufe (for-loop) zu verwenden, die die Blütenblätter basierend auf der Grundform automatisch erstellt.\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_fixiert)\n\nzeige_grafik(bluetenblatt_gedreht)\n\n\n\n\n\n\n\n\nDiese Schlaufe durchläuft die Zahlen von 0 bis 11 (also 12 Zahlen) und berechnet für jede Zahl den entsprechenden Drehwinkel. Dann wird das Blütenblatt um diesen Winkel gedreht. Allerdings wird das gedrehte Blütenblatt in jeder Iteration der Schlaufe in der gleichen Variable bluetenblatt_gedreht gespeichert. Am Ende der Schlaufe enthält diese Variable nur das letzte gedrehte Blütenblatt (das um 330° gedrehte Blütenblatt).\n\n\n5.1.4 Schritt 4: Kombiniere alle Blütenblätter\nUm das unerwünschte Verhalten zu vermeiden, dass am Ende der Schlaufe nur das letzte gedrehte Blütenblatt in der Variable bluetenblatt_gedreht enthalten ist, müssen die gedrehten Blütenblätter in jeder Iteration der gewünschten Gesamtgrafik hinzugefügt werden. Dazu wird die Funktion kombiniere() verwendet.\n\nblume = bluetenblatt_fixiert\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_fixiert)\n    blume = kombiniere(blume, bluetenblatt_gedreht)\n    \nzeige_grafik(blume)\n\n\n\n\n\n\n\n\nDamit sind die Blütenblätter in der gewünschten Position und Anzahl zusammengefügt. Damit Sie allerdings aussehen, wie die Blume in der Vorlage, müssen die einzelnen Blütenblätter weiss eingefärbt und mit einem rosa Rand versehen werden.\nRosa ist keine vordefinierte Farbe in PyTamaro. Sie können jedoch eine beliebige Farbe mit der Funktion rgb_farbe(rot, gruen, blau) erstellen. Dabei sind rot, gruen und blau Zahlenwerte von 0 bis 255, die den Anteil der jeweiligen Farbe an der Gesamtfarbe angeben. Damit nicht alle Kombinationen durchprobiert werden müssen, können Sie mit einem Online-Tool wie RGB Color Picker die gewünschte Farbe auswählen und die entsprechenden Werte für rot, grün und blau ablesen.\n\nweisses_blatt = ellipse(50, 150, weiss)\nrosa_rand = ellipse(55, 155, rgb_farbe(255, 0, 102))\n\nbluetenblatt_mit_rand = ueberlagere(weisses_blatt, rosa_rand)\n\nzeige_grafik(bluetenblatt_mit_rand)\n\n\n\n\n\n\n\n\nAnschliessend können die Blütenblätter mit Rand in der vorher geschriebenen Schlaufe zur Gesamtgrafik zusammengefügt werden.\n\nbluetenblatt_mit_rand_fixiert = fixiere(unten_mitte, bluetenblatt_mit_rand)\n\nblume_weiss = bluetenblatt_mit_rand_fixiert\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_mit_rand_fixiert)\n    blume_weiss = kombiniere(blume_weiss, bluetenblatt_gedreht)\n    \nzeige_grafik(blume_weiss)\n\n\n\n\n\n\n\n\n\n\n5.1.5 Schritt 5: Scheibe im Zentrum der Blume\nBei genauer Betrachtung der Blume fällt auf, dass die Scheibe in der Mitte der Blume nicht einfach einfarbig gelb ist, sondern gegen die Mitte hin einen Farbverlauf aufweist. Diesen Farbverlauf wird erzeugt, indem mehrere Kreise mit kleiner werdendem Radius und abnehmender Farbintensität übereinandergelegt werden.\n\nscheibe = ellipse(30, 30, rgb_farbe(255, 0, 0))\n\nfor i in range(1, 8):\n    tmp = ellipse(30 - 3*i, 30 - 3*i, rgb_farbe(255, i*26, i*26))\n    scheibe = ueberlagere(tmp, scheibe)\n    \nzeige_grafik(scheibe)\n\n\n\n\n\n\n\n\n\n\n5.1.6 Schritt 6: Kombination der Elemente zur vollständigen Blume\nZum Schluss wird die Scheibe auf die Blütenblätter gelegt und Blume so vervollständigt.\n\nblume_komplett = ueberlagere(scheibe, blume_weiss)\nzeige_grafik(blume_komplett)",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-1-zerlege-das-bild-in-seine-einzelteile",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-1-zerlege-das-bild-in-seine-einzelteile",
-    "title": "6  Wiederholungen in Python (Übung)",
-    "section": "",
-    "text": "Blütenblätter in Form von Ellipsen sowie\neiner Scheibe in der Form eines Kreises in der Mitte.",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-2-positioniere-die-blütenblätter",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-2-positioniere-die-blütenblätter",
-    "title": "6  Wiederholungen in Python (Übung)",
-    "section": "6.2 Schritt 2: Positioniere die Blütenblätter",
-    "text": "6.2 Schritt 2: Positioniere die Blütenblätter\nDie Blütenblätter sind rund um die Mitte der Blume angeordnet. Da es zwölf Blütenblätter sind, beträgt der Winkel zwischen zwei Blütenblättern \\(\\frac{360°}{12} = 30°\\). Die Drehung der Blütenblätter erfolgt um den Ankerpunkt unten_mitte der Blütenblätter.\nDie Blütenblätter müssen also zuerst fixiert und dann gedreht werden.\n\nbluetenblatt_fixiert = fixiere(unten_mitte, bluetenblatt)\nbluetenblatt_30 = drehe(30, bluetenblatt_fixiert)\nzeige_grafik(bluetenblatt_30)",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-3-zeichnen-aller-erforderlichen-blütenblätter",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-3-zeichnen-aller-erforderlichen-blütenblätter",
-    "title": "6  Wiederholungen in Python (Übung)",
-    "section": "6.3 Schritt 3: Zeichnen aller erforderlichen Blütenblätter",
-    "text": "6.3 Schritt 3: Zeichnen aller erforderlichen Blütenblätter\nDie Blume hat zwölf Blütenblätter. Diese können von Hand jedes einzelne erstellt werden. Das dritte Blütenblatt ist um 60° gedreht und wird entsprechend mit\nbluetenblatt_60 = drehe(60, bluetenblatt_fixiert)\nerstllt. Das kann man für alle zwölf Blütenblätter machen bis man beim zwölften Blütenblatt angekommen ist, das um 330° gedreht ist.\nbluetenblatt_330 = drehe(330, bluetenblatt_fixiert)\nDas ist aber sehr mühsam und fehleranfällig. Viel einfacher ist es, eine Schlaufe (for-loop) zu verwenden, die die Blütenblätter basierend auf der Grundform automatisch erstellt.\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_fixiert)\n\nzeige_grafik(bluetenblatt_gedreht)\n\n\n\n\n\n\n\n\nDiese Schlaufe durchläuft die Zahlen von 0 bis 11 (also 12 Zahlen) und berechnet für jede Zahl den entsprechenden Drehwinkel. Dann wird das Blütenblatt um diesen Winkel gedreht. Allerdings wird das gedrehte Blütenblatt in jeder Iteration der Schlaufe in der gleichen Variable bluetenblatt_gedreht gespeichert. Am Ende der Schlaufe enthält diese Variable nur das letzte gedrehte Blütenblatt (das um 330° gedrehte Blütenblatt).",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-4-kombiniere-alle-blütenblätter",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-4-kombiniere-alle-blütenblätter",
-    "title": "6  Wiederholungen in Python (Übung)",
-    "section": "6.4 Schritt 4: Kombiniere alle Blütenblätter",
-    "text": "6.4 Schritt 4: Kombiniere alle Blütenblätter\nUm das unerwünschte Verhalten zu vermeiden, dass am Ende der Schlaufe nur das letzte gedrehte Blütenblatt in der Variable bluetenblatt_gedreht enthalten ist, müssen die gedrehten Blütenblätter in jeder Iteration der gewünschten Gesamtgrafik hinzugefügt werden. Dazu wird die Funktion kombiniere() verwendet.\n\nblume = bluetenblatt_fixiert\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_fixiert)\n    blume = kombiniere(blume, bluetenblatt_gedreht)\n    \nzeige_grafik(blume)\n\n\n\n\n\n\n\n\nDamit sind die Blütenblätter in der gewünschten Position und Anzahl zusammengefügt. Damit Sie allerdings aussehen, wie die Blume in der Vorlage, müssen die einzelnen Blütenblätter weiss eingefärbt und mit einem rosa Rand versehen werden.\nRosa ist keine vordefinierte Farbe in PyTamaro. Sie können jedoch eine beliebige Farbe mit der Funktion rgb_farbe(rot, gruen, blau) erstellen. Dabei sind rot, gruen und blau Zahlenwerte von 0 bis 255, die den Anteil der jeweiligen Farbe an der Gesamtfarbe angeben. Damit nicht alle Kombinationen durchprobiert werden müssen, können Sie mit einem Online-Tool wie RGB Color Picker die gewünschte Farbe auswählen und die entsprechenden Werte für rot, grün und blau ablesen.\n\nweisses_blatt = ellipse(50, 150, weiss)\nrosa_rand = ellipse(55, 155, rgb_farbe(255, 0, 102))\n\nbluetenblatt_mit_rand = ueberlagere(weisses_blatt, rosa_rand)\n\nzeige_grafik(bluetenblatt_mit_rand)\n\n\n\n\n\n\n\n\nAnschliessend können die Blütenblätter mit Rand in der vorher geschriebenen Schlaufe zur Gesamtgrafik zusammengefügt werden.\n\nbluetenblatt_mit_rand_fixiert = fixiere(unten_mitte, bluetenblatt_mit_rand)\n\nblume_weiss = bluetenblatt_mit_rand_fixiert\n\nfor i in range(12):\n    winkel = i * 30\n    bluetenblatt_gedreht = drehe(winkel, bluetenblatt_mit_rand_fixiert)\n    blume_weiss = kombiniere(blume_weiss, bluetenblatt_gedreht)\n    \nzeige_grafik(blume_weiss)",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-5-scheibe-im-zentrum-der-blume",
-    "href": "files/lektionen_hs25/250915_schlaufen/for_loop.html#schritt-5-scheibe-im-zentrum-der-blume",
-    "title": "6  Wiederholungen in Python (Übung)",
-    "section": "6.5 Schritt 5: Scheibe im Zentrum der Blume",
-    "text": "6.5 Schritt 5: Scheibe im Zentrum der Blume\nBei genauer Betrachtung der Blume fällt auf, dass die Scheibe in der Mitte der Blume nicht einfach einfarbig gelb ist, sondern gegen die Mitte hin einen Farbverlauf aufweist. Diesen Farbverlauf wird erzeugt, indem mehrere Kreise mit kleiner werdendem Radius und abnehmender Farbintensität übereinandergelegt werden.\n\nscheibe = ellipse(30, 30, rgb_farbe(255, 0, 0))\n\nfor i in range(1, 8):\n    tmp = ellipse(30 - 3*i, 30 - 3*i, rgb_farbe(255, i*26, i*26))\n    scheibe = ueberlagere(tmp, scheibe)\n    \nzeige_grafik(scheibe)\n\n\n\n\n\n\n\n\nZum Schluss wird die Scheibe auf die Blütenblätter gelegt und Blume so vervollständigt.\n\nblume_komplett = ueberlagere(scheibe, blume_weiss)\nzeige_grafik(blume_komplett)",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Wiederholungen in Python (Übung)</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Wiederholungen in Python (For-Loops)</span>"
     ]
   },
   {
     "objectID": "files/lektionen_hs25/250922_bedingungen/bedingungen.html",
     "href": "files/lektionen_hs25/250922_bedingungen/bedingungen.html",
-    "title": "7  Programmverzweigungen (Bedingungen)",
+    "title": "6  Programmverzweigungen (Bedingungen)",
     "section": "",
     "text": "Es gibt Situationen, in denen es wünschenswert ist, dass ein Teil eines Programms nur ausgeführt wird, wenn eine bestimmte Voraussetzung erfüllt ist.\nAls Beispiel dafür mag die Blume von vergangener Woche dienen. Wenn eine Blume gezeichnet werden soll, welche abwechslungsweise dunkelblaue und hellblaue Blütenblätter hat.\n\n\n\nBeispielblume\n\n\nDiese Blume wurde ebenfalls mit einer for-Schlaufe gezeichnet. Allerdings wurde abwechslungsweise ein dunkelblaues und ein hellblaues Blütenblatt verwendet.\nAbwechslungsweise kann auch als wenn eine gerade Zahl kommt bzw. wenn eine ungerade Zahl kommt verstanden werden. Kommen beim Zählen doch abwechslungsweise gerade und ungerade Zahlen. Übersetzt in die for i in range(12)-Schlaufe heisst das, immer wenn der Wert in der Variabel i eine gerade Zahl ist dann soll ein dunkelblaues Blüentblatt verwendet werden und immer wenn der Wert der Variabel i eine ungerade Zahl ist, soll ein hellblaues Blütenblatt verwendet werden.\nIn Python verwendet man dazu die folgende Syntax:\nif BEDINGUNG:\n    ANWEISUNG(en)\nelse:\n    ANWEISUNG(en)\nDas heisst, immer wenn die BEDINGUNG erfüllt ist (wenn sie wahr) ist, werden die eingerückten Anweisungen ausgeführt. In allen anderen Fällen werden die nach else: eingerückten Anweisungen ausgeführt.\nFür die Zeichnung der Blume bedeutet das also, dass immer wenn i eine gerade Zahl ist, soll ein dunkelblaues Blütenblatt verwendet werden. Eine gerade Zahl ist dabei jede Zahl, die ohne Rest durch zwei Teilbar ist.\nOb dies der Fall ist, kann mit dem Modulo Operator (%) getestet werden (vgl. Abschnitt  Vorbemerkungen: Python als Rechner.) Eine Zahl ist ohne Rest durch zwei Teilbar, wenn gilt\n\\[\ni\\ mod\\ 2 = 0\n\\]\nÜbersetzt nach Pyhton schreibt sich das als\nif i % 2 == 0:\nFür die Prüfung, ob das Resultat \\(0\\) ist, wird dabei == verwendet. Dies rührt daher, dass das einfache gleichheitszeichen bereits als Operator für die Zuweisung eines Wertes zu einer Variabel besetzt war.\nDer Vollständige Code für die Abwechslungsweise Verwendung eines dunkelblauen bzw. eines hellblauen Blütenblattes sieht folgendermassen aus:\nif i % 2 == 0:\n    blume = kombiniere(blume, bluetenblatt_dunkel)\nelse:\n    blume = kombiniere(blume, bluetenblatt_hell)\nFalls mehr als zwei Fälle unterschieden werden müssen, lautet die Python Syntax\nif BEDINGUNG:\n    ANWEISUNG(en)\nelif BEDINGUNG:\n    ANWEISUNG(en)\nelse:\n    ANWEISUNG(en)\nDabei können beliebig viele elif Bedingungen wiederholt werden.\nAls Bedingung kann nicht nur eine Gleichheit überprüft werden. Es ist auch möglich grösser &gt;, grösser oder gleich &gt;=, kleiner &lt; und kleiner oder gleich &lt;= zu prüfen.",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Programmverzweigungen (Bedingungen)</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Programmverzweigungen (Bedingungen)</span>"
     ]
   },
   {
     "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html",
     "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html",
-    "title": "8  Arbeitsblatt zu Bedingungen in Python",
+    "title": "7  Arbeitsblatt zu Bedingungen in Python",
     "section": "",
-    "text": "8.1 Aufgabenstellung\nZeichnen Sie die folgende Blume.\nDie erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.\nfrom pytamaro.de import *\n\nlavender = rgb_farbe(230, 230, 250)\nmediumpurple = rgb_farbe(147, 112, 219)\ndarkorchid = rgb_farbe(153, 50, 204)\nindigo = rgb_farbe(75, 0, 130)\n# Hier ist Platz für Ihre Blume\n# Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht\n# werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können\n# dies die Zahlen 1, 2 oder 3 sein.",
+    "text": "7.1 Aufgabenstellung\nZeichnen Sie die folgende Blume.\nDie erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.\nfrom pytamaro.de import *\n\nlavender = rgb_farbe(230, 230, 250)\nmediumpurple = rgb_farbe(147, 112, 219)\ndarkorchid = rgb_farbe(153, 50, 204)\nindigo = rgb_farbe(75, 0, 130)\n# Hier ist Platz für Ihre Blume\n# Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht\n# werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können\n# dies die Zahlen 1, 2 oder 3 sein.",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
     ]
   },
   {
     "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#aufgabenstellung",
     "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#aufgabenstellung",
-    "title": "8  Arbeitsblatt zu Bedingungen in Python",
+    "title": "7  Arbeitsblatt zu Bedingungen in Python",
     "section": "",
     "text": "Blumenvorlage",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
     ]
   },
   {
     "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#musterlösung",
     "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#musterlösung",
-    "title": "8  Arbeitsblatt zu Bedingungen in Python",
-    "section": "8.2 Musterlösung",
-    "text": "8.2 Musterlösung\n\nbluetenblatt_l = ellipse(30, 150, lavender)\nbluetenblatt_m = ellipse(30, 150, mediumpurple)\nbluetenblatt_d = ellipse(30, 150, darkorchid)\nscheibe_i = ellipse(25, 25, indigo)\n\n\nbluetenblatt_m_fix = fixiere(unten_mitte, bluetenblatt_m)\nbluetenblatt_l_fix = fixiere(unten_mitte, bluetenblatt_l)\nbluetenblatt_d_fix = fixiere(unten_mitte, bluetenblatt_d)\n\n\nblume3 = scheibe_i\nfor i in range(24):  \n    \n    if i % 4 == 0:\n        bl_temp = drehe(i * 15, bluetenblatt_l_fix)\n        blume3 = kombiniere(blume3, bl_temp)\n    elif i % 4 == 2:\n        bd_temp = drehe(i * 15, bluetenblatt_d_fix)\n        blume3 = kombiniere(blume3, bd_temp)\n    else:\n        bm_temp = drehe(i * 15, bluetenblatt_m_fix)\n        blume3 = kombiniere(blume3, bm_temp)\n        \nzeige_grafik(blume3)",
+    "title": "7  Arbeitsblatt zu Bedingungen in Python",
+    "section": "7.2 Musterlösung",
+    "text": "7.2 Musterlösung\n\nbluetenblatt_l = ellipse(30, 150, lavender)\nbluetenblatt_m = ellipse(30, 150, mediumpurple)\nbluetenblatt_d = ellipse(30, 150, darkorchid)\nscheibe_i = ellipse(25, 25, indigo)\n\n\nbluetenblatt_m_fix = fixiere(unten_mitte, bluetenblatt_m)\nbluetenblatt_l_fix = fixiere(unten_mitte, bluetenblatt_l)\nbluetenblatt_d_fix = fixiere(unten_mitte, bluetenblatt_d)\n\n\nblume3 = scheibe_i\nfor i in range(24):  \n    \n    if i % 4 == 0:\n        bl_temp = drehe(i * 15, bluetenblatt_l_fix)\n        blume3 = kombiniere(blume3, bl_temp)\n    elif i % 4 == 2:\n        bd_temp = drehe(i * 15, bluetenblatt_d_fix)\n        blume3 = kombiniere(blume3, bd_temp)\n    else:\n        bm_temp = drehe(i * 15, bluetenblatt_m_fix)\n        blume3 = kombiniere(blume3, bm_temp)\n        \nzeige_grafik(blume3)",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
     ]
   }
 ]

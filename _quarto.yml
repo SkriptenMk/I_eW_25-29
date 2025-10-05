@@ -20,7 +20,6 @@ book:
       chapters:
         - files/lektionen_hs25/250901_probleme/probleme.ipynb
         - files/lektionen_hs25/250908_variablen/Variablen.ipynb
-        - files/lektionen_hs25/250915_schlaufen/main.md
         - files/lektionen_hs25/250915_schlaufen/for_loop.ipynb
         - files/lektionen_hs25/250922_bedingungen/bedingungen.ipynb
         - files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.ipynb
