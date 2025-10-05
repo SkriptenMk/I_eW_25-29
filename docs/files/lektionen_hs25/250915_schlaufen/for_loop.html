@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../files/lektionen_hs25/250915_schlaufen/main.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-1a0f41765f2ee34f56ed445bbca86254.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -120,7 +121,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -146,6 +147,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Unterlagen für das obligatorische Fach Informatik</span>
     </a>
@@ -188,6 +191,10 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -321,7 +328,7 @@ window.Quarto = {
 <p>In diesem Arbeitsblatt bauen Sie eine Blume mit Python for-loops und PyTamaro.</p>
 <p>In der folgenden Zelle werden zuerst <a href="https://pytamaro.readthedocs.io/en/stable/German/index.html">alle von PyTamaro zur Verfügung gestellten Funktionen</a> importiert.</p>
 <div id="80b7b99a" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Das Ziel ist es, eine Blume wie die abgebildete zu zeichnen.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -355,11 +362,11 @@ window.Quarto = {
 </ol>
 <p>Um die Blume zu zeichnen, müssen diese beiden Formen zuerst einzeln erstellt werden.</p>
 <div id="8a8f2e5b" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>bluetenblatt <span class="op">=</span> ellipse(<span class="dv">50</span>, <span class="dv">150</span>, blau)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>bluetenblatt <span class="op">=</span> ellipse(<span class="dv">50</span>, <span class="dv">150</span>, blau)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co"># die Farbe blau wurde gewhält, damit das Blatt vor dem Hintergrund</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co"># sichtbar ist</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a>zeige_grafik(bluetenblatt)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5"></a>zeige_grafik(bluetenblatt)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -369,8 +376,8 @@ window.Quarto = {
 </div>
 </div>
 <div id="eb1cf07b" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>scheibe <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rot)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>zeige_grafik(scheibe)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>scheibe <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rot)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>zeige_grafik(scheibe)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -385,9 +392,9 @@ window.Quarto = {
 <p>Die Blütenblätter sind rund um die Mitte der Blume angeordnet. Da es zwölf Blütenblätter sind, beträgt der Winkel zwischen zwei Blütenblättern <span class="math inline">\(\frac{360°}{12} = 30°\)</span>. Die Drehung der Blütenblätter erfolgt um den Ankerpunkt <code>unten_mitte</code> der Blütenblätter.<br>
 Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
 <div id="0e3febf1" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>bluetenblatt_fixiert <span class="op">=</span> fixiere(unten_mitte, bluetenblatt)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>bluetenblatt_fixiert <span class="op">=</span> fixiere(unten_mitte, bluetenblatt)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>bluetenblatt_30 <span class="op">=</span> drehe(<span class="dv">30</span>, bluetenblatt_fixiert)</span>
-<span id="cb4-3"><a href="#cb4-3"></a>zeige_grafik(bluetenblatt_30)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3"></a>zeige_grafik(bluetenblatt_30)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -400,16 +407,16 @@ Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
 <section id="schritt-3-zeichnen-aller-erforderlichen-blütenblätter" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="schritt-3-zeichnen-aller-erforderlichen-blütenblätter"><span class="header-section-number">6.3</span> Schritt 3: Zeichnen aller erforderlichen Blütenblätter</h2>
 <p>Die Blume hat zwölf Blütenblätter. Diese können von Hand jedes einzelne erstellt werden. Das dritte Blütenblatt ist um 60° gedreht und wird entsprechend mit</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>bluetenblatt_60 <span class="op">=</span> drehe(<span class="dv">60</span>, bluetenblatt_fixiert)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>bluetenblatt_60 <span class="op">=</span> drehe(<span class="dv">60</span>, bluetenblatt_fixiert)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>erstllt. Das kann man für alle zwölf Blütenblätter machen bis man beim zwölften Blütenblatt angekommen ist, das um 330° gedreht ist.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>bluetenblatt_330 <span class="op">=</span> drehe(<span class="dv">330</span>, bluetenblatt_fixiert)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>bluetenblatt_330 <span class="op">=</span> drehe(<span class="dv">330</span>, bluetenblatt_fixiert)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Das ist aber sehr mühsam und fehleranfällig. Viel einfacher ist es, eine Schlaufe (<code>for</code>-loop) zu verwenden, die die Blütenblätter basierend auf der Grundform automatisch erstellt.</p>
 <div id="4c528d26" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    winkel <span class="op">=</span> i <span class="op">*</span> <span class="dv">30</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>    bluetenblatt_gedreht <span class="op">=</span> drehe(winkel, bluetenblatt_fixiert)</span>
 <span id="cb7-4"><a href="#cb7-4"></a></span>
-<span id="cb7-5"><a href="#cb7-5"></a>zeige_grafik(bluetenblatt_gedreht)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5"></a>zeige_grafik(bluetenblatt_gedreht)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -424,14 +431,14 @@ Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
 <h2 data-number="6.4" class="anchored" data-anchor-id="schritt-4-kombiniere-alle-blütenblätter"><span class="header-section-number">6.4</span> Schritt 4: Kombiniere alle Blütenblätter</h2>
 <p>Um das unerwünschte Verhalten zu vermeiden, dass am Ende der Schlaufe nur das letzte gedrehte Blütenblatt in der Variable <code>bluetenblatt_gedreht</code> enthalten ist, müssen die gedrehten Blütenblätter in jeder Iteration der gewünschten Gesamtgrafik hinzugefügt werden. Dazu wird die Funktion <code>kombiniere()</code> verwendet.</p>
 <div id="1e33310c" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>blume <span class="op">=</span> bluetenblatt_fixiert</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>blume <span class="op">=</span> bluetenblatt_fixiert</span>
 <span id="cb8-2"><a href="#cb8-2"></a></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
 <span id="cb8-4"><a href="#cb8-4"></a>    winkel <span class="op">=</span> i <span class="op">*</span> <span class="dv">30</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a>    bluetenblatt_gedreht <span class="op">=</span> drehe(winkel, bluetenblatt_fixiert)</span>
 <span id="cb8-6"><a href="#cb8-6"></a>    blume <span class="op">=</span> kombiniere(blume, bluetenblatt_gedreht)</span>
 <span id="cb8-7"><a href="#cb8-7"></a>    </span>
-<span id="cb8-8"><a href="#cb8-8"></a>zeige_grafik(blume)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-8"><a href="#cb8-8"></a>zeige_grafik(blume)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -443,12 +450,12 @@ Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
 <p>Damit sind die Blütenblätter in der gewünschten Position und Anzahl zusammengefügt. Damit Sie allerdings aussehen, wie die Blume in der Vorlage, müssen die einzelnen Blütenblätter weiss eingefärbt und mit einem rosa Rand versehen werden.</p>
 <p>Rosa ist keine vordefinierte Farbe in PyTamaro. Sie können jedoch eine beliebige Farbe mit der Funktion <code>rgb_farbe(rot, gruen, blau)</code> erstellen. Dabei sind <code>rot</code>, <code>gruen</code> und <code>blau</code> Zahlenwerte von 0 bis 255, die den Anteil der jeweiligen Farbe an der Gesamtfarbe angeben. Damit nicht alle Kombinationen durchprobiert werden müssen, können Sie mit einem Online-Tool wie <a href="https://www.w3schools.com/colors/colors_rgb.asp">RGB Color Picker</a> die gewünschte Farbe auswählen und die entsprechenden Werte für rot, grün und blau ablesen.</p>
 <div id="cca200f2" class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>weisses_blatt <span class="op">=</span> ellipse(<span class="dv">50</span>, <span class="dv">150</span>, weiss)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>weisses_blatt <span class="op">=</span> ellipse(<span class="dv">50</span>, <span class="dv">150</span>, weiss)</span>
 <span id="cb9-2"><a href="#cb9-2"></a>rosa_rand <span class="op">=</span> ellipse(<span class="dv">55</span>, <span class="dv">155</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">102</span>))</span>
 <span id="cb9-3"><a href="#cb9-3"></a></span>
 <span id="cb9-4"><a href="#cb9-4"></a>bluetenblatt_mit_rand <span class="op">=</span> ueberlagere(weisses_blatt, rosa_rand)</span>
 <span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a>zeige_grafik(bluetenblatt_mit_rand)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-6"><a href="#cb9-6"></a>zeige_grafik(bluetenblatt_mit_rand)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -459,7 +466,7 @@ Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
 </div>
 <p>Anschliessend können die Blütenblätter mit Rand in der vorher geschriebenen Schlaufe zur Gesamtgrafik zusammengefügt werden.</p>
 <div id="e50f8d98" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>bluetenblatt_mit_rand_fixiert <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_mit_rand)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>bluetenblatt_mit_rand_fixiert <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_mit_rand)</span>
 <span id="cb10-2"><a href="#cb10-2"></a></span>
 <span id="cb10-3"><a href="#cb10-3"></a>blume_weiss <span class="op">=</span> bluetenblatt_mit_rand_fixiert</span>
 <span id="cb10-4"><a href="#cb10-4"></a></span>
@@ -468,7 +475,7 @@ Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
 <span id="cb10-7"><a href="#cb10-7"></a>    bluetenblatt_gedreht <span class="op">=</span> drehe(winkel, bluetenblatt_mit_rand_fixiert)</span>
 <span id="cb10-8"><a href="#cb10-8"></a>    blume_weiss <span class="op">=</span> kombiniere(blume_weiss, bluetenblatt_gedreht)</span>
 <span id="cb10-9"><a href="#cb10-9"></a>    </span>
-<span id="cb10-10"><a href="#cb10-10"></a>zeige_grafik(blume_weiss)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-10"><a href="#cb10-10"></a>zeige_grafik(blume_weiss)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -482,13 +489,13 @@ Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
 <h2 data-number="6.5" class="anchored" data-anchor-id="schritt-5-scheibe-im-zentrum-der-blume"><span class="header-section-number">6.5</span> Schritt 5: Scheibe im Zentrum der Blume</h2>
 <p>Bei genauer Betrachtung der Blume fällt auf, dass die Scheibe in der Mitte der Blume nicht einfach einfarbig gelb ist, sondern gegen die Mitte hin einen Farbverlauf aufweist. Diesen Farbverlauf wird erzeugt, indem mehrere Kreise mit kleiner werdendem Radius und abnehmender Farbintensität übereinandergelegt werden.</p>
 <div id="7aee95f8" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>scheibe <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>scheibe <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">30</span>, rgb_farbe(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
 <span id="cb11-2"><a href="#cb11-2"></a></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>):</span>
 <span id="cb11-4"><a href="#cb11-4"></a>    tmp <span class="op">=</span> ellipse(<span class="dv">30</span> <span class="op">-</span> <span class="dv">3</span><span class="op">*</span>i, <span class="dv">30</span> <span class="op">-</span> <span class="dv">3</span><span class="op">*</span>i, rgb_farbe(<span class="dv">255</span>, i<span class="op">*</span><span class="dv">26</span>, i<span class="op">*</span><span class="dv">26</span>))</span>
 <span id="cb11-5"><a href="#cb11-5"></a>    scheibe <span class="op">=</span> ueberlagere(tmp, scheibe)</span>
 <span id="cb11-6"><a href="#cb11-6"></a>    </span>
-<span id="cb11-7"><a href="#cb11-7"></a>zeige_grafik(scheibe)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-7"><a href="#cb11-7"></a>zeige_grafik(scheibe)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -499,8 +506,8 @@ Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
 </div>
 <p>Zum Schluss wird die Scheibe auf die Blütenblätter gelegt und Blume so vervollständigt.</p>
 <div id="4fa961f4" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>blume_komplett <span class="op">=</span> ueberlagere(scheibe, blume_weiss)</span>
-<span id="cb12-2"><a href="#cb12-2"></a>zeige_grafik(blume_komplett)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>blume_komplett <span class="op">=</span> ueberlagere(scheibe, blume_weiss)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>zeige_grafik(blume_komplett)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -565,13 +572,14 @@ Die Blütenblätter müssen also zuerst fixiert und dann gedreht werden.</p>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
