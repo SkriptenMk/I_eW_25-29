@@ -326,47 +326,25 @@
     ]
   },
   {
-    "objectID": "files/lektionen_hs25/250922_bedingungen/bedingungen.html",
-    "href": "files/lektionen_hs25/250922_bedingungen/bedingungen.html",
+    "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html",
+    "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html",
     "title": "6  Programmverzweigungen (Bedingungen)",
     "section": "",
-    "text": "Es gibt Situationen, in denen es wünschenswert ist, dass ein Teil eines Programms nur ausgeführt wird, wenn eine bestimmte Voraussetzung erfüllt ist.\nAls Beispiel dafür mag die Blume von vergangener Woche dienen. Wenn eine Blume gezeichnet werden soll, welche abwechslungsweise dunkelblaue und hellblaue Blütenblätter hat.\n\n\n\nBeispielblume\n\n\nDiese Blume wurde ebenfalls mit einer for-Schlaufe gezeichnet. Allerdings wurde abwechslungsweise ein dunkelblaues und ein hellblaues Blütenblatt verwendet.\nAbwechslungsweise kann auch als wenn eine gerade Zahl kommt bzw. wenn eine ungerade Zahl kommt verstanden werden. Kommen beim Zählen doch abwechslungsweise gerade und ungerade Zahlen. Übersetzt in die for i in range(12)-Schlaufe heisst das, immer wenn der Wert in der Variabel i eine gerade Zahl ist dann soll ein dunkelblaues Blüentblatt verwendet werden und immer wenn der Wert der Variabel i eine ungerade Zahl ist, soll ein hellblaues Blütenblatt verwendet werden.\nIn Python verwendet man dazu die folgende Syntax:\nif BEDINGUNG:\n    ANWEISUNG(en)\nelse:\n    ANWEISUNG(en)\nDas heisst, immer wenn die BEDINGUNG erfüllt ist (wenn sie wahr) ist, werden die eingerückten Anweisungen ausgeführt. In allen anderen Fällen werden die nach else: eingerückten Anweisungen ausgeführt.\nFür die Zeichnung der Blume bedeutet das also, dass immer wenn i eine gerade Zahl ist, soll ein dunkelblaues Blütenblatt verwendet werden. Eine gerade Zahl ist dabei jede Zahl, die ohne Rest durch zwei Teilbar ist.\nOb dies der Fall ist, kann mit dem Modulo Operator (%) getestet werden (vgl. Abschnitt  Vorbemerkungen: Python als Rechner.) Eine Zahl ist ohne Rest durch zwei Teilbar, wenn gilt\n\\[\ni\\ mod\\ 2 = 0\n\\]\nÜbersetzt nach Pyhton schreibt sich das als\nif i % 2 == 0:\nFür die Prüfung, ob das Resultat \\(0\\) ist, wird dabei == verwendet. Dies rührt daher, dass das einfache gleichheitszeichen bereits als Operator für die Zuweisung eines Wertes zu einer Variabel besetzt war.\nDer Vollständige Code für die Abwechslungsweise Verwendung eines dunkelblauen bzw. eines hellblauen Blütenblattes sieht folgendermassen aus:\nif i % 2 == 0:\n    blume = kombiniere(blume, bluetenblatt_dunkel)\nelse:\n    blume = kombiniere(blume, bluetenblatt_hell)\nFalls mehr als zwei Fälle unterschieden werden müssen, lautet die Python Syntax\nif BEDINGUNG:\n    ANWEISUNG(en)\nelif BEDINGUNG:\n    ANWEISUNG(en)\nelse:\n    ANWEISUNG(en)\nDabei können beliebig viele elif Bedingungen wiederholt werden.\nAls Bedingung kann nicht nur eine Gleichheit überprüft werden. Es ist auch möglich grösser &gt;, grösser oder gleich &gt;=, kleiner &lt; und kleiner oder gleich &lt;= zu prüfen.",
+    "text": "6.1 Anwendungsübung zu Bedingungen in Python\nEs gibt Situationen, in denen es wünschenswert ist, dass ein Teil eines Programms nur ausgeführt wird, wenn eine bestimmte Voraussetzung erfüllt ist.\nAls Beispiel dafür mag die Blume von vergangener Woche dienen. Wenn eine Blume gezeichnet werden soll, welche abwechslungsweise dunkelblaue und hellblaue Blütenblätter hat.\nDiese Blume wurde ebenfalls mit einer for-Schlaufe gezeichnet. Allerdings wurde abwechslungsweise ein dunkelblaues und ein hellblaues Blütenblatt verwendet.\nAbwechslungsweise kann auch als wenn eine gerade Zahl kommt bzw. wenn eine ungerade Zahl kommt verstanden werden. Kommen beim Zählen doch abwechslungsweise gerade und ungerade Zahlen. Übersetzt in die for i in range(12)-Schlaufe heisst das, immer wenn der Wert in der Variabel i eine gerade Zahl ist dann soll ein dunkelblaues Blüentblatt verwendet werden und immer wenn der Wert der Variabel i eine ungerade Zahl ist, soll ein hellblaues Blütenblatt verwendet werden.\nIn Python verwendet man dazu die folgende Syntax:\nDas heisst, immer wenn die BEDINGUNG erfüllt ist (wenn sie wahr) ist, werden die eingerückten Anweisungen ausgeführt. In allen anderen Fällen werden die nach else: eingerückten Anweisungen ausgeführt.\nFür die Zeichnung der Blume bedeutet das also, dass immer wenn i eine gerade Zahl ist, soll ein dunkelblaues Blütenblatt verwendet werden. Eine gerade Zahl ist dabei jede Zahl, die ohne Rest durch zwei Teilbar ist.\nOb dies der Fall ist, kann mit dem Modulo Operator (%) getestet werden (vgl. Abschnitt  Vorbemerkungen: Python als Rechner.) Eine Zahl ist ohne Rest durch zwei Teilbar, wenn gilt\n\\[\ni\\ mod\\ 2 = 0\n\\]\nÜbersetzt nach Pyhton schreibt sich das als\nFür die Prüfung, ob das Resultat \\(0\\) ist, wird dabei == verwendet. Dies rührt daher, dass das einfache gleichheitszeichen bereits als Operator für die Zuweisung eines Wertes zu einer Variabel besetzt war.\nDer Vollständige Code für die Abwechslungsweise Verwendung eines dunkelblauen bzw. eines hellblauen Blütenblattes sieht folgendermassen aus:\nFalls mehr als zwei Fälle unterschieden werden müssen, lautet die Python Syntax\nDabei können beliebig viele elif Bedingungen wiederholt werden.\nAls Bedingung kann nicht nur eine Gleichheit überprüft werden. Es ist auch möglich grösser &gt;, grösser oder gleich &gt;=, kleiner &lt; und kleiner oder gleich &lt;= zu prüfen.",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Programmverzweigungen (Bedingungen)</span>"
     ]
   },
   {
-    "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html",
-    "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html",
-    "title": "7  Arbeitsblatt zu Bedingungen in Python",
+    "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#anwendungsübung-zu-bedingungen-in-python",
+    "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#anwendungsübung-zu-bedingungen-in-python",
+    "title": "6  Programmverzweigungen (Bedingungen)",
     "section": "",
-    "text": "7.1 Aufgabenstellung\nZeichnen Sie die folgende Blume.\nDie erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.\nfrom pytamaro.de import *\n\nlavender = rgb_farbe(230, 230, 250)\nmediumpurple = rgb_farbe(147, 112, 219)\ndarkorchid = rgb_farbe(153, 50, 204)\nindigo = rgb_farbe(75, 0, 130)\n# Hier ist Platz für Ihre Blume\n# Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht\n# werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können\n# dies die Zahlen 1, 2 oder 3 sein.",
+    "text": "6.1.1 Aufgabenstellung\nZeichnen Sie die folgende Blume.\n\n\n\nBlumenvorlage\n\n\nDie erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.\n\nfrom pytamaro.de import *\n\nlavender = rgb_farbe(230, 230, 250)\nmediumpurple = rgb_farbe(147, 112, 219)\ndarkorchid = rgb_farbe(153, 50, 204)\nindigo = rgb_farbe(75, 0, 130)\n\n\n# Hier ist Platz für Ihre Blume\n# Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht\n# werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können\n# dies die Zahlen 1, 2 oder 3 sein.\n\n\n\n6.1.2 Musterlösung\n\nbluetenblatt_l = ellipse(30, 150, lavender)\nbluetenblatt_m = ellipse(30, 150, mediumpurple)\nbluetenblatt_d = ellipse(30, 150, darkorchid)\nscheibe_i = ellipse(25, 25, indigo)\n\nbluetenblatt_m_fix = fixiere(unten_mitte, bluetenblatt_m)\nbluetenblatt_l_fix = fixiere(unten_mitte, bluetenblatt_l)\nbluetenblatt_d_fix = fixiere(unten_mitte, bluetenblatt_d)\n\nblume3 = scheibe_i\nfor i in range(24):  \n    \n    if i % 4 == 0:\n        bl_temp = drehe(i * 15, bluetenblatt_l_fix)\n        blume3 = kombiniere(blume3, bl_temp)\n    elif i % 4 == 2:\n        bd_temp = drehe(i * 15, bluetenblatt_d_fix)\n        blume3 = kombiniere(blume3, bd_temp)\n    else:\n        bm_temp = drehe(i * 15, bluetenblatt_m_fix)\n        blume3 = kombiniere(blume3, bm_temp)\n        \nzeige_grafik(blume3)",
     "crumbs": [
       "Einführung in Python",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#aufgabenstellung",
-    "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#aufgabenstellung",
-    "title": "7  Arbeitsblatt zu Bedingungen in Python",
-    "section": "",
-    "text": "Blumenvorlage",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
-    ]
-  },
-  {
-    "objectID": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#musterlösung",
-    "href": "files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html#musterlösung",
-    "title": "7  Arbeitsblatt zu Bedingungen in Python",
-    "section": "7.2 Musterlösung",
-    "text": "7.2 Musterlösung\n\nbluetenblatt_l = ellipse(30, 150, lavender)\nbluetenblatt_m = ellipse(30, 150, mediumpurple)\nbluetenblatt_d = ellipse(30, 150, darkorchid)\nscheibe_i = ellipse(25, 25, indigo)\n\n\nbluetenblatt_m_fix = fixiere(unten_mitte, bluetenblatt_m)\nbluetenblatt_l_fix = fixiere(unten_mitte, bluetenblatt_l)\nbluetenblatt_d_fix = fixiere(unten_mitte, bluetenblatt_d)\n\n\nblume3 = scheibe_i\nfor i in range(24):  \n    \n    if i % 4 == 0:\n        bl_temp = drehe(i * 15, bluetenblatt_l_fix)\n        blume3 = kombiniere(blume3, bl_temp)\n    elif i % 4 == 2:\n        bd_temp = drehe(i * 15, bluetenblatt_d_fix)\n        blume3 = kombiniere(blume3, bd_temp)\n    else:\n        bm_temp = drehe(i * 15, bluetenblatt_m_fix)\n        blume3 = kombiniere(blume3, bm_temp)\n        \nzeige_grafik(blume3)",
-    "crumbs": [
-      "Einführung in Python",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Arbeitsblatt zu Bedingungen in Python</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Programmverzweigungen (Bedingungen)</span>"
     ]
   }
 ]

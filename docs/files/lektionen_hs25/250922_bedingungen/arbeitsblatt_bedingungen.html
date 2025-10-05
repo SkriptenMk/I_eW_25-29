@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jacques Mock Schindler">
 
-<title>7&nbsp; Arbeitsblatt zu Bedingungen in Python – Unterlagen für das obligatorische Fach Informatik</title>
+<title>6&nbsp; Programmverzweigungen (Bedingungen) – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../files/lektionen_hs25/250922_bedingungen/bedingungen.html" rel="prev">
+<link href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -105,6 +105,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -148,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Arbeitsblatt zu Bedingungen in Python</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -218,14 +247,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/250922_bedingungen/bedingungen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Arbeitsblatt zu Bedingungen in Python</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
   </div>
 </li>
       </ul>
@@ -240,17 +263,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#aufgabenstellung" id="toc-aufgabenstellung" class="nav-link active" data-scroll-target="#aufgabenstellung"><span class="header-section-number">7.1</span> Aufgabenstellung</a></li>
-  <li><a href="#musterlösung" id="toc-musterlösung" class="nav-link" data-scroll-target="#musterlösung"><span class="header-section-number">7.2</span> Musterlösung</a></li>
+  <li><a href="#anwendungsübung-zu-bedingungen-in-python" id="toc-anwendungsübung-zu-bedingungen-in-python" class="nav-link active" data-scroll-target="#anwendungsübung-zu-bedingungen-in-python"><span class="header-section-number">6.1</span> Anwendungsübung zu Bedingungen in Python</a>
+  <ul class="collapse">
+  <li><a href="#aufgabenstellung" id="toc-aufgabenstellung" class="nav-link" data-scroll-target="#aufgabenstellung"><span class="header-section-number">6.1.1</span> Aufgabenstellung</a></li>
+  <li><a href="#musterlösung" id="toc-musterlösung" class="nav-link" data-scroll-target="#musterlösung"><span class="header-section-number">6.1.2</span> Musterlösung</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Arbeitsblatt zu Bedingungen in Python</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Arbeitsblatt zu Bedingungen in Python</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></h1>
 </div>
 
 
@@ -279,8 +305,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="aufgabenstellung" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="aufgabenstellung"><span class="header-section-number">7.1</span> Aufgabenstellung</h2>
+<p><a target="_blank" href="https://colab.research.google.com/github/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
+<p>Es gibt Situationen, in denen es wünschenswert ist, dass ein Teil eines Programms nur ausgeführt wird, wenn eine bestimmte Voraussetzung erfüllt ist.<br>
+Als Beispiel dafür mag die Blume von vergangener Woche dienen. Wenn eine Blume gezeichnet werden soll, welche abwechslungsweise dunkelblaue und hellblaue Blütenblätter hat.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="blumenbeispiel.svg" class="img-fluid figure-img"></p>
+<figcaption>Beispielblume</figcaption>
+</figure>
+</div>
+<p>Diese Blume wurde ebenfalls mit einer <code>for</code>-Schlaufe gezeichnet. Allerdings wurde abwechslungsweise ein dunkelblaues und ein hellblaues Blütenblatt verwendet.<br>
+Abwechslungsweise kann auch als wenn eine gerade Zahl kommt bzw. wenn eine ungerade Zahl kommt verstanden werden. Kommen beim Zählen doch abwechslungsweise gerade und ungerade Zahlen. Übersetzt in die <code>for i in range(12)</code>-Schlaufe heisst das, immer wenn der Wert in der Variabel <code>i</code> eine gerade Zahl ist dann soll ein dunkelblaues Blüentblatt verwendet werden und immer wenn der Wert der Variabel <code>i</code> eine ungerade Zahl ist, soll ein hellblaues Blütenblatt verwendet werden.</p>
+<p>In Python verwendet man dazu die folgende Syntax:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> BEDINGUNG:</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    ANWEISUNG(en)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="cf">else</span>:</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    ANWEISUNG(en)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Das heisst, immer wenn die <code>BEDINGUNG</code> erfüllt ist (wenn sie <code>wahr</code>) ist, werden die eingerückten Anweisungen ausgeführt. In allen anderen Fällen werden die nach <code>else:</code> eingerückten Anweisungen ausgeführt.</p>
+<p>Für die Zeichnung der Blume bedeutet das also, dass immer wenn <code>i</code> eine gerade Zahl ist, soll ein dunkelblaues Blütenblatt verwendet werden. Eine gerade Zahl ist dabei jede Zahl, die ohne Rest durch zwei Teilbar ist.<br>
+Ob dies der Fall ist, kann mit dem Modulo Operator (<code>%</code>) getestet werden (vgl. Abschnitt <a href="https://skriptenmk.github.io/I_eW_25-29/files/lektionen_hs25/250908_variablen/Variablen.html#vorbemerkungen-python-als-rechner" target="_blank"> Vorbemerkungen: Python als Rechner</a>.) Eine Zahl ist ohne Rest durch zwei Teilbar, wenn gilt</p>
+<p><span class="math display">\[
+i\ mod\ 2 = 0
+\]</span></p>
+<p>Übersetzt nach Pyhton schreibt sich das als</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Für die Prüfung, ob das Resultat <span class="math inline">\(0\)</span> ist, wird dabei <code>==</code> verwendet. Dies rührt daher, dass das einfache gleichheitszeichen bereits als Operator für die Zuweisung eines Wertes zu einer Variabel besetzt war.</p>
+<p>Der Vollständige Code für die Abwechslungsweise Verwendung eines dunkelblauen bzw. eines hellblauen Blütenblattes sieht folgendermassen aus:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    blume <span class="op">=</span> kombiniere(blume, bluetenblatt_dunkel)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="cf">else</span>:</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    blume <span class="op">=</span> kombiniere(blume, bluetenblatt_hell)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Falls mehr als zwei Fälle unterschieden werden müssen, lautet die Python Syntax</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> BEDINGUNG:</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    ANWEISUNG(en)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="cf">elif</span> BEDINGUNG:</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    ANWEISUNG(en)</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="cf">else</span>:</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    ANWEISUNG(en)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dabei können beliebig viele <code>elif</code> Bedingungen wiederholt werden.</p>
+<p>Als Bedingung kann nicht nur eine Gleichheit überprüft werden. Es ist auch möglich grösser <code>&gt;</code>, grösser oder gleich <code>&gt;=</code>, kleiner <code>&lt;</code> und kleiner oder gleich <code>&lt;=</code> zu prüfen.</p>
+<section id="anwendungsübung-zu-bedingungen-in-python" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="anwendungsübung-zu-bedingungen-in-python"><span class="header-section-number">6.1</span> Anwendungsübung zu Bedingungen in Python</h2>
+<section id="aufgabenstellung" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="aufgabenstellung"><span class="header-section-number">6.1.1</span> Aufgabenstellung</h3>
 <p>Zeichnen Sie die folgende Blume.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -290,51 +357,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Die erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.</p>
 <div id="62a471cf" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>lavender <span class="op">=</span> rgb_farbe(<span class="dv">230</span>, <span class="dv">230</span>, <span class="dv">250</span>)</span>
-<span id="cb1-4"><a href="#cb1-4"></a>mediumpurple <span class="op">=</span> rgb_farbe(<span class="dv">147</span>, <span class="dv">112</span>, <span class="dv">219</span>)</span>
-<span id="cb1-5"><a href="#cb1-5"></a>darkorchid <span class="op">=</span> rgb_farbe(<span class="dv">153</span>, <span class="dv">50</span>, <span class="dv">204</span>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a>indigo <span class="op">=</span> rgb_farbe(<span class="dv">75</span>, <span class="dv">0</span>, <span class="dv">130</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a>lavender <span class="op">=</span> rgb_farbe(<span class="dv">230</span>, <span class="dv">230</span>, <span class="dv">250</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>mediumpurple <span class="op">=</span> rgb_farbe(<span class="dv">147</span>, <span class="dv">112</span>, <span class="dv">219</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>darkorchid <span class="op">=</span> rgb_farbe(<span class="dv">153</span>, <span class="dv">50</span>, <span class="dv">204</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>indigo <span class="op">=</span> rgb_farbe(<span class="dv">75</span>, <span class="dv">0</span>, <span class="dv">130</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="87fec7fe" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Hier ist Platz für Ihre Blume</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># dies die Zahlen 1, 2 oder 3 sein.</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Hier ist Platz für Ihre Blume</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co"># werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># dies die Zahlen 1, 2 oder 3 sein.</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="musterlösung" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="musterlösung"><span class="header-section-number">7.2</span> Musterlösung</h2>
-<div id="6e812f87" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>bluetenblatt_l <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, lavender)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>bluetenblatt_m <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, mediumpurple)</span>
-<span id="cb3-3"><a href="#cb3-3"></a>bluetenblatt_d <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, darkorchid)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>scheibe_i <span class="op">=</span> ellipse(<span class="dv">25</span>, <span class="dv">25</span>, indigo)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="musterlösung" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="musterlösung"><span class="header-section-number">6.1.2</span> Musterlösung</h3>
+<div id="6e812f87" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>bluetenblatt_l <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, lavender)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>bluetenblatt_m <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, mediumpurple)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>bluetenblatt_d <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, darkorchid)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>scheibe_i <span class="op">=</span> ellipse(<span class="dv">25</span>, <span class="dv">25</span>, indigo)</span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a>bluetenblatt_m_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_m)</span>
+<span id="cb7-7"><a href="#cb7-7"></a>bluetenblatt_l_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_l)</span>
+<span id="cb7-8"><a href="#cb7-8"></a>bluetenblatt_d_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_d)</span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a>blume3 <span class="op">=</span> scheibe_i</span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">24</span>):  </span>
+<span id="cb7-12"><a href="#cb7-12"></a>    </span>
+<span id="cb7-13"><a href="#cb7-13"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb7-14"><a href="#cb7-14"></a>        bl_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_l_fix)</span>
+<span id="cb7-15"><a href="#cb7-15"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bl_temp)</span>
+<span id="cb7-16"><a href="#cb7-16"></a>    <span class="cf">elif</span> i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb7-17"><a href="#cb7-17"></a>        bd_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_d_fix)</span>
+<span id="cb7-18"><a href="#cb7-18"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bd_temp)</span>
+<span id="cb7-19"><a href="#cb7-19"></a>    <span class="cf">else</span>:</span>
+<span id="cb7-20"><a href="#cb7-20"></a>        bm_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_m_fix)</span>
+<span id="cb7-21"><a href="#cb7-21"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bm_temp)</span>
+<span id="cb7-22"><a href="#cb7-22"></a>        </span>
+<span id="cb7-23"><a href="#cb7-23"></a>zeige_grafik(blume3)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="arbeitsblatt_bedingungen_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div id="6d3de9e9" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>bluetenblatt_m_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_m)</span>
-<span id="cb4-2"><a href="#cb4-2"></a>bluetenblatt_l_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_l)</span>
-<span id="cb4-3"><a href="#cb4-3"></a>bluetenblatt_d_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_d)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="32e98f30" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>blume3 <span class="op">=</span> scheibe_i</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">24</span>):  </span>
-<span id="cb5-3"><a href="#cb5-3"></a>    </span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb5-5"><a href="#cb5-5"></a>        bl_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_l_fix)</span>
-<span id="cb5-6"><a href="#cb5-6"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bl_temp)</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    <span class="cf">elif</span> i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">2</span>:</span>
-<span id="cb5-8"><a href="#cb5-8"></a>        bd_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_d_fix)</span>
-<span id="cb5-9"><a href="#cb5-9"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bd_temp)</span>
-<span id="cb5-10"><a href="#cb5-10"></a>    <span class="cf">else</span>:</span>
-<span id="cb5-11"><a href="#cb5-11"></a>        bm_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_m_fix)</span>
-<span id="cb5-12"><a href="#cb5-12"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bm_temp)</span>
-<span id="cb5-13"><a href="#cb5-13"></a>        </span>
-<span id="cb5-14"><a href="#cb5-14"></a>zeige_grafik(blume3)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -739,8 +812,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../files/lektionen_hs25/250922_bedingungen/bedingungen.html" class="pagination-link" aria-label="Programmverzweigungen (Bedingungen)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span>
+      <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="pagination-link" aria-label="Wiederholungen in Python (For-Loops)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
