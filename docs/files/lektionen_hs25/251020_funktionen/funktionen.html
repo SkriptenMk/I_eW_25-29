@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jacques Mock Schindler">
 
-<title>6&nbsp; Programmverzweigungen (Bedingungen) – Unterlagen für das obligatorische Fach Informatik</title>
+<title>7&nbsp; Programmieren einfacher Funktionen – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" rel="next">
-<link href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" rel="prev">
+<link href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -178,7 +177,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -248,13 +247,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span></a>
   </div>
 </li>
@@ -270,10 +269,16 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#anwendungsübung-zu-bedingungen-in-python" id="toc-anwendungsübung-zu-bedingungen-in-python" class="nav-link active" data-scroll-target="#anwendungsübung-zu-bedingungen-in-python"><span class="header-section-number">6.1</span> Anwendungsübung zu Bedingungen in Python</a>
+  <li><a href="#kreisfläche" id="toc-kreisfläche" class="nav-link active" data-scroll-target="#kreisfläche"><span class="header-section-number">7.1</span> Kreisfläche</a></li>
+  <li><a href="#quotient" id="toc-quotient" class="nav-link" data-scroll-target="#quotient"><span class="header-section-number">7.2</span> Quotient</a></li>
+  <li><a href="#fakultät" id="toc-fakultät" class="nav-link" data-scroll-target="#fakultät"><span class="header-section-number">7.3</span> Fakultät</a></li>
+  <li><a href="#quadratische-gleichungen-mitternachtsformel" id="toc-quadratische-gleichungen-mitternachtsformel" class="nav-link" data-scroll-target="#quadratische-gleichungen-mitternachtsformel"><span class="header-section-number">7.4</span> Quadratische Gleichungen (Mitternachtsformel)</a></li>
+  <li><a href="#musterlösungen" id="toc-musterlösungen" class="nav-link" data-scroll-target="#musterlösungen"><span class="header-section-number">7.5</span> Musterlösungen</a>
   <ul class="collapse">
-  <li><a href="#aufgabenstellung" id="toc-aufgabenstellung" class="nav-link" data-scroll-target="#aufgabenstellung"><span class="header-section-number">6.1.1</span> Aufgabenstellung</a></li>
-  <li><a href="#musterlösung" id="toc-musterlösung" class="nav-link" data-scroll-target="#musterlösung"><span class="header-section-number">6.1.2</span> Musterlösung</a></li>
+  <li><a href="#kreisfläche-1" id="toc-kreisfläche-1" class="nav-link" data-scroll-target="#kreisfläche-1"><span class="header-section-number">7.5.1</span> Kreisfläche</a></li>
+  <li><a href="#quotient-1" id="toc-quotient-1" class="nav-link" data-scroll-target="#quotient-1"><span class="header-section-number">7.5.2</span> Quotient</a></li>
+  <li><a href="#fakultät-1" id="toc-fakultät-1" class="nav-link" data-scroll-target="#fakultät-1"><span class="header-section-number">7.5.3</span> Fakultät</a></li>
+  <li><a href="#mitternachtsformel" id="toc-mitternachtsformel" class="nav-link" data-scroll-target="#mitternachtsformel"><span class="header-section-number">7.5.4</span> Mitternachtsformel</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -281,9 +286,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></h1>
 </div>
 
 
@@ -300,7 +305,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">22.09.2025</p>
+      <p class="date">20.10.2025</p>
     </div>
   </div>
   
@@ -312,105 +317,176 @@ window.Quarto = {
 </header>
 
 
-<p><a target="_blank" href="https://colab.research.google.com/github/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
-<p>Es gibt Situationen, in denen es wünschenswert ist, dass ein Teil eines Programms nur ausgeführt wird, wenn eine bestimmte Voraussetzung erfüllt ist.<br>
-Als Beispiel dafür mag die Blume von vergangener Woche dienen. Wenn eine Blume gezeichnet werden soll, welche abwechslungsweise dunkelblaue und hellblaue Blütenblätter hat.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="blumenbeispiel.svg" class="img-fluid figure-img"></p>
-<figcaption>Beispielblume</figcaption>
-</figure>
-</div>
-<p>Diese Blume wurde ebenfalls mit einer <code>for</code>-Schlaufe gezeichnet. Allerdings wurde abwechslungsweise ein dunkelblaues und ein hellblaues Blütenblatt verwendet.<br>
-Abwechslungsweise kann auch als wenn eine gerade Zahl kommt bzw. wenn eine ungerade Zahl kommt verstanden werden. Kommen beim Zählen doch abwechslungsweise gerade und ungerade Zahlen. Übersetzt in die <code>for i in range(12)</code>-Schlaufe heisst das, immer wenn der Wert in der Variabel <code>i</code> eine gerade Zahl ist dann soll ein dunkelblaues Blüentblatt verwendet werden und immer wenn der Wert der Variabel <code>i</code> eine ungerade Zahl ist, soll ein hellblaues Blütenblatt verwendet werden.</p>
-<p>In Python verwendet man dazu die folgende Syntax:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> BEDINGUNG:</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    ANWEISUNG(en)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="cf">else</span>:</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    ANWEISUNG(en)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Das heisst, immer wenn die <code>BEDINGUNG</code> erfüllt ist (wenn sie <code>wahr</code>) ist, werden die eingerückten Anweisungen ausgeführt. In allen anderen Fällen werden die nach <code>else:</code> eingerückten Anweisungen ausgeführt.</p>
-<p>Für die Zeichnung der Blume bedeutet das also, dass immer wenn <code>i</code> eine gerade Zahl ist, soll ein dunkelblaues Blütenblatt verwendet werden. Eine gerade Zahl ist dabei jede Zahl, die ohne Rest durch zwei Teilbar ist.<br>
-Ob dies der Fall ist, kann mit dem Modulo Operator (<code>%</code>) getestet werden (vgl. Abschnitt <a href="https://skriptenmk.github.io/I_eW_25-29/files/lektionen_hs25/250908_variablen/Variablen.html#vorbemerkungen-python-als-rechner" target="_blank"> Vorbemerkungen: Python als Rechner</a>.) Eine Zahl ist ohne Rest durch zwei Teilbar, wenn gilt</p>
-<p><span class="math display">\[
-i\ mod\ 2 = 0
-\]</span></p>
-<p>Übersetzt nach Pyhton schreibt sich das als</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Für die Prüfung, ob das Resultat <span class="math inline">\(0\)</span> ist, wird dabei <code>==</code> verwendet. Dies rührt daher, dass das einfache gleichheitszeichen bereits als Operator für die Zuweisung eines Wertes zu einer Variabel besetzt war.</p>
-<p>Der Vollständige Code für die Abwechslungsweise Verwendung eines dunkelblauen bzw. eines hellblauen Blütenblattes sieht folgendermassen aus:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    blume <span class="op">=</span> kombiniere(blume, bluetenblatt_dunkel)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="cf">else</span>:</span>
-<span id="cb3-4"><a href="#cb3-4"></a>    blume <span class="op">=</span> kombiniere(blume, bluetenblatt_hell)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Falls mehr als zwei Fälle unterschieden werden müssen, lautet die Python Syntax</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> BEDINGUNG:</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    ANWEISUNG(en)</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="cf">elif</span> BEDINGUNG:</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    ANWEISUNG(en)</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="cf">else</span>:</span>
-<span id="cb4-6"><a href="#cb4-6"></a>    ANWEISUNG(en)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dabei können beliebig viele <code>elif</code> Bedingungen wiederholt werden.</p>
-<p>Als Bedingung kann nicht nur eine Gleichheit überprüft werden. Es ist auch möglich grösser <code>&gt;</code>, grösser oder gleich <code>&gt;=</code>, kleiner <code>&lt;</code> und kleiner oder gleich <code>&lt;=</code> zu prüfen.</p>
-<section id="anwendungsübung-zu-bedingungen-in-python" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="anwendungsübung-zu-bedingungen-in-python"><span class="header-section-number">6.1</span> Anwendungsübung zu Bedingungen in Python</h2>
-<section id="aufgabenstellung" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="aufgabenstellung"><span class="header-section-number">6.1.1</span> Aufgabenstellung</h3>
-<p>Zeichnen Sie die folgende Blume.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="dreifachblume.svg" class="img-fluid figure-img"></p>
-<figcaption>Blumenvorlage</figcaption>
-</figure>
-</div>
-<p>Die erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.</p>
-<div id="62a471cf" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a>lavender <span class="op">=</span> rgb_farbe(<span class="dv">230</span>, <span class="dv">230</span>, <span class="dv">250</span>)</span>
-<span id="cb5-4"><a href="#cb5-4"></a>mediumpurple <span class="op">=</span> rgb_farbe(<span class="dv">147</span>, <span class="dv">112</span>, <span class="dv">219</span>)</span>
-<span id="cb5-5"><a href="#cb5-5"></a>darkorchid <span class="op">=</span> rgb_farbe(<span class="dv">153</span>, <span class="dv">50</span>, <span class="dv">204</span>)</span>
-<span id="cb5-6"><a href="#cb5-6"></a>indigo <span class="op">=</span> rgb_farbe(<span class="dv">75</span>, <span class="dv">0</span>, <span class="dv">130</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="87fec7fe" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Hier ist Platz für Ihre Blume</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co"># werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># dies die Zahlen 1, 2 oder 3 sein.</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="kreisfläche" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="kreisfläche"><span class="header-section-number">7.1</span> Kreisfläche</h2>
+<p>Die Fläche eines Kreises berechnet sich nach der Formel <span class="math display">\[
+A = \pi r^2
+\]</span> wobei <span class="math inline">\(A\)</span> die Fläche <span class="math inline">\(\pi\)</span> die Kreiszahl - hier mit zwei Nachkommastellen - 3.14 und <span class="math inline">\(r\)</span> den Radius des Kreises darstellt.</p>
+<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>kreisflaeche()</code> welche ein Argument <code>r</code> für Radius entgegennimmt und die Fläche eines Kreises zurückgibt.</p>
+<div id="bb6c9d16" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> kreisflaeche():</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="musterlösung" class="level3" data-number="6.1.2">
-<h3 data-number="6.1.2" class="anchored" data-anchor-id="musterlösung"><span class="header-section-number">6.1.2</span> Musterlösung</h3>
-<div id="6e812f87" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>bluetenblatt_l <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, lavender)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>bluetenblatt_m <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, mediumpurple)</span>
-<span id="cb7-3"><a href="#cb7-3"></a>bluetenblatt_d <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, darkorchid)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>scheibe_i <span class="op">=</span> ellipse(<span class="dv">25</span>, <span class="dv">25</span>, indigo)</span>
-<span id="cb7-5"><a href="#cb7-5"></a></span>
-<span id="cb7-6"><a href="#cb7-6"></a>bluetenblatt_m_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_m)</span>
-<span id="cb7-7"><a href="#cb7-7"></a>bluetenblatt_l_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_l)</span>
-<span id="cb7-8"><a href="#cb7-8"></a>bluetenblatt_d_fix <span class="op">=</span> fixiere(unten_mitte, bluetenblatt_d)</span>
-<span id="cb7-9"><a href="#cb7-9"></a></span>
-<span id="cb7-10"><a href="#cb7-10"></a>blume3 <span class="op">=</span> scheibe_i</span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">24</span>):  </span>
-<span id="cb7-12"><a href="#cb7-12"></a>    </span>
-<span id="cb7-13"><a href="#cb7-13"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb7-14"><a href="#cb7-14"></a>        bl_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_l_fix)</span>
-<span id="cb7-15"><a href="#cb7-15"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bl_temp)</span>
-<span id="cb7-16"><a href="#cb7-16"></a>    <span class="cf">elif</span> i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">2</span>:</span>
-<span id="cb7-17"><a href="#cb7-17"></a>        bd_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_d_fix)</span>
-<span id="cb7-18"><a href="#cb7-18"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bd_temp)</span>
-<span id="cb7-19"><a href="#cb7-19"></a>    <span class="cf">else</span>:</span>
-<span id="cb7-20"><a href="#cb7-20"></a>        bm_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_m_fix)</span>
-<span id="cb7-21"><a href="#cb7-21"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bm_temp)</span>
-<span id="cb7-22"><a href="#cb7-22"></a>        </span>
-<span id="cb7-23"><a href="#cb7-23"></a>zeige_grafik(blume3)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="arbeitsblatt_bedingungen_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+<section id="quotient" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="quotient"><span class="header-section-number">7.2</span> Quotient</h2>
+<p>Ein Quotient kann unterschiedlich dargestellt werden. Eine Möglichkeit ist die Darstellung als Dezimalzahl.</p>
+<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>quotient()</code> welche zwei Dezimalzahlen als Argumente entgegennimmt und den Quotienten als Dezimalzahl zurückgibt. Sehen Sie für den Sonderfall der Division durch Null eine Lösung vor.</p>
+<div id="cd071a54" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> quotient():</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="fakultät" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="fakultät"><span class="header-section-number">7.3</span> Fakultät</h2>
+<p>Die Fakultät ist jene Funktion, welche das Produkt der natürlichen Zahlen bis <span class="math inline">\(n\)</span> berechnet und wird als <span class="math inline">\(n!\)</span> geschrieben. Es gilt also</p>
+<p><span class="math display">\[
+n! = 1 \cdot 2 \cdot 3 \cdot ... \cdot n
+\]</span></p>
+<p>Wobei zu beachten ist, dass <span class="math inline">\(0! = 1\)</span> gilt.</p>
+<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>fakultaet</code> welche als Argument <span class="math inline">\(n \in \mathbb{N}\)</span> entgegennimmt.</p>
+<div id="ae5009b2" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> fakultaet():</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="quadratische-gleichungen-mitternachtsformel" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="quadratische-gleichungen-mitternachtsformel"><span class="header-section-number">7.4</span> Quadratische Gleichungen (Mitternachtsformel)</h2>
+<p>Quadratische Gleichungen der Form <span class="math inline">\(ax^2 + bx + c = 0\)</span> können mit der Formel</p>
+<p><span class="math display">\[
+x_{1,2} = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\]</span></p>
+<p>gelöst werden.<br>
+Für die Implementierung ergibt sich daraus allerdings das Problem, dass die Formel zwei Resultate ergibt und eine Python Funktion nur ein Objekt zurückgeben kann.</p>
+<p>Als Workaround können die beiden Resultate in ein Tupel gepackt werden. Ein Tupel ist eine unveränderliche Zusammenstellung mehrer Werte. In Python werden sie in Klammern dargestellt. Die Zuweisung eines Tupels zu einer Variabel sieht dementsprechend folgendermassen aus:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>t <span class="op">=</span> (wert_1, wert_2, ..., wert_n)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Die detaillierten eigenschaften von Tupeln können hier ausser Acht gelassen werden. Es reicht <span class="math inline">\(x_1\)</span> und <span class="math inline">\(x_2\)</span> einem Tupel <code>resultat</code> zuzuweisen und <code>resultat</code> zurückzugeben.</p>
+<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>mitternachtsformel</code>, welche die Argumente <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> und <span class="math inline">\(c\)</span> entgegennimt und das Tupel <span class="math inline">\(x_1\)</span> und <span class="math inline">\(x_2\)</span> zurückgibt.</p>
+<div id="78610807" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> mitternachtsformel():</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="musterlösungen" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="musterlösungen"><span class="header-section-number">7.5</span> Musterlösungen</h2>
+<section id="kreisfläche-1" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="kreisfläche-1"><span class="header-section-number">7.5.1</span> Kreisfläche</h3>
+<div id="462fecfa" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> kreisflaeche(r: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="co">"""</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">    Berechnet die Fläche eines Kreises anhand des gegebenen Radius.</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">    Parameter</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">    ----------</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">    r : float</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">        Der Radius des Kreises.</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">    Rückgabewert</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">    ------------</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">    float</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">        Die Fläche des Kreises.</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">    """</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>    PI <span class="op">=</span> <span class="fl">3.14</span>  <span class="co"># Näherungswert für die Kreiszahl Pi</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>    a <span class="op">=</span> PI <span class="op">*</span> r <span class="op">**</span> <span class="dv">2</span>  <span class="co"># Formel: Fläche = Pi * r^2</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a>    <span class="cf">return</span> a</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="quotient-1" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="quotient-1"><span class="header-section-number">7.5.2</span> Quotient</h3>
+<div id="45001582" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> quotient(z: <span class="bu">float</span>, n: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">"""</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">    Berechnet den Quotienten zweier Zahlen.</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">    Gibt eine Fehlermeldung zurück, falls der Nenner null ist.</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">    Parameter</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">    ----------</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">    z : float</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">        Der Zähler der Division.</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">    n : float</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">        Der Nenner der Division.</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co">    Rückgabewert</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="co">    ------------</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co">    float oder str</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co">        Der berechnete Quotient oder eine Fehlermeldung als Zeichenkette,</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="co">        falls eine Division durch Null versucht wurde.</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co">    """</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a>    </span>
+<span id="cb7-21"><a href="#cb7-21"></a>    <span class="co"># Fehlermeldung für Division durch Null</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a>    fehlermeldung <span class="op">=</span> <span class="st">"Eine Division durch Null ist unzulässig."</span>  </span>
+<span id="cb7-23"><a href="#cb7-23"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb7-24"><a href="#cb7-24"></a>        <span class="cf">return</span> fehlermeldung  <span class="co"># Fehlerfall: Division durch Null</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a>    <span class="cf">else</span>:</span>
+<span id="cb7-26"><a href="#cb7-26"></a>        q <span class="op">=</span> z <span class="op">/</span> n  <span class="co"># Berechnung des Quotienten</span></span>
+<span id="cb7-27"><a href="#cb7-27"></a>        <span class="cf">return</span> q</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fakultät-1" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="fakultät-1"><span class="header-section-number">7.5.3</span> Fakultät</h3>
+<div id="1f9477e1" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> fakultaet(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="co">"""</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">    Berechnet die Fakultät einer nicht-negativen ganzen Zahl n.</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">    Die Fakultät n! ist das Produkt aller positiven ganzen Zahlen</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">    von 1 bis n. Für n &lt; 0 ist die Fakultät nicht definiert.</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">    Parameter:</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">        n (int): Die Zahl, deren Fakultät berechnet werden soll.</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">    Rückgabewert:</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">        int: Die Fakultät von n, oder eine Fehlermeldung als String bei n &lt; 0.</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co">    """</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb8-15"><a href="#cb8-15"></a>        <span class="co"># Fakultät ist für negative Zahlen nicht definiert</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>        <span class="cf">return</span> <span class="ss">f'Die Fakultät für </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> ist nicht definiert.'</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a>    <span class="cf">elif</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb8-18"><a href="#cb8-18"></a>        <span class="co"># Per Definition ist 0! = 1</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a>    <span class="cf">else</span>:</span>
+<span id="cb8-21"><a href="#cb8-21"></a>        prod <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Initialisiere das Produkt mit 1</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb8-23"><a href="#cb8-23"></a>            prod <span class="op">*=</span> i  <span class="co"># Multipliziere prod mit dem aktuellen Wert von i</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a>        <span class="cf">return</span> prod  <span class="co"># Gib das berechnete Produkt zurück</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mitternachtsformel" class="level3" data-number="7.5.4">
+<h3 data-number="7.5.4" class="anchored" data-anchor-id="mitternachtsformel"><span class="header-section-number">7.5.4</span> Mitternachtsformel</h3>
+<div id="b4260ef3" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> mitternachtsformel(a: <span class="bu">float</span>, b: <span class="bu">float</span>, c: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>:</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="co">"""</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">    Löst eine quadratische Gleichung der Form ax² + bx + c = 0 </span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">    mit der Mitternachtsformel.</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">    Parameter</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">    ----------</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">    a : float</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">        Der Koeffizient vor x² (muss ungleich 0 sein).</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">    b : float</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">        Der Koeffizient vor x.</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co">    c : float</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="co">        Der konstante Term.</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="co">    Rückgabewert</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="co">    ------------</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="co">    tuple oder str</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="co">        Ein Tupel mit den beiden Lösungen (x1, x2) oder eine Fehlermeldung</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="co">        als Zeichenkette, falls die Gleichung keine reellen Lösungen besitzt.</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="co">    """</span></span>
+<span id="cb9-21"><a href="#cb9-21"></a>    <span class="co"># Berechnung der Diskriminante: d = b² - 4ac</span></span>
+<span id="cb9-22"><a href="#cb9-22"></a>    d <span class="op">=</span> b <span class="op">**</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">4</span> <span class="op">*</span> a <span class="op">*</span> c</span>
+<span id="cb9-23"><a href="#cb9-23"></a>    <span class="cf">if</span> d <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb9-24"><a href="#cb9-24"></a>        <span class="co"># Keine reellen Lösungen vorhanden</span></span>
+<span id="cb9-25"><a href="#cb9-25"></a>        <span class="cf">return</span> <span class="st">"Diese Gleichung hat keine Lösung."</span>  </span>
+<span id="cb9-26"><a href="#cb9-26"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-27"><a href="#cb9-27"></a>        <span class="co"># Berechnung der beiden Lösungen mit der Mitternachtsformel:</span></span>
+<span id="cb9-28"><a href="#cb9-28"></a>        <span class="co"># x1 = (-b + d ** (1/2)) / (2a)</span></span>
+<span id="cb9-29"><a href="#cb9-29"></a>        <span class="co"># x2 = (-b -  d ** (1/2)) / (2a)</span></span>
+<span id="cb9-30"><a href="#cb9-30"></a>        x1 <span class="op">=</span> (<span class="op">-</span>b <span class="op">+</span> d <span class="op">**</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> a)</span>
+<span id="cb9-31"><a href="#cb9-31"></a>        x2 <span class="op">=</span> (<span class="op">-</span>b <span class="op">-</span> d <span class="op">**</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> a)</span>
+<span id="cb9-32"><a href="#cb9-32"></a>        <span class="cf">return</span> (x1, x2)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -819,14 +895,11 @@ i\ mod\ 2 = 0
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="pagination-link" aria-label="Wiederholungen in Python (For-Loops)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span>
+      <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="pagination-link" aria-label="Programmverzweigungen (Bedingungen)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="pagination-link" aria-label="Programmieren einfacher Funktionen">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -346,5 +346,60 @@
       "Einführung in Python",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Programmverzweigungen (Bedingungen)</span>"
     ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251020_funktionen/funktionen.html",
+    "href": "files/lektionen_hs25/251020_funktionen/funktionen.html",
+    "title": "7  Programmieren einfacher Funktionen",
+    "section": "",
+    "text": "7.1 Kreisfläche\nDie Fläche eines Kreises berechnet sich nach der Formel \\[\nA = \\pi r^2\n\\] wobei \\(A\\) die Fläche \\(\\pi\\) die Kreiszahl - hier mit zwei Nachkommastellen - 3.14 und \\(r\\) den Radius des Kreises darstellt.\nAufgabe: Implementieren Sie eine Funktion kreisflaeche() welche ein Argument r für Radius entgegennimmt und die Fläche eines Kreises zurückgibt.\ndef kreisflaeche():\n    # TODO: implementieren Sie die Funktion",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Programmieren einfacher Funktionen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251020_funktionen/funktionen.html#quotient",
+    "href": "files/lektionen_hs25/251020_funktionen/funktionen.html#quotient",
+    "title": "7  Programmieren einfacher Funktionen",
+    "section": "7.2 Quotient",
+    "text": "7.2 Quotient\nEin Quotient kann unterschiedlich dargestellt werden. Eine Möglichkeit ist die Darstellung als Dezimalzahl.\nAufgabe: Implementieren Sie eine Funktion quotient() welche zwei Dezimalzahlen als Argumente entgegennimmt und den Quotienten als Dezimalzahl zurückgibt. Sehen Sie für den Sonderfall der Division durch Null eine Lösung vor.\n\ndef quotient():\n    # TODO: implementieren Sie die Funktion",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Programmieren einfacher Funktionen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251020_funktionen/funktionen.html#fakultät",
+    "href": "files/lektionen_hs25/251020_funktionen/funktionen.html#fakultät",
+    "title": "7  Programmieren einfacher Funktionen",
+    "section": "7.3 Fakultät",
+    "text": "7.3 Fakultät\nDie Fakultät ist jene Funktion, welche das Produkt der natürlichen Zahlen bis \\(n\\) berechnet und wird als \\(n!\\) geschrieben. Es gilt also\n\\[\nn! = 1 \\cdot 2 \\cdot 3 \\cdot ... \\cdot n\n\\]\nWobei zu beachten ist, dass \\(0! = 1\\) gilt.\nAufgabe: Implementieren Sie eine Funktion fakultaet welche als Argument \\(n \\in \\mathbb{N}\\) entgegennimmt.\n\ndef fakultaet():\n    # TODO: implementieren Sie die Funktion",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Programmieren einfacher Funktionen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251020_funktionen/funktionen.html#quadratische-gleichungen-mitternachtsformel",
+    "href": "files/lektionen_hs25/251020_funktionen/funktionen.html#quadratische-gleichungen-mitternachtsformel",
+    "title": "7  Programmieren einfacher Funktionen",
+    "section": "7.4 Quadratische Gleichungen (Mitternachtsformel)",
+    "text": "7.4 Quadratische Gleichungen (Mitternachtsformel)\nQuadratische Gleichungen der Form \\(ax^2 + bx + c = 0\\) können mit der Formel\n\\[\nx_{1,2} = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}\n\\]\ngelöst werden.\nFür die Implementierung ergibt sich daraus allerdings das Problem, dass die Formel zwei Resultate ergibt und eine Python Funktion nur ein Objekt zurückgeben kann.\nAls Workaround können die beiden Resultate in ein Tupel gepackt werden. Ein Tupel ist eine unveränderliche Zusammenstellung mehrer Werte. In Python werden sie in Klammern dargestellt. Die Zuweisung eines Tupels zu einer Variabel sieht dementsprechend folgendermassen aus:\nt = (wert_1, wert_2, ..., wert_n)\nDie detaillierten eigenschaften von Tupeln können hier ausser Acht gelassen werden. Es reicht \\(x_1\\) und \\(x_2\\) einem Tupel resultat zuzuweisen und resultat zurückzugeben.\nAufgabe: Implementieren Sie eine Funktion mitternachtsformel, welche die Argumente \\(a\\), \\(b\\) und \\(c\\) entgegennimt und das Tupel \\(x_1\\) und \\(x_2\\) zurückgibt.\n\ndef mitternachtsformel():\n    # TODO: implementieren Sie die Funktion",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Programmieren einfacher Funktionen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251020_funktionen/funktionen.html#musterlösungen",
+    "href": "files/lektionen_hs25/251020_funktionen/funktionen.html#musterlösungen",
+    "title": "7  Programmieren einfacher Funktionen",
+    "section": "7.5 Musterlösungen",
+    "text": "7.5 Musterlösungen\n\n7.5.1 Kreisfläche\n\ndef kreisflaeche(r: float) -&gt; float:\n    \"\"\"\n    Berechnet die Fläche eines Kreises anhand des gegebenen Radius.\n\n    Parameter\n    ----------\n    r : float\n        Der Radius des Kreises.\n\n    Rückgabewert\n    ------------\n    float\n        Die Fläche des Kreises.\n    \"\"\"\n    PI = 3.14  # Näherungswert für die Kreiszahl Pi\n    a = PI * r ** 2  # Formel: Fläche = Pi * r^2\n    return a\n\n\n\n7.5.2 Quotient\n\ndef quotient(z: float, n: float) -&gt; float:\n    \"\"\"\n    Berechnet den Quotienten zweier Zahlen.\n\n    Gibt eine Fehlermeldung zurück, falls der Nenner null ist.\n\n    Parameter\n    ----------\n    z : float\n        Der Zähler der Division.\n    n : float\n        Der Nenner der Division.\n\n    Rückgabewert\n    ------------\n    float oder str\n        Der berechnete Quotient oder eine Fehlermeldung als Zeichenkette,\n        falls eine Division durch Null versucht wurde.\n    \"\"\"\n    \n    # Fehlermeldung für Division durch Null\n    fehlermeldung = \"Eine Division durch Null ist unzulässig.\"  \n    if n == 0:\n        return fehlermeldung  # Fehlerfall: Division durch Null\n    else:\n        q = z / n  # Berechnung des Quotienten\n        return q\n\n\n\n7.5.3 Fakultät\n\ndef fakultaet(n: int) -&gt; int:\n    \"\"\"\n    Berechnet die Fakultät einer nicht-negativen ganzen Zahl n.\n\n    Die Fakultät n! ist das Produkt aller positiven ganzen Zahlen\n    von 1 bis n. Für n &lt; 0 ist die Fakultät nicht definiert.\n\n    Parameter:\n        n (int): Die Zahl, deren Fakultät berechnet werden soll.\n\n    Rückgabewert:\n        int: Die Fakultät von n, oder eine Fehlermeldung als String bei n &lt; 0.\n    \"\"\"\n    if n &lt; 0:\n        # Fakultät ist für negative Zahlen nicht definiert\n        return f'Die Fakultät für {n} ist nicht definiert.'\n    elif n == 0:\n        # Per Definition ist 0! = 1\n        return 1\n    else:\n        prod = 1  # Initialisiere das Produkt mit 1\n        for i in range(1, n + 1):\n            prod *= i  # Multipliziere prod mit dem aktuellen Wert von i\n        return prod  # Gib das berechnete Produkt zurück\n\n\n\n7.5.4 Mitternachtsformel\n\ndef mitternachtsformel(a: float, b: float, c: float) -&gt; tuple:\n    \"\"\"\n    Löst eine quadratische Gleichung der Form ax² + bx + c = 0 \n    mit der Mitternachtsformel.\n\n    Parameter\n    ----------\n    a : float\n        Der Koeffizient vor x² (muss ungleich 0 sein).\n    b : float\n        Der Koeffizient vor x.\n    c : float\n        Der konstante Term.\n\n    Rückgabewert\n    ------------\n    tuple oder str\n        Ein Tupel mit den beiden Lösungen (x1, x2) oder eine Fehlermeldung\n        als Zeichenkette, falls die Gleichung keine reellen Lösungen besitzt.\n    \"\"\"\n    # Berechnung der Diskriminante: d = b² - 4ac\n    d = b ** 2 - 4 * a * c\n    if d &lt; 0:\n        # Keine reellen Lösungen vorhanden\n        return \"Diese Gleichung hat keine Lösung.\"  \n    else:\n        # Berechnung der beiden Lösungen mit der Mitternachtsformel:\n        # x1 = (-b + d ** (1/2)) / (2a)\n        # x2 = (-b -  d ** (1/2)) / (2a)\n        x1 = (-b + d ** (1/2)) / (2 * a)\n        x2 = (-b - d ** (1/2)) / (2 * a)\n        return (x1, x2)",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Programmieren einfacher Funktionen</span>"
+    ]
   }
 ]
