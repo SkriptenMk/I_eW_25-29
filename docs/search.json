@@ -401,5 +401,38 @@
       "Einführung in Python",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Programmieren einfacher Funktionen</span>"
     ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251027_funktionen/funktionen_2.html",
+    "href": "files/lektionen_hs25/251027_funktionen/funktionen_2.html",
+    "title": "8  Prüfungsvorbereitung",
+    "section": "",
+    "text": "8.1 Belegung von Variabeln\nDas folgende Code Snippet demonstriert die Belegung von Variabeln. Insbesondere soll es auch zeigen, was geschieht, wenn die Variabeln in Operationen einbezogen werden.\nÜberlegen Sie sich bevor Sie das Snippet ausführen zuerst Anweisung für Anweisung, welche Werte in den Variabeln \\(a\\), \\(b\\) und \\(c\\) nach Ausführung der jeweiligen Anweisung gespeichert sind. Notieren Sie sich die Werte auf ein Blatt Papier. Anschliessend führen Sie die Zelle zur Kontrolle Ihrer Überlegungen aus.\n# Anfangswerte zuweisen\na = 5\nb = 10\nc = a\nprint(f\"Nach Initialisierung:, a = {a}, b = {b}, c = {c}\")\n\n# Wert von a ändern\na = a + 3\nprint(f\"Nach a = a + 3: a = {a},  b = {b},  c = {c}\")\n\n# Wert von b ändern\nb = a * c\nprint(f\"Nach b = a * c: a = {a},  b = {b},  c = {c}\")\n\n# Wert von c ändern\nc = b - a\nprint(f\"Nach c = b - a: a = {a},  b = {b},  c = {c}\")",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Prüfungsvorbereitung</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251027_funktionen/funktionen_2.html#funktionen",
+    "href": "files/lektionen_hs25/251027_funktionen/funktionen_2.html#funktionen",
+    "title": "8  Prüfungsvorbereitung",
+    "section": "8.2 Funktionen",
+    "text": "8.2 Funktionen\nDie Definiton einer neuen Funktion erweitert den Umfang der in Python zur Verfügung stehenden Befehle. Entsprechend ist es möglich, einmal definierte Funktionen in neuen Funktionen zu verwenden.\nUnten finden Sie ein einfaches Beispiel für diese Vorgehensweise.\n\ndef erfolgsberechnung(ertrag: float, aufwand: float) -&gt; float:\n    \"\"\"Berechnet den wirtschaftlichen Erfolg als Differenz von Ertrag\n    und Aufwand. \n\n    Args:\n        ertrag: Der gesamte erzielte Ertrag.\n        aufwand: Der gesamte angefallene Aufwand.\n\n    Returns:\n        Der berechnete Erfolg (Ertrag minus Aufwand).\n    \"\"\"\n    erfolg = ertrag - aufwand\n    return erfolg\n\n\ndef renditeberechnung(ertrag: float, aufwand: float, \n                      anfangskapital: float, \n                      schlusskapital: float) -&gt; float:\n    \"\"\"Berechnet die Rendite in Prozent basierend auf Erfolg \n    und durchschnittlichem Kapital.\n\n    Die Funktion nutzt die 'erfolgsberechnung', um den Erfolg \n    zu ermitteln, und setzt diesen ins Verhältnis zum durchschnittlich\n    gebundenen Kapital.\n\n    Args:\n        ertrag: Der gesamte erzielte Ertrag.\n        aufwand: Der gesamte angefallene Aufwand.\n        anfangskapital: Das Kapital zu Beginn der Periode.\n        schlusskapital: Das Kapital am Ende der Periode.\n\n    Returns:\n        Die berechnete Rendite, ausgedrückt in Prozent (%).\n    \"\"\"\n    erfolg = erfolgsberechnung(ertrag, aufwand)\n    durchschnittskapital = (anfangskapital + schlusskapital) / 2\n    rendite = erfolg / durchschnittskapital * 100\n    return rendite\n\n\n8.2.1 Berechnung des Volumens eines Zylinders\nDie folgende Grafik zeigt einen Zylinder.\n\n\n\nZylinder\n\n\nDie Formel für die Berechnung des Volumens lautet\n\\[\nv = \\pi \\cdot r^2 \\cdot h\n\\]\nZerlegen Sie dazu die Berechnung in zwei Teile. Definieren Sie zuerst eine Funkiton für die Berechnung der Bodenfläche und verwenden Sie diese anschliessend in einer Funktion zur Berechnung des Volumens.\nFür die Kreiszahl \\(\\pi\\) können Sie das Modul math importieren. Dies stellt Ihnen mit dem Befehl math.pi \\(\\pi\\) in einer grossen genauigkeit zur Verfügung.\n\n# TODO: implementieren Sie hier Ihre Funktionen\n\n\n\n8.2.2 Berechnung der kinetischen Energie eines Körpers\nDie kinetische Energie eines Körpers berechnet sich nach der Formel\n\\[\nE_{kin} = \\frac{1}{2} \\cdot m \\cdot v^2\n\\]\nwobei \\(m\\) für die Masse des Körpers und \\(v\\) für dessen Geschwindigkeit steht. Implementieren Sie eine Funktion für die Berechnung der kinetischen Energie eines Körpers. Beachten Sie dabei, dass experimentell lediglich Daten über die Masse des Körpers, die zurückgelegte Strecke des Körpers sowie die dafür erforderliche Zeit zugänglich sind.\n\n# TODO: implementieren Sie hier Ihre Funktionen",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Prüfungsvorbereitung</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251027_funktionen/funktionen_2.html#musterlösungen",
+    "href": "files/lektionen_hs25/251027_funktionen/funktionen_2.html#musterlösungen",
+    "title": "8  Prüfungsvorbereitung",
+    "section": "8.3 Musterlösungen",
+    "text": "8.3 Musterlösungen\n\n8.3.1 Berechnung des Volumnens eines Zylinders\n\nimport math\n\ndef kreisflaeche(r : float) -&gt; float:\n    area = math.pi * r ** 2\n    return area\n\ndef zylindervolumen(r : float, h : float) -&gt; float:\n    bodenflaeche = kreisflaeche(r)\n    volumen = bodenflaeche * h\n    return volumen\n\n\n\n8.3.2 Berechnung der kinetischen Energie eines Körpers\n\ndef geschwindigkeit(s: float, t: float) -&gt; float:\n    \"\"\"Berechnet die Geschwindigkeit v aus zurückgelegter Strecke und\n    Zeit. \n\n    Args:\n        s: Die zurückgelegte Strecke (in Metern).\n        t: Die dafür benötigte Zeit (in Sekunden).\n\n    Returns:\n        Die berechnete Geschwindigkeit v (in m/s).\n    \"\"\"\n    v = s / t\n    return v\n\n\ndef kinetische_energie(m: float, s: float, t: float) -&gt; float:\n    \"\"\"Berechnet die kinetische Energie eines Körpers basierend auf\n    experimentellen Daten. \n\n    Die Funktion berechnet zuerst die Geschwindigkeit v aus s und t\n    mithilfe der Funktion 'geschwindigkeit' und wendet dann die Formel\n    E_kin = 0.5 * m * v^2 an.\n\n    Args:\n        m: Die Masse des Körpers (in Kilogramm).\n        s: Die zurückgelegte Strecke (in Metern).\n        t: Die dafür benötigte Zeit (in Sekunden).\n\n    Returns:\n        Die berechnete kinetische Energie E_kin (in Joule).\n    \"\"\"\n    v = geschwindigkeit(s, t)\n    e_kin = (m * v ** 2) / 2\n    return e_kin",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Prüfungsvorbereitung</span>"
+    ]
   }
 ]

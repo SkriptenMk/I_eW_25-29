@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jacques Mock Schindler">
 
-<title>2&nbsp; Arbeitsumgebung (Arbeiten mit Jupyter Notebooks) – Unterlagen für das obligatorische Fach Informatik</title>
+<title>8&nbsp; Prüfungsvorbereitung – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,18 +66,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../files/lektionen_hs25/250901_probleme/probleme.html" rel="next">
-<link href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" rel="prev">
+<link href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-f428fda71a3abb5b1b9c21151da8fd61.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-db5a06d822cc38b49178833586c4970b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -178,7 +177,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html">Anleitungen</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -213,7 +212,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></span></a>
   </div>
 </li>
@@ -260,7 +259,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span></a>
   </div>
 </li>
@@ -276,21 +275,26 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#ausgangslage" id="toc-ausgangslage" class="nav-link active" data-scroll-target="#ausgangslage"><span class="header-section-number">2.1</span> Ausgangslage</a></li>
-  <li><a href="#installation-von-python" id="toc-installation-von-python" class="nav-link" data-scroll-target="#installation-von-python"><span class="header-section-number">2.2</span> Installation von Python</a></li>
-  <li><a href="#hello-world" id="toc-hello-world" class="nav-link" data-scroll-target="#hello-world"><span class="header-section-number">2.3</span> Hello World</a></li>
-  <li><a href="#arbeitsumgebung" id="toc-arbeitsumgebung" class="nav-link" data-scroll-target="#arbeitsumgebung"><span class="header-section-number">2.4</span> Arbeitsumgebung</a></li>
-  <li><a href="#öffnen-bestehender-jupyter-notebooks" id="toc-öffnen-bestehender-jupyter-notebooks" class="nav-link" data-scroll-target="#öffnen-bestehender-jupyter-notebooks"><span class="header-section-number">2.5</span> Öffnen bestehender Jupyter Notebooks</a></li>
-  <li><a href="#häufige-fehlermeldungen" id="toc-häufige-fehlermeldungen" class="nav-link" data-scroll-target="#häufige-fehlermeldungen"><span class="header-section-number">2.6</span> Häufige Fehlermeldungen</a></li>
+  <li><a href="#belegung-von-variabeln" id="toc-belegung-von-variabeln" class="nav-link active" data-scroll-target="#belegung-von-variabeln"><span class="header-section-number">8.1</span> Belegung von Variabeln</a></li>
+  <li><a href="#funktionen" id="toc-funktionen" class="nav-link" data-scroll-target="#funktionen"><span class="header-section-number">8.2</span> Funktionen</a>
+  <ul class="collapse">
+  <li><a href="#berechnung-des-volumens-eines-zylinders" id="toc-berechnung-des-volumens-eines-zylinders" class="nav-link" data-scroll-target="#berechnung-des-volumens-eines-zylinders"><span class="header-section-number">8.2.1</span> Berechnung des Volumens eines Zylinders</a></li>
+  <li><a href="#berechnung-der-kinetischen-energie-eines-körpers" id="toc-berechnung-der-kinetischen-energie-eines-körpers" class="nav-link" data-scroll-target="#berechnung-der-kinetischen-energie-eines-körpers"><span class="header-section-number">8.2.2</span> Berechnung der kinetischen Energie eines Körpers</a></li>
+  </ul></li>
+  <li><a href="#musterlösungen" id="toc-musterlösungen" class="nav-link" data-scroll-target="#musterlösungen"><span class="header-section-number">8.3</span> Musterlösungen</a>
+  <ul class="collapse">
+  <li><a href="#berechnung-des-volumnens-eines-zylinders" id="toc-berechnung-des-volumnens-eines-zylinders" class="nav-link" data-scroll-target="#berechnung-des-volumnens-eines-zylinders"><span class="header-section-number">8.3.1</span> Berechnung des Volumnens eines Zylinders</a></li>
+  <li><a href="#berechnung-der-kinetischen-energie-eines-körpers-1" id="toc-berechnung-der-kinetischen-energie-eines-körpers-1" class="nav-link" data-scroll-target="#berechnung-der-kinetischen-energie-eines-körpers-1"><span class="header-section-number">8.3.2</span> Berechnung der kinetischen Energie eines Körpers</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html">Anleitungen</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></h1>
 </div>
 
 
@@ -307,7 +311,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">25.08.2025</p>
+      <p class="date">27.10.2025</p>
     </div>
   </div>
   
@@ -319,245 +323,163 @@ window.Quarto = {
 </header>
 
 
-<section id="ausgangslage" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="ausgangslage"><span class="header-section-number">2.1</span> Ausgangslage</h2>
-<p>In der Informatik geht es darum, wie Informationsverarbeitung mit Hilfe von Computern automatisiert werden kann.<br>
-Die Automatisierung der Informationsverarbeitung erfordert die Verwendung von Programmiersprachen. Im Informatikunterricht wird in erster Linie mit der Programmiersprache Python gearbeitet.<br>
-Im folgenden findet sich eine Anleitung für die Installation der für den Unterricht erforderlichen Programme.</p>
+<section id="belegung-von-variabeln" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="belegung-von-variabeln"><span class="header-section-number">8.1</span> Belegung von Variabeln</h2>
+<p>Das folgende Code Snippet demonstriert die Belegung von Variabeln. Insbesondere soll es auch zeigen, was geschieht, wenn die Variabeln in Operationen einbezogen werden.</p>
+<p>Überlegen Sie sich bevor Sie das Snippet ausführen zuerst Anweisung für Anweisung, welche Werte in den Variabeln <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> und <span class="math inline">\(c\)</span> nach Ausführung der jeweiligen Anweisung gespeichert sind. Notieren Sie sich die Werte auf ein Blatt Papier. Anschliessend führen Sie die Zelle zur Kontrolle Ihrer Überlegungen aus.</p>
+<div id="285141ab" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Anfangswerte zuweisen</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>b <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>c <span class="op">=</span> a</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="bu">print</span>(<span class="ss">f"Nach Initialisierung:, a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">, b = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">, c = </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Wert von a ändern</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>a <span class="op">=</span> a <span class="op">+</span> <span class="dv">3</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="bu">print</span>(<span class="ss">f"Nach a = a + 3: a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">,  b = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">,  c = </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># Wert von b ändern</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>b <span class="op">=</span> a <span class="op">*</span> c</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="bu">print</span>(<span class="ss">f"Nach b = a * c: a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">,  b = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">,  c = </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co"># Wert von c ändern</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>c <span class="op">=</span> b <span class="op">-</span> a</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="bu">print</span>(<span class="ss">f"Nach c = b - a: a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">,  b = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">,  c = </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="installation-von-python" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="installation-von-python"><span class="header-section-number">2.2</span> Installation von Python</h2>
-<p>Dieser Abschnitt führt Sie Schritt für Schritt durch die Installation von Python auf einem Windows-Rechner.</p>
-<div class="callout callout-style-default callout-warning callout-titled" title="Microsoft Store Falle">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="funktionen" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="funktionen"><span class="header-section-number">8.2</span> Funktionen</h2>
+<p>Die Definiton einer neuen Funktion erweitert den Umfang der in Python zur Verfügung stehenden Befehle. Entsprechend ist es möglich, einmal definierte Funktionen in neuen Funktionen zu verwenden.</p>
+<p>Unten finden Sie ein einfaches Beispiel für diese Vorgehensweise.</p>
+<div id="581b09d9" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> erfolgsberechnung(ertrag: <span class="bu">float</span>, aufwand: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co">"""Berechnet den wirtschaftlichen Erfolg als Differenz von Ertrag</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">    und Aufwand. </span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">    Args:</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">        ertrag: Der gesamte erzielte Ertrag.</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">        aufwand: Der gesamte angefallene Aufwand.</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">    Returns:</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">        Der berechnete Erfolg (Ertrag minus Aufwand).</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">    """</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>    erfolg <span class="op">=</span> ertrag <span class="op">-</span> aufwand</span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="cf">return</span> erfolg</span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="kw">def</span> renditeberechnung(ertrag: <span class="bu">float</span>, aufwand: <span class="bu">float</span>, </span>
+<span id="cb2-17"><a href="#cb2-17"></a>                      anfangskapital: <span class="bu">float</span>, </span>
+<span id="cb2-18"><a href="#cb2-18"></a>                      schlusskapital: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb2-19"><a href="#cb2-19"></a>    <span class="co">"""Berechnet die Rendite in Prozent basierend auf Erfolg </span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="co">    und durchschnittlichem Kapital.</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="co">    Die Funktion nutzt die 'erfolgsberechnung', um den Erfolg </span></span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="co">    zu ermitteln, und setzt diesen ins Verhältnis zum durchschnittlich</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="co">    gebundenen Kapital.</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="co">    Args:</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="co">        ertrag: Der gesamte erzielte Ertrag.</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="co">        aufwand: Der gesamte angefallene Aufwand.</span></span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="co">        anfangskapital: Das Kapital zu Beginn der Periode.</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="co">        schlusskapital: Das Kapital am Ende der Periode.</span></span>
+<span id="cb2-31"><a href="#cb2-31"></a></span>
+<span id="cb2-32"><a href="#cb2-32"></a><span class="co">    Returns:</span></span>
+<span id="cb2-33"><a href="#cb2-33"></a><span class="co">        Die berechnete Rendite, ausgedrückt in Prozent (%).</span></span>
+<span id="cb2-34"><a href="#cb2-34"></a><span class="co">    """</span></span>
+<span id="cb2-35"><a href="#cb2-35"></a>    erfolg <span class="op">=</span> erfolgsberechnung(ertrag, aufwand)</span>
+<span id="cb2-36"><a href="#cb2-36"></a>    durchschnittskapital <span class="op">=</span> (anfangskapital <span class="op">+</span> schlusskapital) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb2-37"><a href="#cb2-37"></a>    rendite <span class="op">=</span> erfolg <span class="op">/</span> durchschnittskapital <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb2-38"><a href="#cb2-38"></a>    <span class="cf">return</span> rendite</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-title-container flex-fill">
-Microsoft Store Falle
+<section id="berechnung-des-volumens-eines-zylinders" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="berechnung-des-volumens-eines-zylinders"><span class="header-section-number">8.2.1</span> Berechnung des Volumens eines Zylinders</h3>
+<p>Die folgende Grafik zeigt einen Zylinder.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Zylinder.svg" class="img-fluid figure-img"></p>
+<figcaption>Zylinder</figcaption>
+</figure>
 </div>
+<p>Die Formel für die Berechnung des Volumens lautet</p>
+<p><span class="math display">\[
+v = \pi \cdot r^2 \cdot h
+\]</span></p>
+<p>Zerlegen Sie dazu die Berechnung in zwei Teile. Definieren Sie zuerst eine Funkiton für die Berechnung der Bodenfläche und verwenden Sie diese anschliessend in einer Funktion zur Berechnung des Volumens.</p>
+<p>Für die Kreiszahl <span class="math inline">\(\pi\)</span> können Sie das Modul <code>math</code> importieren. Dies stellt Ihnen mit dem Befehl <code>math.pi</code> <span class="math inline">\(\pi\)</span> in einer grossen genauigkeit zur Verfügung.</p>
+<div id="e01f6464" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie hier Ihre Funktionen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Achten Sie beim Herunterladen von Python darauf, dass Sie sich auf der offiziellen Seite von Python (https://www.python.org) und <strong>nicht</strong> im Microsoft Store befinden. Wenn Sie versehentlich die Python Version aus dem Microsoft Store installiert haben, kann das bei der Arbeit an den Schulprojekten zu Problemen führen.</p>
-<p>Deinstallieren Sie die Microsoft Version von Python und installieren Sie die Version von der offiziellen Website.</p>
-</div>
-</div>
-<ol type="1">
-<li><p>Laden Sie die neueste Version von Python von der offiziellen Website herunter: <a href="https://www.python.org/downloads/" target="blank">python.org</a>.</p></li>
-<li><p>Führen Sie das heruntergeladene Installationsprogramm durch Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die Option “Add Python to PATH” aktivieren, bevor Sie auf “Install Now” klicken.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Die 'PATH'-Umgebungsvariable">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Die ‘PATH’-Umgebungsvariable
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Stellen Sie sich die PATH-Variable wie ein Adressbuch für die Kommandozeile (Terminal) vor. Wenn Sie einen Befehl wie <code>python</code> eingeben, schaut der Computer in diesem Adressbuch nach, wo das entsprechende Programm zu finden ist.</p>
-<p>Indem Sie das Häkchen bei “Add Python to PATH” setzen, fügen Sie die Adresse des Python-Interpreters zu diesem Adressbuch hinzu. Ohne diesen Eintrag weiss der Computer nicht, wo er suchen soll, und meldet, dass er den Befehl nicht kennt.</p>
-</div>
-</div></li>
-<li><p>Überprüfen Sie die Installation, indem Sie die Eingabeaufforderung öffnen (Terminal <span class="math inline">\(\rightarrow\)</span> Windows-Taste + R, dann <code>cmd</code> eingeben) und den Befehl <code>python --version</code> eingeben. Dies sollte die installierte Python-Version anzeigen.</p></li>
-</ol>
 </section>
-<section id="hello-world" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="hello-world"><span class="header-section-number">2.3</span> Hello World</h2>
-<p>Es hat sich eingebürgert, dass das erste Programm, das ausgeführt wird, ein Programm ist, das den Text “Hello World” auf dem Bildschirm ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte aus:</p>
-<ol type="1">
-<li><p>Öffnen Sie ein Terminal (Windows-Taste + R, dann <code>cmd</code> eingeben).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Das Terminal">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="berechnung-der-kinetischen-energie-eines-körpers" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="berechnung-der-kinetischen-energie-eines-körpers"><span class="header-section-number">8.2.2</span> Berechnung der kinetischen Energie eines Körpers</h3>
+<p>Die kinetische Energie eines Körpers berechnet sich nach der Formel</p>
+<p><span class="math display">\[
+E_{kin} = \frac{1}{2} \cdot m \cdot v^2
+\]</span></p>
+<p>wobei <span class="math inline">\(m\)</span> für die Masse des Körpers und <span class="math inline">\(v\)</span> für dessen Geschwindigkeit steht. Implementieren Sie eine Funktion für die Berechnung der kinetischen Energie eines Körpers. Beachten Sie dabei, dass experimentell lediglich Daten über die Masse des Körpers, die zurückgelegte Strecke des Körpers sowie die dafür erforderliche Zeit zugänglich sind.</p>
+<div id="f72f346f" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie hier Ihre Funktionen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-title-container flex-fill">
-Das Terminal
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Unter dem Begriff “Terminal” versteht man ein Programm, das eine textbasierte Benutzeroberfläche bereitstellt, um mit dem Betriebssystem zu interagieren. In einem Terminal können Sie Befehle eingeben und erhalten die Ausgaben direkt im Fenster.</p>
-</div>
-</div></li>
-<li><p>Geben Sie den Befehl <code>python</code> ein, um die Python-Shell zu starten. Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="python_shell.png" class="img-fluid figure-img"></p>
-<figcaption>Python Shell</figcaption>
-</figure>
-</div></li>
-<li><p>Geben Sie den folgenden Befehl ein und drücken Sie anschliessend die Eingabetaste:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Das Resultat sollte wie das folgende Bild aussehen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hello_world.png" class="img-fluid figure-img"></p>
-<figcaption>Python Shell</figcaption>
-</figure>
-</div></li>
-</ol>
-<p>Gratuliere - Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!</p>
 </section>
-<section id="arbeitsumgebung" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="arbeitsumgebung"><span class="header-section-number">2.4</span> Arbeitsumgebung</h2>
-<p>Im Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern mit sogenannten Jupyter Notebooks. Jupyter Notebooks ermöglichen es, in der gleichen Datei sowohl Code (Programm Teile) als auch formatierten Text (in <a href="https://www.markdownguide.org/" target="blank">Markdown</a>) zu verarbeiten. Eine Jupyter Notebook Datei hat die Endung <code>.ipynb</code>. Vom Jupyter Notebook unterschieden werden muss die Arbeitsoberfläche in welcher die Jupyter Notebooks bearbeitet werden. Diese Oberfläche nennt sich JupyterLab und läuft in einem Webbrowser.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Das Jupyter Ökosystem">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Das Jupyter Ökosystem
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die im Unterricht verwendeten Jupyter Notebooks sind Teil eines ganzen Jupyter Ökosystems. Der Name Jupyter setzt sich aus den drei Programmiersprachen <strong>Ju</strong>lia, <strong>Pyt</strong>hon und <strong>R</strong> zusammen, die in diesem Ökosystem eine zentrale Rolle spielen. Zum Jupyter Ökosystem gehören auch zahlreiche Erweiterungen und Tools, die die Arbeit mit Notebooks und Daten erleichtern.</p>
-<p>Der Unterricht beschränkt sich auf die Verwendung von Jupyter Notebooks mit der Programmiersprache Python sowie den Einsatz von JupyterLab als Arbeitsumgebung.</p>
-</div>
-</div>
-<p>Damit dies alles funktioniert, braucht es ein paar weitere Vorbereitungsarbeiten.</p>
-<ol type="1">
-<li><p>Erstellen Sie im Ordner “Informatik” einen Unterordner mit dem Heutigen Datum als Namen. Formatieren Sie das Datum nach dem Schema “YYMMDD”, für den 1. August 2025 wäre das zum Beispiel “250801”.</p></li>
-<li><p>Öffnen Sie den soeben erstellten Ordner.</p></li>
-<li><p>Geben Sie die Tastenfolge <code>Ctrl + L</code> ein, um die Adresszeile des Dateimanagers zu aktivieren.</p></li>
-<li><p>Überschreiben Sie den Inhalt der Adresszeile mit dem Text <code>cmd</code> und drücken Sie die Eingabetaste. Dadurch wird ein Terminal geöffnet, das direkt im aktuellen Ordner arbeitet.</p></li>
-<li><p>Geben Sie im neu geöffneten Terminal den folgenden Befehl ein und drücken Sie die Eingabetaste:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dadurch wird eine sogenannte Python Virtual Environment erstellt (venv wegen <strong>V</strong>irtual <strong>Env</strong>ironment). Dieses Python Virtual Environment dient dazu, die eigenen Programmierprojekte unabhängig voneinander gestalten zu können.</p></li>
-<li><p>Aktivieren Sie das Python Virtual Environment mit dem folgenden Befehl:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a> <span class="ex">.venv\Scripts\activate</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ihr Terminal sieht nach dem Erstellen und Aktivieren der Python Virtual Environment ungefähr so aus:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="venv.png" class="img-fluid figure-img"></p>
-<figcaption>Aktivierte Python Virtual Environment</figcaption>
-</figure>
-</div>
-<p>Das Wort in der Klammer am Anfang der Zeile zeigt den Namen der aktiven Python Virtual Environment an. Im vorliegenden Fall ist das .venv.</p></li>
-<li><p><span id="sec-install-packages">In der nun aktivierten Python Virtual Environment installieren Sie die benötigten Pakete mit dem folgenden Befehl</span>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">pip</span> install jupyter</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Das dauert eine Weile.</p>
-<p>Während der Installation werden die benötigten Pakete (Ergänzungen zur bestehenden Python Installation) heruntergeladen und in der Python Virtual Environment gespeichert. Das Terminal sieht dabei ungefähr so aus:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="installation.png" class="img-fluid figure-img"></p>
-<figcaption>Terminal während der Jupyter Installation</figcaption>
-</figure>
-</div>
-<p>Alle in einer Python Virtual Environment installierten Pakete sind innerhalb dieser Umgebung dauerhaft verfügbar und müssen daher für das gleiche Projekt kein zweites Mal installiert werden.</p></li>
-<li><p>Starten Sie den Jupyter Server mit dem folgenden Befehl:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a> <span class="ex">jupyter-lab</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dies startet den Jupyter Notebook Server und öffnet automatisch ein Browserfenster mit der Jupyter Notebook Oberfläche.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="server.png" class="img-fluid figure-img"></p>
-<figcaption>Startseite Jupyter Lab</figcaption>
-</figure>
-</div></li>
-<li><p>Klicken Sie auf den Button “Python 3 (ipykernel)” unter dem Titel Notebook.</p>
-<p>Damit starten Sie ein neues Jupyter Notebook. Der Cursor blinkt in einer leeren Zelle. Bei dieser Zelle handelt es sich um eine sogenannte Code-Zelle. In einer Code-Zelle können Sie Python Code eingeben und ausführen.<br>
-Überprüfen Sie das, indem Sie in der Zelle den Befehl <code>print("Hello World")</code> eingeben und anschliessend die Tastenfolge <code>Shift + Enter</code> drücken (alternativ können Sie auch auf den Button “Run” in der Werkzeugleiste klicken).</p>
-<p>Das Resultat sollte wie das folgende Bild aussehen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hello_world_ipynb.png" class="img-fluid figure-img"></p>
-<figcaption>Hello World in einem Jupyter Notebook</figcaption>
-</figure>
-</div>
-<p>In einem Jupyter Notebook können Sie nicht nur Python Code ausführen, sondern auch Text (formatiert in <a href="https://www.markdownguide.org/basic-syntax/" target="blank">Markdown</a>) darstellen.<br>
-Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Dazu klicken Sie auf den Button “Code” in der Werkzeugleiste und wählen im Dropdown-Menü die Option “Markdown” aus.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cell_switch.png" class="img-fluid figure-img"></p>
-<figcaption>Umstellen der Zelle auf Markdown</figcaption>
-</figure>
-</div>
-<p>Probieren Sie das aus. Schreiben Sie einen Titel und einen kurzen Text in die Zelle unterhalb der Code-Zelle mit <code>pringt("Hello World")</code>. Damit der Text in der Zelle formatiert angezeigt wird, müssen Sie die Zelle mit der Tastenfolge <code>Shift + Enter</code> ausführen (analog zum Ausführen von Code-Zellen).</p>
-<p>Eine Zelle ist entweder eine Code-Zelle oder eine Text-Zelle. Für den Wechsel zwischen Code- und Text-Darstellung müssen Sie je eine neue Zelle anlegen. Das geht mit der Tastenfolge <code>Esc + B</code> (für “Below”) oder <code>Esc + A</code> (für “Above”) während Sie sich in einer Zelle befinden. Alternativ können Sie auch die Buttons “Insert Cell Below” oder “Insert Cell Above” aus den Werkzeugen der Zelle verwenden.</p></li>
-<li><p>Das Jupyter Notebook ist eine Datei mit der Endung <code>.ipynb</code>. Neu erstellte Jupyter Notebooks erhalten den Namen “Untitled.ipynb”. Um diesen Namen zu ändern, klicken Sie mit der rechten Maustatste auf den Titel “Untitled” in der oberen linken Ecke des Jupyter Notebooks und wählen Sie die Option “Rename” aus dem Kontextmenü. Anschliessend können Sie den Namen des Jupyter Notebooks eingeben.</p></li>
-</ol>
 </section>
-<section id="öffnen-bestehender-jupyter-notebooks" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="öffnen-bestehender-jupyter-notebooks"><span class="header-section-number">2.5</span> Öffnen bestehender Jupyter Notebooks</h2>
-<p>Häufiger als das Erstellen eines neuen Jupyter Notebooks ist das Öffnen eines bereits bestehenden Jupyter Notebooks. Hier wird das entsprechende Vorgehen beschrieben.</p>
-<ol type="1">
-<li><p>Navigieren Sie in den Ordner in dem sich das Jupyter Notebook befindet.</p></li>
-<li><p>Stellen Sie sicher, dass der Ordner über eine Python Virtual Environment mit installierten Jupyter Paketen verfügt.</p>
-<p>Öffnen Sie dazu im ausgewählten Ordner das Terminal (<code>ctrl + L</code> anschliessend <code>cmd</code> und Eingabetaste). Dann starten Sie die Python Virtual Environment und geben den Befehl <code>pip list</code> ein. Dieser Listet alle in der Python Virtual Environment installierten Pakete auf. Falls die Jupyter Pakete nicht aufgelistet werden, müssen Sie diese wie <a href="#sec-install-packages">oben</a> beschrieben installieren.</p></li>
-<li><p>Starten Sie den Jupyter Server mit dem Befehl <code>jupyter-lab</code>.</p></li>
-<li><p>Öffnen Sie das Dateiverzeichnis. Dazu müssen Sie auf dem linken Rand das Ordner-Symbol anklicken.</p></li>
-<li><p>Wählen Sie das Jupyter Notebook aus, das Sie öffnen möchten. Mit einem Doppelklick auf das Jupyter Notebook wird dieses geöffnet.</p>
-<p>Wenn Sie das Dateiverzeichnis wieder schliessen möchten, klicken Sie auf das Ordner-Symbol auf der linken Seite erneut.</p></li>
-</ol>
-<p>Diese Schritte funktionieren auch, wenn Sie ein Jupyter Notebook öffnen möchten, das Sie von jemand anderem erhalten haben. Sie müssen dieses dazu lediglich in den Ordner kopieren, in dem sich die Python Virtual Environment mit den installierten Jupyter Paketen befindet.</p>
+<section id="musterlösungen" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="musterlösungen"><span class="header-section-number">8.3</span> Musterlösungen</h2>
+<section id="berechnung-des-volumnens-eines-zylinders" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="berechnung-des-volumnens-eines-zylinders"><span class="header-section-number">8.3.1</span> Berechnung des Volumnens eines Zylinders</h3>
+<div id="24b852bd" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> math</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">def</span> kreisflaeche(r : <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    area <span class="op">=</span> math.pi <span class="op">*</span> r <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="cf">return</span> area</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="kw">def</span> zylindervolumen(r : <span class="bu">float</span>, h : <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb5-8"><a href="#cb5-8"></a>    bodenflaeche <span class="op">=</span> kreisflaeche(r)</span>
+<span id="cb5-9"><a href="#cb5-9"></a>    volumen <span class="op">=</span> bodenflaeche <span class="op">*</span> h</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    <span class="cf">return</span> volumen</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="häufige-fehlermeldungen" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="häufige-fehlermeldungen"><span class="header-section-number">2.6</span> Häufige Fehlermeldungen</h2>
-<div class="max-w-7xl mx-auto">
-                
-        <!-- Container for the table to allow horizontal scrolling on small screens -->
-        <div class="overflow-x-auto bg-white rounded-lg shadow">
-            
-<table class="w-full min-w-max text-sm text-left text-gray-700 caption-top table" data-quarto-postprocess="true">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead class="bg-gray-100 text-xs text-gray-700 uppercase">
-<tr class="header">
-<th class="px-6 py-3 font-semibold w-1/4" data-quarto-table-cell-role="th" scope="col">Problem / Fehlermeldung (Was Sie sehen)</th>
-<th class="px-6 py-3 font-semibold w-1/4" data-quarto-table-cell-role="th" scope="col">Mögliche Ursache (Warum es passiert)</th>
-<th class="px-6 py-3 font-semibold w-2/4" data-quarto-table-cell-role="th" scope="col">Lösung (Was Sie tun können)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="bg-white border-b hover:bg-gray-50 odd">
-<td class="px-6 py-4 font-medium text-gray-900">Der Befehl <code>python</code> ist entweder falsch geschrieben oder konnte nicht gefunden werden.</td>
-<td class="px-6 py-4">Python wurde bei der Installation nicht zur PATH-Variable hinzugefügt. Der Computer weiss nicht, wo er <code>python.exe</code> finden soll.</td>
-<td class="px-6 py-4"><ol>
-<li>Deinstallieren Sie Python über die Systemsteuerung.</li>
-<li>Installieren Sie Python erneut.</li>
-<li>Achten Sie diesmal unbedingt darauf, das Häkchen bei "Add Python to PATH" zu setzen.</li>
-</ol></td>
-</tr>
-<tr class="bg-white border-b hover:bg-gray-50 even">
-<td class="px-6 py-4 font-medium text-gray-900">Der Befehl <code>jupyter-lab</code> ist entweder falsch geschrieben oder konnte nicht gefunden werden.</td>
-<td class="px-6 py-4">Sie haben vergessen, die virtuelle Umgebung zu aktivieren. Der Befehl <code>jupyter-lab</code> existiert nur innerhalb der aktivierten Umgebung.</td>
-<td class="px-6 py-4"><ol>
-<li>Überprüfen Sie, ob <code>(.venv)</code> am Anfang der Kommandozeile steht.</li>
-<li>Falls nicht, führen Sie den Aktivierungsbefehl erneut aus: <code>.venv\Scripts\activate</code>.</li>
-</ol></td>
-</tr>
-<tr class="bg-white border-b hover:bg-gray-50 odd">
-<td class="px-6 py-4 font-medium text-gray-900"><code>ImportError: DLL load failed...</code> oder ähnliche Fehler unter Windows</td>
-<td class="px-6 py-4">Ein häufiges Problem mit der Installation von <code>pywin32</code>, einer wichtigen Windows-Bibliothek, die von Jupyter benötigt wird.</td>
-<td class="px-6 py-4"><ol>
-<li>Stellen Sie sicher, dass Ihre virtuelle Umgebung aktiv ist.</li>
-<li>Führen Sie den Befehl <code>pip install --upgrade pywin32</code> aus, um die Bibliothek zu reparieren.</li>
-</ol></td>
-</tr>
-<tr class="bg-white border-b hover:bg-gray-50 even">
-<td class="px-6 py-4 font-medium text-gray-900">Kernel Error oder der Status "Kernel starting, please wait..." ändert sich nicht</td>
-<td class="px-6 py-4">Die Verbindung zwischen der Browser-Oberfläche und dem Python-"Gehirn" (dem Kernel) ist gestört. Dies kann viele Ursachen haben.</td>
-<td class="px-6 py-4"><ol>
-<li>Der einfachste erste Schritt: Klicken Sie im JupyterLab-Menü auf "Kernel" -&gt; "Restart Kernel...".</li>
-<li>Wenn das nicht hilft, schliessen Sie JupyterLab im Terminal (mit der Tastenkombination Strg + C) und starten Sie es mit <code>jupyter-lab</code> neu.</li>
-</ol></td>
-</tr>
-<tr class="bg-white hover:bg-gray-50 odd">
-<td class="px-6 py-4 font-medium text-gray-900"><code>Permission denied</code> (Zugriff verweigert) bei der Installation von Paketen</td>
-<td class="px-6 py-4">Sie versuchen, Pakete an einem systemweiten Ort zu installieren (z. B. in <code>C:\Program Files</code>), für den Sie keine Schreibrechte haben.</td>
-<td class="px-6 py-4">Dies ist genau das Problem, das virtuelle Umgebungen lösen! Stellen Sie sicher, dass Ihre <code>venv</code> aktiv ist (<code>(.venv)</code> muss sichtbar sein). Dadurch wird sichergestellt, dass alle Pakete lokal in Ihren Projektordner installiert werden, wo Sie die vollen Rechte haben.</td>
-</tr>
-</tbody>
-</table>
-
-        </div>
-    </div>
+<section id="berechnung-der-kinetischen-energie-eines-körpers-1" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="berechnung-der-kinetischen-energie-eines-körpers-1"><span class="header-section-number">8.3.2</span> Berechnung der kinetischen Energie eines Körpers</h3>
+<div id="be316ca2" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> geschwindigkeit(s: <span class="bu">float</span>, t: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="co">"""Berechnet die Geschwindigkeit v aus zurückgelegter Strecke und</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">    Zeit. </span></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">    Args:</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">        s: Die zurückgelegte Strecke (in Metern).</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">        t: Die dafür benötigte Zeit (in Sekunden).</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">    Returns:</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">        Die berechnete Geschwindigkeit v (in m/s).</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">    """</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a>    v <span class="op">=</span> s <span class="op">/</span> t</span>
+<span id="cb6-13"><a href="#cb6-13"></a>    <span class="cf">return</span> v</span>
+<span id="cb6-14"><a href="#cb6-14"></a></span>
+<span id="cb6-15"><a href="#cb6-15"></a></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="kw">def</span> kinetische_energie(m: <span class="bu">float</span>, s: <span class="bu">float</span>, t: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb6-17"><a href="#cb6-17"></a>    <span class="co">"""Berechnet die kinetische Energie eines Körpers basierend auf</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">    experimentellen Daten. </span></span>
+<span id="cb6-19"><a href="#cb6-19"></a></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co">    Die Funktion berechnet zuerst die Geschwindigkeit v aus s und t</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">    mithilfe der Funktion 'geschwindigkeit' und wendet dann die Formel</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="co">    E_kin = 0.5 * m * v^2 an.</span></span>
+<span id="cb6-23"><a href="#cb6-23"></a></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="co">    Args:</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co">        m: Die Masse des Körpers (in Kilogramm).</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="co">        s: Die zurückgelegte Strecke (in Metern).</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="co">        t: Die dafür benötigte Zeit (in Sekunden).</span></span>
+<span id="cb6-28"><a href="#cb6-28"></a></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">    Returns:</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="co">        Die berechnete kinetische Energie E_kin (in Joule).</span></span>
+<span id="cb6-31"><a href="#cb6-31"></a><span class="co">    """</span></span>
+<span id="cb6-32"><a href="#cb6-32"></a>    v <span class="op">=</span> geschwindigkeit(s, t)</span>
+<span id="cb6-33"><a href="#cb6-33"></a>    e_kin <span class="op">=</span> (m <span class="op">*</span> v <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb6-34"><a href="#cb6-34"></a>    <span class="cf">return</span> e_kin</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -962,14 +884,11 @@ Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Da
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="pagination-link" aria-label="Speicherorganisation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span>
+      <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="pagination-link" aria-label="Programmieren einfacher Funktionen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../files/lektionen_hs25/250901_probleme/probleme.html" class="pagination-link" aria-label="Problemlösung in der Informatik">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Problemlösung in der Informatik</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
