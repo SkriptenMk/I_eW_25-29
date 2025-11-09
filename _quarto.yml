@@ -48,6 +48,7 @@ format:
     theme:
       - cosmo
       - brand
+      - custom.scss
     code-download: true
     toc: true
     # css: style.css
