@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../files/lektionen_hs25/250901_probleme/probleme.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-7ee07a9970eaba254c9bc694d5171cfd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -120,7 +121,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -136,7 +137,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -146,6 +146,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Unterlagen für das obligatorische Fach Informatik</span>
     </a>
@@ -188,6 +190,10 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -264,6 +270,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -335,7 +347,7 @@ window.Quarto = {
 <h2 data-number="4.1" class="anchored" data-anchor-id="vorbemerkungen-python-als-rechner"><span class="header-section-number">4.1</span> Vorbemerkungen: Python als Rechner</h2>
 <p>Python verfügt über eingebaute mathematische Fähigkeiten. Es kann die Grundrechenarten und kennt die Hierarchie der Operationen. Sie können das überprüfen, in dem Sie in der folgenden Zelle die Rechnung <span class="math display">\[2+3\cdot4\]</span> ausführen.</p>
 <div id="cell-2" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># hier können Sie die Rechnung ausführen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># hier können Sie die Rechnung ausführen</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Die folgende Tabelle gibt einen Überblick über die direkt in Python verfügbaren mathematischen Funktionen:</p>
 <table class="caption-top table">
@@ -405,43 +417,43 @@ window.Quarto = {
 <p>In Python werden Variablen Werte mit dem Gleichheitszeichen zugewiesen. Um der Variable <span class="math inline">\(x\)</span> den Wert <span class="math inline">\(2\)</span> zuzuweisen, ist die Eingabe <code>x = 2</code> erfoderlich. Die Variable muss links vom Gleichheitszeichen, der zuzuweisende Wert rechts davon stehen.</p>
 <p>Überprüfen Sie dies, indem Sie in der folgenden Zelle der Variabel <span class="math inline">\(y\)</span> den Wert <span class="math inline">\(3\)</span> und der Variabel <span class="math inline">\(z\)</span> den Wert <span class="math inline">\(4\)</span> zuweisen. Anschliessend multiplizieren Sie die beiden Variablen miteinander.</p>
 <div id="cell-5" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># hier die Aufgabe einfüllen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># hier die Aufgabe einfüllen</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Wenn Variablen neue Werte zugewiesen werden, wird die Referenz auf den Speicherbereich mit dem alten Wert gelöscht. Die Daten, welche ohne Verweis durch eine Variable im Speicher liegen, werden vom in Python eingebauten <em>Garbage Collector</em> im Hintergrund gelöscht und der so freigewordene Speicherplatz kann wieder verwendet werden.</p>
 <p>Sie können überprüfen, dass Variablen neue Werte zugewiesen werden können, indem Sie in der untenstehenden Zelle die Variabeln <span class="math inline">\(y\)</span> und <span class="math inline">\(z\)</span> addieren. Sie erhalten dann das Resultat <span class="math inline">\(7\)</span>. Das heisst, den Variablen <span class="math inline">\(y\)</span> und <span class="math inline">\(z\)</span> sind immer noch die Werte <span class="math inline">\(3\)</span> und <span class="math inline">\(4\)</span> zugewiesen.</p>
 <div id="cell-7" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># addieren Sie hier y und z</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># addieren Sie hier y und z</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Wenn Sie in der folgenden Zelle der Variabel <span class="math inline">\(y\)</span> den Wert <span class="math inline">\(5\)</span> zuweisen und anschliessend <span class="math inline">\(y\)</span> und <span class="math inline">\(z\)</span> addieren erhalten Sie als neues Resultat <span class="math inline">\(9\)</span>.</p>
 <div id="cell-9" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># weisen Sie hier y den neuen Wert zu</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># weisen Sie hier y den neuen Wert zu</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Variablen können auch Resultate von Berechnungen zugewiesen werden. Ausserdem können Variablen ganze Wörter als Namen haben. Dies ist gegenüber einzelnen Buchstaben vorzuziehen, weil dann aussagekräftige Namen gewählt werden können. Grundsätzich sind die Namen von Variabeln frei wählbar. Es gibt allerdings eine Reihe von <a href="https://realpython.com/python-variables/#reserved-words-keywords">reservierten Begriffen</a>, welche in der Programmiersprache Python eine eigene Bedeutung haben. Unzulässig sind ausserdem Namen, die mit Ziffern beginnen.</p>
 <p>Für die Darstellung von Namen für Variablen hat sich in Python eingebürgert, Variablen klein zu schreiben und Wörter durch Underlines zu trennen (<span class="math inline">\(this\_is\_a\_valid\_variable\)</span>). Diese Darstellung nennt sich <em>Snake Case</em>. Zudem werden Variablen meist mit englischen Begriffen bezeichnet.</p>
 <p>Weisen Sie in der nächsten Zelle der Variable <code>result</code> das Resultat der Rechnung <span class="math inline">\(y + z\)</span> zu und geben Sie das Resultat mit <code>print(result)</code> aus. <code>print()</code> ist eine Funktion, die Python zur Verfügung stellt. Was Funktionen sind, wird im nächsten Abschnitt erklärt.</p>
 <div id="cell-11" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># weisen Sie hier der Variable result das Resultat zu</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># weisen Sie hier der Variable result das Resultat zu</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="funktionen-in-python" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="funktionen-in-python"><span class="header-section-number">4.3</span> Funktionen in Python</h2>
 <p>Python verfügt über viele bereits vordefinierte Funktionen. Die oben verwendete Funktion <code>print()</code> ist ein Beispiel dafür. Um zu demonstrieren, wie Funktionen in Python definiert werden, zeige ich Ihnen als Beispiel eine Funktion, mit der zwei Zahlen addiert werden.</p>
 <div id="cell-13" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Definition der Funktion</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Definition der Funktion</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="kw">def</span> get_sum(x, y):</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="cf">return</span> x <span class="op">+</span> y</span>
 <span id="cb6-4"><a href="#cb6-4"></a></span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="co"># Aufruf der Funktion</span></span>
 <span id="cb6-6"><a href="#cb6-6"></a>result <span class="op">=</span> get_sum(<span class="dv">3</span>,<span class="dv">4</span>)</span>
 <span id="cb6-7"><a href="#cb6-7"></a><span class="co"># Ausgabe des Resultats des Funktionsaufrufs</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="bu">print</span>(result)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="bu">print</span>(result)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>def</code> ist das Schlüsselwort für die Definition einer Funktion. <code>get_sum</code> ist der von mir gewählte Name dieser Funktion. Für die Wahl des Namens einer Funktion gelten die gleichen Regeln, wie für Variablen. In den Klammern stehen die sogenannten Parameter, welche der Funktion übergeben werden, damit sie etwas damit macht. Mit dem Doppelpunkt wird die <em>Signatur</em> der Funktion abgeschlossen. Die <em>Signatur</em> zeigt idealerweise, <em>was</em> eine Funktion <em>womit</em> macht. Sie gibt aber keine Auskunft darüber, wie sie das macht.</p>
 <p>Python gruppiert Befehle, die zusammengehören, durch die gleiche Tiefe der Einrückung. Eine Einrückung hat üblicherweise die Tiefe von vier Leerzeichen. Im Beispiel oben gibt es nur eine eingerückte Zeile, weil die Funktion nur aus einem Befehl besteht. Mit <code>return</code> gibt die Funktion das Resultat zurück.</p>
 <p>Im Beispiel wird das Resultat der Berechnung, welche die Funktion ausführt der Variable <code>result</code> zugewiesen. Der Wert der Variable <code>result</code> wird mit <code>print(result)</code> ausgegeben.</p>
 <p>Definieren Sie in der folgenden Zelle eine Funktion, mit der zwei Zahlen multipliziert werden.</p>
 <div id="cell-16" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># hier kommt Ihre Funktion hin</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># hier kommt Ihre Funktion hin</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="datentypen" class="level2" data-number="4.4">
@@ -464,7 +476,7 @@ window.Quarto = {
 <p>Wenn einer Variable ein grosser Integer zugewiesen wird, kann dieser zur besseren Lesbarkeit auch mit einem Underline als Tausendertrennzeichen geschrieben werden (<code>100_000</code>).</p>
 <p>Um das Auszuprobieren, weisen Sie in der folgenden Zelle der Variable <span class="math inline">\(a\)</span> den Wert von einer Million und der Variable <span class="math inline">\(b\)</span> den Wert von einer Milliarde zu. Anschliessend addieren Sie <span class="math inline">\(a\)</span> und <span class="math inline">\(b\)</span> und weisen das Resultat der Variable <span class="math inline">\(big\_sum\)</span> zu. Zum Schluss geben Sie den Wert von <span class="math inline">\(big\_sum\)</span> mit der Funktion <code>print()</code> aus.</p>
 <div id="cell-20" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># hier können Sie Ihre Berechnung vornehmen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># hier können Sie Ihre Berechnung vornehmen</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Eingegebene Zahlen werden automatisch als Dezimalzahlen interpretiert.</p>
 <p>Integers können jedoch auch als Binär-, Oktal- oder Hexadezimalzahlen eingegeben werden. Die Eingabe erfordert dann allerdings ein Präfix, welches das Zahlensysten identifiziert. Die folgende Tabelle stellt die möglichen Präfixe zusammen.</p>
@@ -511,17 +523,17 @@ window.Quarto = {
 </table>
 <p>In der folgende Zelle finden Sie ein entsprechendes Beispiel.</p>
 <p>Python kann Integer in verschiedenen Zahlensystemen darstellen. Um das Zahlensystem bei der Zuweisung zu spezifizieren, verwenden Sie die entsprechenden Präfixe. Die folgenden Beispiele zeigen die Zuweisung der Zahlen 10, 8, 255 und 16 in den Zahlensystemen Dezimal, Oktal, Hexadezimal und Binär:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>dezimal      <span class="op">=</span> <span class="dv">10</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>dezimal      <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>oktal        <span class="op">=</span> <span class="bn">0o10</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a>hexadezimal  <span class="op">=</span> <span class="bn">0x10</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>binaer       <span class="op">=</span> <span class="bn">0b10</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4"></a>binaer       <span class="op">=</span> <span class="bn">0b10</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Die Anzeige der Werte der entsprechenden Variablen erfolgt grundsätzlich im Dezimalsystem.</p>
 <div id="cell-23" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>b <span class="op">=</span> <span class="bn">0b101010</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>b <span class="op">=</span> <span class="bn">0b101010</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>o <span class="op">=</span> <span class="bn">0o52</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a>x <span class="op">=</span> <span class="bn">0x2a</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="bu">print</span>(b, o, x)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="bu">print</span>(b, o, x)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="gleitkommazahl" class="level3" data-number="4.4.2">
@@ -529,7 +541,7 @@ window.Quarto = {
 <p>Die Bezeichnung für Gleitkommazahlen in Python ist <code>float</code>. Python interpretiert Zahlen mit einem Dezimalpunkt als Gleitkommazahlen. Optional können Zahlen mit <code>e</code> oder <code>E</code> in “wissenschaftlicher” Schreibweise eigegeben werden (1000 = 1e3 bzw. 1e-3 = 0.001).</p>
 <p>Weisen Sie in der folgenden Zelle den Variablen <code>million</code> und <code>billionth</code> die passenden Werte in wissenschaftlicher Schreibweise zu.</p>
 <div id="cell-25" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># hier die Werte den beiden Variablen zuweisen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># hier die Werte den beiden Variablen zuweisen</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="komplexe-zahlen" class="level3" data-number="4.4.3">
@@ -546,33 +558,33 @@ window.Quarto = {
 <p>Die Länge von Zeichenketten wird lediglich durch die Speicherkapazität des verwendeten Systems begrenzt. Zeichenketten können nicht nur sehr lang, sondern auch leer sein (<code>''</code>).</p>
 <p>Zeichenketten können, wie alle Datentypen, Variablen zugewiesen werden. Dies zeigt das folgende Beispiel.</p>
 <div id="cell-28" class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Zuweisung eines Strings zu einer Variabel</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Zuweisung eines Strings zu einer Variabel</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>standard_greeting <span class="op">=</span> <span class="st">"Hello World"</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a></span>
 <span id="cb12-4"><a href="#cb12-4"></a><span class="co"># Ausgabe der Variabel</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="bu">print</span>(standard_greeting)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="bu">print</span>(standard_greeting)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="boolean-type" class="level3" data-number="4.4.5">
 <h3 data-number="4.4.5" class="anchored" data-anchor-id="boolean-type"><span class="header-section-number">4.4.5</span> Boolean Type</h3>
 <p>Wahrheitswerte werden in Python als <code>bool</code> bezeichnet. Wahrheitswerte können entweder “wahr” oder “falsch” sein.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>wahr      <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>falsch    <span class="op">=</span> <span class="va">False</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>wahr      <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>falsch    <span class="op">=</span> <span class="va">False</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Die Ausgabe findet sich in der folgenden Zelle.</p>
 <div id="cell-30" class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>wahr      <span class="op">=</span> <span class="va">True</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>wahr      <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>falsch    <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="bu">print</span>(wahr, falsch)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="bu">print</span>(wahr, falsch)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Welche Warheitswerte sich bei Vergleichen ergeben, kann mit den folgenden Operatoren überprüft werden:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="op">==</span>   <span class="co"># Gleichheit</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="op">==</span>   <span class="co"># Gleichheit</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="op">!=</span>   <span class="co"># Ungleichheit</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="op">&gt;</span>    <span class="co"># Größer als</span></span>
 <span id="cb15-4"><a href="#cb15-4"></a><span class="op">&lt;</span>    <span class="co"># Kleiner als</span></span>
 <span id="cb15-5"><a href="#cb15-5"></a><span class="op">&gt;=</span>   <span class="co"># Größer oder gleich</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="op">&lt;=</span>   <span class="co"># Kleiner oder gleich</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="op">&lt;=</span>   <span class="co"># Kleiner oder gleich</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="cell-32" class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Testen Sie hier den Wahrheitswert von Vergleichen mit Zahlen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Testen Sie hier den Wahrheitswert von Vergleichen mit Zahlen</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Wahrheitswerte werden zur Steuerung von Programmflüssen verwendet. Mit einem Wahrheitswert kann zum Beispiel gesteuert werden, wie oft ein Programmteil wiederholt werden soll.</p>
 </section>
@@ -582,8 +594,8 @@ window.Quarto = {
 <p>Zum Abschluss komme ich noch einmal auf die Definition von Funktionen zurück. In Python können Variablen - anders als zum Beispiel in Java - beliebige Datentypen zugewiesen werden. Wenn Variablen im Verlauf eines Programms mehrfach verwendet werden, können ihnen auch unterschiedliche Datentypen zugewiesen werden. Dies ist allerdings schlechter Programmierstil.</p>
 <p>Aus diesem Grund ist es sinnvoll, bei der Definition einer Funktion zu deklarieren, welche Datentypen die Parameter haben und welcher Datentyp der Rückgabewert hat. Dies soll mit dem Beispiel der Funktion <code>get_quotient</code> verdeutlicht werden.</p>
 <div id="cell-35" class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">def</span> get_quotient(x : <span class="bu">int</span>, y : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb17-2"><a href="#cb17-2"></a>    <span class="cf">return</span> x <span class="op">/</span> y</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">def</span> get_quotient(x : <span class="bu">int</span>, y : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb17-2"><a href="#cb17-2"></a>    <span class="cf">return</span> x <span class="op">/</span> y</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Hier wird angegeben, dass die Parameter <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> vom Datentyp <code>int</code> sein sollen. Der Datentyp des Rückgabewertes wird hinter <code>-&gt;</code> geschrieben. Im Beispiel ist der Rückgabewert vom Typ <code>float</code>. Das ist so, weil die Funktion zum Beispiel <span class="math inline">\(3 / 4 = 3.5\)</span> rechnet.</p>
 <p>Aber Achtung: die Funktion arbeitet auch dann korrekt, wenn ein anderer als der deklarierte Datentyp übergeben wird. Voraussetzung ist lediglich, dass der Datentyp mit den verwendeten Operationen kompatibel ist. Die “Type-Hints” dienen lediglich der besseren Nachvollziehbarkeit, was die Funktion macht.</p>
@@ -593,19 +605,19 @@ window.Quarto = {
 <section id="funktion-zur-multiplikation-zweier-zahlen" class="level3" data-number="4.6.1">
 <h3 data-number="4.6.1" class="anchored" data-anchor-id="funktion-zur-multiplikation-zweier-zahlen"><span class="header-section-number">4.6.1</span> Funktion zur Multiplikation zweier Zahlen</h3>
 <div id="cell-39" class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">def</span> get_product(a, b):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">def</span> get_product(a, b):</span>
 <span id="cb18-2"><a href="#cb18-2"></a>    <span class="cf">return</span> a <span class="op">*</span> b</span>
 <span id="cb18-3"><a href="#cb18-3"></a></span>
 <span id="cb18-4"><a href="#cb18-4"></a>product <span class="op">=</span> get_product(<span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="bu">print</span>(product)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="bu">print</span>(product)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="gleitkommazahlen-in-wissenschaftlicher-schreibweise" class="level3" data-number="4.6.2">
 <h3 data-number="4.6.2" class="anchored" data-anchor-id="gleitkommazahlen-in-wissenschaftlicher-schreibweise"><span class="header-section-number">4.6.2</span> Gleitkommazahlen in wissenschaftlicher Schreibweise</h3>
 <div id="cell-41" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>million <span class="op">=</span> <span class="fl">1e6</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>million <span class="op">=</span> <span class="fl">1e6</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a>billonth <span class="op">=</span> <span class="fl">1e-9</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="bu">print</span>(million, billonth)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="bu">print</span>(million, billonth)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1000000.0 1e-09</code></pre>
 </div>
@@ -667,13 +679,14 @@ window.Quarto = {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-7ee07a9970eaba254c9bc694d5171cfd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -120,7 +121,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -136,7 +137,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -146,6 +146,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Unterlagen für das obligatorische Fach Informatik</span>
     </a>
@@ -188,6 +190,10 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -264,6 +270,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -332,8 +344,8 @@ A = \pi r^2
 \]</span> wobei <span class="math inline">\(A\)</span> die Fläche <span class="math inline">\(\pi\)</span> die Kreiszahl - hier mit zwei Nachkommastellen - 3.14 und <span class="math inline">\(r\)</span> den Radius des Kreises darstellt.</p>
 <p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>kreisflaeche()</code> welche ein Argument <code>r</code> für Radius entgegennimmt und die Fläche eines Kreises zurückgibt.</p>
 <div id="bb6c9d16" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> kreisflaeche():</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> kreisflaeche():</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="quotient" class="level2" data-number="7.2">
@@ -341,8 +353,8 @@ A = \pi r^2
 <p>Ein Quotient kann unterschiedlich dargestellt werden. Eine Möglichkeit ist die Darstellung als Dezimalzahl.</p>
 <p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>quotient()</code> welche zwei Dezimalzahlen als Argumente entgegennimmt und den Quotienten als Dezimalzahl zurückgibt. Sehen Sie für den Sonderfall der Division durch Null eine Lösung vor.</p>
 <div id="cd071a54" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> quotient():</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> quotient():</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="fakultät" class="level2" data-number="7.3">
@@ -354,8 +366,8 @@ n! = 1 \cdot 2 \cdot 3 \cdot ... \cdot n
 <p>Wobei zu beachten ist, dass <span class="math inline">\(0! = 1\)</span> gilt.</p>
 <p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>fakultaet</code> welche als Argument <span class="math inline">\(n \in \mathbb{N}\)</span> entgegennimmt.</p>
 <div id="ae5009b2" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> fakultaet():</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> fakultaet():</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="quadratische-gleichungen-mitternachtsformel" class="level2" data-number="7.4">
@@ -367,12 +379,12 @@ x_{1,2} = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
 <p>gelöst werden.<br>
 Für die Implementierung ergibt sich daraus allerdings das Problem, dass die Formel zwei Resultate ergibt und eine Python Funktion nur ein Objekt zurückgeben kann.</p>
 <p>Als Workaround können die beiden Resultate in ein Tupel gepackt werden. Ein Tupel ist eine unveränderliche Zusammenstellung mehrer Werte. In Python werden sie in Klammern dargestellt. Die Zuweisung eines Tupels zu einer Variabel sieht dementsprechend folgendermassen aus:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>t <span class="op">=</span> (wert_1, wert_2, ..., wert_n)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>t <span class="op">=</span> (wert_1, wert_2, ..., wert_n)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Die detaillierten eigenschaften von Tupeln können hier ausser Acht gelassen werden. Es reicht <span class="math inline">\(x_1\)</span> und <span class="math inline">\(x_2\)</span> einem Tupel <code>resultat</code> zuzuweisen und <code>resultat</code> zurückzugeben.</p>
 <p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>mitternachtsformel</code>, welche die Argumente <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> und <span class="math inline">\(c\)</span> entgegennimt und das Tupel <span class="math inline">\(x_1\)</span> und <span class="math inline">\(x_2\)</span> zurückgibt.</p>
 <div id="78610807" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> mitternachtsformel():</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> mitternachtsformel():</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="musterlösungen" class="level2" data-number="7.5">
@@ -380,7 +392,7 @@ Für die Implementierung ergibt sich daraus allerdings das Problem, dass die For
 <section id="kreisfläche-1" class="level3" data-number="7.5.1">
 <h3 data-number="7.5.1" class="anchored" data-anchor-id="kreisfläche-1"><span class="header-section-number">7.5.1</span> Kreisfläche</h3>
 <div id="462fecfa" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> kreisflaeche(r: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> kreisflaeche(r: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    <span class="co">"""</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co">    Berechnet die Fläche eines Kreises anhand des gegebenen Radius.</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a></span>
@@ -396,13 +408,13 @@ Für die Implementierung ergibt sich daraus allerdings das Problem, dass die For
 <span id="cb6-14"><a href="#cb6-14"></a><span class="co">    """</span></span>
 <span id="cb6-15"><a href="#cb6-15"></a>    PI <span class="op">=</span> <span class="fl">3.14</span>  <span class="co"># Näherungswert für die Kreiszahl Pi</span></span>
 <span id="cb6-16"><a href="#cb6-16"></a>    a <span class="op">=</span> PI <span class="op">*</span> r <span class="op">**</span> <span class="dv">2</span>  <span class="co"># Formel: Fläche = Pi * r^2</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a>    <span class="cf">return</span> a</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-17"><a href="#cb6-17"></a>    <span class="cf">return</span> a</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="quotient-1" class="level3" data-number="7.5.2">
 <h3 data-number="7.5.2" class="anchored" data-anchor-id="quotient-1"><span class="header-section-number">7.5.2</span> Quotient</h3>
 <div id="45001582" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> quotient(z: <span class="bu">float</span>, n: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> quotient(z: <span class="bu">float</span>, n: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">"""</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co">    Berechnet den Quotienten zweier Zahlen.</span></span>
 <span id="cb7-4"><a href="#cb7-4"></a></span>
@@ -428,13 +440,13 @@ Für die Implementierung ergibt sich daraus allerdings das Problem, dass die For
 <span id="cb7-24"><a href="#cb7-24"></a>        <span class="cf">return</span> fehlermeldung  <span class="co"># Fehlerfall: Division durch Null</span></span>
 <span id="cb7-25"><a href="#cb7-25"></a>    <span class="cf">else</span>:</span>
 <span id="cb7-26"><a href="#cb7-26"></a>        q <span class="op">=</span> z <span class="op">/</span> n  <span class="co"># Berechnung des Quotienten</span></span>
-<span id="cb7-27"><a href="#cb7-27"></a>        <span class="cf">return</span> q</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-27"><a href="#cb7-27"></a>        <span class="cf">return</span> q</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="fakultät-1" class="level3" data-number="7.5.3">
 <h3 data-number="7.5.3" class="anchored" data-anchor-id="fakultät-1"><span class="header-section-number">7.5.3</span> Fakultät</h3>
 <div id="1f9477e1" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> fakultaet(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> fakultaet(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    <span class="co">"""</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="co">    Berechnet die Fakultät einer nicht-negativen ganzen Zahl n.</span></span>
 <span id="cb8-4"><a href="#cb8-4"></a></span>
@@ -457,13 +469,13 @@ Für die Implementierung ergibt sich daraus allerdings das Problem, dass die For
 <span id="cb8-21"><a href="#cb8-21"></a>        prod <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Initialisiere das Produkt mit 1</span></span>
 <span id="cb8-22"><a href="#cb8-22"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>):</span>
 <span id="cb8-23"><a href="#cb8-23"></a>            prod <span class="op">*=</span> i  <span class="co"># Multipliziere prod mit dem aktuellen Wert von i</span></span>
-<span id="cb8-24"><a href="#cb8-24"></a>        <span class="cf">return</span> prod  <span class="co"># Gib das berechnete Produkt zurück</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-24"><a href="#cb8-24"></a>        <span class="cf">return</span> prod  <span class="co"># Gib das berechnete Produkt zurück</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="mitternachtsformel" class="level3" data-number="7.5.4">
 <h3 data-number="7.5.4" class="anchored" data-anchor-id="mitternachtsformel"><span class="header-section-number">7.5.4</span> Mitternachtsformel</h3>
 <div id="b4260ef3" class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> mitternachtsformel(a: <span class="bu">float</span>, b: <span class="bu">float</span>, c: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> mitternachtsformel(a: <span class="bu">float</span>, b: <span class="bu">float</span>, c: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>:</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="co">"""</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="co">    Löst eine quadratische Gleichung der Form ax² + bx + c = 0 </span></span>
 <span id="cb9-4"><a href="#cb9-4"></a><span class="co">    mit der Mitternachtsformel.</span></span>
@@ -494,7 +506,7 @@ Für die Implementierung ergibt sich daraus allerdings das Problem, dass die For
 <span id="cb9-29"><a href="#cb9-29"></a>        <span class="co"># x2 = (-b -  d ** (1/2)) / (2a)</span></span>
 <span id="cb9-30"><a href="#cb9-30"></a>        x1 <span class="op">=</span> (<span class="op">-</span>b <span class="op">+</span> d <span class="op">**</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> a)</span>
 <span id="cb9-31"><a href="#cb9-31"></a>        x2 <span class="op">=</span> (<span class="op">-</span>b <span class="op">-</span> d <span class="op">**</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> a)</span>
-<span id="cb9-32"><a href="#cb9-32"></a>        <span class="cf">return</span> (x1, x2)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-32"><a href="#cb9-32"></a>        <span class="cf">return</span> (x1, x2)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
@@ -553,13 +565,14 @@ Für die Implementierung ergibt sich daraus allerdings das Problem, dass die For
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

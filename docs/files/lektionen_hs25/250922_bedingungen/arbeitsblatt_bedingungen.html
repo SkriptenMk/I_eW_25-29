@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-7ee07a9970eaba254c9bc694d5171cfd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -120,7 +121,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -136,7 +137,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -146,6 +146,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Unterlagen für das obligatorische Fach Informatik</span>
     </a>
@@ -188,6 +190,10 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -264,6 +270,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -330,10 +342,10 @@ Als Beispiel dafür mag die Blume von vergangener Woche dienen. Wenn eine Blume 
 <p>Diese Blume wurde ebenfalls mit einer <code>for</code>-Schlaufe gezeichnet. Allerdings wurde abwechslungsweise ein dunkelblaues und ein hellblaues Blütenblatt verwendet.<br>
 Abwechslungsweise kann auch als wenn eine gerade Zahl kommt bzw. wenn eine ungerade Zahl kommt verstanden werden. Kommen beim Zählen doch abwechslungsweise gerade und ungerade Zahlen. Übersetzt in die <code>for i in range(12)</code>-Schlaufe heisst das, immer wenn der Wert in der Variabel <code>i</code> eine gerade Zahl ist dann soll ein dunkelblaues Blüentblatt verwendet werden und immer wenn der Wert der Variabel <code>i</code> eine ungerade Zahl ist, soll ein hellblaues Blütenblatt verwendet werden.</p>
 <p>In Python verwendet man dazu die folgende Syntax:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> BEDINGUNG:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> BEDINGUNG:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    ANWEISUNG(en)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="cf">else</span>:</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    ANWEISUNG(en)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4"></a>    ANWEISUNG(en)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Das heisst, immer wenn die <code>BEDINGUNG</code> erfüllt ist (wenn sie <code>wahr</code>) ist, werden die eingerückten Anweisungen ausgeführt. In allen anderen Fällen werden die nach <code>else:</code> eingerückten Anweisungen ausgeführt.</p>
 <p>Für die Zeichnung der Blume bedeutet das also, dass immer wenn <code>i</code> eine gerade Zahl ist, soll ein dunkelblaues Blütenblatt verwendet werden. Eine gerade Zahl ist dabei jede Zahl, die ohne Rest durch zwei Teilbar ist.<br>
 Ob dies der Fall ist, kann mit dem Modulo Operator (<code>%</code>) getestet werden (vgl. Abschnitt <a href="https://skriptenmk.github.io/I_eW_25-29/files/lektionen_hs25/250908_variablen/Variablen.html#vorbemerkungen-python-als-rechner" target="_blank"> Vorbemerkungen: Python als Rechner</a>.) Eine Zahl ist ohne Rest durch zwei Teilbar, wenn gilt</p>
@@ -341,20 +353,20 @@ Ob dies der Fall ist, kann mit dem Modulo Operator (<code>%</code>) getestet wer
 i\ mod\ 2 = 0
 \]</span></p>
 <p>Übersetzt nach Pyhton schreibt sich das als</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Für die Prüfung, ob das Resultat <span class="math inline">\(0\)</span> ist, wird dabei <code>==</code> verwendet. Dies rührt daher, dass das einfache gleichheitszeichen bereits als Operator für die Zuweisung eines Wertes zu einer Variabel besetzt war.</p>
 <p>Der Vollständige Code für die Abwechslungsweise Verwendung eines dunkelblauen bzw. eines hellblauen Blütenblattes sieht folgendermassen aus:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    blume <span class="op">=</span> kombiniere(blume, bluetenblatt_dunkel)</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="cf">else</span>:</span>
-<span id="cb3-4"><a href="#cb3-4"></a>    blume <span class="op">=</span> kombiniere(blume, bluetenblatt_hell)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4"></a>    blume <span class="op">=</span> kombiniere(blume, bluetenblatt_hell)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Falls mehr als zwei Fälle unterschieden werden müssen, lautet die Python Syntax</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> BEDINGUNG:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> BEDINGUNG:</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    ANWEISUNG(en)</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="cf">elif</span> BEDINGUNG:</span>
 <span id="cb4-4"><a href="#cb4-4"></a>    ANWEISUNG(en)</span>
 <span id="cb4-5"><a href="#cb4-5"></a><span class="cf">else</span>:</span>
-<span id="cb4-6"><a href="#cb4-6"></a>    ANWEISUNG(en)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href="#cb4-6"></a>    ANWEISUNG(en)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Dabei können beliebig viele <code>elif</code> Bedingungen wiederholt werden.</p>
 <p>Als Bedingung kann nicht nur eine Gleichheit überprüft werden. Es ist auch möglich grösser <code>&gt;</code>, grösser oder gleich <code>&gt;=</code>, kleiner <code>&lt;</code> und kleiner oder gleich <code>&lt;=</code> zu prüfen.</p>
 <section id="anwendungsübung-zu-bedingungen-in-python" class="level2" data-number="6.1">
@@ -370,24 +382,24 @@ i\ mod\ 2 = 0
 </div>
 <p>Die erfoderlichen Importe und Farbdefinitionen finden Sie in der folgenden Code Zelle.</p>
 <div id="62a471cf" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a>lavender <span class="op">=</span> rgb_farbe(<span class="dv">230</span>, <span class="dv">230</span>, <span class="dv">250</span>)</span>
 <span id="cb5-4"><a href="#cb5-4"></a>mediumpurple <span class="op">=</span> rgb_farbe(<span class="dv">147</span>, <span class="dv">112</span>, <span class="dv">219</span>)</span>
 <span id="cb5-5"><a href="#cb5-5"></a>darkorchid <span class="op">=</span> rgb_farbe(<span class="dv">153</span>, <span class="dv">50</span>, <span class="dv">204</span>)</span>
-<span id="cb5-6"><a href="#cb5-6"></a>indigo <span class="op">=</span> rgb_farbe(<span class="dv">75</span>, <span class="dv">0</span>, <span class="dv">130</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-6"><a href="#cb5-6"></a>indigo <span class="op">=</span> rgb_farbe(<span class="dv">75</span>, <span class="dv">0</span>, <span class="dv">130</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="87fec7fe" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Hier ist Platz für Ihre Blume</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Hier ist Platz für Ihre Blume</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co"># Hinweis: die Verschiebung einer Farbe um eine Postion kann erreicht</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co"># werden, wenn i % 4 nicht 0 sondern eine Zahl ergibt. Bei % 4 können</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># dies die Zahlen 1, 2 oder 3 sein.</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># dies die Zahlen 1, 2 oder 3 sein.</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="musterlösung" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="musterlösung"><span class="header-section-number">6.1.2</span> Musterlösung</h3>
 <div id="6e812f87" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>bluetenblatt_l <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, lavender)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>bluetenblatt_l <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, lavender)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>bluetenblatt_m <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, mediumpurple)</span>
 <span id="cb7-3"><a href="#cb7-3"></a>bluetenblatt_d <span class="op">=</span> ellipse(<span class="dv">30</span>, <span class="dv">150</span>, darkorchid)</span>
 <span id="cb7-4"><a href="#cb7-4"></a>scheibe_i <span class="op">=</span> ellipse(<span class="dv">25</span>, <span class="dv">25</span>, indigo)</span>
@@ -409,7 +421,7 @@ i\ mod\ 2 = 0
 <span id="cb7-20"><a href="#cb7-20"></a>        bm_temp <span class="op">=</span> drehe(i <span class="op">*</span> <span class="dv">15</span>, bluetenblatt_m_fix)</span>
 <span id="cb7-21"><a href="#cb7-21"></a>        blume3 <span class="op">=</span> kombiniere(blume3, bm_temp)</span>
 <span id="cb7-22"><a href="#cb7-22"></a>        </span>
-<span id="cb7-23"><a href="#cb7-23"></a>zeige_grafik(blume3)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-23"><a href="#cb7-23"></a>zeige_grafik(blume3)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -475,13 +487,14 @@ i\ mod\ 2 = 0
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -99,7 +99,7 @@
     "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#installation-von-python",
     "title": "2  Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)",
     "section": "2.2 Installation von Python",
-    "text": "2.2 Installation von Python\nDieser Abschnitt führt Sie Schritt für Schritt durch die Installation von Python auf einem Windows-Rechner.\n\n\n\n\n\n\nMicrosoft Store Falle\n\n\n\nAchten Sie beim Herunterladen von Python darauf, dass Sie sich auf der offiziellen Seite von Python (https://www.python.org) und nicht im Microsoft Store befinden. Wenn Sie versehentlich die Python Version aus dem Microsoft Store installiert haben, kann das bei der Arbeit an den Schulprojekten zu Problemen führen.\nDeinstallieren Sie die Microsoft Version von Python und installieren Sie die Version von der offiziellen Website.\n\n\n\nLaden Sie die neueste Version von Python von der offiziellen Website herunter: python.org.\nFühren Sie das heruntergeladene Installationsprogramm durch Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die Option “Add Python to PATH” aktivieren, bevor Sie auf “Install Now” klicken.\n\n\n\n\n\n\nDie ‘PATH’-Umgebungsvariable\n\n\n\nStellen Sie sich die PATH-Variable wie ein Adressbuch für die Kommandozeile (Terminal) vor. Wenn Sie einen Befehl wie python eingeben, schaut der Computer in diesem Adressbuch nach, wo das entsprechende Programm zu finden ist.\nIndem Sie das Häkchen bei “Add Python to PATH” setzen, fügen Sie die Adresse des Python-Interpreters zu diesem Adressbuch hinzu. Ohne diesen Eintrag weiss der Computer nicht, wo er suchen soll, und meldet, dass er den Befehl nicht kennt.\n\n\nÜberprüfen Sie die Installation, indem Sie die Eingabeaufforderung öffnen (Terminal \\(\\rightarrow\\) Windows-Taste + R, dann cmd eingeben) und den Befehl python --version eingeben. Dies sollte die installierte Python-Version anzeigen.",
+    "text": "2.2 Installation von Python\nDieser Abschnitt führt Sie Schritt für Schritt durch die Installation von Python auf einem Windows-Rechner.\n\n\n\n\n\n\nWarnungMicrosoft Store Falle\n\n\n\nAchten Sie beim Herunterladen von Python darauf, dass Sie sich auf der offiziellen Seite von Python (https://www.python.org) und nicht im Microsoft Store befinden. Wenn Sie versehentlich die Python Version aus dem Microsoft Store installiert haben, kann das bei der Arbeit an den Schulprojekten zu Problemen führen.\nDeinstallieren Sie die Microsoft Version von Python und installieren Sie die Version von der offiziellen Website.\n\n\n\nLaden Sie die neueste Version von Python von der offiziellen Website herunter: python.org.\nFühren Sie das heruntergeladene Installationsprogramm durch Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die Option “Add Python to PATH” aktivieren, bevor Sie auf “Install Now” klicken.\n\n\n\n\n\n\nTippDie ‘PATH’-Umgebungsvariable\n\n\n\nStellen Sie sich die PATH-Variable wie ein Adressbuch für die Kommandozeile (Terminal) vor. Wenn Sie einen Befehl wie python eingeben, schaut der Computer in diesem Adressbuch nach, wo das entsprechende Programm zu finden ist.\nIndem Sie das Häkchen bei “Add Python to PATH” setzen, fügen Sie die Adresse des Python-Interpreters zu diesem Adressbuch hinzu. Ohne diesen Eintrag weiss der Computer nicht, wo er suchen soll, und meldet, dass er den Befehl nicht kennt.\n\n\nÜberprüfen Sie die Installation, indem Sie die Eingabeaufforderung öffnen (Terminal \\(\\rightarrow\\) Windows-Taste + R, dann cmd eingeben) und den Befehl python --version eingeben. Dies sollte die installierte Python-Version anzeigen.",
     "crumbs": [
       "Anleitungen",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span>"
@@ -110,7 +110,7 @@
     "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#hello-world",
     "title": "2  Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)",
     "section": "2.3 Hello World",
-    "text": "2.3 Hello World\nEs hat sich eingebürgert, dass das erste Programm, das ausgeführt wird, ein Programm ist, das den Text “Hello World” auf dem Bildschirm ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte aus:\n\nÖffnen Sie ein Terminal (Windows-Taste + R, dann cmd eingeben).\n\n\n\n\n\n\nDas Terminal\n\n\n\nUnter dem Begriff “Terminal” versteht man ein Programm, das eine textbasierte Benutzeroberfläche bereitstellt, um mit dem Betriebssystem zu interagieren. In einem Terminal können Sie Befehle eingeben und erhalten die Ausgaben direkt im Fenster.\n\n\nGeben Sie den Befehl python ein, um die Python-Shell zu starten. Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.\n\n\n\nPython Shell\n\n\nGeben Sie den folgenden Befehl ein und drücken Sie anschliessend die Eingabetaste:\nprint(\"Hello World\")\nDas Resultat sollte wie das folgende Bild aussehen.\n\n\n\nPython Shell\n\n\n\nGratuliere - Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!",
+    "text": "2.3 Hello World\nEs hat sich eingebürgert, dass das erste Programm, das ausgeführt wird, ein Programm ist, das den Text “Hello World” auf dem Bildschirm ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte aus:\n\nÖffnen Sie ein Terminal (Windows-Taste + R, dann cmd eingeben).\n\n\n\n\n\n\nTippDas Terminal\n\n\n\nUnter dem Begriff “Terminal” versteht man ein Programm, das eine textbasierte Benutzeroberfläche bereitstellt, um mit dem Betriebssystem zu interagieren. In einem Terminal können Sie Befehle eingeben und erhalten die Ausgaben direkt im Fenster.\n\n\nGeben Sie den Befehl python ein, um die Python-Shell zu starten. Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.\n\n\n\nPython Shell\n\n\nGeben Sie den folgenden Befehl ein und drücken Sie anschliessend die Eingabetaste:\nprint(\"Hello World\")\nDas Resultat sollte wie das folgende Bild aussehen.\n\n\n\nPython Shell\n\n\n\nGratuliere - Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!",
     "crumbs": [
       "Anleitungen",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span>"
@@ -121,7 +121,7 @@
     "href": "files/lektionen_hs25/250702_systemeinrichtung/setup.html#arbeitsumgebung",
     "title": "2  Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)",
     "section": "2.4 Arbeitsumgebung",
-    "text": "2.4 Arbeitsumgebung\nIm Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern mit sogenannten Jupyter Notebooks. Jupyter Notebooks ermöglichen es, in der gleichen Datei sowohl Code (Programm Teile) als auch formatierten Text (in Markdown) zu verarbeiten. Eine Jupyter Notebook Datei hat die Endung .ipynb. Vom Jupyter Notebook unterschieden werden muss die Arbeitsoberfläche in welcher die Jupyter Notebooks bearbeitet werden. Diese Oberfläche nennt sich JupyterLab und läuft in einem Webbrowser.\n\n\n\n\n\n\nDas Jupyter Ökosystem\n\n\n\nDie im Unterricht verwendeten Jupyter Notebooks sind Teil eines ganzen Jupyter Ökosystems. Der Name Jupyter setzt sich aus den drei Programmiersprachen Julia, Python und R zusammen, die in diesem Ökosystem eine zentrale Rolle spielen. Zum Jupyter Ökosystem gehören auch zahlreiche Erweiterungen und Tools, die die Arbeit mit Notebooks und Daten erleichtern.\nDer Unterricht beschränkt sich auf die Verwendung von Jupyter Notebooks mit der Programmiersprache Python sowie den Einsatz von JupyterLab als Arbeitsumgebung.\n\n\nDamit dies alles funktioniert, braucht es ein paar weitere Vorbereitungsarbeiten.\n\nErstellen Sie im Ordner “Informatik” einen Unterordner mit dem Heutigen Datum als Namen. Formatieren Sie das Datum nach dem Schema “YYMMDD”, für den 1. August 2025 wäre das zum Beispiel “250801”.\nÖffnen Sie den soeben erstellten Ordner.\nGeben Sie die Tastenfolge Ctrl + L ein, um die Adresszeile des Dateimanagers zu aktivieren.\nÜberschreiben Sie den Inhalt der Adresszeile mit dem Text cmd und drücken Sie die Eingabetaste. Dadurch wird ein Terminal geöffnet, das direkt im aktuellen Ordner arbeitet.\nGeben Sie im neu geöffneten Terminal den folgenden Befehl ein und drücken Sie die Eingabetaste:\npython -m venv .venv\nDadurch wird eine sogenannte Python Virtual Environment erstellt (venv wegen Virtual Environment). Dieses Python Virtual Environment dient dazu, die eigenen Programmierprojekte unabhängig voneinander gestalten zu können.\nAktivieren Sie das Python Virtual Environment mit dem folgenden Befehl:\n .venv\\Scripts\\activate\nIhr Terminal sieht nach dem Erstellen und Aktivieren der Python Virtual Environment ungefähr so aus:\n\n\n\nAktivierte Python Virtual Environment\n\n\nDas Wort in der Klammer am Anfang der Zeile zeigt den Namen der aktiven Python Virtual Environment an. Im vorliegenden Fall ist das .venv.\nIn der nun aktivierten Python Virtual Environment installieren Sie die benötigten Pakete mit dem folgenden Befehl:\npip install jupyter\nDas dauert eine Weile.\nWährend der Installation werden die benötigten Pakete (Ergänzungen zur bestehenden Python Installation) heruntergeladen und in der Python Virtual Environment gespeichert. Das Terminal sieht dabei ungefähr so aus:\n\n\n\nTerminal während der Jupyter Installation\n\n\nAlle in einer Python Virtual Environment installierten Pakete sind innerhalb dieser Umgebung dauerhaft verfügbar und müssen daher für das gleiche Projekt kein zweites Mal installiert werden.\nStarten Sie den Jupyter Server mit dem folgenden Befehl:\n jupyter-lab\nDies startet den Jupyter Notebook Server und öffnet automatisch ein Browserfenster mit der Jupyter Notebook Oberfläche.\n\n\n\nStartseite Jupyter Lab\n\n\nKlicken Sie auf den Button “Python 3 (ipykernel)” unter dem Titel Notebook.\nDamit starten Sie ein neues Jupyter Notebook. Der Cursor blinkt in einer leeren Zelle. Bei dieser Zelle handelt es sich um eine sogenannte Code-Zelle. In einer Code-Zelle können Sie Python Code eingeben und ausführen.\nÜberprüfen Sie das, indem Sie in der Zelle den Befehl print(\"Hello World\") eingeben und anschliessend die Tastenfolge Shift + Enter drücken (alternativ können Sie auch auf den Button “Run” in der Werkzeugleiste klicken).\nDas Resultat sollte wie das folgende Bild aussehen.\n\n\n\nHello World in einem Jupyter Notebook\n\n\nIn einem Jupyter Notebook können Sie nicht nur Python Code ausführen, sondern auch Text (formatiert in Markdown) darstellen.\nFür die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Dazu klicken Sie auf den Button “Code” in der Werkzeugleiste und wählen im Dropdown-Menü die Option “Markdown” aus.\n\n\n\nUmstellen der Zelle auf Markdown\n\n\nProbieren Sie das aus. Schreiben Sie einen Titel und einen kurzen Text in die Zelle unterhalb der Code-Zelle mit pringt(\"Hello World\"). Damit der Text in der Zelle formatiert angezeigt wird, müssen Sie die Zelle mit der Tastenfolge Shift + Enter ausführen (analog zum Ausführen von Code-Zellen).\nEine Zelle ist entweder eine Code-Zelle oder eine Text-Zelle. Für den Wechsel zwischen Code- und Text-Darstellung müssen Sie je eine neue Zelle anlegen. Das geht mit der Tastenfolge Esc + B (für “Below”) oder Esc + A (für “Above”) während Sie sich in einer Zelle befinden. Alternativ können Sie auch die Buttons “Insert Cell Below” oder “Insert Cell Above” aus den Werkzeugen der Zelle verwenden.\nDas Jupyter Notebook ist eine Datei mit der Endung .ipynb. Neu erstellte Jupyter Notebooks erhalten den Namen “Untitled.ipynb”. Um diesen Namen zu ändern, klicken Sie mit der rechten Maustatste auf den Titel “Untitled” in der oberen linken Ecke des Jupyter Notebooks und wählen Sie die Option “Rename” aus dem Kontextmenü. Anschliessend können Sie den Namen des Jupyter Notebooks eingeben.",
+    "text": "2.4 Arbeitsumgebung\nIm Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern mit sogenannten Jupyter Notebooks. Jupyter Notebooks ermöglichen es, in der gleichen Datei sowohl Code (Programm Teile) als auch formatierten Text (in Markdown) zu verarbeiten. Eine Jupyter Notebook Datei hat die Endung .ipynb. Vom Jupyter Notebook unterschieden werden muss die Arbeitsoberfläche in welcher die Jupyter Notebooks bearbeitet werden. Diese Oberfläche nennt sich JupyterLab und läuft in einem Webbrowser.\n\n\n\n\n\n\nTippDas Jupyter Ökosystem\n\n\n\nDie im Unterricht verwendeten Jupyter Notebooks sind Teil eines ganzen Jupyter Ökosystems. Der Name Jupyter setzt sich aus den drei Programmiersprachen Julia, Python und R zusammen, die in diesem Ökosystem eine zentrale Rolle spielen. Zum Jupyter Ökosystem gehören auch zahlreiche Erweiterungen und Tools, die die Arbeit mit Notebooks und Daten erleichtern.\nDer Unterricht beschränkt sich auf die Verwendung von Jupyter Notebooks mit der Programmiersprache Python sowie den Einsatz von JupyterLab als Arbeitsumgebung.\n\n\nDamit dies alles funktioniert, braucht es ein paar weitere Vorbereitungsarbeiten.\n\nErstellen Sie im Ordner “Informatik” einen Unterordner mit dem Heutigen Datum als Namen. Formatieren Sie das Datum nach dem Schema “YYMMDD”, für den 1. August 2025 wäre das zum Beispiel “250801”.\nÖffnen Sie den soeben erstellten Ordner.\nGeben Sie die Tastenfolge Ctrl + L ein, um die Adresszeile des Dateimanagers zu aktivieren.\nÜberschreiben Sie den Inhalt der Adresszeile mit dem Text cmd und drücken Sie die Eingabetaste. Dadurch wird ein Terminal geöffnet, das direkt im aktuellen Ordner arbeitet.\nGeben Sie im neu geöffneten Terminal den folgenden Befehl ein und drücken Sie die Eingabetaste:\npython -m venv .venv\nDadurch wird eine sogenannte Python Virtual Environment erstellt (venv wegen Virtual Environment). Dieses Python Virtual Environment dient dazu, die eigenen Programmierprojekte unabhängig voneinander gestalten zu können.\nAktivieren Sie das Python Virtual Environment mit dem folgenden Befehl:\n .venv\\Scripts\\activate\nIhr Terminal sieht nach dem Erstellen und Aktivieren der Python Virtual Environment ungefähr so aus:\n\n\n\nAktivierte Python Virtual Environment\n\n\nDas Wort in der Klammer am Anfang der Zeile zeigt den Namen der aktiven Python Virtual Environment an. Im vorliegenden Fall ist das .venv.\nIn der nun aktivierten Python Virtual Environment installieren Sie die benötigten Pakete mit dem folgenden Befehl:\npip install jupyter\nDas dauert eine Weile.\nWährend der Installation werden die benötigten Pakete (Ergänzungen zur bestehenden Python Installation) heruntergeladen und in der Python Virtual Environment gespeichert. Das Terminal sieht dabei ungefähr so aus:\n\n\n\nTerminal während der Jupyter Installation\n\n\nAlle in einer Python Virtual Environment installierten Pakete sind innerhalb dieser Umgebung dauerhaft verfügbar und müssen daher für das gleiche Projekt kein zweites Mal installiert werden.\nStarten Sie den Jupyter Server mit dem folgenden Befehl:\n jupyter-lab\nDies startet den Jupyter Notebook Server und öffnet automatisch ein Browserfenster mit der Jupyter Notebook Oberfläche.\n\n\n\nStartseite Jupyter Lab\n\n\nKlicken Sie auf den Button “Python 3 (ipykernel)” unter dem Titel Notebook.\nDamit starten Sie ein neues Jupyter Notebook. Der Cursor blinkt in einer leeren Zelle. Bei dieser Zelle handelt es sich um eine sogenannte Code-Zelle. In einer Code-Zelle können Sie Python Code eingeben und ausführen.\nÜberprüfen Sie das, indem Sie in der Zelle den Befehl print(\"Hello World\") eingeben und anschliessend die Tastenfolge Shift + Enter drücken (alternativ können Sie auch auf den Button “Run” in der Werkzeugleiste klicken).\nDas Resultat sollte wie das folgende Bild aussehen.\n\n\n\nHello World in einem Jupyter Notebook\n\n\nIn einem Jupyter Notebook können Sie nicht nur Python Code ausführen, sondern auch Text (formatiert in Markdown) darstellen.\nFür die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Dazu klicken Sie auf den Button “Code” in der Werkzeugleiste und wählen im Dropdown-Menü die Option “Markdown” aus.\n\n\n\nUmstellen der Zelle auf Markdown\n\n\nProbieren Sie das aus. Schreiben Sie einen Titel und einen kurzen Text in die Zelle unterhalb der Code-Zelle mit pringt(\"Hello World\"). Damit der Text in der Zelle formatiert angezeigt wird, müssen Sie die Zelle mit der Tastenfolge Shift + Enter ausführen (analog zum Ausführen von Code-Zellen).\nEine Zelle ist entweder eine Code-Zelle oder eine Text-Zelle. Für den Wechsel zwischen Code- und Text-Darstellung müssen Sie je eine neue Zelle anlegen. Das geht mit der Tastenfolge Esc + B (für “Below”) oder Esc + A (für “Above”) während Sie sich in einer Zelle befinden. Alternativ können Sie auch die Buttons “Insert Cell Below” oder “Insert Cell Above” aus den Werkzeugen der Zelle verwenden.\nDas Jupyter Notebook ist eine Datei mit der Endung .ipynb. Neu erstellte Jupyter Notebooks erhalten den Namen “Untitled.ipynb”. Um diesen Namen zu ändern, klicken Sie mit der rechten Maustatste auf den Titel “Untitled” in der oberen linken Ecke des Jupyter Notebooks und wählen Sie die Option “Rename” aus dem Kontextmenü. Anschliessend können Sie den Namen des Jupyter Notebooks eingeben.",
     "crumbs": [
       "Anleitungen",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span>"
@@ -433,6 +433,138 @@
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Prüfungsvorbereitung</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html",
+    "href": "files/lektionen_hs25/251110_listen/listen.html",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "",
+    "text": "9.1 Daten in Listen speichern\nBisher hatten Sie Datentypen wie int, float str und bool angeschaut. Wir möchten nun mehrere Werte in einer Liste speichern.\nIch möchte zum Beispiel alle Wochentagekürzel in einer Liste spiechern. Um eine Liste im Code zu speichern, muss man die Liste mit [ beginnen und mit ] enden. Die Elemente werden mit einem Komma ,\nwochentage = [\"Mo\", \"Di\", \"Mi\", \"Do\", \"Fr\", \"Sa\", \"So\"]\nprint(wochentage)",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#daten-in-listen-speichern",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#daten-in-listen-speichern",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "",
+    "text": "9.1.1 Aufgabe: Monatsliste erstellen\nMachen Sie eine Liste mit den 12 Monaten und printen Sie die Monate.\n\n\"\"\"Aufgabe: Monatsliste erstellen\"\"\"\n\nmonate = # TODO\nprint(monate)",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#index",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#index",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "9.2 Index",
+    "text": "9.2 Index\nDie Werte werden durchnummeriert. Die dazügehörige Nummer eines Werts nennen wir den Index.\nDas erste Element hat den Index 0!\nUm ein Element aus der Liste auszugeben können wir nach dem Variablennamen die eckigen Klammen und den Index angeben.\nwochentage[0] ist \"Mo\". wochentage[1] ist \"Mo\".\n\n9.2.1 Aufgabe: Index lesen\nLesen Sie den Codeblock und schrieben Sie hier auf, was Sie als Output erwarten, bevor Sie den Codeblock ausführen!\nIch erwarte, dass das Programm folgendes ausgibt:\nTODO: Diese Zeile ersetzen.\n\nlieblinstag = wochentage[3]\nprint(f\"Mein Lieblinstag ist {lieblinstag}.\")",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#überschreiben-von-elementen",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#überschreiben-von-elementen",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "9.3 Überschreiben von Elementen",
+    "text": "9.3 Überschreiben von Elementen\nWir betrachten in diesem Kapitel eine Liste mit Zahlen (int). Wir speichern für jeden Monat die Länge des Monats. Im Falle eines Schaltjahrs möchten wir den Februar überschreiben mit 29. Studieren Sie das Beispiel:\n\nmonatslaenge = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\nschaltjahr = True\nif schaltjahr:\n    monatslaenge[1] = 29 # Der Februar hat den Index 2.\nprint(monatslaenge)",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#schleifen",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#schleifen",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "9.4 Schleifen",
+    "text": "9.4 Schleifen\nListen eignen sich hervorragend um eine for-Schleife zu bauen. Betrachten Sie das Beispiel, welches den Index als i und den Monatsname als wochentag ausgibt:\n\nfor i, wochentag in enumerate(wochentage):\n    print(f\"{i}: {wochentag}\")\n\nFalls Sie den Index nicht benötigen, können Sie die Schleife mit for wochentag in wochentage: machen.\n\n9.4.1 Aufgabe: Monatsschleife komplettieren\nErstellen Sie eine Schleife, welche folgendes Ausgibt:\nDer Januar hat 31 Tage.\nDer Februar hat 29 Tage.\nDer März hat 31 Tage.\nDer April hat 30 Tage.\nDer Mai hat 31 Tage.\nDer Juni hat 30 Tage.\nDer Juli hat 31 Tage.\nDer August hat 31 Tage.\nDer September hat 30 Tage.\nDer Oktober hat 31 Tage.\nDer November hat 30 Tage.\nDer Dezember hat 31 Tage.\nSie dürfen die Vorlage benützen.\n\n\"\"\"Aufgabe: Monatsschleife komplettieren\"\"\"\n\nfor ... m_name in ...:\n    laenge = ... i ...\n    print(f\"Der {m_name} hat {laenge} Tage.\")",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#länge",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#länge",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "9.5 Länge",
+    "text": "9.5 Länge\nMit der Funktion len(obj) kann man die Länge der Liste obj abfragen.\n\n# Beispiel für len(obj)\nprint(f\"Die Woche hat {len(wochentage)} Tage.\")",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#ergänzen-und-entfernen",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#ergänzen-und-entfernen",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "9.6 Ergänzen und entfernen",
+    "text": "9.6 Ergänzen und entfernen\nMit der Methode append kann ein Element am Ende der Liste hinzufügen und mit pop wieder entfernen.\n\ntasks = [\"einkaufen\", \"spazieren gehen\", \"staubsaugen\"]\ntasks.append(\"essen\")\nprint(f\"Neu ist auch 'essen' auf der Taskliste: {tasks}\")\n\ntasks.pop(1)\nprint(f\"Welcher Task ist nun erledigt? {tasks}\")\n\ntasks.pop()\nprint(f\"Wird kein Index angegebn, so wird das letzte Element in der Liste entfernt: {tasks}\")",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#aufgabe-fibonacci",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#aufgabe-fibonacci",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "9.7 Aufgabe: Fibonacci",
+    "text": "9.7 Aufgabe: Fibonacci\nDie Fibonacci Reihe lautet 1, 1, 2, 3, 5, 8, 13, 8+13, …\nDie Summe der letzten zwei Zahlen ergeben die nächste Zahl.\nErgänzen Sie den Code, damit die Folge länger wird. Editieren Sie Stellen mit drei Punkten.\n\n\"\"\"Aufgabe: Fibonacci\"\"\"\n\nfibonacci: list = [1, 1, 2, 3, 5, 8, 13] # Diese Zeile verändern Sie natürlich nicht.\nfor _ in range(4):\n    n = ... # Die Länge von der Foolge\n    fibonacci ... (fibonacci ... + fibonacci ...)\n    print(fibonacci)",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#aufgabe-zeichne-chomp",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#aufgabe-zeichne-chomp",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "9.8 Aufgabe: zeichne Chomp",
+    "text": "9.8 Aufgabe: zeichne Chomp\nWie am Anfang der Lektion mündlich besprochen kodieren wir eine Situation von Chomp.\n\n\n\nChomp Diagramm\n\n\nDie Dritte Situation beschreiben wir als Liste [4, 3, 3, 3, 2].\nSchreiben Sie eine Funktion zeichne_chomp(chomp: list) -&gt; None welche die Situation zeichnet.\n\n\"\"\"Aufgabe: zeichne Chomp\"\"\"\nfrom pytamaro.de import *\n\ndef zeichne_chomp(chomp: list) -&gt; None:\n    zelle = kombiniere(\n        rechteck(68, 38, rgb_farbe(153, 103, 69)),\n        rechteck(70, 40, rgb_farbe(51, 34, 23)),        \n    )\n    leere_zelle = rechteck(70, 40, weiss)\n    tafel = leere_grafik()\n    maximum = # TODO # groesse der erste Spalte\n    for ... in chomp:\n        spalte = leere_grafik()\n        ...\n        ...\n        tafel = neben(tafel, spalte)\n    zeige_grafik(tafel)\n\n\n# Test von der Aufgabe\nchomp_test: list = [4, 3, 3, 3, 2]\nzeichne_chomp(chomp_test)",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#aufgabe-spiele-chomp",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#aufgabe-spiele-chomp",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "9.9 Aufgabe: spiele Chomp",
+    "text": "9.9 Aufgabe: spiele Chomp\nSchreiben Sie eine Funktion chomp_spielzug(chomp: list, spielzug:list) -&gt; list welche aus der ersten Situation die neue Situation berechnet. Der Spielzug ist eine Liste von der Form [x, y].\nTest: chomp_spielzug([4, 3, 3, 3, 2], spielzug=[3, 2]) ergibt [4, 3, 1, 1, 1]\nBonusideen: Überprüfen Sie, ob der Spielzug überhapt erlaubt ist.\n\n\"\"\"Aufgabe: programmiere den Spielzug in Chomp\"\"\"\n\n# TODO: Programmieren Sie es selber!\n\n\n# Hier können Sie den Code testen:\nassert chomp_spielzug([4, 3, 3, 3, 2], spielzug=[3, 2]) == [4, 3, 1, 1, 1]",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#übersicht",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#übersicht",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "9.10 Übersicht",
+    "text": "9.10 Übersicht\nSie wissen, wie Sie\n\neine Liste erstellen.\nElemente abfragen.\nElemente ändern.\nmit einer Schleife durch die Liste gehen.\ndie Länge einer Liste bestimmen.\nElemente hinzufügen oder entfernen.",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251110_listen/listen.html#zusatzstoff",
+    "href": "files/lektionen_hs25/251110_listen/listen.html#zusatzstoff",
+    "title": "9  Datenstrukturen: Listen",
+    "section": "9.11 Zusatzstoff",
+    "text": "9.11 Zusatzstoff\nWeitere Infos und Features von Listen auf https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range\nStichwörter: Slice, Spezialfall Str, insert, in, join",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
     ]
   }
 ]

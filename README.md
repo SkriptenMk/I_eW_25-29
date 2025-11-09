@@ -10,6 +10,7 @@ Um eine neue Seite/Kapitel zu erstellen muss man
 
  1. Das Notebook in `files/lektionen_hs25/...` erstellen
  2. in _quarto.yml die neue Datei angeben.
+ 3. Rendern `quarto render --to html --output-dir docs/`
 
 ## Pytamaro
 

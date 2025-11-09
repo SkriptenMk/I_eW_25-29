@@ -40,7 +40,7 @@ book:
         target: "_blank"
     search: true
 
-bibliography: references.bib
+# bibliography: references.bib
 lang: de
 
 format:

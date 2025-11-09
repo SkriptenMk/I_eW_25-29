@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jacques Mock Schindler">
+<meta name="author" content="Je">
 
-<title>2&nbsp; Arbeitsumgebung (Arbeiten mit Jupyter Notebooks) – Unterlagen für das obligatorische Fach Informatik</title>
+<title>9&nbsp; Datenstrukturen: Listen – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../files/lektionen_hs25/250901_probleme/probleme.html" rel="next">
-<link href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" rel="prev">
+<link href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -75,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-f16cd255ecb5ae9510f6a112aa2ee9ab.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-7ee07a9970eaba254c9bc694d5171cfd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-b0c3e59eccd5814b7f450d3553aa079a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,35 +106,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -180,7 +150,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html">Anleitungen</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251110_listen/listen.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -219,7 +189,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></span></a>
   </div>
 </li>
@@ -272,7 +242,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></span></a>
   </div>
 </li>
@@ -288,21 +258,35 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#ausgangslage" id="toc-ausgangslage" class="nav-link active" data-scroll-target="#ausgangslage"><span class="header-section-number">2.1</span> Ausgangslage</a></li>
-  <li><a href="#installation-von-python" id="toc-installation-von-python" class="nav-link" data-scroll-target="#installation-von-python"><span class="header-section-number">2.2</span> Installation von Python</a></li>
-  <li><a href="#hello-world" id="toc-hello-world" class="nav-link" data-scroll-target="#hello-world"><span class="header-section-number">2.3</span> Hello World</a></li>
-  <li><a href="#arbeitsumgebung" id="toc-arbeitsumgebung" class="nav-link" data-scroll-target="#arbeitsumgebung"><span class="header-section-number">2.4</span> Arbeitsumgebung</a></li>
-  <li><a href="#öffnen-bestehender-jupyter-notebooks" id="toc-öffnen-bestehender-jupyter-notebooks" class="nav-link" data-scroll-target="#öffnen-bestehender-jupyter-notebooks"><span class="header-section-number">2.5</span> Öffnen bestehender Jupyter Notebooks</a></li>
-  <li><a href="#häufige-fehlermeldungen" id="toc-häufige-fehlermeldungen" class="nav-link" data-scroll-target="#häufige-fehlermeldungen"><span class="header-section-number">2.6</span> Häufige Fehlermeldungen</a></li>
+  <li><a href="#daten-in-listen-speichern" id="toc-daten-in-listen-speichern" class="nav-link active" data-scroll-target="#daten-in-listen-speichern"><span class="header-section-number">9.1</span> Daten in Listen speichern</a>
+  <ul class="collapse">
+  <li><a href="#aufgabe-monatsliste-erstellen" id="toc-aufgabe-monatsliste-erstellen" class="nav-link" data-scroll-target="#aufgabe-monatsliste-erstellen"><span class="header-section-number">9.1.1</span> Aufgabe: Monatsliste erstellen</a></li>
+  </ul></li>
+  <li><a href="#index" id="toc-index" class="nav-link" data-scroll-target="#index"><span class="header-section-number">9.2</span> Index</a>
+  <ul class="collapse">
+  <li><a href="#aufgabe-index-lesen" id="toc-aufgabe-index-lesen" class="nav-link" data-scroll-target="#aufgabe-index-lesen"><span class="header-section-number">9.2.1</span> Aufgabe: Index lesen</a></li>
+  </ul></li>
+  <li><a href="#überschreiben-von-elementen" id="toc-überschreiben-von-elementen" class="nav-link" data-scroll-target="#überschreiben-von-elementen"><span class="header-section-number">9.3</span> Überschreiben von Elementen</a></li>
+  <li><a href="#schleifen" id="toc-schleifen" class="nav-link" data-scroll-target="#schleifen"><span class="header-section-number">9.4</span> Schleifen</a>
+  <ul class="collapse">
+  <li><a href="#aufgabe-monatsschleife-komplettieren" id="toc-aufgabe-monatsschleife-komplettieren" class="nav-link" data-scroll-target="#aufgabe-monatsschleife-komplettieren"><span class="header-section-number">9.4.1</span> Aufgabe: Monatsschleife komplettieren</a></li>
+  </ul></li>
+  <li><a href="#länge" id="toc-länge" class="nav-link" data-scroll-target="#länge"><span class="header-section-number">9.5</span> Länge</a></li>
+  <li><a href="#ergänzen-und-entfernen" id="toc-ergänzen-und-entfernen" class="nav-link" data-scroll-target="#ergänzen-und-entfernen"><span class="header-section-number">9.6</span> Ergänzen und entfernen</a></li>
+  <li><a href="#aufgabe-fibonacci" id="toc-aufgabe-fibonacci" class="nav-link" data-scroll-target="#aufgabe-fibonacci"><span class="header-section-number">9.7</span> Aufgabe: Fibonacci</a></li>
+  <li><a href="#aufgabe-zeichne-chomp" id="toc-aufgabe-zeichne-chomp" class="nav-link" data-scroll-target="#aufgabe-zeichne-chomp"><span class="header-section-number">9.8</span> Aufgabe: zeichne Chomp</a></li>
+  <li><a href="#aufgabe-spiele-chomp" id="toc-aufgabe-spiele-chomp" class="nav-link" data-scroll-target="#aufgabe-spiele-chomp"><span class="header-section-number">9.9</span> Aufgabe: spiele Chomp</a></li>
+  <li><a href="#übersicht" id="toc-übersicht" class="nav-link" data-scroll-target="#übersicht"><span class="header-section-number">9.10</span> Übersicht</a></li>
+  <li><a href="#zusatzstoff" id="toc-zusatzstoff" class="nav-link" data-scroll-target="#zusatzstoff"><span class="header-section-number">9.11</span> Zusatzstoff</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html">Anleitungen</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251110_listen/listen.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></h1>
 </div>
 
 
@@ -312,14 +296,14 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Autor:in</div>
     <div class="quarto-title-meta-contents">
-             <p>Jacques Mock Schindler </p>
+             <p>Je </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">25.08.2025</p>
+      <p class="date">10.11.2025</p>
     </div>
   </div>
   
@@ -331,243 +315,191 @@ window.Quarto = {
 </header>
 
 
-<section id="ausgangslage" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="ausgangslage"><span class="header-section-number">2.1</span> Ausgangslage</h2>
-<p>In der Informatik geht es darum, wie Informationsverarbeitung mit Hilfe von Computern automatisiert werden kann.<br>
-Die Automatisierung der Informationsverarbeitung erfordert die Verwendung von Programmiersprachen. Im Informatikunterricht wird in erster Linie mit der Programmiersprache Python gearbeitet.<br>
-Im folgenden findet sich eine Anleitung für die Installation der für den Unterricht erforderlichen Programme.</p>
+<section id="daten-in-listen-speichern" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="daten-in-listen-speichern"><span class="header-section-number">9.1</span> Daten in Listen speichern</h2>
+<p>Bisher hatten Sie Datentypen wie <code>int</code>, <code>float</code> <code>str</code> und <code>bool</code> angeschaut. Wir möchten nun mehrere Werte in einer Liste speichern.</p>
+<p>Ich möchte zum Beispiel alle Wochentagekürzel in einer Liste spiechern. Um eine Liste im Code zu speichern, muss man die Liste mit <code>[</code> beginnen und mit <code>]</code> enden. Die Elemente werden mit einem Komma <code>,</code></p>
+<div id="0b877389-b92f-42e1-bd6c-a886732705cd" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>wochentage <span class="op">=</span> [<span class="st">"Mo"</span>, <span class="st">"Di"</span>, <span class="st">"Mi"</span>, <span class="st">"Do"</span>, <span class="st">"Fr"</span>, <span class="st">"Sa"</span>, <span class="st">"So"</span>]</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">print</span>(wochentage)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="aufgabe-monatsliste-erstellen" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="aufgabe-monatsliste-erstellen"><span class="header-section-number">9.1.1</span> Aufgabe: Monatsliste erstellen</h3>
+<p>Machen Sie eine Liste mit den 12 Monaten und printen Sie die Monate.</p>
+<div id="37e7c0e7-8bcc-4985-bc30-4dab127ff1bf" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;task&quot;]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">"""Aufgabe: Monatsliste erstellen"""</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>monate <span class="op">=</span> <span class="co"># </span><span class="al">TODO</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">print</span>(monate)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="installation-von-python" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="installation-von-python"><span class="header-section-number">2.2</span> Installation von Python</h2>
-<p>Dieser Abschnitt führt Sie Schritt für Schritt durch die Installation von Python auf einem Windows-Rechner.</p>
-<div class="callout callout-style-default callout-warning callout-titled" title="Microsoft Store Falle">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warnung</span>Microsoft Store Falle
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Achten Sie beim Herunterladen von Python darauf, dass Sie sich auf der offiziellen Seite von Python (https://www.python.org) und <strong>nicht</strong> im Microsoft Store befinden. Wenn Sie versehentlich die Python Version aus dem Microsoft Store installiert haben, kann das bei der Arbeit an den Schulprojekten zu Problemen führen.</p>
-<p>Deinstallieren Sie die Microsoft Version von Python und installieren Sie die Version von der offiziellen Website.</p>
-</div>
-</div>
-<ol type="1">
-<li><p>Laden Sie die neueste Version von Python von der offiziellen Website herunter: <a href="https://www.python.org/downloads/" target="blank">python.org</a>.</p></li>
-<li><p>Führen Sie das heruntergeladene Installationsprogramm durch Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die Option “Add Python to PATH” aktivieren, bevor Sie auf “Install Now” klicken.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Die 'PATH'-Umgebungsvariable">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tipp</span>Die ‘PATH’-Umgebungsvariable
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Stellen Sie sich die PATH-Variable wie ein Adressbuch für die Kommandozeile (Terminal) vor. Wenn Sie einen Befehl wie <code>python</code> eingeben, schaut der Computer in diesem Adressbuch nach, wo das entsprechende Programm zu finden ist.</p>
-<p>Indem Sie das Häkchen bei “Add Python to PATH” setzen, fügen Sie die Adresse des Python-Interpreters zu diesem Adressbuch hinzu. Ohne diesen Eintrag weiss der Computer nicht, wo er suchen soll, und meldet, dass er den Befehl nicht kennt.</p>
-</div>
-</div></li>
-<li><p>Überprüfen Sie die Installation, indem Sie die Eingabeaufforderung öffnen (Terminal <span class="math inline">\(\rightarrow\)</span> Windows-Taste + R, dann <code>cmd</code> eingeben) und den Befehl <code>python --version</code> eingeben. Dies sollte die installierte Python-Version anzeigen.</p></li>
-</ol>
 </section>
-<section id="hello-world" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="hello-world"><span class="header-section-number">2.3</span> Hello World</h2>
-<p>Es hat sich eingebürgert, dass das erste Programm, das ausgeführt wird, ein Programm ist, das den Text “Hello World” auf dem Bildschirm ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte aus:</p>
-<ol type="1">
-<li><p>Öffnen Sie ein Terminal (Windows-Taste + R, dann <code>cmd</code> eingeben).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Das Terminal">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="index" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="index"><span class="header-section-number">9.2</span> Index</h2>
+<p>Die Werte werden durchnummeriert. Die dazügehörige Nummer eines Werts nennen wir den <em>Index</em>.</p>
+<p>Das erste Element hat den Index 0!</p>
+<p>Um ein Element aus der Liste auszugeben können wir nach dem Variablennamen die eckigen Klammen und den Index angeben.</p>
+<p><code>wochentage[0]</code> ist <code>"Mo"</code>. <code>wochentage[1]</code> ist <code>"Mo"</code>.</p>
+<section id="aufgabe-index-lesen" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="aufgabe-index-lesen"><span class="header-section-number">9.2.1</span> Aufgabe: Index lesen</h3>
+<p>Lesen Sie den Codeblock und schrieben Sie hier auf, was Sie als Output erwarten, <em>bevor</em> Sie den Codeblock ausführen!</p>
+<p>Ich erwarte, dass das Programm folgendes ausgibt:</p>
+<pre><code>TODO: Diese Zeile ersetzen.</code></pre>
+<div id="19693a64-b2f0-43e6-a24b-e2448f8a958d" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>lieblinstag <span class="op">=</span> wochentage[<span class="dv">3</span>]</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="ss">f"Mein Lieblinstag ist </span><span class="sc">{</span>lieblinstag<span class="sc">}</span><span class="ss">."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tipp</span>Das Terminal
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Unter dem Begriff “Terminal” versteht man ein Programm, das eine textbasierte Benutzeroberfläche bereitstellt, um mit dem Betriebssystem zu interagieren. In einem Terminal können Sie Befehle eingeben und erhalten die Ausgaben direkt im Fenster.</p>
-</div>
-</div></li>
-<li><p>Geben Sie den Befehl <code>python</code> ein, um die Python-Shell zu starten. Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="python_shell.png" class="img-fluid figure-img"></p>
-<figcaption>Python Shell</figcaption>
-</figure>
-</div></li>
-<li><p>Geben Sie den folgenden Befehl ein und drücken Sie anschliessend die Eingabetaste:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Das Resultat sollte wie das folgende Bild aussehen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hello_world.png" class="img-fluid figure-img"></p>
-<figcaption>Python Shell</figcaption>
-</figure>
-</div></li>
-</ol>
-<p>Gratuliere - Sie haben Ihr erstes Python-Programm erfolgreich ausgeführt!</p>
 </section>
-<section id="arbeitsumgebung" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="arbeitsumgebung"><span class="header-section-number">2.4</span> Arbeitsumgebung</h2>
-<p>Im Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern mit sogenannten Jupyter Notebooks. Jupyter Notebooks ermöglichen es, in der gleichen Datei sowohl Code (Programm Teile) als auch formatierten Text (in <a href="https://www.markdownguide.org/" target="blank">Markdown</a>) zu verarbeiten. Eine Jupyter Notebook Datei hat die Endung <code>.ipynb</code>. Vom Jupyter Notebook unterschieden werden muss die Arbeitsoberfläche in welcher die Jupyter Notebooks bearbeitet werden. Diese Oberfläche nennt sich JupyterLab und läuft in einem Webbrowser.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Das Jupyter Ökosystem">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tipp</span>Das Jupyter Ökosystem
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die im Unterricht verwendeten Jupyter Notebooks sind Teil eines ganzen Jupyter Ökosystems. Der Name Jupyter setzt sich aus den drei Programmiersprachen <strong>Ju</strong>lia, <strong>Pyt</strong>hon und <strong>R</strong> zusammen, die in diesem Ökosystem eine zentrale Rolle spielen. Zum Jupyter Ökosystem gehören auch zahlreiche Erweiterungen und Tools, die die Arbeit mit Notebooks und Daten erleichtern.</p>
-<p>Der Unterricht beschränkt sich auf die Verwendung von Jupyter Notebooks mit der Programmiersprache Python sowie den Einsatz von JupyterLab als Arbeitsumgebung.</p>
-</div>
-</div>
-<p>Damit dies alles funktioniert, braucht es ein paar weitere Vorbereitungsarbeiten.</p>
-<ol type="1">
-<li><p>Erstellen Sie im Ordner “Informatik” einen Unterordner mit dem Heutigen Datum als Namen. Formatieren Sie das Datum nach dem Schema “YYMMDD”, für den 1. August 2025 wäre das zum Beispiel “250801”.</p></li>
-<li><p>Öffnen Sie den soeben erstellten Ordner.</p></li>
-<li><p>Geben Sie die Tastenfolge <code>Ctrl + L</code> ein, um die Adresszeile des Dateimanagers zu aktivieren.</p></li>
-<li><p>Überschreiben Sie den Inhalt der Adresszeile mit dem Text <code>cmd</code> und drücken Sie die Eingabetaste. Dadurch wird ein Terminal geöffnet, das direkt im aktuellen Ordner arbeitet.</p></li>
-<li><p>Geben Sie im neu geöffneten Terminal den folgenden Befehl ein und drücken Sie die Eingabetaste:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Dadurch wird eine sogenannte Python Virtual Environment erstellt (venv wegen <strong>V</strong>irtual <strong>Env</strong>ironment). Dieses Python Virtual Environment dient dazu, die eigenen Programmierprojekte unabhängig voneinander gestalten zu können.</p></li>
-<li><p>Aktivieren Sie das Python Virtual Environment mit dem folgenden Befehl:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a> <span class="ex">.venv\Scripts\activate</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Ihr Terminal sieht nach dem Erstellen und Aktivieren der Python Virtual Environment ungefähr so aus:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="venv.png" class="img-fluid figure-img"></p>
-<figcaption>Aktivierte Python Virtual Environment</figcaption>
-</figure>
-</div>
-<p>Das Wort in der Klammer am Anfang der Zeile zeigt den Namen der aktiven Python Virtual Environment an. Im vorliegenden Fall ist das .venv.</p></li>
-<li><p><span id="sec-install-packages">In der nun aktivierten Python Virtual Environment installieren Sie die benötigten Pakete mit dem folgenden Befehl</span>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">pip</span> install jupyter</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Das dauert eine Weile.</p>
-<p>Während der Installation werden die benötigten Pakete (Ergänzungen zur bestehenden Python Installation) heruntergeladen und in der Python Virtual Environment gespeichert. Das Terminal sieht dabei ungefähr so aus:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="installation.png" class="img-fluid figure-img"></p>
-<figcaption>Terminal während der Jupyter Installation</figcaption>
-</figure>
-</div>
-<p>Alle in einer Python Virtual Environment installierten Pakete sind innerhalb dieser Umgebung dauerhaft verfügbar und müssen daher für das gleiche Projekt kein zweites Mal installiert werden.</p></li>
-<li><p>Starten Sie den Jupyter Server mit dem folgenden Befehl:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a> <span class="ex">jupyter-lab</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Dies startet den Jupyter Notebook Server und öffnet automatisch ein Browserfenster mit der Jupyter Notebook Oberfläche.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="server.png" class="img-fluid figure-img"></p>
-<figcaption>Startseite Jupyter Lab</figcaption>
-</figure>
-</div></li>
-<li><p>Klicken Sie auf den Button “Python 3 (ipykernel)” unter dem Titel Notebook.</p>
-<p>Damit starten Sie ein neues Jupyter Notebook. Der Cursor blinkt in einer leeren Zelle. Bei dieser Zelle handelt es sich um eine sogenannte Code-Zelle. In einer Code-Zelle können Sie Python Code eingeben und ausführen.<br>
-Überprüfen Sie das, indem Sie in der Zelle den Befehl <code>print("Hello World")</code> eingeben und anschliessend die Tastenfolge <code>Shift + Enter</code> drücken (alternativ können Sie auch auf den Button “Run” in der Werkzeugleiste klicken).</p>
-<p>Das Resultat sollte wie das folgende Bild aussehen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hello_world_ipynb.png" class="img-fluid figure-img"></p>
-<figcaption>Hello World in einem Jupyter Notebook</figcaption>
-</figure>
-</div>
-<p>In einem Jupyter Notebook können Sie nicht nur Python Code ausführen, sondern auch Text (formatiert in <a href="https://www.markdownguide.org/basic-syntax/" target="blank">Markdown</a>) darstellen.<br>
-Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Dazu klicken Sie auf den Button “Code” in der Werkzeugleiste und wählen im Dropdown-Menü die Option “Markdown” aus.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cell_switch.png" class="img-fluid figure-img"></p>
-<figcaption>Umstellen der Zelle auf Markdown</figcaption>
-</figure>
-</div>
-<p>Probieren Sie das aus. Schreiben Sie einen Titel und einen kurzen Text in die Zelle unterhalb der Code-Zelle mit <code>pringt("Hello World")</code>. Damit der Text in der Zelle formatiert angezeigt wird, müssen Sie die Zelle mit der Tastenfolge <code>Shift + Enter</code> ausführen (analog zum Ausführen von Code-Zellen).</p>
-<p>Eine Zelle ist entweder eine Code-Zelle oder eine Text-Zelle. Für den Wechsel zwischen Code- und Text-Darstellung müssen Sie je eine neue Zelle anlegen. Das geht mit der Tastenfolge <code>Esc + B</code> (für “Below”) oder <code>Esc + A</code> (für “Above”) während Sie sich in einer Zelle befinden. Alternativ können Sie auch die Buttons “Insert Cell Below” oder “Insert Cell Above” aus den Werkzeugen der Zelle verwenden.</p></li>
-<li><p>Das Jupyter Notebook ist eine Datei mit der Endung <code>.ipynb</code>. Neu erstellte Jupyter Notebooks erhalten den Namen “Untitled.ipynb”. Um diesen Namen zu ändern, klicken Sie mit der rechten Maustatste auf den Titel “Untitled” in der oberen linken Ecke des Jupyter Notebooks und wählen Sie die Option “Rename” aus dem Kontextmenü. Anschliessend können Sie den Namen des Jupyter Notebooks eingeben.</p></li>
-</ol>
 </section>
-<section id="öffnen-bestehender-jupyter-notebooks" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="öffnen-bestehender-jupyter-notebooks"><span class="header-section-number">2.5</span> Öffnen bestehender Jupyter Notebooks</h2>
-<p>Häufiger als das Erstellen eines neuen Jupyter Notebooks ist das Öffnen eines bereits bestehenden Jupyter Notebooks. Hier wird das entsprechende Vorgehen beschrieben.</p>
-<ol type="1">
-<li><p>Navigieren Sie in den Ordner in dem sich das Jupyter Notebook befindet.</p></li>
-<li><p>Stellen Sie sicher, dass der Ordner über eine Python Virtual Environment mit installierten Jupyter Paketen verfügt.</p>
-<p>Öffnen Sie dazu im ausgewählten Ordner das Terminal (<code>ctrl + L</code> anschliessend <code>cmd</code> und Eingabetaste). Dann starten Sie die Python Virtual Environment und geben den Befehl <code>pip list</code> ein. Dieser Listet alle in der Python Virtual Environment installierten Pakete auf. Falls die Jupyter Pakete nicht aufgelistet werden, müssen Sie diese wie <a href="#sec-install-packages">oben</a> beschrieben installieren.</p></li>
-<li><p>Starten Sie den Jupyter Server mit dem Befehl <code>jupyter-lab</code>.</p></li>
-<li><p>Öffnen Sie das Dateiverzeichnis. Dazu müssen Sie auf dem linken Rand das Ordner-Symbol anklicken.</p></li>
-<li><p>Wählen Sie das Jupyter Notebook aus, das Sie öffnen möchten. Mit einem Doppelklick auf das Jupyter Notebook wird dieses geöffnet.</p>
-<p>Wenn Sie das Dateiverzeichnis wieder schliessen möchten, klicken Sie auf das Ordner-Symbol auf der linken Seite erneut.</p></li>
-</ol>
-<p>Diese Schritte funktionieren auch, wenn Sie ein Jupyter Notebook öffnen möchten, das Sie von jemand anderem erhalten haben. Sie müssen dieses dazu lediglich in den Ordner kopieren, in dem sich die Python Virtual Environment mit den installierten Jupyter Paketen befindet.</p>
+<section id="überschreiben-von-elementen" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="überschreiben-von-elementen"><span class="header-section-number">9.3</span> Überschreiben von Elementen</h2>
+<p>Wir betrachten in diesem Kapitel eine Liste mit Zahlen (<code>int</code>). Wir speichern für jeden Monat die Länge des Monats. Im Falle eines Schaltjahrs möchten wir den Februar überschreiben mit 29. Studieren Sie das Beispiel:</p>
+<div id="9007968f-1f60-4802-9aec-32c67d34282b" class="cell" data-editable="true" data-scrolled="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>monatslaenge <span class="op">=</span> [<span class="dv">31</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>]</span>
+<span id="cb5-2"><a href="#cb5-2"></a>schaltjahr <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="cf">if</span> schaltjahr:</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    monatslaenge[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">29</span> <span class="co"># Der Februar hat den Index 2.</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(monatslaenge)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="häufige-fehlermeldungen" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="häufige-fehlermeldungen"><span class="header-section-number">2.6</span> Häufige Fehlermeldungen</h2>
-<div class="max-w-7xl mx-auto">
-                
-        <!-- Container for the table to allow horizontal scrolling on small screens -->
-        <div class="overflow-x-auto bg-white rounded-lg shadow">
-            
-<table class="w-full min-w-max text-sm text-left text-gray-700 caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead class="bg-gray-100 text-xs text-gray-700 uppercase">
-<tr class="header">
-<th class="px-6 py-3 font-semibold w-1/4" data-quarto-table-cell-role="th" scope="col">Problem / Fehlermeldung (Was Sie sehen)</th>
-<th class="px-6 py-3 font-semibold w-1/4" data-quarto-table-cell-role="th" scope="col">Mögliche Ursache (Warum es passiert)</th>
-<th class="px-6 py-3 font-semibold w-2/4" data-quarto-table-cell-role="th" scope="col">Lösung (Was Sie tun können)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="bg-white border-b hover:bg-gray-50 odd">
-<td class="px-6 py-4 font-medium text-gray-900">Der Befehl <code>python</code> ist entweder falsch geschrieben oder konnte nicht gefunden werden.</td>
-<td class="px-6 py-4">Python wurde bei der Installation nicht zur PATH-Variable hinzugefügt. Der Computer weiss nicht, wo er <code>python.exe</code> finden soll.</td>
-<td class="px-6 py-4"><ol>
-<li>Deinstallieren Sie Python über die Systemsteuerung.</li>
-<li>Installieren Sie Python erneut.</li>
-<li>Achten Sie diesmal unbedingt darauf, das Häkchen bei "Add Python to PATH" zu setzen.</li>
-</ol></td>
-</tr>
-<tr class="bg-white border-b hover:bg-gray-50 even">
-<td class="px-6 py-4 font-medium text-gray-900">Der Befehl <code>jupyter-lab</code> ist entweder falsch geschrieben oder konnte nicht gefunden werden.</td>
-<td class="px-6 py-4">Sie haben vergessen, die virtuelle Umgebung zu aktivieren. Der Befehl <code>jupyter-lab</code> existiert nur innerhalb der aktivierten Umgebung.</td>
-<td class="px-6 py-4"><ol>
-<li>Überprüfen Sie, ob <code>(.venv)</code> am Anfang der Kommandozeile steht.</li>
-<li>Falls nicht, führen Sie den Aktivierungsbefehl erneut aus: <code>.venv\Scripts\activate</code>.</li>
-</ol></td>
-</tr>
-<tr class="bg-white border-b hover:bg-gray-50 odd">
-<td class="px-6 py-4 font-medium text-gray-900"><code>ImportError: DLL load failed...</code> oder ähnliche Fehler unter Windows</td>
-<td class="px-6 py-4">Ein häufiges Problem mit der Installation von <code>pywin32</code>, einer wichtigen Windows-Bibliothek, die von Jupyter benötigt wird.</td>
-<td class="px-6 py-4"><ol>
-<li>Stellen Sie sicher, dass Ihre virtuelle Umgebung aktiv ist.</li>
-<li>Führen Sie den Befehl <code>pip install --upgrade pywin32</code> aus, um die Bibliothek zu reparieren.</li>
-</ol></td>
-</tr>
-<tr class="bg-white border-b hover:bg-gray-50 even">
-<td class="px-6 py-4 font-medium text-gray-900">Kernel Error oder der Status "Kernel starting, please wait..." ändert sich nicht</td>
-<td class="px-6 py-4">Die Verbindung zwischen der Browser-Oberfläche und dem Python-"Gehirn" (dem Kernel) ist gestört. Dies kann viele Ursachen haben.</td>
-<td class="px-6 py-4"><ol>
-<li>Der einfachste erste Schritt: Klicken Sie im JupyterLab-Menü auf "Kernel" -&gt; "Restart Kernel...".</li>
-<li>Wenn das nicht hilft, schliessen Sie JupyterLab im Terminal (mit der Tastenkombination Strg + C) und starten Sie es mit <code>jupyter-lab</code> neu.</li>
-</ol></td>
-</tr>
-<tr class="bg-white hover:bg-gray-50 odd">
-<td class="px-6 py-4 font-medium text-gray-900"><code>Permission denied</code> (Zugriff verweigert) bei der Installation von Paketen</td>
-<td class="px-6 py-4">Sie versuchen, Pakete an einem systemweiten Ort zu installieren (z. B. in <code>C:\Program Files</code>), für den Sie keine Schreibrechte haben.</td>
-<td class="px-6 py-4">Dies ist genau das Problem, das virtuelle Umgebungen lösen! Stellen Sie sicher, dass Ihre <code>venv</code> aktiv ist (<code>(.venv)</code> muss sichtbar sein). Dadurch wird sichergestellt, dass alle Pakete lokal in Ihren Projektordner installiert werden, wo Sie die vollen Rechte haben.</td>
-</tr>
-</tbody>
-</table>
-
-        </div>
-    </div>
+<section id="schleifen" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="schleifen"><span class="header-section-number">9.4</span> Schleifen</h2>
+<p>Listen eignen sich hervorragend um eine for-Schleife zu bauen. Betrachten Sie das Beispiel, welches den Index als <code>i</code> und den Monatsname als <code>wochentag</code> ausgibt:</p>
+<div id="d4aea223-11f6-4b5b-8970-f066c6de8d9d" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">for</span> i, wochentag <span class="kw">in</span> <span class="bu">enumerate</span>(wochentage):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>wochentag<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Falls Sie den Index nicht benötigen, können Sie die Schleife mit <code>for wochentag in wochentage:</code> machen.</p>
+<section id="aufgabe-monatsschleife-komplettieren" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="aufgabe-monatsschleife-komplettieren"><span class="header-section-number">9.4.1</span> Aufgabe: Monatsschleife komplettieren</h3>
+<p>Erstellen Sie eine Schleife, welche folgendes Ausgibt:</p>
+<pre><code>Der Januar hat 31 Tage.
+Der Februar hat 29 Tage.
+Der März hat 31 Tage.
+Der April hat 30 Tage.
+Der Mai hat 31 Tage.
+Der Juni hat 30 Tage.
+Der Juli hat 31 Tage.
+Der August hat 31 Tage.
+Der September hat 30 Tage.
+Der Oktober hat 31 Tage.
+Der November hat 30 Tage.
+Der Dezember hat 31 Tage.</code></pre>
+<p>Sie dürfen die Vorlage benützen.</p>
+<div id="8eec7794-9776-496b-a542-bc115943df14" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">"""Aufgabe: Monatsschleife komplettieren"""</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="cf">for</span> ... m_name <span class="kw">in</span> ...:</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    laenge <span class="op">=</span> ... i ...</span>
+<span id="cb8-5"><a href="#cb8-5"></a>    <span class="bu">print</span>(<span class="ss">f"Der </span><span class="sc">{</span>m_name<span class="sc">}</span><span class="ss"> hat </span><span class="sc">{</span>laenge<span class="sc">}</span><span class="ss"> Tage."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="länge" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="länge"><span class="header-section-number">9.5</span> Länge</h2>
+<p>Mit der Funktion <code>len(obj)</code> kann man die Länge der Liste <code>obj</code> abfragen.</p>
+<div id="e0f36c31-fa0a-4070-9720-3a3e2e321796" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Beispiel für len(obj)</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(<span class="ss">f"Die Woche hat </span><span class="sc">{</span><span class="bu">len</span>(wochentage)<span class="sc">}</span><span class="ss"> Tage."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="ergänzen-und-entfernen" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="ergänzen-und-entfernen"><span class="header-section-number">9.6</span> Ergänzen und entfernen</h2>
+<p>Mit der Methode <code>append</code> kann ein Element am Ende der Liste hinzufügen und mit <code>pop</code> wieder entfernen.</p>
+<div id="e5668e04-9bdb-41e3-a398-b343e3fca508" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>tasks <span class="op">=</span> [<span class="st">"einkaufen"</span>, <span class="st">"spazieren gehen"</span>, <span class="st">"staubsaugen"</span>]</span>
+<span id="cb10-2"><a href="#cb10-2"></a>tasks.append(<span class="st">"essen"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(<span class="ss">f"Neu ist auch 'essen' auf der Taskliste: </span><span class="sc">{</span>tasks<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a>tasks.pop(<span class="dv">1</span>)</span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="bu">print</span>(<span class="ss">f"Welcher Task ist nun erledigt? </span><span class="sc">{</span>tasks<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7"></a></span>
+<span id="cb10-8"><a href="#cb10-8"></a>tasks.pop()</span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="bu">print</span>(<span class="ss">f"Wird kein Index angegebn, so wird das letzte Element in der Liste entfernt: </span><span class="sc">{</span>tasks<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="aufgabe-fibonacci" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="aufgabe-fibonacci"><span class="header-section-number">9.7</span> Aufgabe: Fibonacci</h2>
+<p>Die Fibonacci Reihe lautet 1, 1, 2, 3, 5, 8, 13, 8+13, …</p>
+<p>Die Summe der letzten zwei Zahlen ergeben die nächste Zahl.</p>
+<p>Ergänzen Sie den Code, damit die Folge länger wird. Editieren Sie Stellen mit drei Punkten.</p>
+<div id="bfa42dd5-c842-4373-8569-ce34703100ae" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">"""Aufgabe: Fibonacci"""</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a>fibonacci: <span class="bu">list</span> <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>] <span class="co"># Diese Zeile verändern Sie natürlich nicht.</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    n <span class="op">=</span> ... <span class="co"># Die Länge von der Foolge</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>    fibonacci ... (fibonacci ... <span class="op">+</span> fibonacci ...)</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="bu">print</span>(fibonacci)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="aufgabe-zeichne-chomp" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="aufgabe-zeichne-chomp"><span class="header-section-number">9.8</span> Aufgabe: zeichne Chomp</h2>
+<p>Wie am Anfang der Lektion mündlich besprochen kodieren wir eine Situation von <a href="https://en.wikipedia.org/wiki/Chomp">Chomp</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Chomp_gameplay.png" class="img-fluid figure-img"></p>
+<figcaption>Chomp Diagramm</figcaption>
+</figure>
+</div>
+<p>Die Dritte Situation beschreiben wir als Liste <code>[4, 3, 3, 3, 2]</code>.</p>
+<p>Schreiben Sie eine Funktion <code>zeichne_chomp(chomp: list) -&gt; None</code> welche die Situation zeichnet.</p>
+<div id="64eb9efb-353f-41a9-b090-fcfabb44993e" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">"""Aufgabe: zeichne Chomp"""</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="kw">def</span> zeichne_chomp(chomp: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb12-5"><a href="#cb12-5"></a>    zelle <span class="op">=</span> kombiniere(</span>
+<span id="cb12-6"><a href="#cb12-6"></a>        rechteck(<span class="dv">68</span>, <span class="dv">38</span>, rgb_farbe(<span class="dv">153</span>, <span class="dv">103</span>, <span class="dv">69</span>)),</span>
+<span id="cb12-7"><a href="#cb12-7"></a>        rechteck(<span class="dv">70</span>, <span class="dv">40</span>, rgb_farbe(<span class="dv">51</span>, <span class="dv">34</span>, <span class="dv">23</span>)),        </span>
+<span id="cb12-8"><a href="#cb12-8"></a>    )</span>
+<span id="cb12-9"><a href="#cb12-9"></a>    leere_zelle <span class="op">=</span> rechteck(<span class="dv">70</span>, <span class="dv">40</span>, weiss)</span>
+<span id="cb12-10"><a href="#cb12-10"></a>    tafel <span class="op">=</span> leere_grafik()</span>
+<span id="cb12-11"><a href="#cb12-11"></a>    maximum <span class="op">=</span> <span class="co"># </span><span class="al">TODO</span><span class="co"> # groesse der erste Spalte</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a>    <span class="cf">for</span> ... <span class="kw">in</span> chomp:</span>
+<span id="cb12-13"><a href="#cb12-13"></a>        spalte <span class="op">=</span> leere_grafik()</span>
+<span id="cb12-14"><a href="#cb12-14"></a>        ...</span>
+<span id="cb12-15"><a href="#cb12-15"></a>        ...</span>
+<span id="cb12-16"><a href="#cb12-16"></a>        tafel <span class="op">=</span> neben(tafel, spalte)</span>
+<span id="cb12-17"><a href="#cb12-17"></a>    zeige_grafik(tafel)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="3d58c3a5-dae5-4f0d-bcac-e247b35091cc" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Test von der Aufgabe</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>chomp_test: <span class="bu">list</span> <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb13-3"><a href="#cb13-3"></a>zeichne_chomp(chomp_test)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="aufgabe-spiele-chomp" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="aufgabe-spiele-chomp"><span class="header-section-number">9.9</span> Aufgabe: spiele Chomp</h2>
+<p>Schreiben Sie eine Funktion <code>chomp_spielzug(chomp: list, spielzug:list) -&gt; list</code> welche aus der ersten Situation die neue Situation berechnet. Der Spielzug ist eine Liste von der Form <code>[x, y]</code>.</p>
+<p>Test: <code>chomp_spielzug([4, 3, 3, 3, 2], spielzug=[3, 2])</code> ergibt <code>[4, 3, 1, 1, 1]</code></p>
+<p>Bonusideen: Überprüfen Sie, ob der Spielzug überhapt erlaubt ist.</p>
+<div id="28f266ac-e048-4562-8ce5-3baf1cee2d58" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">"""Aufgabe: programmiere den Spielzug in Chomp"""</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Programmieren Sie es selber!</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="co"># Hier können Sie den Code testen:</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="cf">assert</span> chomp_spielzug([<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>], spielzug<span class="op">=</span>[<span class="dv">3</span>, <span class="dv">2</span>]) <span class="op">==</span> [<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>]</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="übersicht" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="übersicht"><span class="header-section-number">9.10</span> Übersicht</h2>
+<p>Sie wissen, wie Sie</p>
+<ul>
+<li>eine Liste erstellen.</li>
+<li>Elemente abfragen.</li>
+<li>Elemente ändern.</li>
+<li>mit einer Schleife durch die Liste gehen.</li>
+<li>die Länge einer Liste bestimmen.</li>
+<li>Elemente hinzufügen oder entfernen.</li>
+</ul>
+</section>
+<section id="zusatzstoff" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="zusatzstoff"><span class="header-section-number">9.11</span> Zusatzstoff</h2>
+<p>Weitere Infos und Features von Listen auf <a href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range</a></p>
+<p>Stichwörter: Slice, Spezialfall Str, insert, in, join</p>
 
 
 </section>
@@ -975,14 +907,11 @@ Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Da
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="pagination-link" aria-label="Speicherorganisation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span>
+      <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="pagination-link" aria-label="Prüfungsvorbereitung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../files/lektionen_hs25/250901_probleme/probleme.html" class="pagination-link" aria-label="Problemlösung in der Informatik">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Problemlösung in der Informatik</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
