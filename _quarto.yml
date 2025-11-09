@@ -24,6 +24,7 @@ book:
         - files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.ipynb
         - files/lektionen_hs25/251020_funktionen/funktionen.ipynb
         - files/lektionen_hs25/251027_funktionen/funktionen_2.ipynb
+        - files/lektionen_hs25/251110_listen/listen.ipynb
            
 
   downloads: [pdf]
@@ -49,7 +50,7 @@ format:
       - brand
     code-download: true
     toc: true
-    css: style.css
+    # css: style.css
     code-line-numbers: true
   pdf:
     # Alle PDF-Einstellungen sind jetzt hier zentralisiert

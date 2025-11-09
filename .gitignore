@@ -4,5 +4,7 @@
 *.swp
 *.aux
 *.log
+.ipynb_checkpoints
 
 
+**/*.quarto_ipynb
