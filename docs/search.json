@@ -462,7 +462,7 @@
     "href": "files/lektionen_hs25/251110_listen/listen.html#index",
     "title": "9  Datenstrukturen: Listen",
     "section": "9.2 Index",
-    "text": "9.2 Index\nDie Werte werden durchnummeriert. Die dazügehörige Nummer eines Werts nennen wir den Index.\nDas erste Element hat den Index 0!\nUm ein Element aus der Liste auszugeben können wir nach dem Variablennamen die eckigen Klammen und den Index angeben.\nwochentage[0] ist \"Mo\". wochentage[1] ist \"Mo\".\n\n9.2.1 Aufgabe: Index lesen\nLesen Sie den Codeblock und schrieben Sie hier auf, was Sie als Output erwarten, bevor Sie den Codeblock ausführen!\nIch erwarte, dass das Programm folgendes ausgibt:\nTODO: Diese Zeile ersetzen.\n\nlieblinstag = wochentage[3]\nprint(f\"Mein Lieblinstag ist {lieblinstag}.\")",
+    "text": "9.2 Index\nDie Werte werden durchnummeriert. Die dazügehörige Nummer eines Werts nennen wir den Index.\nDas erste Element hat den Index 0!\nUm ein Element aus der Liste auszugeben können wir nach dem Variablennamen die eckigen Klammen und den Index angeben.\nwochentage[0] ist \"Mo\". wochentage[1] ist \"Di\".\n\n9.2.1 Aufgabe: Index lesen\nLesen Sie den Codeblock und schrieben Sie hier auf, was Sie als Output erwarten, bevor Sie den Codeblock ausführen!\nIch erwarte, dass das Programm folgendes ausgibt:\nTODO: Diese Zeile ersetzen.\n\nlieblinstag = wochentage[3]\nprint(f\"Mein Lieblinstag ist {lieblinstag}.\")",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
