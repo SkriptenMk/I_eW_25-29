@@ -318,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="daten-in-listen-speichern" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="daten-in-listen-speichern"><span class="header-section-number">9.1</span> Daten in Listen speichern</h2>
 <p>Bisher hatten Sie Datentypen wie <code>int</code>, <code>float</code> <code>str</code> und <code>bool</code> angeschaut. Wir möchten nun mehrere Werte in einer Liste speichern.</p>
-<p>Ich möchte zum Beispiel alle Wochentagekürzel in einer Liste spiechern. Um eine Liste im Code zu speichern, muss man die Liste mit <code>[</code> beginnen und mit <code>]</code> enden. Die Elemente werden mit einem Komma <code>,</code></p>
+<p>Ich möchte zum Beispiel alle Wochentagekürzel in einer Liste speichern. Um eine Liste im Code zu speichern, muss man die Liste mit <code>[</code> beginnen und mit <code>]</code> enden. Die Elemente werden mit einem Komma <code>,</code></p>
 <div id="0b877389-b92f-42e1-bd6c-a886732705cd" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>wochentage <span class="op">=</span> [<span class="st">"Mo"</span>, <span class="st">"Di"</span>, <span class="st">"Mi"</span>, <span class="st">"Do"</span>, <span class="st">"Fr"</span>, <span class="st">"Sa"</span>, <span class="st">"So"</span>]</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="bu">print</span>(wochentage)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -336,7 +336,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="index" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="index"><span class="header-section-number">9.2</span> Index</h2>
-<p>Die Werte werden durchnummeriert. Die dazügehörige Nummer eines Werts nennen wir den <em>Index</em>.</p>
+<p>Die Werte werden durchnummeriert. Die dazugehörige Nummer eines Werts nennen wir den <em>Index</em>.</p>
 <p>Das erste Element hat den Index 0!</p>
 <p>Um ein Element aus der Liste auszugeben können wir nach dem Variablennamen die eckigen Klammen und den Index angeben.</p>
 <p><code>wochentage[0]</code> ist <code>"Mo"</code>. <code>wochentage[1]</code> ist <code>"Di"</code>.</p>
@@ -346,8 +346,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Ich erwarte, dass das Programm folgendes ausgibt:</p>
 <pre><code>TODO: Diese Zeile ersetzen.</code></pre>
 <div id="19693a64-b2f0-43e6-a24b-e2448f8a958d" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>lieblinstag <span class="op">=</span> wochentage[<span class="dv">3</span>]</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="ss">f"Mein Lieblinstag ist </span><span class="sc">{</span>lieblinstag<span class="sc">}</span><span class="ss">."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>lieblingstag <span class="op">=</span> wochentage[<span class="dv">3</span>]</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="ss">f"Mein Lieblingstag ist </span><span class="sc">{</span>lieblingstag<span class="sc">}</span><span class="ss">."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -364,7 +364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="schleifen" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="schleifen"><span class="header-section-number">9.4</span> Schleifen</h2>
-<p>Listen eignen sich hervorragend um eine for-Schleife zu bauen. Betrachten Sie das Beispiel, welches den Index als <code>i</code> und den Monatsname als <code>wochentag</code> ausgibt:</p>
+<p>Listen eignen sich hervorragend um eine for-Schleife zu bauen. Betrachten Sie das Beispiel, welches den Index als <code>i</code> und den Wochentagsname als <code>wochentag</code> ausgibt. Die Liste <code>wochentage</code> möchten wir auf keinen Fall überschreiben. Also verwenden wir für die <em>Laufvaribale</em> andere Variablennamen. In diesem Fall nehmen wir <code>i</code> für den Index und <code>wochentag</code> (Singular) für den Name des Tages.</p>
 <div id="d4aea223-11f6-4b5b-8970-f066c6de8d9d" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">for</span> i, wochentag <span class="kw">in</span> <span class="bu">enumerate</span>(wochentage):</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>wochentag<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -385,7 +385,6 @@ Der September hat 30 Tage.
 Der Oktober hat 31 Tage.
 Der November hat 30 Tage.
 Der Dezember hat 31 Tage.</code></pre>
-<p>Sie dürfen die Vorlage benützen.</p>
 <div id="8eec7794-9776-496b-a542-bc115943df14" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">"""Aufgabe: Monatsschleife komplettieren"""</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a></span>
@@ -399,7 +398,7 @@ Der Dezember hat 31 Tage.</code></pre>
 <h2 data-number="9.5" class="anchored" data-anchor-id="länge"><span class="header-section-number">9.5</span> Länge</h2>
 <p>Mit der Funktion <code>len(obj)</code> kann man die Länge der Liste <code>obj</code> abfragen.</p>
 <div id="e0f36c31-fa0a-4070-9720-3a3e2e321796" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Beispiel für len(obj)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">"""Beispiel für len(obj)"""</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(<span class="ss">f"Die Woche hat </span><span class="sc">{</span><span class="bu">len</span>(wochentage)<span class="sc">}</span><span class="ss"> Tage."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -428,7 +427,7 @@ Der Dezember hat 31 Tage.</code></pre>
 <span id="cb11-2"><a href="#cb11-2"></a></span>
 <span id="cb11-3"><a href="#cb11-3"></a>fibonacci: <span class="bu">list</span> <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>] <span class="co"># Diese Zeile verändern Sie natürlich nicht.</span></span>
 <span id="cb11-4"><a href="#cb11-4"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb11-5"><a href="#cb11-5"></a>    n <span class="op">=</span> ... <span class="co"># Die Länge von der Foolge</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>    n <span class="op">=</span> ... <span class="co"># Die Länge von der Folge</span></span>
 <span id="cb11-6"><a href="#cb11-6"></a>    fibonacci ... (fibonacci ... <span class="op">+</span> fibonacci ...)</span>
 <span id="cb11-7"><a href="#cb11-7"></a>    <span class="bu">print</span>(fibonacci)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -438,8 +437,8 @@ Der Dezember hat 31 Tage.</code></pre>
 <p>Wie am Anfang der Lektion mündlich besprochen kodieren wir eine Situation von <a href="https://en.wikipedia.org/wiki/Chomp">Chomp</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Chomp_gameplay.png" class="img-fluid figure-img"></p>
-<figcaption>Chomp Diagramm</figcaption>
+<p><img src="Chomp_gameplay.png" class="img-fluid figure-img"></p>
+<figcaption>Chomp_gameplay</figcaption>
 </figure>
 </div>
 <p>Die dritte Situation beschreiben wir als Liste <code>[4, 3, 3, 3, 2]</code>.</p>
@@ -455,7 +454,7 @@ Der Dezember hat 31 Tage.</code></pre>
 <span id="cb12-8"><a href="#cb12-8"></a>    )</span>
 <span id="cb12-9"><a href="#cb12-9"></a>    leere_zelle <span class="op">=</span> rechteck(<span class="dv">70</span>, <span class="dv">40</span>, weiss)</span>
 <span id="cb12-10"><a href="#cb12-10"></a>    tafel <span class="op">=</span> leere_grafik()</span>
-<span id="cb12-11"><a href="#cb12-11"></a>    maximum <span class="op">=</span> <span class="co"># </span><span class="al">TODO</span><span class="co"> # groesse der erste Spalte</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a>    maximum <span class="op">=</span> <span class="co"># </span><span class="al">TODO</span><span class="co"> # Groesse der erste Spalte</span></span>
 <span id="cb12-12"><a href="#cb12-12"></a>    <span class="cf">for</span> ... <span class="kw">in</span> chomp:</span>
 <span id="cb12-13"><a href="#cb12-13"></a>        spalte <span class="op">=</span> leere_grafik()</span>
 <span id="cb12-14"><a href="#cb12-14"></a>        ...</span>
@@ -473,7 +472,7 @@ Der Dezember hat 31 Tage.</code></pre>
 <h2 data-number="9.9" class="anchored" data-anchor-id="aufgabe-spiele-chomp"><span class="header-section-number">9.9</span> Aufgabe: spiele Chomp</h2>
 <p>Schreiben Sie eine Funktion <code>chomp_spielzug(chomp: list, spielzug:list) -&gt; list</code> welche aus der ersten Situation die neue Situation berechnet. Der Spielzug ist eine Liste von der Form <code>[x, y]</code>.</p>
 <p>Test: <code>chomp_spielzug([4, 3, 3, 3, 2], spielzug=[3, 2])</code> ergibt <code>[4, 3, 1, 1, 1]</code></p>
-<p>Bonusideen: Überprüfen Sie, ob der Spielzug überhapt erlaubt ist.</p>
+<p>Bonusidee: Überprüfen Sie, ob der Spielzug überhaupt erlaubt ist.</p>
 <div id="28f266ac-e048-4562-8ce5-3baf1cee2d58" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">"""Aufgabe: programmiere den Spielzug in Chomp"""</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a></span>
@@ -499,7 +498,7 @@ Der Dezember hat 31 Tage.</code></pre>
 <section id="zusatzstoff" class="level2" data-number="9.11">
 <h2 data-number="9.11" class="anchored" data-anchor-id="zusatzstoff"><span class="header-section-number">9.11</span> Zusatzstoff</h2>
 <p>Weitere Infos und Features von Listen auf <a href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range</a></p>
-<p>Stichwörter: Slice, Spezialfall Str, insert, in, join</p>
+<p>Stichwörter: Slice, Spezialfall str, insert, in, join</p>
 
 
 </section>
