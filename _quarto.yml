@@ -3,6 +3,7 @@ project:
   output-dir: docs
   resources:
     - "files/"
+    - "favicon.ico"
 
 book:
   title: "Unterlagen für das obligatorische Fach Informatik"
@@ -40,7 +41,6 @@ book:
         target: "_blank"
     search: true
 
-# bibliography: references.bib
 lang: de
 
 format:
