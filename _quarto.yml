@@ -26,6 +26,7 @@ book:
         - files/lektionen_hs25/251020_funktionen/funktionen.ipynb
         - files/lektionen_hs25/251027_funktionen/funktionen_2.ipynb
         - files/lektionen_hs25/251110_listen/listen.ipynb
+        - files/lektionen_hs25/251124_dict/dict.ipynb
            
 
   downloads: [pdf]

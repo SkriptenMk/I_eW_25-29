@@ -566,5 +566,27 @@
       "Einführung in Python",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datenstrukturen: Listen</span>"
     ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251124_dict/dict.html",
+    "href": "files/lektionen_hs25/251124_dict/dict.html",
+    "title": "10  Datenstrukturen: Dictionary",
+    "section": "",
+    "text": "10.1 Operationen für Dictionaries\nDictionaries (Wörterbücher oder Maps) können mehrere Werte in einem Objekt speichern, wie es Listen auch können. Die Werte haben aber keinen Index sondern einen Schlüssel.\nEin Dictionary in Python ist vergleichbar mit einem echten Wörterbuch. Stellen Sie sich vor, Sie suchen die Telefonnummer (Wert) einer Person (Schlüssel). In einem Python-Dictionary könnten Sie den Namen der Person als Schlüssel und ihre Telefonnummer als Wert speichern.",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Datenstrukturen: Dictionary</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251124_dict/dict.html#operationen-für-dictionaries",
+    "href": "files/lektionen_hs25/251124_dict/dict.html#operationen-für-dictionaries",
+    "title": "10  Datenstrukturen: Dictionary",
+    "section": "",
+    "text": "Erstellen eines Dictionaries: dict_name: dict = {}\nErstellt ein neues, leeres Dictionary mit dem Variablennamen dict_name.\nElemente aktualisieren: dict_name['Schlüssel'] = 'Neuer Wert'\nAktualisiert den Wert eines bestehenden Schlüssels oder fügt einen neuen Schlüssel mit dem angegebenen Wert hinzu, wenn er nicht existiert.\nElemente aufrufen: var: str = dict_name['Schlüssel']\nvar ist ein str mit dem Wert ’Neuer Wert’. Man kann den Wert auch direkt zum printen oder anderes brauchen.\nElemente löschen: dict_name.pop('Schlüssel')\nEntfernt das Element mit dem angegebenen Schlüssel aus dem Dictionary.\nDurch das Dictionary durchgehen: for key, value in dict_name.items()\nDieser Prozess heisst Iterieren. Wir kennen ihn schon von der Liste oder Range. Iterieren heisst die Liste von Anfang bis Ende durchgehen. Jedes Mal wird in die Variablen key, vlaue den Schlüssel, respektive den Wert des Eintrags zugewiesen. Sie können den Variablen auch andere Namen geben.\n\n\n10.1.1 Aufgabe: Vervollständigen Sie das dict\n\n\"\"\"Aufgabe: dict vervollständigen\"\"\"\n\nvoci = {\n    \"und\": ... ,\n    \"Auto\": ... ,\n    \"Katze\": ... ,\n    \"Tag\": ... ,\n    \"Ende\": ... ,\n    \"Familie\": ... ,\n    \"Zuhause\": ... ,\n    \"Name\": ... ,\n    \"Menschen\": ... ,\n    \"lesen\": ... ,\n    \"Schule\": ... ,\n    \"sprechen\": ... ,\n}\n\n# Test\nprint(voci[\"Schule\"])\n\n\n\n10.1.2 Aufgabe: Schreiben Sie ein dict\nSchreiben Sie ein dict für Ihre Klasse, sodass der Nachname dem Schlüssel/key und der Vorname dem Wert/value entspricht.\n\n\"\"\"Aufgabe: schreiben Sie ein dict\"\"\"\nklasse = ...\n\n\n\n10.1.3 Aufgabe: Schleife\nIterieren Sie durch die ganze Liste, sodass alle aus der Klasse mit \"Hallo [Vorname] [Nachname]\" begrüsst werden.\n\n\"\"\"Aufgabe: Schleife\"\"\"\nfor nachname, vorname in ... :\n    print(f\"Hallo {vorname} {nachname}\")\n\n\n\n10.1.4 Aufgabe: Selektion\nGeben Sie nur die Nachnamen aus, welche ein e im Nachnamen haben.\nTipp: Verwenden Sie if 'e' in nachname:\n\n\"\"\"Aufgabe: Selektion\"\"\"\n\n...\n\n\n\n10.1.5 Aufgabe: Telefonliste\nErstellen Sie eine Liste threedigtslist, die nur die Namen der Notfallorganisationen aus dem dict telefonbuch welche genau 3 Ziffern beinhalten.\n\n\"\"\"Aufgabe: Telefonliste\"\"\"\n\n...\n\n\n# Test\nassert type(threedigtslist) == list\nassert len(threedigtslist) == 5\nfor soultion in ['Feuerwehr', 'Polizei', 'Ambulanz', 'Beratung + Hilfe 147', 'allgemeiner Notruf']:\n    assert soultion in threedigtslist",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Datenstrukturen: Dictionary</span>"
+    ]
   }
 ]
