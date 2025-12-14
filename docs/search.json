@@ -583,10 +583,98 @@
     "href": "files/lektionen_hs25/251124_dict/dict.html#operationen-für-dictionaries",
     "title": "10  Datenstrukturen: Dictionary",
     "section": "",
-    "text": "Erstellen eines Dictionaries: dict_name: dict = {}\nErstellt ein neues, leeres Dictionary mit dem Variablennamen dict_name.\nElemente aktualisieren: dict_name['Schlüssel'] = 'Neuer Wert'\nAktualisiert den Wert eines bestehenden Schlüssels oder fügt einen neuen Schlüssel mit dem angegebenen Wert hinzu, wenn er nicht existiert.\nElemente aufrufen: var: str = dict_name['Schlüssel']\nvar ist ein str mit dem Wert ’Neuer Wert’. Man kann den Wert auch direkt zum printen oder anderes brauchen.\nElemente löschen: dict_name.pop('Schlüssel')\nEntfernt das Element mit dem angegebenen Schlüssel aus dem Dictionary.\nDurch das Dictionary durchgehen: for key, value in dict_name.items()\nDieser Prozess heisst Iterieren. Wir kennen ihn schon von der Liste oder Range. Iterieren heisst die Liste von Anfang bis Ende durchgehen. Jedes Mal wird in die Variablen key, vlaue den Schlüssel, respektive den Wert des Eintrags zugewiesen. Sie können den Variablen auch andere Namen geben.\n\n\n10.1.1 Aufgabe: Vervollständigen Sie das dict\n\n\"\"\"Aufgabe: dict vervollständigen\"\"\"\n\nvoci = {\n    \"und\": ... ,\n    \"Auto\": ... ,\n    \"Katze\": ... ,\n    \"Tag\": ... ,\n    \"Ende\": ... ,\n    \"Familie\": ... ,\n    \"Zuhause\": ... ,\n    \"Name\": ... ,\n    \"Menschen\": ... ,\n    \"lesen\": ... ,\n    \"Schule\": ... ,\n    \"sprechen\": ... ,\n}\n\n# Test\nprint(voci[\"Schule\"])\n\n\n\n10.1.2 Aufgabe: Schreiben Sie ein dict\nSchreiben Sie ein dict für Ihre Klasse, sodass der Nachname dem Schlüssel/key und der Vorname dem Wert/value entspricht.\n\n\"\"\"Aufgabe: schreiben Sie ein dict\"\"\"\nklasse = ...\n\n\n\n10.1.3 Aufgabe: Schleife\nIterieren Sie durch die ganze Liste, sodass alle aus der Klasse mit \"Hallo [Vorname] [Nachname]\" begrüsst werden.\n\n\"\"\"Aufgabe: Schleife\"\"\"\nfor nachname, vorname in ... :\n    print(f\"Hallo {vorname} {nachname}\")\n\n\n\n10.1.4 Aufgabe: Selektion\nGeben Sie nur die Nachnamen aus, welche ein e im Nachnamen haben.\nTipp: Verwenden Sie if 'e' in nachname:\n\n\"\"\"Aufgabe: Selektion\"\"\"\n\n...\n\n\n\n10.1.5 Aufgabe: Telefonliste\nErstellen Sie eine Liste threedigtslist, die nur die Namen der Notfallorganisationen aus dem dict telefonbuch welche genau 3 Ziffern beinhalten.\n\n\"\"\"Aufgabe: Telefonliste\"\"\"\n\n...\n\n\n# Test\nassert type(threedigtslist) == list\nassert len(threedigtslist) == 5\nfor soultion in ['Feuerwehr', 'Polizei', 'Ambulanz', 'Beratung + Hilfe 147', 'allgemeiner Notruf']:\n    assert soultion in threedigtslist",
+    "text": "Erstellen eines Dictionaries: dict_name: dict = {}\nErstellt ein neues, leeres Dictionary mit dem Variablennamen dict_name.\nElemente aktualisieren: dict_name['Schlüssel'] = 'Neuer Wert'\nAktualisiert den Wert eines bestehenden Schlüssels oder fügt einen neuen Schlüssel mit dem angegebenen Wert hinzu, wenn er nicht existiert.\nElemente aufrufen: var: str = dict_name['Schlüssel']\nvar ist ein str mit dem Wert ’Neuer Wert’. Man kann den Wert auch direkt zum printen oder anderes brauchen.\nElemente löschen: dict_name.pop('Schlüssel')\nEntfernt das Element mit dem angegebenen Schlüssel aus dem Dictionary.\nDurch das Dictionary durchgehen: for key, value in dict_name.items()\nDieser Prozess heisst Iterieren. Wir kennen ihn schon von der Liste oder Range. Iterieren heisst die Liste von Anfang bis Ende durchgehen. Jedes Mal wird in die Variablen key, vlaue den Schlüssel, respektive den Wert des Eintrags zugewiesen. Sie können den Variablen auch andere Namen geben.\n\n\n10.1.1 Aufgabe: Vervollständigen Sie das dict\n\n\"\"\"Aufgabe: dict vervollständigen\"\"\"\n\nvoci = {\n    \"und\": \"and\",\n    \"Auto\": ... ,\n    \"Katze\": ... ,\n    \"Tag\": ... ,\n    \"Ende\": ... ,\n    \"Familie\": ... ,\n    \"Zuhause\": ... ,\n    \"Name\": ... ,\n    \"Menschen\": ... ,\n    \"lesen\": ... ,\n    \"Schule\": ... ,\n    \"sprechen\": ... ,\n}\n\n# Test\nprint(voci[\"Schule\"])\n\n\n\n10.1.2 Aufgabe: Schreiben Sie ein dict\nSchreiben Sie ein dict für Ihre Klasse, sodass der Nachname dem Schlüssel/key und der Vorname dem Wert/value entspricht.\n\n\"\"\"Aufgabe: schreiben Sie ein dict\"\"\"\nklasse = ...\n\n\n\n10.1.3 Aufgabe: Schleife\nIterieren Sie durch die ganze Liste, sodass alle aus der Klasse mit \"Hallo [Vorname] [Nachname]\" begrüsst werden.\n\n\"\"\"Aufgabe: Schleife\"\"\"\nfor nachname, vorname in ... :\n    print(f\"Hallo {vorname} {nachname}\")\n\n\n\n10.1.4 Aufgabe: Selektion\nGeben Sie nur die Nachnamen aus, welche ein e im Nachnamen haben.\nTipp: Verwenden Sie if 'e' in nachname:\n\n\"\"\"Aufgabe: Selektion\"\"\"\n\n...\n\n\n\n10.1.5 Aufgabe: Telefonliste\nErstellen Sie eine Liste threedigtslist, die nur die Namen der Notfallorganisationen aus dem dict telefonbuch welche genau 3 Ziffern beinhalten.\n\n\"\"\"Aufgabe: Telefonliste\"\"\"\n\n...\n\n\n# Test\nassert type(threedigtslist) == list\nassert len(threedigtslist) == 5\nfor soultion in ['Feuerwehr', 'Polizei', 'Ambulanz', 'Beratung + Hilfe 147', 'allgemeiner Notruf']:\n    assert soultion in threedigtslist",
     "crumbs": [
       "Einführung in Python",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Datenstrukturen: Dictionary</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251215_rekurisv/rekursion.html",
+    "href": "files/lektionen_hs25/251215_rekurisv/rekursion.html",
+    "title": "11  Beurteilung von Algorithmen",
+    "section": "",
+    "text": "11.1 Bubblesort\nDie Effizienz eines Algorithmus kann grundsätzlich nach seinem Rechenaufwand oder Speicherbedarf beurteilt werden. Man spricht in diesem Zusammenhang auch von Zeit- bzw. Platzkomplexität.\nWir haben uns mit dem Zählen von Vergleichen nur mit der Rechenaufwand, also mit der Zeitkomplexität beschäftigt. Die Berechnungen werden sehr stark vereinfacht.\nWenn wir mit dem Bubblesort \\(n\\) Objekte sortieren, haben wir \\(n-1\\) Vergleiche im ersten Durchgang. Vereinfacht sagen wir einfach \\(n\\) Vergleiche. Im schlimsten Fall, müssen ist das kleinste Element am falschen Ende. Bei jedem Durchgang verschieben wir das Element nur um einen Platz. Dass heisst wir müssen etwa \\(n\\) Durchgänge machen. Die Laufzeit vom Bubblesort beträgt somit \\(n \\cdot n = n^2\\).",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Beurteilung von Algorithmen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251215_rekurisv/rekursion.html#mergesort",
+    "href": "files/lektionen_hs25/251215_rekurisv/rekursion.html#mergesort",
+    "title": "11  Beurteilung von Algorithmen",
+    "section": "11.2 Mergesort",
+    "text": "11.2 Mergesort\n\n\n\nMergesort_example\n\n\nBevor wir uns die Laufzeit von Mergesort anschauen, müssen wir quantifizieren, wie oft wir die Listen aufteilen müssen. Haben wir 2 Elemente, separieren wir 1 Mal. Haben wir 4 Elemente separieren wir 2 mal. 8 -&gt; 3, 16 -&gt; 4, 32 -&gt; 5, … 1024 -&gt; 10. Diese Funktion nennt man Logarithmus zur Basis 2. Man notiert sie wie folgt: \\(\\log_2(n)\\)\nAuf jeder der \\(\\log_2(n)\\) Ebene machen wir etwa \\(n\\) Vergleiche. Die Laufzeit vom Mergesort beträgt somit \\(n \\cdot \\log_2(n)\\).",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Beurteilung von Algorithmen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251215_rekurisv/rekursion.html#fibonacci-folge",
+    "href": "files/lektionen_hs25/251215_rekurisv/rekursion.html#fibonacci-folge",
+    "title": "11  Beurteilung von Algorithmen",
+    "section": "12.1 Fibonacci-Folge",
+    "text": "12.1 Fibonacci-Folge\nDie Fibonacci-Folge - benannt nach dem Italienischen Mathematiker Leonardo Fibonacci - ist eine Zahlenfolge, in welcher die nächste Zahl die Summe der beiden vorangegangenen Zahlen bildet. In Zahlen sieht das folgendermassen aus:\n\\[\n1, 1, 2, 3, 5, 8, 13, \\dots\n\\]\n\nDie Fibonacci-Folge wird rekursiv deifiniert:\n\\[\nf_n = f_{n-1} + f_{n-2},\\ \\text{sofern}\\ n \\geq 3\n\\]\nSie haben die Fibonacci-Folge bei den Listen bereits programmiert. Obwohl die Programmiung als Liste viel effizienter ist, machen wir hier eine Übung, Fibonacci als rekursive Funktion zu programmieren:\n\n\"\"\"Beispiel: fibonacci rekursiv definiert mit Printstatement\"\"\"\ndef fibonacci(n: int) -&gt; int:\n    print(f\"Es wird fibonacci({n}) ausgeführt.\")\n    if n &lt; 2:\n        return 1\n    return fibonacci(n-1) + fibonacci(n-2)\n\n\n12.1.1 Aufgabe: Fibonacci-Folge\n\nLesen Sie die Funktion fibonacci. Denken Sie im Kopf durch, was passiert, wenn Sie fibonacci(0) oder fibonacci(1) ausführen. Schreiben Sie Ihre Vermutung auf und führen Sie erst dann die Funktion aus. Vergleichen Sie Ihre Vermutung mit dem Resultat.\nDenken Sie im Kopf durch, was passiert, wenn Sie fibonacci(2) ausführen. Schreiben Sie Ihre Vermutung auf und führen Sie erst dann die Funktion aus. Vergleichen Sie Ihre Vermutung mit dem Resultat.\nBonus: Denken Sie im Kopf durch, was passiert, wenn Sie fibonacci(3) ausführen. Schreiben Sie Ihre Vermutung auf und führen Sie erst dann die Funktion aus. Vergleichen Sie Ihre Vermutung mit dem Resultat.",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Beurteilung von Algorithmen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251215_rekurisv/rekursion.html#endlose-rekursion",
+    "href": "files/lektionen_hs25/251215_rekurisv/rekursion.html#endlose-rekursion",
+    "title": "11  Beurteilung von Algorithmen",
+    "section": "12.2 Endlose Rekursion",
+    "text": "12.2 Endlose Rekursion\nWenn wir bei der Funktion fibonacci die Zeilen\n    if n &lt; 2:\n        return 1\nweglassen würden, so würde die Funktion endlos sich selber aufrufen, wie im Beispiel der Kindergeschichte.\nMeistens wird dieses Problem mit Basisfälle gelöst.",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Beurteilung von Algorithmen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251215_rekurisv/rekursion.html#beispiel-anstossen",
+    "href": "files/lektionen_hs25/251215_rekurisv/rekursion.html#beispiel-anstossen",
+    "title": "11  Beurteilung von Algorithmen",
+    "section": "12.3 Beispiel: Anstossen",
+    "text": "12.3 Beispiel: Anstossen\n\nGestern assen wir mit 6 Personen zu Abend. Vorgestern mit 140 Personen. Wie oft schlagen die Gläser zusammen wenn alle miteinander anstossen?\nDie Aufgabe können wir einfach reduzieren. Wenn ich die 6. Person am Tisch bin, stosse ich mit 5 Personen an. Die 5 Personen müssen untereinander noch anstossen. Das heisst \\(a_n = a_{n-1} + (n-1)\\).\nFür die Rekursive Funktion, brauchen wir somit nur noch die Basisfälle. In unserem Beispiel ist es: Wenn nur 0, 1 oder 2 Personen da sind, wie oft wird angestossen?\n\n\n\n\nPersonen\n\n\nAnstossen\n\n\n\n\n0\n\n\n0\n\n\n\n\n1\n\n\n0\n\n\n\n\n2\n\n\n1\n\n\n\n\n\n\"\"\"Aufgabe: finden Sie 2 Fehler\"\"\"\ndef anstossen(n: int) -&gt; int:\n    ## Basisfälle\n    if n &lt;= 1:\n        return 0\n    if n == 2:\n        return 2\n\n    return anstossen(n-1) + (n + 1)\n\n\n\"\"\"Test\"\"\"\nfor i in range(10):\n    print(f\"{i} Personen stossen {anstossen(i)} Mal an.\")\n\ni = 140\nprint(f\"{i} Personen stossen {anstossen(i)} Mal an.\")\n\n\n12.3.1 Zusatzmaterial: Die Gausssche Summenformel\nDer Deutsche Mathematiker Carl Friedich Gauss soll nach der Legende seinen Mathematiklehrer bei einer Strafaufgabe überlistet haben. Gemäss dieser Legende soll der Lehrer Gauss (und seinen Klassenkameraden) den Auftrag gegen haben, die Zahlen von 1 bis 100 zusammenzuzählen.\nGauss soll nach kurzer Zeit mit der Lösung zum Lehrer gegangen sein. Gauss’ Lösung basierte auf folgender Formel:\n\\[\n1 + 2 + 3 + ... + (n-1) + n = \\sum_{k=1}^{n}k = \\frac{n(n+1)}{2}\n\\]\nDiese Formel kann direkt als Funktion implementiert werden. Das entsprechende Beispiel finden sie in der folgenden Zelle.\n\ndef gauss_direct(n : int) -&gt; int:\n    return int((n*(n+1))/2)\n\nprint(f'Die Summe der Zahlen von 1 '\n      f'bis 100 ist {gauss_direct(100)}.')\n\nAlternativ kann die Formel aber auch rekursiv implementiert werden. Entsprechend stellt sich die Frage, was wäre ein kleineres, aber grundsätzlich gleichartiges Problem?\nIm vorliegenden Fall wäre das einfachste gleichartige Problem, die Summe aus einer Liste von Zahlen mit der Länge 1 und dem Wert 1 zu bilden. Dann ist die Summe auch 1. Als Formel könnte man das so schreiben:\n\\[\n\\sum_{k=1}^{n}k = 1, \\text{ sofern } n=1\n\\]\nDaraus ergibt sich die Frage, wie man von \\(n=100\\) zu \\(n=1\\) kommt.\nFür alle Fälle, in denen \\(n&gt;1\\) ist, gilt\n\\[\n\\sum_{k=1}^{n}k = n + \\sum_{k=1}^{n-1}k\n\\]\nIn dieser Formel kann nun immer wieder \\(n-1\\) eingesetzt werden. Das ist die Rekursion.\nZusammengefasst kann dies folgendermassen dargestellt werden:\n\\[\n\\sum_{k=1}^{n}=\n\\left\\{\n    \\begin{array}{lll}\n        1,&n=1&\\text{Basisfall}\\\\\n        n+\\sum\\limits_{k=1}^{n-1}k,&\\forall n &gt; 1&\\text{Rekursionsfall}\n    \\end{array}\n\\right.\n\\]\nDer Basisfall ist einerseits der einfachste Fall und andererseits auch der letzte Fall, der bearbeitet werden muss.\nBeides ist wichtig. Dass der Basisfall der einfachste Fall ist, hilft das Problem zu lösen. Dass der Basisfall der Lezte Fall ist, der bearbeitet werden muss, ermöglicht es, die Rekursion zu beenden.\nIm Rekursionsfall steht “\\(\\forall n &gt; 1\\)”. Das \\(\\forall\\) Zeichen ist der sogenannte Allquantor und bedeutet hier “für alle \\(n\\) grösser als \\(1\\).\nDas eine Problemlösung rekursiv implementiert wird, bedeutet, dass die Funktion sich selber aufruft.\nIn der folgenden Zelle wird die gausssche Summenformel gemäss obiger Darstellung rekursiv implementiert.\n\n\"\"\"Bonusaufgabe: Gauss Rekursiv\"\"\"\ndef gauss_recursive(n : int) -&gt; int:\n    # TODO: rekursive Implementation des kleinen Gauss\n    pass\n    \nprint(f'Die Summe der Zahlen von 1 '\n      f'bis 100 ist {gauss_recursive(100)}.')",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Beurteilung von Algorithmen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251215_rekurisv/rekursion.html#fakultät",
+    "href": "files/lektionen_hs25/251215_rekurisv/rekursion.html#fakultät",
+    "title": "11  Beurteilung von Algorithmen",
+    "section": "12.4 Fakultät",
+    "text": "12.4 Fakultät\nMit Fakultät (\\(n!\\)) wird in der Mathematik jene Funktion bezeichnet mit der alle natürlichen Zahlen \\(\\leq n\\) miteinander multipliziert werden.\n\\[\nn! = 1 \\cdot 2 \\cdot ... \\cdot (n-1) \\cdot n = \\prod\\limits_{k=1}^{n} k\n\\]\nAls Besonderheit muss mann wissen, dass \\(0! = 1\\) gilt.\nIn Python kann dies mit einer for Schleife berechnet werden. In der folgenden Zelle wird eine entsprechende Funktion definiert.\n\ndef factorial_loop(n : int) -&gt; int:\n    \"\"\"result wird gleich 1 gesetzt, \n    weil 1 das neutrale Element der\n    Multiplikation ist \"\"\"\n    result = 1\n    for i in range(1, n+1):\n        result *= i\n    \n    return result\n\nprint(f'Das Resultat von 5! ist '\n      f'{factorial_loop(5)}.')\n\nDie Funktion kann allerdings auch rekursiv definiert werden. Die Definition sieht dann folgendermassen aus:\n\\[\nn! =\n\\left\\{\n    \\begin{array}{lll}\n        1,&n=0 \\lor n=1&\\text{Basisfall}\\\\\n        n \\times (n - 1)!, &\\forall n &gt; 1& \\text{Rekursionsfall}\\\\\n    \\end{array}\n\\right.\n\\]\nEntsprechend kann eine Funktion zur Berechnung von \\(n!\\) auch rekursiv implementiert werden.\n\n\"\"\"Aufgabe: Fakultät\"\"\"\ndef factorial_recursive(n : int) -&gt; int:\n    # TODO: rekursive Implementation der Fakultätsfunktion\n    pass\n    \nprint(f'Das Resultat von 5! ist '\n      f'{factorial_recursive(5)}.')",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Beurteilung von Algorithmen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251215_rekurisv/rekursion.html#wörter-umdrehen",
+    "href": "files/lektionen_hs25/251215_rekurisv/rekursion.html#wörter-umdrehen",
+    "title": "11  Beurteilung von Algorithmen",
+    "section": "12.5 Wörter umdrehen",
+    "text": "12.5 Wörter umdrehen\nGesucht ist eine rekursive Funktion, welche ein Wort rückwärts schreibt (bsp. Kantonsschule nach eluhcssnotnaK).\n\n\"\"\"Aufgabe: umdrehen\"\"\"\ndef reverse(s : str) -&gt; str:\n    if len(s) == 0 or len(s) == 1:\n        return ...\n    else:\n        head = s[0]\n        tail = s[1:]\n        return ...\n\n\nprint(reverse('Kantonsschule'))",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Beurteilung von Algorithmen</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_hs25/251215_rekurisv/rekursion.html#bonus-anzahl-möglichkeiten-zu-zahlen",
+    "href": "files/lektionen_hs25/251215_rekurisv/rekursion.html#bonus-anzahl-möglichkeiten-zu-zahlen",
+    "title": "11  Beurteilung von Algorithmen",
+    "section": "12.6 Bonus: Anzahl Möglichkeiten zu Zahlen",
+    "text": "12.6 Bonus: Anzahl Möglichkeiten zu Zahlen\nIch Verkaufe eine Heft für 6 CHF. Wie viele Möglichkeiten gibt es 5 CHF in Münzen (wir betrachten nur die Münzen 1, 2, 5 CHF).\n\n\\(5+1\\)\n\\(2+2+2\\)\n\\(2+2+1+1\\)\n\\(2+1+1+1+1\\)\n\nEs gibt 4 Möglichkeiten.\nUm die Frage zu beantworten, kann man die Frage auch aufteilen. Die grösste mögliche Münze ist 5. Also gibt es die Möglichkeiten mit einem 5 Fränkler zu bezahlen (1 Möglichkeit) oder ohne keinem 5 Fränkler zu bezahlen (3 Möglichkeiten). Diese Anzahl Möglichkeiten zusammen addiert ergibt die Möglichkeiten. Die Funktion benötigt 2 Argumente: Den zu bezahlenden Betrag und die grösste erlaubte Münze.\n\n\"\"\"\nBonusaufgabe\nStudieren Sie die Funktion und füllen Sie die Lücken mit den Auslassungspunkten.\n\"\"\"\nMUENZEN = [1000, 200, 100, 50, 20, 10, 5, 2, 1]\ndef anz_zahlmöglichkeiten(\n    value: int,\n    largest_index: int=0,\n    ) -&gt; int:\n    \"\"\"Rekursive Funktion\"\"\"\n    if value &lt; 0:\n        return 0\n    if value == 0:\n        return 1\n    if largest_index + 1 == len(MUENZEN):\n        # Pay with smales coins\n        return 1\n    # Pay with largest Coin\n    ret = ...\n\n    # Pay without larges coin\n    ret += ...\n    return ret\n\nprint(anz_zahlmöglichkeiten(5))\n\n\nprint(anz_zahlmöglichkeiten(500))  # 6295434\n# print(anz_zahlmöglichkeiten(700))  # 40208370\n# print(anz_zahlmöglichkeiten(1000)) # 321335887\n\n\n\"\"\"\nBonusaufgabe\nPrinten Sie die Möglichkeiten!\n\n[5]\n[2, 2, 1]\n[2, 1, 1, 1]\n[1, 1, 1, 1, 1]\n\"\"\"\nMUENZEN = [1000, 200, 100, 50, 20, 10, 5, 2, 1]\ndef print_zahlmöglichkeiten(...)\n    ...\n\nprint_zahlmöglichkeiten(5)",
+    "crumbs": [
+      "Einführung in Python",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Beurteilung von Algorithmen</span>"
     ]
   }
 ]
