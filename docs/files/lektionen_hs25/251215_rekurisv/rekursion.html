@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; Beurteilung von Algorithmen – Unterlagen für das obligatorische Fach Informatik</title>
+<title>12&nbsp; Divide and Conquer – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../files/lektionen_hs25/251124_dict/dict.html" rel="prev">
+<link href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -176,7 +176,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -276,8 +276,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
   </div>
 </li>
       </ul>
@@ -292,32 +298,27 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#bubblesort" id="toc-bubblesort" class="nav-link active" data-scroll-target="#bubblesort"><span class="header-section-number">11.1</span> Bubblesort</a></li>
-  <li><a href="#mergesort" id="toc-mergesort" class="nav-link" data-scroll-target="#mergesort"><span class="header-section-number">11.2</span> Mergesort</a></li>
-  <li><a href="#divide-and-conquer" id="toc-divide-and-conquer" class="nav-link" data-scroll-target="#divide-and-conquer"><span class="header-section-number">12</span> Divide and Conquer</a>
-  <ul class="collapse">
-  <li><a href="#fibonacci-folge" id="toc-fibonacci-folge" class="nav-link" data-scroll-target="#fibonacci-folge"><span class="header-section-number">12.1</span> Fibonacci-Folge</a>
+  <li><a href="#fibonacci-folge" id="toc-fibonacci-folge" class="nav-link active" data-scroll-target="#fibonacci-folge"><span class="header-section-number">12.1</span> Fibonacci-Folge</a>
   <ul class="collapse">
   <li><a href="#aufgabe-fibonacci-folge" id="toc-aufgabe-fibonacci-folge" class="nav-link" data-scroll-target="#aufgabe-fibonacci-folge"><span class="header-section-number">12.1.1</span> Aufgabe: Fibonacci-Folge</a></li>
   </ul></li>
   <li><a href="#endlose-rekursion" id="toc-endlose-rekursion" class="nav-link" data-scroll-target="#endlose-rekursion"><span class="header-section-number">12.2</span> Endlose Rekursion</a></li>
   <li><a href="#beispiel-anstossen" id="toc-beispiel-anstossen" class="nav-link" data-scroll-target="#beispiel-anstossen"><span class="header-section-number">12.3</span> Beispiel: Anstossen</a>
   <ul class="collapse">
-  <li><a href="#zusatzmaterial-die-gausssche-summenformel" id="toc-zusatzmaterial-die-gausssche-summenformel" class="nav-link" data-scroll-target="#zusatzmaterial-die-gausssche-summenformel"><span class="header-section-number">12.3.1</span> Zusatzmaterial: Die Gausssche Summenformel</a></li>
+  <li><a href="#bonus-die-gausssche-summenformel" id="toc-bonus-die-gausssche-summenformel" class="nav-link" data-scroll-target="#bonus-die-gausssche-summenformel"><span class="header-section-number">12.3.1</span> Bonus: Die Gausssche Summenformel</a></li>
   </ul></li>
   <li><a href="#fakultät" id="toc-fakultät" class="nav-link" data-scroll-target="#fakultät"><span class="header-section-number">12.4</span> Fakultät</a></li>
   <li><a href="#wörter-umdrehen" id="toc-wörter-umdrehen" class="nav-link" data-scroll-target="#wörter-umdrehen"><span class="header-section-number">12.5</span> Wörter umdrehen</a></li>
   <li><a href="#bonus-anzahl-möglichkeiten-zu-zahlen" id="toc-bonus-anzahl-möglichkeiten-zu-zahlen" class="nav-link" data-scroll-target="#bonus-anzahl-möglichkeiten-zu-zahlen"><span class="header-section-number">12.6</span> Bonus: Anzahl Möglichkeiten zu Zahlen</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></h1>
 </div>
 
 
@@ -334,25 +335,6 @@ window.Quarto = {
 </header>
 
 
-<p>Die Effizienz eines Algorithmus kann grundsätzlich nach seinem Rechenaufwand oder Speicherbedarf beurteilt werden. Man spricht in diesem Zusammenhang auch von Zeit- bzw. Platzkomplexität.</p>
-<p>Wir haben uns mit dem Zählen von Vergleichen nur mit der Rechenaufwand, also mit der Zeitkomplexität beschäftigt. Die Berechnungen werden sehr stark vereinfacht.</p>
-<section id="bubblesort" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="bubblesort"><span class="header-section-number">11.1</span> Bubblesort</h2>
-<p>Wenn wir mit dem Bubblesort <span class="math inline">\(n\)</span> Objekte sortieren, haben wir <span class="math inline">\(n-1\)</span> Vergleiche im ersten Durchgang. Vereinfacht sagen wir einfach <span class="math inline">\(n\)</span> Vergleiche. Im schlimsten Fall, müssen ist das kleinste Element am falschen Ende. Bei jedem Durchgang verschieben wir das Element nur um einen Platz. Dass heisst wir müssen etwa <span class="math inline">\(n\)</span> Durchgänge machen. Die Laufzeit vom Bubblesort beträgt somit <span class="math inline">\(n \cdot n = n^2\)</span>.</p>
-</section>
-<section id="mergesort" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="mergesort"><span class="header-section-number">11.2</span> Mergesort</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Mergesort_example.png" class="img-fluid figure-img"></p>
-<figcaption>Mergesort_example</figcaption>
-</figure>
-</div>
-<p>Bevor wir uns die Laufzeit von Mergesort anschauen, müssen wir quantifizieren, wie oft wir die Listen aufteilen müssen. Haben wir 2 Elemente, separieren wir 1 Mal. Haben wir 4 Elemente separieren wir 2 mal. 8 -&gt; 3, 16 -&gt; 4, 32 -&gt; 5, … 1024 -&gt; 10. Diese Funktion nennt man <em>Logarithmus zur Basis 2</em>. Man notiert sie wie folgt: <span class="math inline">\(\log_2(n)\)</span></p>
-<p>Auf jeder der <span class="math inline">\(\log_2(n)\)</span> Ebene machen wir etwa <span class="math inline">\(n\)</span> Vergleiche. Die Laufzeit vom Mergesort beträgt somit <span class="math inline">\(n \cdot \log_2(n)\)</span>.</p>
-</section>
-<section id="divide-and-conquer" class="level1" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> Divide and Conquer</h1>
 <p>Das Prinzip <em>divide and conquer</em> (teile und herrsche) wurde am Beispiel von Mergesort gezeigt, aber nicht explizit erwähnt. Dieses Prinzip basiert auf der Idee, das kleine Probleme einfacher zu lösen sind als grosse. Deshalb versucht man, das zu lösende Problem in Teilprobleme aufzuteilen und diese, kleineren Probleme, zu lösen um anschliessend die Teillösungen zu einer Lösung für das Ursprungsproblem zusammenzusetzen.</p>
 <p>Diese Idee wird oft durch <em>Rekursion</em> umgesetzt. Der Begriff Rekursion kann am besten am Beispiel einer Kindergeschichte erklärt werden:</p>
 <blockquote class="blockquote">
@@ -375,7 +357,7 @@ window.Quarto = {
 f_n = f_{n-1} + f_{n-2},\ \text{sofern}\ n \geq 3
 \]</span></p>
 <p>Sie haben die Fibonacci-Folge bei den Listen bereits programmiert. Obwohl die Programmiung als Liste <em>viel</em> effizienter ist, machen wir hier eine Übung, Fibonacci als rekursive Funktion zu programmieren:</p>
-<div id="cell-3" class="cell">
+<div id="cell-2" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">"""Beispiel: fibonacci rekursiv definiert mit Printstatement"""</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">def</span> fibonacci(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb1-3"><a href="#cb1-3"></a>    <span class="bu">print</span>(<span class="ss">f"Es wird fibonacci(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">) ausgeführt."</span>)</span>
@@ -406,43 +388,29 @@ f_n = f_{n-1} + f_{n-2},\ \text{sofern}\ n \geq 3
 <p>Gestern assen wir mit 6 Personen zu Abend. Vorgestern mit 140 Personen. Wie oft schlagen die Gläser zusammen wenn alle miteinander anstossen?</p>
 <p>Die Aufgabe können wir einfach reduzieren. Wenn ich die 6. Person am Tisch bin, stosse ich mit 5 Personen an. Die 5 Personen müssen untereinander noch anstossen. Das heisst <span class="math inline">\(a_n = a_{n-1} + (n-1)\)</span>.</p>
 <p>Für die Rekursive Funktion, brauchen wir somit nur noch die Basisfälle. In unserem Beispiel ist es: Wenn nur 0, 1 oder 2 Personen da sind, wie oft wird angestossen?</p>
-<table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Personen</th>
+<th>Anstossen</th>
+</tr>
+</thead>
 <tbody>
-<tr>
-<th>
-Personen
-</th>
-<th>
-Anstossen
-</th>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
 </tr>
-<tr>
-<td>
-0
-</td>
-<td>
-0
-</td>
+<tr class="even">
+<td>1</td>
+<td>0</td>
 </tr>
-<tr>
-<td>
-1
-</td>
-<td>
-0
-</td>
-</tr>
-<tr>
-<td>
-2
-</td>
-<td>
-1
-</td>
+<tr class="odd">
+<td>2</td>
+<td>1</td>
 </tr>
 </tbody>
 </table>
-<div id="cell-7" class="cell">
+<div id="cell-6" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">"""Aufgabe: finden Sie 2 Fehler"""</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw">def</span> anstossen(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="co">## Basisfälle</span></span>
@@ -453,7 +421,7 @@ Anstossen
 <span id="cb3-8"><a href="#cb3-8"></a></span>
 <span id="cb3-9"><a href="#cb3-9"></a>    <span class="cf">return</span> anstossen(n<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> (n <span class="op">+</span> <span class="dv">1</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cell-8" class="cell">
+<div id="cell-7" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">"""Test"""</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> Personen stossen </span><span class="sc">{</span>anstossen(i)<span class="sc">}</span><span class="ss"> Mal an."</span>)</span>
@@ -461,15 +429,15 @@ Anstossen
 <span id="cb4-5"><a href="#cb4-5"></a>i <span class="op">=</span> <span class="dv">140</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> Personen stossen </span><span class="sc">{</span>anstossen(i)<span class="sc">}</span><span class="ss"> Mal an."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="zusatzmaterial-die-gausssche-summenformel" class="level3" data-number="12.3.1">
-<h3 data-number="12.3.1" class="anchored" data-anchor-id="zusatzmaterial-die-gausssche-summenformel"><span class="header-section-number">12.3.1</span> Zusatzmaterial: Die Gausssche Summenformel</h3>
+<section id="bonus-die-gausssche-summenformel" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="bonus-die-gausssche-summenformel"><span class="header-section-number">12.3.1</span> Bonus: Die Gausssche Summenformel</h3>
 <p>Der Deutsche Mathematiker Carl Friedich Gauss soll nach der Legende seinen Mathematiklehrer bei einer Strafaufgabe überlistet haben. Gemäss dieser Legende soll der Lehrer Gauss (und seinen Klassenkameraden) den Auftrag gegen haben, die Zahlen von 1 bis 100 zusammenzuzählen.</p>
 <p>Gauss soll nach kurzer Zeit mit der Lösung zum Lehrer gegangen sein. Gauss’ Lösung basierte auf folgender Formel:</p>
 <p><span class="math display">\[
 1 + 2 + 3 + ... + (n-1) + n = \sum_{k=1}^{n}k = \frac{n(n+1)}{2}
 \]</span></p>
 <p>Diese Formel kann direkt als Funktion implementiert werden. Das entsprechende Beispiel finden sie in der folgenden Zelle.</p>
-<div id="cell-11" class="cell">
+<div id="cell-10" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> gauss_direct(n : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">return</span> <span class="bu">int</span>((n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>))<span class="op">/</span><span class="dv">2</span>)</span>
 <span id="cb5-3"><a href="#cb5-3"></a></span>
@@ -502,7 +470,7 @@ Beides ist wichtig. Dass der Basisfall der einfachste Fall ist, hilft das Proble
 <p>Im Rekursionsfall steht “<span class="math inline">\(\forall n &gt; 1\)</span>”. Das <span class="math inline">\(\forall\)</span> Zeichen ist der sogenannte Allquantor und bedeutet hier “<strong>für alle</strong> <span class="math inline">\(n\)</span> grösser als <span class="math inline">\(1\)</span>.</p>
 <p>Das eine Problemlösung rekursiv implementiert wird, bedeutet, dass die Funktion sich selber aufruft.<br>
 In der folgenden Zelle wird die gausssche Summenformel gemäss obiger Darstellung rekursiv implementiert.</p>
-<div id="cell-16" class="cell">
+<div id="cell-15" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">"""Bonusaufgabe: Gauss Rekursiv"""</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="kw">def</span> gauss_recursive(n : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: rekursive Implementation des kleinen Gauss</span></span>
@@ -521,7 +489,7 @@ n! = 1 \cdot 2 \cdot ... \cdot (n-1) \cdot n = \prod\limits_{k=1}^{n} k
 \]</span></p>
 <p>Als Besonderheit muss mann wissen, dass <span class="math inline">\(0! = 1\)</span> gilt.</p>
 <p>In Python kann dies mit einer <code>for</code> Schleife berechnet werden. In der folgenden Zelle wird eine entsprechende Funktion definiert.</p>
-<div id="cell-20" class="cell">
+<div id="cell-19" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> factorial_loop(n : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">"""result wird gleich 1 gesetzt, </span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co">    weil 1 das neutrale Element der</span></span>
@@ -546,7 +514,7 @@ n! =
 \right.
 \]</span></p>
 <p>Entsprechend kann eine Funktion zur Berechnung von <span class="math inline">\(n!\)</span> auch rekursiv implementiert werden.</p>
-<div id="cell-22" class="cell">
+<div id="cell-21" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">"""Aufgabe: Fakultät"""</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="kw">def</span> factorial_recursive(n : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb8-3"><a href="#cb8-3"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: rekursive Implementation der Fakultätsfunktion</span></span>
@@ -559,7 +527,7 @@ n! =
 <section id="wörter-umdrehen" class="level2" data-number="12.5">
 <h2 data-number="12.5" class="anchored" data-anchor-id="wörter-umdrehen"><span class="header-section-number">12.5</span> Wörter umdrehen</h2>
 <p>Gesucht ist eine rekursive Funktion, welche ein Wort rückwärts schreibt (bsp. Kantonsschule nach eluhcssnotnaK).</p>
-<div id="cell-25" class="cell">
+<div id="cell-24" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">"""Aufgabe: umdrehen"""</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="kw">def</span> reverse(s : <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="cf">if</span> <span class="bu">len</span>(s) <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> <span class="bu">len</span>(s) <span class="op">==</span> <span class="dv">1</span>:</span>
@@ -569,7 +537,7 @@ n! =
 <span id="cb9-7"><a href="#cb9-7"></a>        tail <span class="op">=</span> s[<span class="dv">1</span>:]</span>
 <span id="cb9-8"><a href="#cb9-8"></a>        <span class="cf">return</span> ...</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cell-26" class="cell">
+<div id="cell-25" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(reverse(<span class="st">'Kantonsschule'</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -584,7 +552,7 @@ n! =
 </ul>
 <p>Es gibt 4 Möglichkeiten.</p>
 <p>Um die Frage zu beantworten, kann man die Frage auch aufteilen. Die grösste mögliche Münze ist 5. Also gibt es die Möglichkeiten mit einem 5 Fränkler zu bezahlen (1 Möglichkeit) oder ohne keinem 5 Fränkler zu bezahlen (3 Möglichkeiten). Diese Anzahl Möglichkeiten zusammen addiert ergibt die Möglichkeiten. Die Funktion benötigt 2 Argumente: Den zu bezahlenden Betrag und die grösste erlaubte Münze.</p>
-<div id="cell-28" class="cell">
+<div id="cell-27" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">"""</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="co">Bonusaufgabe</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="co">Studieren Sie die Funktion und füllen Sie die Lücken mit den Auslassungspunkten.</span></span>
@@ -611,12 +579,12 @@ n! =
 <span id="cb11-24"><a href="#cb11-24"></a></span>
 <span id="cb11-25"><a href="#cb11-25"></a><span class="bu">print</span>(anz_zahlmöglichkeiten(<span class="dv">5</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cell-29" class="cell">
+<div id="cell-28" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="bu">print</span>(anz_zahlmöglichkeiten(<span class="dv">500</span>))  <span class="co"># 6295434</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="co"># print(anz_zahlmöglichkeiten(700))  # 40208370</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="co"># print(anz_zahlmöglichkeiten(1000)) # 321335887</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cell-30" class="cell">
+<div id="cell-29" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">"""</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="co">Bonusaufgabe</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="co">Printen Sie die Möglichkeiten!</span></span>
@@ -634,7 +602,6 @@ n! =
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1040,8 +1007,8 @@ n! =
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../files/lektionen_hs25/251124_dict/dict.html" class="pagination-link" aria-label="Datenstrukturen: Dictionary">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenstrukturen: Dictionary</span></span>
+      <a href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" class="pagination-link" aria-label="Beurteilung von Algorithmen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

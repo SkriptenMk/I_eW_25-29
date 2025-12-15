@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jacques Mock Schindler">
 
-<title>Unterlagen für das obligatorische Fach Informatik</title>
+<title>11&nbsp; Beurteilung von Algorithmen – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,25 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./files/lektionen_hs25/250628_speicher/speicherorganisation.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4c0b3c0331f4f696fe27a2b440ce6fad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" rel="next">
+<link href="../../../files/lektionen_hs25/251124_dict/dict.html" rel="prev">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-4c0b3c0331f4f696fe27a2b440ce6fad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Unterlagen für das obligatorische Fach Informatik</span>
     </a>
   </div>
@@ -104,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-    <a href="./Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="../../../Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -113,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Willkommen</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -127,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Willkommen</span></a>
   </div>
 </li>
@@ -142,13 +171,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></span></a>
   </div>
 </li>
@@ -165,61 +194,61 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/250901_probleme/probleme.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/250901_probleme/probleme.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Problemlösung in der Informatik</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/250908_variablen/Variablen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabeln in Python</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/250915_schlaufen/for_loop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/251124_dict/dict.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251124_dict/dict.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenstrukturen: Dictionary</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/251215_rekurisv/rekursion.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
   </div>
 </li>
@@ -235,40 +264,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#willkommen" id="toc-willkommen" class="nav-link active" data-scroll-target="#willkommen">Willkommen</a>
-  <ul class="collapse">
-  <li><a href="#programm" id="toc-programm" class="nav-link" data-scroll-target="#programm">Programm</a></li>
-  <li><a href="#materielle-voraussetzungen" id="toc-materielle-voraussetzungen" class="nav-link" data-scroll-target="#materielle-voraussetzungen">Materielle Voraussetzungen</a></li>
-  <li><a href="#beurteilung" id="toc-beurteilung" class="nav-link" data-scroll-target="#beurteilung">Beurteilung</a></li>
-  </ul></li>
+  <li><a href="#bubblesort" id="toc-bubblesort" class="nav-link active" data-scroll-target="#bubblesort"><span class="header-section-number">11.1</span> Bubblesort</a></li>
+  <li><a href="#mergesort" id="toc-mergesort" class="nav-link" data-scroll-target="#mergesort"><span class="header-section-number">11.2</span> Mergesort</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Unterlagen für das obligatorische Fach Informatik</h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor:in</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jacques Mock Schindler </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">02.10.2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -278,104 +291,63 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="willkommen" class="level1 unnumbered">
-<h1 class="unnumbered">Willkommen</h1>
-<p>Hier finden Sie die Informationen für den Informatikunterricht.</p>
-<section id="programm" class="level2">
-<h2 class="anchored" data-anchor-id="programm">Programm</h2>
+<p>Die Effizienz eines Algorithmus kann grundsätzlich nach seinem Rechenaufwand oder Speicherbedarf beurteilt werden. Man spricht in diesem Zusammenhang auch von Zeit- bzw. Platzkomplexität.</p>
+<p>Wir haben uns mit dem Zählen von Vergleichen nur mit der Rechenaufwand, also mit der Zeitkomplexität beschäftigt. Die Berechnungen werden sehr stark vereinfacht.</p>
+<section id="bubblesort" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="bubblesort"><span class="header-section-number">11.1</span> Bubblesort</h2>
+<p>Wenn wir mit dem Bubblesort <span class="math inline">\(n\)</span> Objekte sortieren, haben wir <span class="math inline">\(n-1\)</span> Vergleiche im ersten Durchgang. Vereinfacht sagen wir einfach <span class="math inline">\(n\)</span> Vergleiche. Im schlimsten Fall, müssen ist das kleinste Element am falschen Ende. Bei jedem Durchgang verschieben wir das Element nur um einen Platz. Dass heisst wir müssen etwa <span class="math inline">\(n\)</span> Durchgänge machen. Die Laufzeit vom Bubblesort beträgt somit <span class="math inline">\(n \cdot n = n^2\)</span>.</p>
+</section>
+<section id="mergesort" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="mergesort"><span class="header-section-number">11.2</span> Mergesort</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Mergesort_example.png" class="img-fluid figure-img"></p>
+<figcaption>Mergesort_example</figcaption>
+</figure>
+</div>
+<p>Bevor wir uns die Laufzeit von Mergesort anschauen, müssen wir quantifizieren, wie oft wir die Listen aufteilen müssen. Haben wir 2 Elemente, separieren wir 1 Mal. Haben wir 4 Elemente separieren wir 2 mal.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Datum</th>
-<th style="text-align: left;">Thema</th>
+<th>len</th>
+<th>Teilungen</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">18.08.2025</td>
-<td style="text-align: left;">Was ist Informatik</td>
+<td>2</td>
+<td>1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">25.08.2025</td>
-<td style="text-align: left;">Vorbereiten der Arbeitsumgebung</td>
+<td>4</td>
+<td>2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">01.09.2025</td>
-<td style="text-align: left;">Problemlösung in der Informatik</td>
+<td>8</td>
+<td>3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">08.09.2025</td>
-<td style="text-align: left;">Variablen als Wegweiser zu Objekten</td>
+<td>16</td>
+<td>4</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">15.09.2025</td>
-<td style="text-align: left;">Schlaufen</td>
+<td>32</td>
+<td>5</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">22.09.2025</td>
-<td style="text-align: left;">Bedingungen</td>
+<td>64</td>
+<td>6</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">20.10.2025</td>
-<td style="text-align: left;">Anwendungsübung</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">27.10.2025</td>
-<td style="text-align: left;">Individuelle Prüfungsvorbereitung</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">03.11.2025</td>
-<td style="text-align: left;">Test</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">10.11.2025</td>
-<td style="text-align: left;">Datenstrukturen</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">17.11.2025</td>
-<td style="text-align: left;">Datenstrukturen</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">24.11.2025</td>
-<td style="text-align: left;">Algorithmen</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">01.12.2025</td>
-<td style="text-align: left;">Algorithmen</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">08.12.2025</td>
-<td style="text-align: left;">Wiederholung ohne Schleife (Rekursion)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">15.12.2025</td>
-<td style="text-align: left;">Anwendungsübungen</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">05.01.2026</td>
-<td style="text-align: left;">Individuelle Prüfungsvorbereitung</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">12.01.2026</td>
-<td style="text-align: left;">Test</td>
+<td>1024</td>
+<td>10</td>
 </tr>
 </tbody>
 </table>
-<p>Das Programm widerspiegelt den aktuellen Stand der Planung. Es ist im Verlauf des Semesters mit Änderungen zu rechnen.</p>
-</section>
-<section id="materielle-voraussetzungen" class="level2">
-<h2 class="anchored" data-anchor-id="materielle-voraussetzungen">Materielle Voraussetzungen</h2>
-<p>Für den Informatikunterricht ist ein Laptop erforderlich (mit einem iPad können Sie die im Unterricht gestellten Aufgaben nicht lösen). Für Ihren Laptop brachen Sie zur Installation der erforderlichen Software Administratorenrechte.<br>
-Ausserdem müssen Sie sicherstellen, dass Ihr Akku zu Beginn des Unterrichts einen Ladestand aufweist, der eine Doppelstunde durchhält.</p>
-</section>
-<section id="beurteilung" class="level2">
-<h2 class="anchored" data-anchor-id="beurteilung">Beurteilung</h2>
-<p>Pro Semester sind zwei schriftliche Prüfungen vorgesehen. Ausserdem wird die mündliche Beteiligung benotet. Als mündliche Beteiligung gilt insbesondere auch das Stellen von Fragen.<br>
-Die Zeugnisnote berechnet sich als gewichteter Durchschnitt aus den beiden schriftlichen Prüfungen und der Note für die mündliche Beteiligung. Die Durchschnittsnote der beiden schriftlichen Prüfungen wird mit 90%, die Note für die mündliche Beteiligung mit 10% gewichtet.</p>
-<p>Falls jemand eine persönliche Besprechung wünscht, <a href="https://calendar.app.google/XdTippvkrbHJct3Y9" target="_blank"> kann sich hier für eine Sprechstunde anmelden (Rent a Mock)</a>.</p>
+<p>Diese Funktion, welche der Länge zur Anzahl Teilungen zuordnet, nennt man <em>Logarithmus zur Basis 2</em>. Man notiert sie wie folgt: <span class="math inline">\(\log_2(n)\)</span></p>
+<p>Auf jeder der <span class="math inline">\(\log_2(n)\)</span> Ebene machen wir etwa <span class="math inline">\(n\)</span> Vergleiche. Die Laufzeit vom Mergesort beträgt somit <span class="math inline">\(n \cdot \log_2(n)\)</span>.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -781,10 +753,13 @@ Die Zeugnisnote berechnet sich als gewichteter Durchschnitt aus den beiden schri
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../../files/lektionen_hs25/251124_dict/dict.html" class="pagination-link" aria-label="Datenstrukturen: Dictionary">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenstrukturen: Dictionary</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="pagination-link" aria-label="Speicherorganisation">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" class="pagination-link" aria-label="Divide and Conquer">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
