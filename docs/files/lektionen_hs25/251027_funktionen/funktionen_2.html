@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,15 +70,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ac1a48248070c8bfbae4244efd7728e4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-f428fda71a3abb5b1b9c21151da8fd61.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-65d2522f7b4e111cc464bd652fbddd7b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-89551a844e4a8117ec5880afddfcf8f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -121,7 +120,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -288,6 +287,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/260105_uebungen/uebungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung 2</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -354,7 +359,7 @@ window.Quarto = {
 <p>Das folgende Code Snippet demonstriert die Belegung von Variabeln. Insbesondere soll es auch zeigen, was geschieht, wenn die Variabeln in Operationen einbezogen werden.</p>
 <p>Überlegen Sie sich bevor Sie das Snippet ausführen zuerst Anweisung für Anweisung, welche Werte in den Variabeln <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> und <span class="math inline">\(c\)</span> nach Ausführung der jeweiligen Anweisung gespeichert sind. Notieren Sie sich die Werte auf ein Blatt Papier. Anschliessend führen Sie die Zelle zur Kontrolle Ihrer Überlegungen aus.</p>
 <div id="285141ab" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Anfangswerte zuweisen</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Anfangswerte zuweisen</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>b <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a>c <span class="op">=</span> a</span>
@@ -370,7 +375,7 @@ window.Quarto = {
 <span id="cb1-14"><a href="#cb1-14"></a></span>
 <span id="cb1-15"><a href="#cb1-15"></a><span class="co"># Wert von c ändern</span></span>
 <span id="cb1-16"><a href="#cb1-16"></a>c <span class="op">=</span> b <span class="op">-</span> a</span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="bu">print</span>(<span class="ss">f"Nach c = b - a: a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">,  b = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">,  c = </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="bu">print</span>(<span class="ss">f"Nach c = b - a: a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">,  b = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">,  c = </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="funktionen" class="level2" data-number="8.2">
@@ -378,7 +383,7 @@ window.Quarto = {
 <p>Die Definiton einer neuen Funktion erweitert den Umfang der in Python zur Verfügung stehenden Befehle. Entsprechend ist es möglich, einmal definierte Funktionen in neuen Funktionen zu verwenden.</p>
 <p>Unten finden Sie ein einfaches Beispiel für diese Vorgehensweise.</p>
 <div id="581b09d9" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> erfolgsberechnung(ertrag: <span class="bu">float</span>, aufwand: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> erfolgsberechnung(ertrag: <span class="bu">float</span>, aufwand: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="co">"""Berechnet den wirtschaftlichen Erfolg als Differenz von Ertrag</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co">    und Aufwand. </span></span>
 <span id="cb2-4"><a href="#cb2-4"></a></span>
@@ -415,7 +420,7 @@ window.Quarto = {
 <span id="cb2-35"><a href="#cb2-35"></a>    erfolg <span class="op">=</span> erfolgsberechnung(ertrag, aufwand)</span>
 <span id="cb2-36"><a href="#cb2-36"></a>    durchschnittskapital <span class="op">=</span> (anfangskapital <span class="op">+</span> schlusskapital) <span class="op">/</span> <span class="dv">2</span></span>
 <span id="cb2-37"><a href="#cb2-37"></a>    rendite <span class="op">=</span> erfolg <span class="op">/</span> durchschnittskapital <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb2-38"><a href="#cb2-38"></a>    <span class="cf">return</span> rendite</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-38"><a href="#cb2-38"></a>    <span class="cf">return</span> rendite</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="berechnung-des-volumens-eines-zylinders" class="level3" data-number="8.2.1">
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="berechnung-des-volumens-eines-zylinders"><span class="header-section-number">8.2.1</span> Berechnung des Volumens eines Zylinders</h3>
@@ -433,7 +438,7 @@ v = \pi \cdot r^2 \cdot h
 <p>Zerlegen Sie dazu die Berechnung in zwei Teile. Definieren Sie zuerst eine Funkiton für die Berechnung der Bodenfläche und verwenden Sie diese anschliessend in einer Funktion zur Berechnung des Volumens.</p>
 <p>Für die Kreiszahl <span class="math inline">\(\pi\)</span> können Sie das Modul <code>math</code> importieren. Dies stellt Ihnen mit dem Befehl <code>math.pi</code> <span class="math inline">\(\pi\)</span> in einer grossen genauigkeit zur Verfügung.</p>
 <div id="e01f6464" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie hier Ihre Funktionen</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie hier Ihre Funktionen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="berechnung-der-kinetischen-energie-eines-körpers" class="level3" data-number="8.2.2">
@@ -444,7 +449,7 @@ E_{kin} = \frac{1}{2} \cdot m \cdot v^2
 \]</span></p>
 <p>wobei <span class="math inline">\(m\)</span> für die Masse des Körpers und <span class="math inline">\(v\)</span> für dessen Geschwindigkeit steht. Implementieren Sie eine Funktion für die Berechnung der kinetischen Energie eines Körpers. Beachten Sie dabei, dass experimentell lediglich Daten über die Masse des Körpers, die zurückgelegte Strecke des Körpers sowie die dafür erforderliche Zeit zugänglich sind.</p>
 <div id="f72f346f" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie hier Ihre Funktionen</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie hier Ihre Funktionen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -453,7 +458,7 @@ E_{kin} = \frac{1}{2} \cdot m \cdot v^2
 <section id="berechnung-des-volumnens-eines-zylinders" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="berechnung-des-volumnens-eines-zylinders"><span class="header-section-number">8.3.1</span> Berechnung des Volumnens eines Zylinders</h3>
 <div id="24b852bd" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> math</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> math</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="kw">def</span> kreisflaeche(r : <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb5-4"><a href="#cb5-4"></a>    area <span class="op">=</span> math.pi <span class="op">*</span> r <span class="op">**</span> <span class="dv">2</span></span>
@@ -462,13 +467,13 @@ E_{kin} = \frac{1}{2} \cdot m \cdot v^2
 <span id="cb5-7"><a href="#cb5-7"></a><span class="kw">def</span> zylindervolumen(r : <span class="bu">float</span>, h : <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb5-8"><a href="#cb5-8"></a>    bodenflaeche <span class="op">=</span> kreisflaeche(r)</span>
 <span id="cb5-9"><a href="#cb5-9"></a>    volumen <span class="op">=</span> bodenflaeche <span class="op">*</span> h</span>
-<span id="cb5-10"><a href="#cb5-10"></a>    <span class="cf">return</span> volumen</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-10"><a href="#cb5-10"></a>    <span class="cf">return</span> volumen</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="berechnung-der-kinetischen-energie-eines-körpers-1" class="level3" data-number="8.3.2">
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="berechnung-der-kinetischen-energie-eines-körpers-1"><span class="header-section-number">8.3.2</span> Berechnung der kinetischen Energie eines Körpers</h3>
 <div id="be316ca2" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> geschwindigkeit(s: <span class="bu">float</span>, t: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> geschwindigkeit(s: <span class="bu">float</span>, t: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    <span class="co">"""Berechnet die Geschwindigkeit v aus zurückgelegter Strecke und</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co">    Zeit. </span></span>
 <span id="cb6-4"><a href="#cb6-4"></a></span>
@@ -501,7 +506,7 @@ E_{kin} = \frac{1}{2} \cdot m \cdot v^2
 <span id="cb6-31"><a href="#cb6-31"></a><span class="co">    """</span></span>
 <span id="cb6-32"><a href="#cb6-32"></a>    v <span class="op">=</span> geschwindigkeit(s, t)</span>
 <span id="cb6-33"><a href="#cb6-33"></a>    e_kin <span class="op">=</span> (m <span class="op">*</span> v <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb6-34"><a href="#cb6-34"></a>    <span class="cf">return</span> e_kin</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-34"><a href="#cb6-34"></a>    <span class="cf">return</span> e_kin</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -560,14 +565,13 @@ E_{kin} = \frac{1}{2} \cdot m \cdot v^2
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

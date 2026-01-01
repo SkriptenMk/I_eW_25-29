@@ -29,7 +29,7 @@ book:
         - files/lektionen_hs25/251124_dict/dict.ipynb
         - files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.ipynb
         - files/lektionen_hs25/251215_rekurisv/rekursion.ipynb
-        - files/lektionen_hs25/260105_uebungen.ipynb
+        - files/lektionen_hs25/260105_uebungen/uebungen.ipynb
 
 
   downloads: [pdf]
