@@ -1,53 +1,40 @@
-# Willkommen {.unnumbered}
+# Welcome {.unnumbered}
 
-Hier finden Sie die Informationen für den Informatikunterricht.
+Here you will find information about computer science lessons.
 
-## Programm
+## Schedule
 
-| Datum | Thema |
-| :--- | :--- |
-| 16.02.2026 | Datenrepräsentation I: Zahlensysteme (Binär, Dezimal, Hexadezimal) |
-| 02.03.2026 | Datenrepräsentation II: Zeichencodierung (ASCII, Unicode) |
-| 09.03.2026 | Datenrepräsentation III: Bilder (RGB, Pixel, Auflösung) |
-| 16.03.2026 | Algorithmusbegriff: Definition, Eigenschaften, Notation |
-| 23.03.2026 | Algorithmusdarstellung: Pseudocode und Struktogramme |
-| 30.03.2026 | Flussdiagramme und Zustandsdiagramme |
-| 13.04.2026 | TEST 1: Datenrepräsentation & Algorithmusdarstellung |
-| 04.05.2026 | Funktionen I: Wiederholung und Vertiefung (Parameter, Return) |
-| 11.05.2026 | Funktionen II: Scope und Namensräume (lokal vs. global) |
-| 18.05.2026 | Funktionen III: Modularisierung und Code-Organisation |
-| 01.06.2026 | Funktionen IV: Rekursive Funktionen vertiefen |
-| 08.06.2026 | Prüfungsvorbereitung und Übungen Unterprogramme |
-| 15.06.2026 | TEST 2: Unterprogramme (Funktionen, Scope, Modularisierung) |
-| 22.06.2026 | Mini-Projekt I: Funktionsbasierte Anwendung entwickeln |
-| 29.06.2026 | Mini-Projekt II: Fertigstellung und Präsentation |
-| 06.07.2026 | Reflexion, Ausblick 3. Semester, Feedbackrunde |
+| Date | Topic |
+| :---- | :---- |
+| 16/02/2026 | Data Representation I: Number Systems (Binary, Decimal, Hexadecimal) |
+| 02/03/2026 | Data Representation II: Character Encoding (ASCII, Unicode) |
+| 09/03/2026 | Data Representation III: Images (RGB, Pixels, Resolution) |
+| 16/03/2026 | Concept of Algorithms: Definition, Properties, Notation |
+| 23/03/2026 | Algorithm Representation: Pseudocode and Nassi-Shneiderman Diagrams |
+| 30/03/2026 | Flowcharts and State Diagrams |
+| 13/04/2026 | TEST 1: Data Representation & Algorithm Representation |
+| 04/05/2026 | Functions I: Revision and Consolidation (Parameters, Return) |
+| 11/05/2026 | Functions II: Scope and Namespaces (local vs. global) |
+| 18/05/2026 | Functions III: Modularisation and Code Organisation |
+| 01/06/2026 | Functions IV: Advanced Recursive Functions |
+| 08/06/2026 | Exam Preparation and Subroutine Exercises |
+| 15/06/2026 | TEST 2: Subroutines (Functions, Scope, Modularisation) |
+| 22/06/2026 | Mini-Project I: Developing a Function-Based Application |
+| 29/06/2026 | Mini-Project II: Completion and Presentation |
+| 06/07/2026 | Reflection, Outlook for 3rd Semester, Feedback Session |
 
+The programme reflects the current state of planning. Changes are to be expected throughout the semester.
 
-Das Programm widerspiegelt den aktuellen Stand der Planung. Es ist im
-Verlauf des Semesters mit Änderungen zu rechnen.
+## Hardware and Software Requirements
 
-## Materielle Voraussetzungen
+A laptop is required for the computer science lessons (you will not be able to solve the tasks set in class using an iPad). You will need administrator rights on your laptop to install the required software.
 
-Für den Informatikunterricht ist ein Laptop erforderlich (mit einem iPad
-können Sie die im Unterricht gestellten Aufgaben nicht lösen). Für Ihren
-Laptop brachen Sie zur Installation der erforderlichen Software
-Administratorenrechte.  
-Ausserdem müssen Sie sicherstellen, dass Ihr Akku zu Beginn des
-Unterrichts einen Ladestand aufweist, der eine Doppelstunde durchhält.
+Furthermore, you must ensure that your battery is sufficiently charged at the start of the lesson to last for a double period.
 
-## Beurteilung
+## Assessment
 
-Pro Semester sind zwei schriftliche Prüfungen vorgesehen. Ausserdem wird
-die mündliche Beteiligung benotet. Als mündliche Beteiligung gilt
-insbesondere auch das Stellen von Fragen.  
-Die
-Zeugnisnote berechnet sich als gewichteter Durchschnitt aus den beiden
-schriftlichen Prüfungen und der Note für die mündliche Beteiligung. Die
-Durchschnittsnote der beiden schriftlichen Prüfungen wird mit 90%, die
-Note für die mündliche Beteiligung mit 10% gewichtet.
+Two written tests are planned per semester. In addition, oral participation will be graded. Asking questions is specifically considered as part of oral participation.
 
+The final grade is calculated as a weighted average of the two written tests and the grade for oral participation. The average grade of the two written tests is weighted at 90%, while the grade for oral participation is weighted at 10%.
 
-Falls jemand eine persönliche Besprechung wünscht,
-<a href="https://calendar.app.google/UynTL5ttVPHhK1Hc8" target="_blank">
-kann sich hier für eine Sprechstunde anmelden (Rent a Mock)</a>.
+If anyone would like a personal consultation, <a href="https://calendar.app.google/UynTL5ttVPHhK1Hc8" target="_blank"> you can sign up for a meeting here (Rent a Mock)</a>.
