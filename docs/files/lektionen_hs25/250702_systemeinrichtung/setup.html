@@ -74,10 +74,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-bcc1050feb71b0f23048e092d85cc2ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-67f834bce3b14d3b76b9c4a6684feb25.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,6 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -168,6 +172,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://github.com/SkriptenMk/I_eW_25-29" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
     <a href="../../../Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -277,13 +282,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
   </div>
 </li>
@@ -312,7 +317,7 @@ window.Quarto = {
   <li><a href="#öffnen-bestehender-jupyter-notebooks" id="toc-öffnen-bestehender-jupyter-notebooks" class="nav-link" data-scroll-target="#öffnen-bestehender-jupyter-notebooks"><span class="header-section-number">2.5</span> Öffnen bestehender Jupyter Notebooks</a></li>
   <li><a href="#häufige-fehlermeldungen" id="toc-häufige-fehlermeldungen" class="nav-link" data-scroll-target="#häufige-fehlermeldungen"><span class="header-section-number">2.6</span> Häufige Fehlermeldungen</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/edit/main/files/lektionen_hs25/250702_systemeinrichtung/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -357,7 +362,7 @@ Im folgenden findet sich eine Anleitung für die Installation der für den Unter
 <section id="installation-von-python" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="installation-von-python"><span class="header-section-number">2.2</span> Installation von Python</h2>
 <p>Dieser Abschnitt führt Sie Schritt für Schritt durch die Installation von Python auf einem Windows-Rechner.</p>
-<div class="callout callout-style-default callout-warning callout-titled" title="Microsoft Store Falle">
+<div class="callout callout-style-simple callout-warning callout-titled" title="Microsoft Store Falle">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -374,7 +379,7 @@ Microsoft Store Falle
 <ol type="1">
 <li><p>Laden Sie die neueste Version von Python von der offiziellen Website herunter: <a href="https://www.python.org/downloads/" target="blank">python.org</a>.</p></li>
 <li><p>Führen Sie das heruntergeladene Installationsprogramm durch Doppelklick auf die Datei aus. Stellen Sie sicher, dass Sie die Option “Add Python to PATH” aktivieren, bevor Sie auf “Install Now” klicken.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Die 'PATH'-Umgebungsvariable">
+<div class="callout callout-style-simple callout-tip callout-titled" title="Die 'PATH'-Umgebungsvariable">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -396,7 +401,7 @@ Die ‘PATH’-Umgebungsvariable
 <p>Es hat sich eingebürgert, dass das erste Programm, das ausgeführt wird, ein Programm ist, das den Text “Hello World” auf dem Bildschirm ausgibt. Um dieser Tradition zu folgen, führen Sie die folgenden Schritte aus:</p>
 <ol type="1">
 <li><p>Öffnen Sie ein Terminal (Windows-Taste + R, dann <code>cmd</code> eingeben).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Das Terminal">
+<div class="callout callout-style-simple callout-tip callout-titled" title="Das Terminal">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -412,7 +417,7 @@ Das Terminal
 <li><p>Geben Sie den Befehl <code>python</code> ein, um die Python-Shell zu starten. Die Python Shell sollte ungefähr so, wie das folgende Bild aussehen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="python_shell.png" class="img-fluid figure-img"></p>
+<p><a href="python_shell.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Python Shell"><img src="python_shell.png" class="img-fluid figure-img" alt="Python Shell"></a></p>
 <figcaption>Python Shell</figcaption>
 </figure>
 </div></li>
@@ -421,7 +426,7 @@ Das Terminal
 <p>Das Resultat sollte wie das folgende Bild aussehen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="hello_world.png" class="img-fluid figure-img"></p>
+<p><a href="hello_world.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Python Shell"><img src="hello_world.png" class="img-fluid figure-img" alt="Python Shell"></a></p>
 <figcaption>Python Shell</figcaption>
 </figure>
 </div></li>
@@ -431,7 +436,7 @@ Das Terminal
 <section id="arbeitsumgebung" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="arbeitsumgebung"><span class="header-section-number">2.4</span> Arbeitsumgebung</h2>
 <p>Im Unterricht wird nicht direkt in der Python-Shell gearbeitet, sondern mit sogenannten Jupyter Notebooks. Jupyter Notebooks ermöglichen es, in der gleichen Datei sowohl Code (Programm Teile) als auch formatierten Text (in <a href="https://www.markdownguide.org/" target="blank">Markdown</a>) zu verarbeiten. Eine Jupyter Notebook Datei hat die Endung <code>.ipynb</code>. Vom Jupyter Notebook unterschieden werden muss die Arbeitsoberfläche in welcher die Jupyter Notebooks bearbeitet werden. Diese Oberfläche nennt sich JupyterLab und läuft in einem Webbrowser.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Das Jupyter Ökosystem">
+<div class="callout callout-style-simple callout-tip callout-titled" title="Das Jupyter Ökosystem">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -459,7 +464,7 @@ Das Jupyter Ökosystem
 <p>Ihr Terminal sieht nach dem Erstellen und Aktivieren der Python Virtual Environment ungefähr so aus:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="venv.png" class="img-fluid figure-img"></p>
+<p><a href="venv.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Aktivierte Python Virtual Environment"><img src="venv.png" class="img-fluid figure-img" alt="Aktivierte Python Virtual Environment"></a></p>
 <figcaption>Aktivierte Python Virtual Environment</figcaption>
 </figure>
 </div>
@@ -470,7 +475,7 @@ Das Jupyter Ökosystem
 <p>Während der Installation werden die benötigten Pakete (Ergänzungen zur bestehenden Python Installation) heruntergeladen und in der Python Virtual Environment gespeichert. Das Terminal sieht dabei ungefähr so aus:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="installation.png" class="img-fluid figure-img"></p>
+<p><a href="installation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Terminal während der Jupyter Installation"><img src="installation.png" class="img-fluid figure-img" alt="Terminal während der Jupyter Installation"></a></p>
 <figcaption>Terminal während der Jupyter Installation</figcaption>
 </figure>
 </div>
@@ -480,7 +485,7 @@ Das Jupyter Ökosystem
 <p>Dies startet den Jupyter Notebook Server und öffnet automatisch ein Browserfenster mit der Jupyter Notebook Oberfläche.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="server.png" class="img-fluid figure-img"></p>
+<p><a href="server.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Startseite Jupyter Lab"><img src="server.png" class="img-fluid figure-img" alt="Startseite Jupyter Lab"></a></p>
 <figcaption>Startseite Jupyter Lab</figcaption>
 </figure>
 </div></li>
@@ -490,7 +495,7 @@ Das Jupyter Ökosystem
 <p>Das Resultat sollte wie das folgende Bild aussehen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="hello_world_ipynb.png" class="img-fluid figure-img"></p>
+<p><a href="hello_world_ipynb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Hello World in einem Jupyter Notebook"><img src="hello_world_ipynb.png" class="img-fluid figure-img" alt="Hello World in einem Jupyter Notebook"></a></p>
 <figcaption>Hello World in einem Jupyter Notebook</figcaption>
 </figure>
 </div>
@@ -498,7 +503,7 @@ Das Jupyter Ökosystem
 Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Dazu klicken Sie auf den Button “Code” in der Werkzeugleiste und wählen im Dropdown-Menü die Option “Markdown” aus.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="cell_switch.png" class="img-fluid figure-img"></p>
+<p><a href="cell_switch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Umstellen der Zelle auf Markdown"><img src="cell_switch.png" class="img-fluid figure-img" alt="Umstellen der Zelle auf Markdown"></a></p>
 <figcaption>Umstellen der Zelle auf Markdown</figcaption>
 </figure>
 </div>
@@ -1002,8 +1007,41 @@ Für die Darstellung von Text müssen Sie die Zelle als Text-Zelle markieren. Da
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/edit/main/files/lektionen_hs25/250702_systemeinrichtung/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

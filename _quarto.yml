@@ -7,10 +7,16 @@ project:
 
 book:
   title: "Unterlagen für das obligatorische Fach Informatik"
-  author: "Jacques Mock Schindler"
-  date: 2025-10-02
-  date-format: DD.MM.YYYY
-
+  subtitle: "Gymnasium – Einführung in die Programmierung mit Python"
+  author: 
+    - name: "Jacques Mock Schindler"
+  date: today
+  date-format: "D. MMMM YYYY"
+  
+  search: true
+  repo-url: https://github.com/SkriptenMk/I_eW_25-29
+  repo-actions: [edit, issue]
+  
   chapters:
     - index.qmd
     - part: "Anleitungen"
@@ -27,12 +33,12 @@ book:
         - files/lektionen_hs25/251027_funktionen/funktionen_2.ipynb
         - files/lektionen_hs25/251110_listen/listen.ipynb
         - files/lektionen_hs25/251124_dict/dict.ipynb
-        - files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.ipynb
-        - files/lektionen_hs25/251215_rekurisv/rekursion.ipynb
+        - files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.ipynb
+        - files/lektionen_hs25/251215_rekursiv/rekursion.ipynb
         - files/lektionen_hs25/260105_uebungen/uebungen.ipynb
-
-
+  
   downloads: [pdf]
+  
   navbar: 
     right: 
       - icon: github
@@ -43,10 +49,34 @@ book:
         href: "https://github.com/SkriptenMk/I_eW_25-29/issues"
         aria-label: "Fehler melden"
         target: "_blank"
-    search: true
 
+# ============================================
+# SPRACHEINSTELLUNGEN
+# ============================================
+# Standardsprache Deutsch (kann pro Datei überschrieben werden)
 lang: de
 
+# ============================================
+# CALLOUT-BLÖCKE
+# ============================================
+callout-appearance: simple
+callout-icon: true
+
+# ============================================
+# JUPYTER/PYTHON AUSFÜHRUNG
+# ============================================
+execute:
+  echo: true
+  warning: false
+  error: false
+  freeze: auto
+
+# Code-Highlighting
+highlight-style: github
+
+# ============================================
+# HTML-FORMAT
+# ============================================
 format:
   html:
     theme:
@@ -54,26 +84,81 @@ format:
       - brand
       - custom.scss
     code-download: true
-    toc: true
-    # css: style.css
+    code-copy: true
+    code-tools: false
+    code-fold: false
     code-line-numbers: true
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    smooth-scroll: true
+    
+    # Mermaid-Diagramme (UML, ER, Flowcharts)
+    mermaid:
+      theme: default
+    
+    # Lightbox für Bilder
+    lightbox: auto
+
+  # ============================================
+  # PDF-FORMAT
+  # ============================================
   pdf:
-    # Alle PDF-Einstellungen sind jetzt hier zentralisiert
     documentclass: scrreprt
-    papersize: letter
+    papersize: a4
+    fontsize: 11pt
     classoption: 
       - "DIV=11"
+      - "parskip=half"
+      - "headings=normal"
+    
     number-sections: true
     toc: true
+    toc-depth: 2
     top-level-division: chapter
-    pdf-engine: xelatex
+    
+    pdf-engine: lualatex
+    
     crossref:
       chapters: true
-    header-includes:
-      - "\\KOMAoption{captions}{tableheading}"
+    
+    # Schriftarten
+    mainfont: "Latin Modern Roman"
+    sansfont: "Latin Modern Sans"
+    monofont: "DejaVu Sans Mono"
+    monofontoptions:
+      - Scale=0.85
+    
+    # LaTeX Header-Includes
+    header-includes: |
+      % KOMA-Script Optionen
+      \KOMAoption{captions}{tableheading}
+      
+      % Grundlegende Pakete
+      \usepackage{booktabs}
+      \usepackage{longtable}
+      \usepackage{xcolor}
+      \usepackage{float}
+          
+      % Struktogramme (Nassi-Shneiderman)
+      \usepackage{struktex}
+      
+      % Algorithmen (deutsche Bezeichnungen)
+      \usepackage{algorithm2e}
+      \SetAlgorithmName{Algorithmus}{algorithmus}{Algorithmenverzeichnis}
+      \SetKwInput{KwEingabe}{Eingabe}
+      \SetKwInput{KwAusgabe}{Ausgabe}
+      
+      % TikZ für Diagramme
+      \usepackage{tikz}
+      \usetikzlibrary{shapes, arrows, positioning, calc, fit, backgrounds}
+      \usetikzlibrary{er, shapes.geometric}
+    
     block-headings: true
     code-line-numbers: true
-    break-at-whitespace: true
-
-
-
+    code-block-bg: "#f8f8f8"
+    code-block-border-left: false
+    
+    colorlinks: true
+    linkcolor: "blue!70!black"
+    urlcolor: "blue!70!black"
