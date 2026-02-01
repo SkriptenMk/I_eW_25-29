@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,17 +66,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" rel="prev">
+<link href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-f428fda71a3abb5b1b9c21151da8fd61.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2a367172f4fe7d9182ebf8e09f85cb4e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-89551a844e4a8117ec5880afddfcf8f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-f02c24030b63f78f10b0b0c343b59f21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,6 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 </head>
@@ -138,6 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://github.com/SkriptenMk/I_eW_25-29" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
     <a href="../../../Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -247,13 +250,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
   </div>
 </li>
@@ -295,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#rekursion-1" id="toc-rekursion-1" class="nav-link" data-scroll-target="#rekursion-1"><span class="header-section-number">13.3.6</span> Rekursion</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/260105_uebungen/uebungen.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -351,45 +354,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="13.2.1" class="anchored" data-anchor-id="listen-erstellen"><span class="header-section-number">13.2.1</span> Listen erstellen</h3>
 <p>Das Fähnlein Fieselschweif besteht aus Donald Ducks Neffen Tick, Trick und Track. Erstellen Sie eine Liste <code>fieselschweif</code> mit den drei Mitgliedern.</p>
 <div id="9d7764f8" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Liste erstellen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Liste erstellen</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="listen-bearbeiten" class="level3" data-number="13.2.2">
 <h3 data-number="13.2.2" class="anchored" data-anchor-id="listen-bearbeiten"><span class="header-section-number">13.2.2</span> Listen bearbeiten</h3>
 <p>Ergänzen Sie die vorher erstellte Liste ‘fieselschweif’ um den Namen <em>Dagobert</em>.</p>
 <div id="940c40bb" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: fieselschweif ergänzen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: fieselschweif ergänzen</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Dagobert gefällt es nicht im Fähnlein Fieselschweif. Entfernen Sie Ihn wieder und lassen Sie Ihren Code den Text <em>Dagobert hat das Fähnlein Fieselschweif wieder verlassen.</em> ausgeben. Dagobert soll dabei als Variabel <code>quitter</code> in den Code eingefügt werden.</p>
 <div id="e7920dcd" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die obige Vorgabe</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die obige Vorgabe</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="über-listen-iterieren" class="level3" data-number="13.2.3">
 <h3 data-number="13.2.3" class="anchored" data-anchor-id="über-listen-iterieren"><span class="header-section-number">13.2.3</span> Über Listen iterieren</h3>
 <p>Gegeben sei eine Liste <code>numbers</code>. Die Liste beinhaltet die natürlichen Zahlen von 1 bis 10 (<code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code>). Erstellen Sie mit Hilfe einer <code>for</code> schleife basierend auf der Liste <code>numbers</code> eine neue Liste <code>triplet</code> welche aus den Elementen der Dreierreihe des kleinen Einmaleins besteht.</p>
 <div id="e7b88f83" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die obige Vorgabe</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die obige Vorgabe</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="python-dictionary-erstellen" class="level3" data-number="13.2.4">
 <h3 data-number="13.2.4" class="anchored" data-anchor-id="python-dictionary-erstellen"><span class="header-section-number">13.2.4</span> Python Dictionary erstellen</h3>
 <p>Erstellen Sie ein Python Dictionary <code>mk</code>, welches die Geschäftsadresse von Jacques Mock Schindler enthält. Die ersten zwei Einträge erhalten Sie als Vorlage.</p>
 <div id="b570f463" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>mk <span class="op">=</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>mk <span class="op">=</span> {</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="st">'name'</span>: <span class="st">'Mock Schindler'</span>,</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    <span class="st">'first_name'</span>: <span class="st">'Jacques'</span>,</span>
 <span id="cb5-4"><a href="#cb5-4"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: kompletieren Sie das Dictionary</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5"></a>}</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="über-ein-python-dictionary-iterieren" class="level3" data-number="13.2.5">
 <h3 data-number="13.2.5" class="anchored" data-anchor-id="über-ein-python-dictionary-iterieren"><span class="header-section-number">13.2.5</span> Über ein Python Dictionary iterieren</h3>
 <p>Geben Sie den Inhalt des Dictionary <code>mk</code> mit Hilfe einer <code>for</code> Schleife aus. Dabei soll die Ausgabe jedes Eintrags auf einer neuen Zeile erfolgen.</p>
 <div id="9d5bd30e" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie obige Vorgabe</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie obige Vorgabe</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="rekursion" class="level3" data-number="13.2.6">
@@ -398,7 +401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Hinweis</em>: Die einzelnen Zeichen eines Strings können wie die Elemente einer Liste mit Hilfe eines Index abgerufen werden. Das erste Zeichen eines Strings hat dabei den Index 0.</p>
 <p>Damit Sie einfacher prüfen können, ob Ihre Funktion korrekt arbeitet, übergeben Sie ihr ausschliesslich Strings in Kleinbuchstaben.</p>
 <div id="18e1eff4" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die obige Vorgabe</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die obige Vorgabe</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -408,52 +411,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="13.3.1" class="anchored" data-anchor-id="listen-erstellen-1"><span class="header-section-number">13.3.1</span> Listen erstellen</h3>
 <p>Das Fähnlein Fieselschweif besteht aus Donald Ducks Neffen Tick, Trick und Track. Erstellen Sie eine Liste <code>fieselschweif</code> mit den drei Mitgliedern.</p>
 <div id="5fc40eb2" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>fieselschweif <span class="op">=</span> [<span class="st">'Tick'</span>, <span class="st">'Trick'</span>, <span class="st">'Track'</span>]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>fieselschweif <span class="op">=</span> [<span class="st">'Tick'</span>, <span class="st">'Trick'</span>, <span class="st">'Track'</span>]</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="listen-bearbeiten-1" class="level3" data-number="13.3.2">
 <h3 data-number="13.3.2" class="anchored" data-anchor-id="listen-bearbeiten-1"><span class="header-section-number">13.3.2</span> Listen bearbeiten</h3>
 <p>Ergänzen Sie die vorher erstellte Liste ‘fieselschweif’ um den Namen <em>Dagobert</em>.</p>
 <div id="78808d63" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>fieselschweif.append(<span class="st">'Dagobert'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>fieselschweif.append(<span class="st">'Dagobert'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Dagobert gefällt es nicht im Fähnlein Fieselschweif. Entfernen Sie Ihn wieder und lassen Sie Ihren Code den Text <em>Dagobert hat das Fähnlein Fieselschweif wieder verlassen.</em> ausgeben. Dagobert soll dabei als Variabel <code>quitter</code> in den Code eingefügt werden.</p>
 <div id="902df10f" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>quitter <span class="op">=</span> fieselschweif.pop()</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>quitter<span class="sc">}</span><span class="ss"> hat das Fähnlein Fieslschweif wieder verlassen.'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>quitter <span class="op">=</span> fieselschweif.pop()</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>quitter<span class="sc">}</span><span class="ss"> hat das Fähnlein Fieslschweif wieder verlassen.'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="über-listen-iterieren-1" class="level3" data-number="13.3.3">
 <h3 data-number="13.3.3" class="anchored" data-anchor-id="über-listen-iterieren-1"><span class="header-section-number">13.3.3</span> Über Listen iterieren</h3>
 <p>Gegeben sei eine Liste <code>numbers</code>. Die Liste beinhaltet die natürlichen Zahlen von 1 bis 10 (<code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code>). Erstellen Sie mit Hilfe einer <code>for</code> schleife basierend auf der Liste <code>numbers</code> eine neue Liste <code>triplet</code> welche aus den Elementen der Dreierreihe des kleinen Einmaleins besteht.</p>
 <div id="092459dc" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
 <span id="cb11-2"><a href="#cb11-2"></a></span>
 <span id="cb11-3"><a href="#cb11-3"></a>triplet <span class="op">=</span> []</span>
 <span id="cb11-4"><a href="#cb11-4"></a></span>
 <span id="cb11-5"><a href="#cb11-5"></a><span class="cf">for</span> number <span class="kw">in</span> numbers:</span>
-<span id="cb11-6"><a href="#cb11-6"></a>    triplet.append(number <span class="op">*</span> <span class="dv">3</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a href="#cb11-6"></a>    triplet.append(number <span class="op">*</span> <span class="dv">3</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="python-dictionary-erstellen-1" class="level3" data-number="13.3.4">
 <h3 data-number="13.3.4" class="anchored" data-anchor-id="python-dictionary-erstellen-1"><span class="header-section-number">13.3.4</span> Python Dictionary erstellen</h3>
 <p>Erstellen Sie ein Python Dictionary <code>mk</code>, welches die Geschäftsadresse von Jacques Mock Schindler enthält. Die ersten zwei Einträge erhalten Sie als Vorlage.</p>
 <div id="aeebd411" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>mk <span class="op">=</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>mk <span class="op">=</span> {</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    <span class="st">'name'</span>: <span class="st">'Mock Schindler'</span>,</span>
 <span id="cb12-3"><a href="#cb12-3"></a>    <span class="st">'first_name'</span>: <span class="st">'Jacques'</span>,</span>
 <span id="cb12-4"><a href="#cb12-4"></a>    <span class="st">'street'</span>: <span class="st">'Rosenstrasse 1'</span>,</span>
 <span id="cb12-5"><a href="#cb12-5"></a>    <span class="st">'postcode'</span>: <span class="dv">8400</span>,</span>
 <span id="cb12-6"><a href="#cb12-6"></a>    <span class="st">'town'</span>: <span class="st">'Winterthur'</span>,</span>
-<span id="cb12-7"><a href="#cb12-7"></a>}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-7"><a href="#cb12-7"></a>}</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="über-ein-python-dictionary-iterieren-1" class="level3" data-number="13.3.5">
 <h3 data-number="13.3.5" class="anchored" data-anchor-id="über-ein-python-dictionary-iterieren-1"><span class="header-section-number">13.3.5</span> Über ein Python Dictionary iterieren</h3>
 <p>Geben Sie den Inhalt des Dictionary <code>mk</code> mit Hilfe einer <code>for</code> Schleife aus. Dabei soll die Ausgabe jedes Eintrags auf einer neuen Zeile erfolgen.</p>
 <div id="03c1b4d4" class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> mk.items():</span>
-<span id="cb13-2"><a href="#cb13-2"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> mk.items():</span>
+<span id="cb13-2"><a href="#cb13-2"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="rekursion-1" class="level3" data-number="13.3.6">
@@ -462,7 +465,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Hinweis</em>: Die einzelnen Zeichen eines Strings können wie die Elemente einer Liste mit Hilfe eines Index abgerufen werden. Das erste Zeichen eines Strings hat dabei den Index 0.</p>
 <p>Damit Sie einfacher prüfen können, ob Ihre Funktion korrekt arbeitet, übergeben Sie ihr ausschliesslich Strings in Kleinbuchstaben.</p>
 <div id="e1d6ae5b" class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">def</span> palindrom_tester(text):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">def</span> palindrom_tester(text):</span>
 <span id="cb14-2"><a href="#cb14-2"></a>    <span class="co">"""</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="co">    Prüft rekursiv, ob ein String ein Palindrom ist </span></span>
 <span id="cb14-4"><a href="#cb14-4"></a><span class="co">    (vorwärts und rückwärts gelesen gleich).</span></span>
@@ -486,7 +489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-22"><a href="#cb14-22"></a>    <span class="co"># Rekursionsschritt:</span></span>
 <span id="cb14-23"><a href="#cb14-23"></a>    <span class="co"># Wenn die Ränder passen, prüfe den Teilstring ohne den</span></span>
 <span id="cb14-24"><a href="#cb14-24"></a>    <span class="co"># ersten und letzten Buchstaben.</span></span>
-<span id="cb14-25"><a href="#cb14-25"></a>    <span class="cf">return</span> palindrom_tester(text[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>])</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-25"><a href="#cb14-25"></a>    <span class="cf">return</span> palindrom_tester(text[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
@@ -545,13 +548,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -895,7 +899,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" class="pagination-link" aria-label="Divide and Conquer">
+      <a href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html" class="pagination-link" aria-label="Divide and Conquer">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span>
       </a>          
   </div>
@@ -907,4 +911,5 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/260105_uebungen/uebungen.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

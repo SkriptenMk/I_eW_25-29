@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,17 +66,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
 <link href="../../../files/lektionen_hs25/260105_uebungen/uebungen.html" rel="next">
-<link href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" rel="prev">
+<link href="../../../files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-bcc1050feb71b0f23048e092d85cc2ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-8df80b6daa1842fe3c3ca07904567e50.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,6 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -119,7 +121,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -167,6 +169,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://github.com/SkriptenMk/I_eW_25-29" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
     <a href="../../../Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -176,7 +179,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -276,13 +279,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
   </div>
 </li>
@@ -317,12 +320,12 @@ window.Quarto = {
   <li><a href="#wörter-umdrehen" id="toc-wörter-umdrehen" class="nav-link" data-scroll-target="#wörter-umdrehen"><span class="header-section-number">12.5</span> Wörter umdrehen</a></li>
   <li><a href="#bonus-anzahl-möglichkeiten-zu-zahlen" id="toc-bonus-anzahl-möglichkeiten-zu-zahlen" class="nav-link" data-scroll-target="#bonus-anzahl-möglichkeiten-zu-zahlen"><span class="header-section-number">12.6</span> Bonus: Anzahl Möglichkeiten zu Zahlen</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/251215_rekursiv/rekursion.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></h1>
 </div>
@@ -364,12 +367,12 @@ f_n = f_{n-1} + f_{n-2},\ \text{sofern}\ n \geq 3
 \]</span></p>
 <p>Sie haben die Fibonacci-Folge bei den Listen bereits programmiert. Obwohl die Programmiung als Liste <em>viel</em> effizienter ist, machen wir hier eine Übung, Fibonacci als rekursive Funktion zu programmieren:</p>
 <div id="cell-2" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">"""Beispiel: fibonacci rekursiv definiert mit Printstatement"""</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">"""Beispiel: fibonacci rekursiv definiert mit Printstatement"""</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">def</span> fibonacci(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb1-3"><a href="#cb1-3"></a>    <span class="bu">print</span>(<span class="ss">f"Es wird fibonacci(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">) ausgeführt."</span>)</span>
 <span id="cb1-4"><a href="#cb1-4"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">2</span>:</span>
 <span id="cb1-5"><a href="#cb1-5"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">return</span> fibonacci(n<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> fibonacci(n<span class="op">-</span><span class="dv">2</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">return</span> fibonacci(n<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> fibonacci(n<span class="op">-</span><span class="dv">2</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="aufgabe-fibonacci-folge" class="level3" data-number="12.1.1">
 <h3 data-number="12.1.1" class="anchored" data-anchor-id="aufgabe-fibonacci-folge"><span class="header-section-number">12.1.1</span> Aufgabe: Fibonacci-Folge</h3>
@@ -383,8 +386,8 @@ f_n = f_{n-1} + f_{n-2},\ \text{sofern}\ n \geq 3
 <section id="endlose-rekursion" class="level2" data-number="12.2">
 <h2 data-number="12.2" class="anchored" data-anchor-id="endlose-rekursion"><span class="header-section-number">12.2</span> Endlose Rekursion</h2>
 <p>Wenn wir bei der Funktion <code>fibonacci</code> die Zeilen</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">2</span>:</span>
-<span id="cb2-2"><a href="#cb2-2"></a>        <span class="cf">return</span> <span class="dv">1</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">2</span>:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>        <span class="cf">return</span> <span class="dv">1</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>weglassen würden, so würde die Funktion endlos sich selber aufrufen, wie im Beispiel der Kindergeschichte.</p>
 <p>Meistens wird dieses Problem mit Basisfälle gelöst.</p>
 </section>
@@ -417,7 +420,7 @@ f_n = f_{n-1} + f_{n-2},\ \text{sofern}\ n \geq 3
 </tbody>
 </table>
 <div id="cell-6" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">"""Aufgabe: finden Sie 2 Fehler"""</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">"""Aufgabe: finden Sie 2 Fehler"""</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw">def</span> anstossen(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="co">## Basisfälle</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>    <span class="cf">if</span> n <span class="op">&lt;=</span> <span class="dv">1</span>:</span>
@@ -425,15 +428,15 @@ f_n = f_{n-1} + f_{n-2},\ \text{sofern}\ n \geq 3
 <span id="cb3-6"><a href="#cb3-6"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">2</span>:</span>
 <span id="cb3-7"><a href="#cb3-7"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
 <span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a>    <span class="cf">return</span> anstossen(n<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> (n <span class="op">+</span> <span class="dv">1</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="cf">return</span> anstossen(n<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> (n <span class="op">+</span> <span class="dv">1</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-7" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">"""Test"""</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">"""Test"""</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> Personen stossen </span><span class="sc">{</span>anstossen(i)<span class="sc">}</span><span class="ss"> Mal an."</span>)</span>
 <span id="cb4-4"><a href="#cb4-4"></a></span>
 <span id="cb4-5"><a href="#cb4-5"></a>i <span class="op">=</span> <span class="dv">140</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> Personen stossen </span><span class="sc">{</span>anstossen(i)<span class="sc">}</span><span class="ss"> Mal an."</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> Personen stossen </span><span class="sc">{</span>anstossen(i)<span class="sc">}</span><span class="ss"> Mal an."</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="bonus-die-gausssche-summenformel" class="level3" data-number="12.3.1">
 <h3 data-number="12.3.1" class="anchored" data-anchor-id="bonus-die-gausssche-summenformel"><span class="header-section-number">12.3.1</span> Bonus: Die Gausssche Summenformel</h3>
@@ -444,11 +447,11 @@ f_n = f_{n-1} + f_{n-2},\ \text{sofern}\ n \geq 3
 \]</span></p>
 <p>Diese Formel kann direkt als Funktion implementiert werden. Das entsprechende Beispiel finden sie in der folgenden Zelle.</p>
 <div id="cell-10" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> gauss_direct(n : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> gauss_direct(n : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">return</span> <span class="bu">int</span>((n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>))<span class="op">/</span><span class="dv">2</span>)</span>
 <span id="cb5-3"><a href="#cb5-3"></a></span>
 <span id="cb5-4"><a href="#cb5-4"></a><span class="bu">print</span>(<span class="ss">f'Die Summe der Zahlen von 1 '</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>      <span class="ss">f'bis 100 ist </span><span class="sc">{</span>gauss_direct(<span class="dv">100</span>)<span class="sc">}</span><span class="ss">.'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5"></a>      <span class="ss">f'bis 100 ist </span><span class="sc">{</span>gauss_direct(<span class="dv">100</span>)<span class="sc">}</span><span class="ss">.'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Alternativ kann die Formel aber auch rekursiv implementiert werden. Entsprechend stellt sich die Frage, was wäre ein kleineres, aber grundsätzlich gleichartiges Problem?<br>
 Im vorliegenden Fall wäre das einfachste gleichartige Problem, die Summe aus einer Liste von Zahlen mit der Länge 1 und dem Wert 1 zu bilden. Dann ist die Summe auch 1. Als Formel könnte man das so schreiben:</p>
@@ -477,13 +480,13 @@ Beides ist wichtig. Dass der Basisfall der einfachste Fall ist, hilft das Proble
 <p>Das eine Problemlösung rekursiv implementiert wird, bedeutet, dass die Funktion sich selber aufruft.<br>
 In der folgenden Zelle wird die gausssche Summenformel gemäss obiger Darstellung rekursiv implementiert.</p>
 <div id="cell-15" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">"""Bonusaufgabe: Gauss Rekursiv"""</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">"""Bonusaufgabe: Gauss Rekursiv"""</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="kw">def</span> gauss_recursive(n : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: rekursive Implementation des kleinen Gauss</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a>    <span class="cf">pass</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a>    </span>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="bu">print</span>(<span class="ss">f'Die Summe der Zahlen von 1 '</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a>      <span class="ss">f'bis 100 ist </span><span class="sc">{</span>gauss_recursive(<span class="dv">100</span>)<span class="sc">}</span><span class="ss">.'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-7"><a href="#cb6-7"></a>      <span class="ss">f'bis 100 ist </span><span class="sc">{</span>gauss_recursive(<span class="dv">100</span>)<span class="sc">}</span><span class="ss">.'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -496,7 +499,7 @@ n! = 1 \cdot 2 \cdot ... \cdot (n-1) \cdot n = \prod\limits_{k=1}^{n} k
 <p>Als Besonderheit muss mann wissen, dass <span class="math inline">\(0! = 1\)</span> gilt.</p>
 <p>In Python kann dies mit einer <code>for</code> Schleife berechnet werden. In der folgenden Zelle wird eine entsprechende Funktion definiert.</p>
 <div id="cell-19" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> factorial_loop(n : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> factorial_loop(n : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">"""result wird gleich 1 gesetzt, </span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co">    weil 1 das neutrale Element der</span></span>
 <span id="cb7-4"><a href="#cb7-4"></a><span class="co">    Multiplikation ist """</span></span>
@@ -507,7 +510,7 @@ n! = 1 \cdot 2 \cdot ... \cdot (n-1) \cdot n = \prod\limits_{k=1}^{n} k
 <span id="cb7-9"><a href="#cb7-9"></a>    <span class="cf">return</span> result</span>
 <span id="cb7-10"><a href="#cb7-10"></a></span>
 <span id="cb7-11"><a href="#cb7-11"></a><span class="bu">print</span>(<span class="ss">f'Das Resultat von 5! ist '</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a>      <span class="ss">f'</span><span class="sc">{</span>factorial_loop(<span class="dv">5</span>)<span class="sc">}</span><span class="ss">.'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-12"><a href="#cb7-12"></a>      <span class="ss">f'</span><span class="sc">{</span>factorial_loop(<span class="dv">5</span>)<span class="sc">}</span><span class="ss">.'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Die Funktion kann allerdings auch rekursiv definiert werden. Die Definition sieht dann folgendermassen aus:</p>
 <p><span class="math display">\[
@@ -521,30 +524,30 @@ n! =
 \]</span></p>
 <p>Entsprechend kann eine Funktion zur Berechnung von <span class="math inline">\(n!\)</span> auch rekursiv implementiert werden.</p>
 <div id="cell-21" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">"""Aufgabe: Fakultät"""</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">"""Aufgabe: Fakultät"""</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="kw">def</span> factorial_recursive(n : <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb8-3"><a href="#cb8-3"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: rekursive Implementation der Fakultätsfunktion</span></span>
 <span id="cb8-4"><a href="#cb8-4"></a>    <span class="cf">pass</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a>    </span>
 <span id="cb8-6"><a href="#cb8-6"></a><span class="bu">print</span>(<span class="ss">f'Das Resultat von 5! ist '</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a>      <span class="ss">f'</span><span class="sc">{</span>factorial_recursive(<span class="dv">5</span>)<span class="sc">}</span><span class="ss">.'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-7"><a href="#cb8-7"></a>      <span class="ss">f'</span><span class="sc">{</span>factorial_recursive(<span class="dv">5</span>)<span class="sc">}</span><span class="ss">.'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="wörter-umdrehen" class="level2" data-number="12.5">
 <h2 data-number="12.5" class="anchored" data-anchor-id="wörter-umdrehen"><span class="header-section-number">12.5</span> Wörter umdrehen</h2>
 <p>Gesucht ist eine rekursive Funktion, welche ein Wort rückwärts schreibt (bsp. Kantonsschule nach eluhcssnotnaK).</p>
 <div id="cell-24" class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">"""Aufgabe: umdrehen"""</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">"""Aufgabe: umdrehen"""</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="kw">def</span> reverse(s : <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="cf">if</span> <span class="bu">len</span>(s) <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> <span class="bu">len</span>(s) <span class="op">==</span> <span class="dv">1</span>:</span>
 <span id="cb9-4"><a href="#cb9-4"></a>        <span class="cf">return</span> ...</span>
 <span id="cb9-5"><a href="#cb9-5"></a>    <span class="cf">else</span>:</span>
 <span id="cb9-6"><a href="#cb9-6"></a>        head <span class="op">=</span> s[<span class="dv">0</span>]</span>
 <span id="cb9-7"><a href="#cb9-7"></a>        tail <span class="op">=</span> s[<span class="dv">1</span>:]</span>
-<span id="cb9-8"><a href="#cb9-8"></a>        <span class="cf">return</span> ...</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-8"><a href="#cb9-8"></a>        <span class="cf">return</span> ...</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-25" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(reverse(<span class="st">'Kantonsschule'</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(reverse(<span class="st">'Kantonsschule'</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="bonus-anzahl-möglichkeiten-zu-zahlen" class="level2" data-number="12.6">
@@ -559,7 +562,7 @@ n! =
 <p>Es gibt 4 Möglichkeiten.</p>
 <p>Um die Frage zu beantworten, kann man die Frage auch aufteilen. Die grösste mögliche Münze ist 5. Also gibt es die Möglichkeiten mit einem 5 Fränkler zu bezahlen (1 Möglichkeit) oder ohne keinem 5 Fränkler zu bezahlen (3 Möglichkeiten). Diese Anzahl Möglichkeiten zusammen addiert ergibt die Möglichkeiten. Die Funktion benötigt 2 Argumente: Den zu bezahlenden Betrag und die grösste erlaubte Münze.</p>
 <div id="cell-27" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">"""</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">"""</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="co">Bonusaufgabe</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="co">Studieren Sie die Funktion und füllen Sie die Lücken mit den Auslassungspunkten.</span></span>
 <span id="cb11-4"><a href="#cb11-4"></a><span class="co">"""</span></span>
@@ -583,15 +586,15 @@ n! =
 <span id="cb11-22"><a href="#cb11-22"></a>    ret <span class="op">+=</span> ...</span>
 <span id="cb11-23"><a href="#cb11-23"></a>    <span class="cf">return</span> ret</span>
 <span id="cb11-24"><a href="#cb11-24"></a></span>
-<span id="cb11-25"><a href="#cb11-25"></a><span class="bu">print</span>(anz_zahlmöglichkeiten(<span class="dv">5</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-25"><a href="#cb11-25"></a><span class="bu">print</span>(anz_zahlmöglichkeiten(<span class="dv">5</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-28" class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="bu">print</span>(anz_zahlmöglichkeiten(<span class="dv">500</span>))  <span class="co"># 6295434</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="bu">print</span>(anz_zahlmöglichkeiten(<span class="dv">500</span>))  <span class="co"># 6295434</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="co"># print(anz_zahlmöglichkeiten(700))  # 40208370</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="co"># print(anz_zahlmöglichkeiten(1000)) # 321335887</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co"># print(anz_zahlmöglichkeiten(1000)) # 321335887</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-29" class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">"""</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">"""</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="co">Bonusaufgabe</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="co">Printen Sie die Möglichkeiten!</span></span>
 <span id="cb13-4"><a href="#cb13-4"></a></span>
@@ -604,7 +607,7 @@ n! =
 <span id="cb13-11"><a href="#cb13-11"></a><span class="kw">def</span> print_zahlmöglichkeiten(...)</span>
 <span id="cb13-12"><a href="#cb13-12"></a>    ...</span>
 <span id="cb13-13"><a href="#cb13-13"></a></span>
-<span id="cb13-14"><a href="#cb13-14"></a>print_zahlmöglichkeiten(<span class="dv">5</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-14"><a href="#cb13-14"></a>print_zahlmöglichkeiten(<span class="dv">5</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
@@ -662,13 +665,14 @@ n! =
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1012,7 +1016,7 @@ n! =
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" class="pagination-link" aria-label="Beurteilung von Algorithmen">
+      <a href="../../../files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.html" class="pagination-link" aria-label="Beurteilung von Algorithmen">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span>
       </a>          
   </div>
@@ -1027,4 +1031,5 @@ n! =
 
 
 
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/251215_rekursiv/rekursion.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
