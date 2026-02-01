@@ -6,23 +6,23 @@ Hier finden Sie die Informationen für den Informatikunterricht.
 
 | Datum | Thema |
 | :--- | :--- |
-| 18.08.2025 | Was ist Informatik |
-| 25.08.2025 | Vorbereiten der Arbeitsumgebung |
-| 01.09.2025 | Problemlösung in der Informatik |
-| 08.09.2025 | Variablen als Wegweiser zu Objekten |
-| 15.09.2025 | Schlaufen |
-| 22.09.2025 | Bedingungen |
-| 20.10.2025 | Anwendungsübung |
-| 27.10.2025 | Individuelle Prüfungsvorbereitung |
-| 03.11.2025 | Test |
-| 10.11.2025 | Datenstrukturen |
-| 17.11.2025 | Datenstrukturen |
-| 24.11.2025 | Algorithmen |
-| 01.12.2025 | Algorithmen |
-| 08.12.2025 | Wiederholung ohne Schleife (Rekursion) |
-| 15.12.2025 | Anwendungsübungen |
-| 05.01.2026 | Individuelle Prüfungsvorbereitung |
-| 12.01.2026 | Test |
+| 16.02.2026 | Datenrepräsentation I: Zahlensysteme (Binär, Dezimal, Hexadezimal) |
+| 02.03.2026 | Datenrepräsentation II: Zeichencodierung (ASCII, Unicode) |
+| 09.03.2026 | Datenrepräsentation III: Bilder (RGB, Pixel, Auflösung) |
+| 16.03.2026 | Algorithmusbegriff: Definition, Eigenschaften, Notation |
+| 23.03.2026 | Algorithmusdarstellung: Pseudocode und Struktogramme |
+| 30.03.2026 | Flussdiagramme und Zustandsdiagramme |
+| 13.04.2026 | TEST 1: Datenrepräsentation & Algorithmusdarstellung |
+| 04.05.2026 | Funktionen I: Wiederholung und Vertiefung (Parameter, Return) |
+| 11.05.2026 | Funktionen II: Scope und Namensräume (lokal vs. global) |
+| 18.05.2026 | Funktionen III: Modularisierung und Code-Organisation |
+| 01.06.2026 | Funktionen IV: Rekursive Funktionen vertiefen |
+| 08.06.2026 | Prüfungsvorbereitung und Übungen Unterprogramme |
+| 15.06.2026 | TEST 2: Unterprogramme (Funktionen, Scope, Modularisierung) |
+| 22.06.2026 | Mini-Projekt I: Funktionsbasierte Anwendung entwickeln |
+| 29.06.2026 | Mini-Projekt II: Fertigstellung und Präsentation |
+| 06.07.2026 | Reflexion, Ausblick 3. Semester, Feedbackrunde |
+
 
 Das Programm widerspiegelt den aktuellen Stand der Planung. Es ist im
 Verlauf des Semesters mit Änderungen zu rechnen.
