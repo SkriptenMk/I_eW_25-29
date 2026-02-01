@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Je">
+
+<title>9&nbsp; Datenstrukturen: Listen – Unterlagen für das obligatorische Fach Informatik</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../files/lektionen_hs25/251124_dict/dict.html" rel="next">
+<link href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" rel="prev">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-f428fda71a3abb5b1b9c21151da8fd61.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-89551a844e4a8117ec5880afddfcf8f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Unterlagen für das obligatorische Fach Informatik</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/SkriptenMk/I_eW_25-29/tree/main/files" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/SkriptenMk/I_eW_25-29/issues" target="_blank"> <i class="bi bi-bug" role="img" aria-label="Fehler melden">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="../../../Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251110_listen/listen.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anleitungen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einführung in Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250901_probleme/probleme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Problemlösung in der Informatik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabeln in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251124_dict/dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenstrukturen: Dictionary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekurisv/rekursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/260105_uebungen/uebungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung 2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#daten-in-listen-speichern" id="toc-daten-in-listen-speichern" class="nav-link active" data-scroll-target="#daten-in-listen-speichern"><span class="header-section-number">9.1</span> Daten in Listen speichern</a>
+  <ul class="collapse">
+  <li><a href="#aufgabe-monatsliste-erstellen" id="toc-aufgabe-monatsliste-erstellen" class="nav-link" data-scroll-target="#aufgabe-monatsliste-erstellen"><span class="header-section-number">9.1.1</span> Aufgabe: Monatsliste erstellen</a></li>
+  </ul></li>
+  <li><a href="#index" id="toc-index" class="nav-link" data-scroll-target="#index"><span class="header-section-number">9.2</span> Index</a>
+  <ul class="collapse">
+  <li><a href="#aufgabe-index-lesen" id="toc-aufgabe-index-lesen" class="nav-link" data-scroll-target="#aufgabe-index-lesen"><span class="header-section-number">9.2.1</span> Aufgabe: Index lesen</a></li>
+  </ul></li>
+  <li><a href="#überschreiben-von-elementen" id="toc-überschreiben-von-elementen" class="nav-link" data-scroll-target="#überschreiben-von-elementen"><span class="header-section-number">9.3</span> Überschreiben von Elementen</a></li>
+  <li><a href="#schleifen" id="toc-schleifen" class="nav-link" data-scroll-target="#schleifen"><span class="header-section-number">9.4</span> Schleifen</a>
+  <ul class="collapse">
+  <li><a href="#aufgabe-monatsschleife-komplettieren" id="toc-aufgabe-monatsschleife-komplettieren" class="nav-link" data-scroll-target="#aufgabe-monatsschleife-komplettieren"><span class="header-section-number">9.4.1</span> Aufgabe: Monatsschleife komplettieren</a></li>
+  </ul></li>
+  <li><a href="#länge" id="toc-länge" class="nav-link" data-scroll-target="#länge"><span class="header-section-number">9.5</span> Länge</a></li>
+  <li><a href="#ergänzen-und-entfernen" id="toc-ergänzen-und-entfernen" class="nav-link" data-scroll-target="#ergänzen-und-entfernen"><span class="header-section-number">9.6</span> Ergänzen und entfernen</a></li>
+  <li><a href="#aufgabe-fibonacci" id="toc-aufgabe-fibonacci" class="nav-link" data-scroll-target="#aufgabe-fibonacci"><span class="header-section-number">9.7</span> Aufgabe: Fibonacci</a></li>
+  <li><a href="#aufgabe-zeichne-chomp" id="toc-aufgabe-zeichne-chomp" class="nav-link" data-scroll-target="#aufgabe-zeichne-chomp"><span class="header-section-number">9.8</span> Aufgabe: zeichne Chomp</a></li>
+  <li><a href="#aufgabe-spiele-chomp" id="toc-aufgabe-spiele-chomp" class="nav-link" data-scroll-target="#aufgabe-spiele-chomp"><span class="header-section-number">9.9</span> Aufgabe: spiele Chomp</a></li>
+  <li><a href="#übersicht" id="toc-übersicht" class="nav-link" data-scroll-target="#übersicht"><span class="header-section-number">9.10</span> Übersicht</a></li>
+  <li><a href="#zusatzstoff" id="toc-zusatzstoff" class="nav-link" data-scroll-target="#zusatzstoff"><span class="header-section-number">9.11</span> Zusatzstoff</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251110_listen/listen.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Je </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">10.11.2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="daten-in-listen-speichern" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="daten-in-listen-speichern"><span class="header-section-number">9.1</span> Daten in Listen speichern</h2>
+<p>Bisher hatten Sie Datentypen wie <code>int</code>, <code>float</code> <code>str</code> und <code>bool</code> angeschaut. Wir möchten nun mehrere Werte in einer Liste speichern.</p>
+<p>Ich möchte zum Beispiel alle Wochentagekürzel in einer Liste speichern. Um eine Liste im Code zu speichern, muss man die Liste mit <code>[</code> beginnen und mit <code>]</code> enden. Die Elemente werden mit einem Komma <code>,</code> getrennt.</p>
+<div id="0b877389-b92f-42e1-bd6c-a886732705cd" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>wochentage <span class="op">=</span> [<span class="st">"Mo"</span>, <span class="st">"Di"</span>, <span class="st">"Mi"</span>, <span class="st">"Do"</span>, <span class="st">"Fr"</span>, <span class="st">"Sa"</span>, <span class="st">"So"</span>]</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">print</span>(wochentage)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="aufgabe-monatsliste-erstellen" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="aufgabe-monatsliste-erstellen"><span class="header-section-number">9.1.1</span> Aufgabe: Monatsliste erstellen</h3>
+<p>Machen Sie eine Liste mit den 12 Monaten und printen Sie die Monate.</p>
+<div id="37e7c0e7-8bcc-4985-bc30-4dab127ff1bf" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;task&quot;]">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">"""Aufgabe: Monatsliste erstellen"""</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>monate <span class="op">=</span> <span class="co"># </span><span class="al">TODO</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">print</span>(monate)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="index" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="index"><span class="header-section-number">9.2</span> Index</h2>
+<p>Die Werte werden durchnummeriert. Die dazugehörige Nummer eines Werts nennen wir den <em>Index</em>.</p>
+<p>Das erste Element hat den Index 0!</p>
+<p>Um ein Element aus der Liste auszugeben können wir nach dem Variablennamen die eckigen Klammen und den Index angeben.</p>
+<p><code>wochentage[0]</code> ist <code>"Mo"</code>. <code>wochentage[1]</code> ist <code>"Di"</code>.</p>
+<section id="aufgabe-index-lesen" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="aufgabe-index-lesen"><span class="header-section-number">9.2.1</span> Aufgabe: Index lesen</h3>
+<p>Lesen Sie den Codeblock und schrieben Sie hier auf, was Sie als Output erwarten, <em>bevor</em> Sie den Codeblock ausführen!</p>
+<p>Ich erwarte, dass das Programm folgendes ausgibt:</p>
+<pre><code>TODO: Diese Zeile ersetzen.</code></pre>
+<div id="19693a64-b2f0-43e6-a24b-e2448f8a958d" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>lieblingstag <span class="op">=</span> wochentage[<span class="dv">3</span>]</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="ss">f"Mein Lieblingstag ist </span><span class="sc">{</span>lieblingstag<span class="sc">}</span><span class="ss">."</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="überschreiben-von-elementen" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="überschreiben-von-elementen"><span class="header-section-number">9.3</span> Überschreiben von Elementen</h2>
+<p>Wir betrachten in diesem Kapitel eine Liste mit Zahlen (<code>int</code>). Wir speichern für jeden Monat die Länge des Monats. Im Falle eines Schaltjahrs möchten wir den Februar überschreiben mit 29. Studieren Sie das Beispiel:</p>
+<div id="9007968f-1f60-4802-9aec-32c67d34282b" class="cell" data-editable="true" data-scrolled="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>monatslaenge <span class="op">=</span> [<span class="dv">31</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>]</span>
+<span id="cb5-2"><a href="#cb5-2"></a>schaltjahr <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="cf">if</span> schaltjahr:</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    monatslaenge[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">29</span> <span class="co"># Der Februar hat den Index 2.</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(monatslaenge)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="schleifen" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="schleifen"><span class="header-section-number">9.4</span> Schleifen</h2>
+<p>Listen eignen sich hervorragend um eine for-Schleife zu bauen. Betrachten Sie das Beispiel, welches den Index als <code>i</code> und den Wochentagsname als <code>wochentag</code> ausgibt. Die Liste <code>wochentage</code> möchten wir auf keinen Fall überschreiben. Also verwenden wir für die <em>Laufvaribale</em> andere Variablennamen. In diesem Fall nehmen wir <code>i</code> für den Index und <code>wochentag</code> (Singular) für den Name des Tages.</p>
+<div id="d4aea223-11f6-4b5b-8970-f066c6de8d9d" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">for</span> i, wochentag <span class="kw">in</span> <span class="bu">enumerate</span>(wochentage):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>wochentag<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Falls Sie den Index nicht benötigen, können Sie die Schleife mit <code>for wochentag in wochentage:</code> machen.</p>
+<section id="aufgabe-monatsschleife-komplettieren" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="aufgabe-monatsschleife-komplettieren"><span class="header-section-number">9.4.1</span> Aufgabe: Monatsschleife komplettieren</h3>
+<p>Erstellen Sie eine Schleife, welche folgendes Ausgibt:</p>
+<pre><code>Der Januar hat 31 Tage.
+Der Februar hat 29 Tage.
+Der März hat 31 Tage.
+Der April hat 30 Tage.
+Der Mai hat 31 Tage.
+Der Juni hat 30 Tage.
+Der Juli hat 31 Tage.
+Der August hat 31 Tage.
+Der September hat 30 Tage.
+Der Oktober hat 31 Tage.
+Der November hat 30 Tage.
+Der Dezember hat 31 Tage.</code></pre>
+<div id="8eec7794-9776-496b-a542-bc115943df14" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">"""Aufgabe: Monatsschleife komplettieren"""</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="cf">for</span> ... m_name <span class="kw">in</span> ...:</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    laenge <span class="op">=</span> ... i ...</span>
+<span id="cb8-5"><a href="#cb8-5"></a>    <span class="bu">print</span>(<span class="ss">f"Der </span><span class="sc">{</span>m_name<span class="sc">}</span><span class="ss"> hat </span><span class="sc">{</span>laenge<span class="sc">}</span><span class="ss"> Tage."</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="länge" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="länge"><span class="header-section-number">9.5</span> Länge</h2>
+<p>Mit der Funktion <code>len(obj)</code> kann man die Länge der Liste <code>obj</code> abfragen.</p>
+<div id="e0f36c31-fa0a-4070-9720-3a3e2e321796" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">"""Beispiel für len(obj)"""</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(<span class="ss">f"Die Woche hat </span><span class="sc">{</span><span class="bu">len</span>(wochentage)<span class="sc">}</span><span class="ss"> Tage."</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ergänzen-und-entfernen" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="ergänzen-und-entfernen"><span class="header-section-number">9.6</span> Ergänzen und entfernen</h2>
+<p>Mit der Methode <code>append</code> kann ein Element am Ende der Liste hinzufügen und mit <code>pop</code> wieder entfernen.</p>
+<div id="e5668e04-9bdb-41e3-a398-b343e3fca508" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>tasks <span class="op">=</span> [<span class="st">"einkaufen"</span>, <span class="st">"spazieren gehen"</span>, <span class="st">"staubsaugen"</span>]</span>
+<span id="cb10-2"><a href="#cb10-2"></a>tasks.append(<span class="st">"essen"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(<span class="ss">f"Neu ist auch 'essen' auf der Taskliste: </span><span class="sc">{</span>tasks<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a>tasks.pop(<span class="dv">1</span>)</span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="bu">print</span>(<span class="ss">f"Welcher Task ist nun erledigt? </span><span class="sc">{</span>tasks<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7"></a></span>
+<span id="cb10-8"><a href="#cb10-8"></a>tasks.pop()</span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="bu">print</span>(<span class="st">"Wird kein Index angegeben, so wird das letzte Element"</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a>      <span class="ss">f"in der Liste entfernt: </span><span class="sc">{</span>tasks<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="aufgabe-fibonacci" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="aufgabe-fibonacci"><span class="header-section-number">9.7</span> Aufgabe: Fibonacci</h2>
+<p>Die Fibonacci Reihe lautet 1, 1, 2, 3, 5, 8, 13, 8+13, …</p>
+<p>Die Summe der letzten zwei Zahlen ergeben die nächste Zahl.</p>
+<p>Ergänzen Sie den Code, damit die Folge länger wird. Editieren Sie Stellen mit drei Punkten.</p>
+<div id="bfa42dd5-c842-4373-8569-ce34703100ae" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">"""Aufgabe: Fibonacci"""</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a>fibonacci: <span class="bu">list</span> <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>] <span class="co"># Diese Zeile nicht verändern.</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    n <span class="op">=</span> ... <span class="co"># Die Länge von der Folge</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>    fibonacci ... (fibonacci ... <span class="op">+</span> fibonacci ...)</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="bu">print</span>(fibonacci)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="aufgabe-zeichne-chomp" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="aufgabe-zeichne-chomp"><span class="header-section-number">9.8</span> Aufgabe: zeichne Chomp</h2>
+<p>Wie am Anfang der Lektion mündlich besprochen kodieren wir eine Situation von <a href="https://en.wikipedia.org/wiki/Chomp">Chomp</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Chomp_gameplay.png" class="img-fluid figure-img"></p>
+<figcaption>Chomp_gameplay</figcaption>
+</figure>
+</div>
+<p>Die dritte Situation beschreiben wir als Liste <code>[4, 3, 3, 3, 2]</code>.</p>
+<p>Schreiben Sie eine Funktion <code>zeichne_chomp(chomp: list) -&gt; None</code> welche die Situation zeichnet.</p>
+<div id="64eb9efb-353f-41a9-b090-fcfabb44993e" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">"""Aufgabe: zeichne Chomp"""</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="im">from</span> pytamaro.de <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="kw">def</span> zeichne_chomp(chomp: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb12-5"><a href="#cb12-5"></a>    zelle <span class="op">=</span> kombiniere(</span>
+<span id="cb12-6"><a href="#cb12-6"></a>        rechteck(<span class="dv">68</span>, <span class="dv">38</span>, rgb_farbe(<span class="dv">153</span>, <span class="dv">103</span>, <span class="dv">69</span>)),</span>
+<span id="cb12-7"><a href="#cb12-7"></a>        rechteck(<span class="dv">70</span>, <span class="dv">40</span>, rgb_farbe(<span class="dv">51</span>, <span class="dv">34</span>, <span class="dv">23</span>)),        </span>
+<span id="cb12-8"><a href="#cb12-8"></a>    )</span>
+<span id="cb12-9"><a href="#cb12-9"></a>    leere_zelle <span class="op">=</span> rechteck(<span class="dv">70</span>, <span class="dv">40</span>, weiss)</span>
+<span id="cb12-10"><a href="#cb12-10"></a>    tafel <span class="op">=</span> leere_grafik()</span>
+<span id="cb12-11"><a href="#cb12-11"></a>    maximum <span class="op">=</span> <span class="co"># </span><span class="al">TODO</span><span class="co"> # Groesse der erste Spalte</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a>    <span class="cf">for</span> ... <span class="kw">in</span> chomp:</span>
+<span id="cb12-13"><a href="#cb12-13"></a>        spalte <span class="op">=</span> leere_grafik()</span>
+<span id="cb12-14"><a href="#cb12-14"></a>        ...</span>
+<span id="cb12-15"><a href="#cb12-15"></a>        ...</span>
+<span id="cb12-16"><a href="#cb12-16"></a>        tafel <span class="op">=</span> neben(tafel, spalte)</span>
+<span id="cb12-17"><a href="#cb12-17"></a>    zeige_grafik(tafel)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="3d58c3a5-dae5-4f0d-bcac-e247b35091cc" class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Test für die Aufgabe</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>chomp_test: <span class="bu">list</span> <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb13-3"><a href="#cb13-3"></a>zeichne_chomp(chomp_test)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="aufgabe-spiele-chomp" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="aufgabe-spiele-chomp"><span class="header-section-number">9.9</span> Aufgabe: spiele Chomp</h2>
+<p>Schreiben Sie eine Funktion <code>chomp_spielzug(chomp: list, spielzug:list) -&gt; list</code> welche aus der ersten Situation die neue Situation berechnet. Der Spielzug ist eine Liste von der Form <code>[x, y]</code>.</p>
+<p>Test: <code>chomp_spielzug([4, 3, 3, 3, 2], spielzug=[3, 2])</code> ergibt <code>[4, 3, 1, 1, 1]</code></p>
+<p>Bonusidee: Überprüfen Sie, ob der Spielzug überhaupt erlaubt ist.</p>
+<div id="28f266ac-e048-4562-8ce5-3baf1cee2d58" class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">"""Aufgabe: programmiere den Spielzug in Chomp"""</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Programmieren Sie es selber!</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="co"># Hier können Sie den Code testen:</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="cf">assert</span> chomp_spielzug([<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>], spielzug<span class="op">=</span>[<span class="dv">3</span>, <span class="dv">2</span>]) <span class="op">==</span> [<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="übersicht" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="übersicht"><span class="header-section-number">9.10</span> Übersicht</h2>
+<p>Sie wissen, wie Sie</p>
+<ul>
+<li>eine Liste erstellen.</li>
+<li>Elemente abfragen.</li>
+<li>Elemente ändern.</li>
+<li>mit einer Schleife durch die Liste gehen.</li>
+<li>die Länge einer Liste bestimmen.</li>
+<li>Elemente hinzufügen oder entfernen.</li>
+</ul>
+</section>
+<section id="zusatzstoff" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="zusatzstoff"><span class="header-section-number">9.11</span> Zusatzstoff</h2>
+<p>Weitere Infos und Features von Listen auf <a href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range</a></p>
+<p>Stichwörter: Slice, Spezialfall str, insert, in, join</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="pagination-link" aria-label="Prüfungsvorbereitung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../files/lektionen_hs25/251124_dict/dict.html" class="pagination-link" aria-label="Datenstrukturen: Dictionary">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenstrukturen: Dictionary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

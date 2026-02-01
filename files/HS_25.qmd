@@ -1,0 +1,14 @@
+---
+title: "Unterlagen für das Herbstsemester 2025/2026"
+date-format: DD.MM.YYYY
+listing:
+  contents: 
+    - "lektionen_hs25/**/*.ipynb"
+    - "lektionen_hs25/**/*.qmd"
+    - "lektionen_hs25/**/*.md"
+  type: table
+  sort: 
+    - "date"
+    - "title"
+---
+
