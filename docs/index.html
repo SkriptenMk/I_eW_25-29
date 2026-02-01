@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -38,10 +73,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bcc1050feb71b0f23048e092d85cc2ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-67f834bce3b14d3b76b9c4a6684feb25.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,6 +104,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 </head>
@@ -103,6 +139,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://github.com/SkriptenMk/I_eW_25-29" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
     <a href="./Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -212,13 +249,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/251215_rekurisv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
+  <a href="./files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./files/lektionen_hs25/251215_rekurisv/rekursion.html" class="sidebar-item-text sidebar-link">
+  <a href="./files/lektionen_hs25/251215_rekursiv/rekursion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
   </div>
 </li>
@@ -247,14 +284,15 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Unterlagen für das obligatorische Fach Informatik</h1>
+<div class="quarto-title-block"><div><h1 class="title">Unterlagen für das obligatorische Fach Informatik</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Gymnasium – Einführung in die Programmierung mit Python</p>
 </div>
 
 
@@ -271,7 +309,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">02.10.2025</p>
+      <p class="date">1. Februar 2026</p>
     </div>
   </div>
   
@@ -380,6 +418,8 @@ ul.task-list li input[type="checkbox"] {
 <p>If anyone would like a personal consultation, <a href="https://calendar.app.google/UynTL5ttVPHhK1Hc8" target="_blank"> you can sign up for a meeting here (Rent a Mock)</a>.</p>
 
 
+<!-- -->
+
 </section>
 </section>
 
@@ -453,6 +493,57 @@ ul.task-list li input[type="checkbox"] {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -791,10 +882,63 @@ ul.task-list li input[type="checkbox"] {
         <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu"># Welcome {.unnumbered}</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>Here you will find information about computer science lessons.</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">## Schedule</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="pp">|</span> Date <span class="pp">|</span> Topic <span class="pp">|</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="pp">| :----</span> <span class="pp">| :----</span> <span class="pp">|</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="pp">|</span> 16/02/2026 <span class="pp">|</span> Data Representation I: Number Systems (Binary, Decimal, Hexadecimal) <span class="pp">|</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="pp">|</span> 02/03/2026 <span class="pp">|</span> Data Representation II: Character Encoding (ASCII, Unicode) <span class="pp">|</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="pp">|</span> 09/03/2026 <span class="pp">|</span> Data Representation III: Images (RGB, Pixels, Resolution) <span class="pp">|</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="pp">|</span> 16/03/2026 <span class="pp">|</span> Concept of Algorithms: Definition, Properties, Notation <span class="pp">|</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="pp">|</span> 23/03/2026 <span class="pp">|</span> Algorithm Representation: Pseudocode and Nassi-Shneiderman Diagrams <span class="pp">|</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="pp">|</span> 30/03/2026 <span class="pp">|</span> Flowcharts and State Diagrams <span class="pp">|</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="pp">|</span> 13/04/2026 <span class="pp">|</span> TEST 1: Data Representation &amp; Algorithm Representation <span class="pp">|</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="pp">|</span> 04/05/2026 <span class="pp">|</span> Functions I: Revision and Consolidation (Parameters, Return) <span class="pp">|</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="pp">|</span> 11/05/2026 <span class="pp">|</span> Functions II: Scope and Namespaces (local vs. global) <span class="pp">|</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="pp">|</span> 18/05/2026 <span class="pp">|</span> Functions III: Modularisation and Code Organisation <span class="pp">|</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="pp">|</span> 01/06/2026 <span class="pp">|</span> Functions IV: Advanced Recursive Functions <span class="pp">|</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="pp">|</span> 08/06/2026 <span class="pp">|</span> Exam Preparation and Subroutine Exercises <span class="pp">|</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="pp">|</span> 15/06/2026 <span class="pp">|</span> TEST 2: Subroutines (Functions, Scope, Modularisation) <span class="pp">|</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="pp">|</span> 22/06/2026 <span class="pp">|</span> Mini-Project I: Developing a Function-Based Application <span class="pp">|</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="pp">|</span> 29/06/2026 <span class="pp">|</span> Mini-Project II: Completion and Presentation <span class="pp">|</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="pp">|</span> 06/07/2026 <span class="pp">|</span> Reflection, Outlook for 3rd Semester, Feedback Session <span class="pp">|</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a></span>
+<span id="cb1-26"><a href="#cb1-26"></a>The programme reflects the current state of planning. Changes are to be</span>
+<span id="cb1-27"><a href="#cb1-27"></a>expected throughout the semester.</span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="fu">## Hardware and Software Requirements</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a>A laptop is required for the computer science lessons (you will not be</span>
+<span id="cb1-32"><a href="#cb1-32"></a>able to solve the tasks set in class using an iPad). You will need</span>
+<span id="cb1-33"><a href="#cb1-33"></a>administrator rights on your laptop to install the required software. </span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a>Furthermore, you must ensure that your battery is sufficiently charged</span>
+<span id="cb1-36"><a href="#cb1-36"></a>at the start of the lesson to last for a double period. </span>
+<span id="cb1-37"><a href="#cb1-37"></a></span>
+<span id="cb1-38"><a href="#cb1-38"></a><span class="fu">## Assessment</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a></span>
+<span id="cb1-40"><a href="#cb1-40"></a>Two written tests are planned per semester. In addition, oral</span>
+<span id="cb1-41"><a href="#cb1-41"></a>participation will be graded. Asking questions is specifically</span>
+<span id="cb1-42"><a href="#cb1-42"></a>considered as part of oral participation. </span>
+<span id="cb1-43"><a href="#cb1-43"></a></span>
+<span id="cb1-44"><a href="#cb1-44"></a>The final grade is calculated as a weighted average of the two written</span>
+<span id="cb1-45"><a href="#cb1-45"></a>tests and the grade for oral participation. The average grade of the two</span>
+<span id="cb1-46"><a href="#cb1-46"></a>written tests is weighted at 90%, while the grade for oral participation</span>
+<span id="cb1-47"><a href="#cb1-47"></a>is weighted at 10%. </span>
+<span id="cb1-48"><a href="#cb1-48"></a></span>
+<span id="cb1-49"><a href="#cb1-49"></a>If anyone would like a personal consultation, <span class="dt">&lt;</span><span class="kw">a</span></span>
+<span id="cb1-50"><a href="#cb1-50"></a><span class="ot">href</span><span class="op">=</span><span class="st">"https://calendar.app.google/UynTL5ttVPHhK1Hc8"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>you can sign up for a meeting here (Rent a Mock)<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>. </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
 
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
