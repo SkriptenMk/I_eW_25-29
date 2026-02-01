@@ -23,18 +23,29 @@ Here you will find information about computer science lessons.
 | 29/06/2026 | Mini-Project II: Completion and Presentation |
 | 06/07/2026 | Reflection, Outlook for 3rd Semester, Feedback Session |
 
-The programme reflects the current state of planning. Changes are to be expected throughout the semester.
+The programme reflects the current state of planning. Changes are to be
+expected throughout the semester.
 
 ## Hardware and Software Requirements
 
-A laptop is required for the computer science lessons (you will not be able to solve the tasks set in class using an iPad). You will need administrator rights on your laptop to install the required software.
+A laptop is required for the computer science lessons (you will not be
+able to solve the tasks set in class using an iPad). You will need
+administrator rights on your laptop to install the required software. 
 
-Furthermore, you must ensure that your battery is sufficiently charged at the start of the lesson to last for a double period.
+Furthermore, you must ensure that your battery is sufficiently charged
+at the start of the lesson to last for a double period. 
 
 ## Assessment
 
-Two written tests are planned per semester. In addition, oral participation will be graded. Asking questions is specifically considered as part of oral participation.
+Two written tests are planned per semester. In addition, oral
+participation will be graded. Asking questions is specifically
+considered as part of oral participation. 
 
-The final grade is calculated as a weighted average of the two written tests and the grade for oral participation. The average grade of the two written tests is weighted at 90%, while the grade for oral participation is weighted at 10%.
+The final grade is calculated as a weighted average of the two written
+tests and the grade for oral participation. The average grade of the two
+written tests is weighted at 90%, while the grade for oral participation
+is weighted at 10%. 
 
-If anyone would like a personal consultation, <a href="https://calendar.app.google/UynTL5ttVPHhK1Hc8" target="_blank"> you can sign up for a meeting here (Rent a Mock)</a>.
+If anyone would like a personal consultation, <a
+href="https://calendar.app.google/UynTL5ttVPHhK1Hc8" target="_blank">
+you can sign up for a meeting here (Rent a Mock)</a>. 
