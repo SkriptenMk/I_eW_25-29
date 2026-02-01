@@ -83,9 +83,9 @@ format:
       - cosmo
       - brand
       - custom.scss
-#   code-download: true
+    code-download: true
     code-copy: true
-    code-tools: true
+    code-tools: false
     code-fold: false
     code-line-numbers: true
     toc: true
@@ -157,7 +157,7 @@ format:
     block-headings: true
     code-line-numbers: true
     code-block-bg: "#f8f8f8"
-    code-block-border-left: "#4a86cf"
+    code-block-border-left: false
     
     colorlinks: true
     linkcolor: "blue!70!black"
