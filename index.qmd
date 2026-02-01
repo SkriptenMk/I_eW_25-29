@@ -1,53 +1,51 @@
-# Willkommen {.unnumbered}
+# Welcome {.unnumbered}
 
-Hier finden Sie die Informationen für den Informatikunterricht.
+Here you will find information about computer science lessons.
 
-## Programm
+## Schedule
 
-| Datum | Thema |
-| :--- | :--- |
-| 18.08.2025 | Was ist Informatik |
-| 25.08.2025 | Vorbereiten der Arbeitsumgebung |
-| 01.09.2025 | Problemlösung in der Informatik |
-| 08.09.2025 | Variablen als Wegweiser zu Objekten |
-| 15.09.2025 | Schlaufen |
-| 22.09.2025 | Bedingungen |
-| 20.10.2025 | Anwendungsübung |
-| 27.10.2025 | Individuelle Prüfungsvorbereitung |
-| 03.11.2025 | Test |
-| 10.11.2025 | Datenstrukturen |
-| 17.11.2025 | Datenstrukturen |
-| 24.11.2025 | Algorithmen |
-| 01.12.2025 | Algorithmen |
-| 08.12.2025 | Wiederholung ohne Schleife (Rekursion) |
-| 15.12.2025 | Anwendungsübungen |
-| 05.01.2026 | Individuelle Prüfungsvorbereitung |
-| 12.01.2026 | Test |
+| Date | Topic |
+| :---- | :---- |
+| 16/02/2026 | Data Representation I: Number Systems (Binary, Decimal, Hexadecimal) |
+| 02/03/2026 | Data Representation II: Character Encoding (ASCII, Unicode) |
+| 09/03/2026 | Data Representation III: Images (RGB, Pixels, Resolution) |
+| 16/03/2026 | Concept of Algorithms: Definition, Properties, Notation |
+| 23/03/2026 | Algorithm Representation: Pseudocode and Nassi-Shneiderman Diagrams |
+| 30/03/2026 | Flowcharts and State Diagrams |
+| 13/04/2026 | TEST 1: Data Representation & Algorithm Representation |
+| 04/05/2026 | Functions I: Revision and Consolidation (Parameters, Return) |
+| 11/05/2026 | Functions II: Scope and Namespaces (local vs. global) |
+| 18/05/2026 | Functions III: Modularisation and Code Organisation |
+| 01/06/2026 | Functions IV: Advanced Recursive Functions |
+| 08/06/2026 | Exam Preparation and Subroutine Exercises |
+| 15/06/2026 | TEST 2: Subroutines (Functions, Scope, Modularisation) |
+| 22/06/2026 | Mini-Project I: Developing a Function-Based Application |
+| 29/06/2026 | Mini-Project II: Completion and Presentation |
+| 06/07/2026 | Reflection, Outlook for 3rd Semester, Feedback Session |
 
-Das Programm widerspiegelt den aktuellen Stand der Planung. Es ist im
-Verlauf des Semesters mit Änderungen zu rechnen.
+The programme reflects the current state of planning. Changes are to be
+expected throughout the semester.
 
-## Materielle Voraussetzungen
+## Hardware and Software Requirements
 
-Für den Informatikunterricht ist ein Laptop erforderlich (mit einem iPad
-können Sie die im Unterricht gestellten Aufgaben nicht lösen). Für Ihren
-Laptop brachen Sie zur Installation der erforderlichen Software
-Administratorenrechte.  
-Ausserdem müssen Sie sicherstellen, dass Ihr Akku zu Beginn des
-Unterrichts einen Ladestand aufweist, der eine Doppelstunde durchhält.
+A laptop is required for the computer science lessons (you will not be
+able to solve the tasks set in class using an iPad). You will need
+administrator rights on your laptop to install the required software. 
 
-## Beurteilung
+Furthermore, you must ensure that your battery is sufficiently charged
+at the start of the lesson to last for a double period. 
 
-Pro Semester sind zwei schriftliche Prüfungen vorgesehen. Ausserdem wird
-die mündliche Beteiligung benotet. Als mündliche Beteiligung gilt
-insbesondere auch das Stellen von Fragen.  
-Die
-Zeugnisnote berechnet sich als gewichteter Durchschnitt aus den beiden
-schriftlichen Prüfungen und der Note für die mündliche Beteiligung. Die
-Durchschnittsnote der beiden schriftlichen Prüfungen wird mit 90%, die
-Note für die mündliche Beteiligung mit 10% gewichtet.
+## Assessment
 
+Two written tests are planned per semester. In addition, oral
+participation will be graded. Asking questions is specifically
+considered as part of oral participation. 
 
-Falls jemand eine persönliche Besprechung wünscht,
-<a href="https://calendar.app.google/UynTL5ttVPHhK1Hc8" target="_blank">
-kann sich hier für eine Sprechstunde anmelden (Rent a Mock)</a>.
+The final grade is calculated as a weighted average of the two written
+tests and the grade for oral participation. The average grade of the two
+written tests is weighted at 90%, while the grade for oral participation
+is weighted at 10%. 
+
+If anyone would like a personal consultation, <a
+href="https://calendar.app.google/UynTL5ttVPHhK1Hc8" target="_blank">
+you can sign up for a meeting here (Rent a Mock)</a>. 
