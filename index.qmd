@@ -23,6 +23,8 @@ Here you will find information about computer science lessons.
 | 29/06/2026 | Mini-Project II: Completion and Presentation |
 | 06/07/2026 | Reflection, Outlook for 3rd Semester, Feedback Session |
 
+:  {tbl-colwidths="[20,80]"}
+
 The programme reflects the current state of planning. Changes are to be
 expected throughout the semester.
 
