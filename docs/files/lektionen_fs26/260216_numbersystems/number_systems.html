@@ -297,6 +297,11 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#decimal-representation-of-numbers" id="toc-decimal-representation-of-numbers" class="nav-link" data-scroll-target="#decimal-representation-of-numbers"><span class="header-section-number">14.3.1</span> Decimal Representation of Numbers</a></li>
   <li><a href="#binary-representation-of-numbers" id="toc-binary-representation-of-numbers" class="nav-link" data-scroll-target="#binary-representation-of-numbers"><span class="header-section-number">14.3.2</span> Binary Representation of Numbers</a></li>
+  <li><a href="#hexadecimal-numbers" id="toc-hexadecimal-numbers" class="nav-link" data-scroll-target="#hexadecimal-numbers"><span class="header-section-number">14.3.3</span> Hexadecimal Numbers</a></li>
+  </ul></li>
+  <li><a href="#number-conversion" id="toc-number-conversion" class="nav-link" data-scroll-target="#number-conversion"><span class="header-section-number">14.4</span> Number Conversion</a>
+  <ul class="collapse">
+  <li><a href="#decimal-to-binary-numbers" id="toc-decimal-to-binary-numbers" class="nav-link" data-scroll-target="#decimal-to-binary-numbers"><span class="header-section-number">14.4.1</span> Decimal to Binary Numbers</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_fs26/260216_numbersystems/number_systems.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -417,6 +422,39 @@ Figure&nbsp;14.1: Objects to count
 24_{10} = 1 \times 2^4 + 1 \times 2^3 + 0 \times 2^2 + 0 \times
 2^1 + 0 \times 2^0 = 11000_2
 \]</span></p>
+<p>One position in a binary number is called a <em>bit</em> (short for <em>binary digit</em>). Eight bits compose a <em>byte</em>, which is the smallest addressable unit of memory in most computer systems. For example, the ASCII code for the letter ‘A’ is stored in one byte: <span class="math inline">\(01000001_2\)</span>.</p>
+</section>
+<section id="hexadecimal-numbers" class="level3" data-number="14.3.3">
+<h3 data-number="14.3.3" class="anchored" data-anchor-id="hexadecimal-numbers"><span class="header-section-number">14.3.3</span> Hexadecimal Numbers</h3>
+<p>Hexadecimal numbers use base <span class="math inline">\(16_{10}\)</span>. Therefore, the quantities shown in <a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>14.1 (a)</span></a> and <a href="#fig-twentyfour" class="quarto-xref">Figure&nbsp;<span>14.1 (b)</span></a> become <span class="math inline">\(5_{16}\)</span> and <span class="math inline">\(18_{16}\)</span>, respectively.</p>
+<p>Because the Arabic numerals used in the decimal system provide only ten digits (0–9), additional symbols are needed to represent hexadecimal numbers. The symbols chosen are the first six uppercase letters of the Latin alphabet. Thus, hexadecimal numbers are composed of the sixteen symbols: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, and F.</p>
+<p>The numbers expressed as a formal calculation:</p>
+<p><span class="math display">\[
+5_{10} = 5 \times 16^0 = 5_{16}
+\]</span></p>
+<p><span class="math display">\[
+24_{10} = 1 \times 16^1 + 8 \times 16^0 = 18_{16}
+\]</span></p>
+<p>Every position of a hexadecimal number expresses one byte. Hexadecimal numbers are widely used in computer science as the follwing examples demonstrate:</p>
+<ul>
+<li>Memory addresses: <code>0x7FFFFFFF</code></li>
+<li>RGB color codes: <code>#FF5733</code> (red: FF, green: 57, blue: 33)</li>
+<li>Binary-to-hex conversion: Each hex digit represents exactly four bits (e.g., <span class="math inline">\(\text{F}_{16} = 1111_2\)</span>).</li>
+</ul>
+</section>
+</section>
+<section id="number-conversion" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="number-conversion"><span class="header-section-number">14.4</span> Number Conversion</h2>
+<p>The follwing sections describe the algorithms for the conversion of numbers from one representation to the other.</p>
+<section id="decimal-to-binary-numbers" class="level3" data-number="14.4.1">
+<h3 data-number="14.4.1" class="anchored" data-anchor-id="decimal-to-binary-numbers"><span class="header-section-number">14.4.1</span> Decimal to Binary Numbers</h3>
+<p>First, an empty string is initialized to represent the binary number. In a loop, the number <span class="math inline">\(n\)</span> to be converted is processed using the modulo 2 operation. The result of this operation is prepended as the most significant bit (to the far left) of the existing binary string. Subsequently, the number <span class="math inline">\(n\)</span> is halved using integer division, and the result of this division becomes the new value of <span class="math inline">\(n\)</span>. This process is repeated until <span class="math inline">\(n\)</span> reaches zero.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="struktogram_d2b.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Nassi-Shneiderman diagram to describe the algorithm."><img src="struktogram_d2b.svg" class="img-fluid figure-img" alt="Nassi-Shneiderman diagram to describe the algorithm."></a></p>
+<figcaption>Nassi-Shneiderman diagram to describe the algorithm.</figcaption>
+</figure>
+</div>
 
 
 </section>
