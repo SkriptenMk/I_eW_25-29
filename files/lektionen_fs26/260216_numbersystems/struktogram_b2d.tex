@@ -1,0 +1,18 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{struktex}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{struktogramm}(120,100)
+  \assign{\textbf{Binary to Decimal Conversion}}
+  \assign{$e \gets 0$}
+  \assign{$r \gets 0$}
+  \while[20]{for each digit $d$\\(right to left)}
+    \assign{$r \gets r + d \times 2^e$}
+    \assign{$e \gets e + 1$}
+  \whileend
+  \assign{\textbf{return} $r$}
+\end{struktogramm}
+
+\end{document}
