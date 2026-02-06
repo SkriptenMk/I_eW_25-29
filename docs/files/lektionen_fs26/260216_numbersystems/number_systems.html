@@ -339,6 +339,7 @@ window.Quarto = {
   <li><a href="#decimal-to-binary-numbers" id="toc-decimal-to-binary-numbers" class="nav-link" data-scroll-target="#decimal-to-binary-numbers"><span class="header-section-number">14.4.1</span> Decimal to Binary Numbers</a></li>
   <li><a href="#binary-to-decimal-conversion" id="toc-binary-to-decimal-conversion" class="nav-link" data-scroll-target="#binary-to-decimal-conversion"><span class="header-section-number">14.4.2</span> Binary to Decimal Conversion</a></li>
   <li><a href="#decimal-to-hexadecimal-conversion" id="toc-decimal-to-hexadecimal-conversion" class="nav-link" data-scroll-target="#decimal-to-hexadecimal-conversion"><span class="header-section-number">14.4.3</span> Decimal to Hexadecimal Conversion</a></li>
+  <li><a href="#hexadecimal-to-decimal-conversion" id="toc-hexadecimal-to-decimal-conversion" class="nav-link" data-scroll-target="#hexadecimal-to-decimal-conversion"><span class="header-section-number">14.4.4</span> Hexadecimal to Decimal Conversion</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_fs26/260216_numbersystems/number_systems.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -525,7 +526,7 @@ Figure&nbsp;14.1: Objects to count
 </section>
 <section id="decimal-to-hexadecimal-conversion" class="level3" data-number="14.4.3">
 <h3 data-number="14.4.3" class="anchored" data-anchor-id="decimal-to-hexadecimal-conversion"><span class="header-section-number">14.4.3</span> Decimal to Hexadecimal Conversion</h3>
-<p>To convert decimal numbers to hexadecimal numbers, the algorithm can be based on the binary conversion algorithm described earlier. However, hexadecimal representation requires additional symbols beyond 0–9. A lookup table maps decimal values to their hexadecimal equivalents, as shown in <a href="#tbl-dec-to-hex" class="quarto-xref">Table&nbsp;<span>14.1</span></a>.</p>
+<p>To convert decimal numbers to hexadecimal numbers, the algorithm can be based on the binary conversion algorithm described earlier. However, hexadecimal representation requires additional symbols beyond 0–9. A lookup table maps decimal values to their hexadecimal equivalents, as shown in 1.</p>
 <div id="tbl-dec-to-hex" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[25,25,25,25]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dec-to-hex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -607,7 +608,7 @@ Table&nbsp;14.1: Conversion table: decimal to hexadecimal.
 <li>While <span class="math inline">\(n &gt; 0\)</span>:
 <ol type="a">
 <li>Compute <span class="math inline">\(d = n \bmod 16\)</span>.</li>
-<li>Look up the hexadecimal digit corresponding to <span class="math inline">\(d\)</span> in <a href="#tbl-dec-to-hex" class="quarto-xref">Table&nbsp;<span>14.1</span></a>.</li>
+<li>Look up the hexadecimal digit corresponding to <span class="math inline">\(d\)</span> in 1.</li>
 <li>Prepend this digit to the hexadecimal string.</li>
 <li>Update <span class="math inline">\(n\)</span> using integer division: <span class="math inline">\(n \gets \lfloor n / 16
 \rfloor\)</span>.</li>
@@ -625,6 +626,35 @@ Table&nbsp;14.1: Conversion table: decimal to hexadecimal.
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> decimal_to_hexadecimal(d: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implement the aformentioned algorithm</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hexadecimal-to-decimal-conversion" class="level3" data-number="14.4.4">
+<h3 data-number="14.4.4" class="anchored" data-anchor-id="hexadecimal-to-decimal-conversion"><span class="header-section-number">14.4.4</span> Hexadecimal to Decimal Conversion</h3>
+<p>As with the conversion from decimal to hexadecimal, the reverse conversion requires only a small adaptation of the binary-to- decimal algorithm.</p>
+<p>The formal calculation must account for the hexadecimal digit mapping shown in 1.</p>
+<ol type="1">
+<li>Initialize a counter <span class="math inline">\(e\)</span> to zero.</li>
+<li>Initialize a result variable <span class="math inline">\(r\)</span> to zero.</li>
+<li>Extract the rightmost digit <span class="math inline">\(d\)</span> from the hexadecimal number.</li>
+<li>Convert the digit <span class="math inline">\(d\)</span> to its decimal equivalent using
+<ol class="example" type="1">
+<li></li>
+</ol></li>
+<li>Multiply the decimal value by <span class="math inline">\(16^e\)</span> and add the result to <span class="math inline">\(r\)</span>.</li>
+<li>Increment the counter <span class="math inline">\(e\)</span> by one.</li>
+<li>Repeat steps 3–6 for each remaining digit, moving from right to left, until all digits have been processed.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="struktogram_h2d.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Nassi-Shneiderman diagram of the algorithm for the hexadecimal to decimal conversion."><img src="struktogram_h2d.svg" class="img-fluid figure-img" alt="Nassi-Shneiderman diagram of the algorithm for the hexadecimal to decimal conversion."></a></p>
+<figcaption>Nassi-Shneiderman diagram of the algorithm for the hexadecimal to decimal conversion.</figcaption>
+</figure>
+</div>
+<p><strong>Task</strong>: Please implement the algorithm as described.</p>
+<div id="e866cc42" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> hexadecimal_to_decimal(h: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implement the aformentioned algorithm</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

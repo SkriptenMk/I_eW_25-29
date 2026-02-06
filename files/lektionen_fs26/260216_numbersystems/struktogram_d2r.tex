@@ -1,0 +1,38 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{struktex}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{struktogramm}(150,140)
+  % Title
+  \assign{\textbf{Decimal to Roman Numeral Conversion}}
+  
+  % Step 1: Initialize result string
+  \assign{roman $\gets$ ``'' (empty string)}
+  
+  % Step 2: Initialize index
+  \assign{$i \gets 0$}
+  
+  % Step 3: Main loop (while n > 0)
+  \while[50]{$n > 0$}
+    % Step 3a: Get current value and symbol
+    \assign{$v \gets \text{values}[i]$}
+    \assign{$s \gets \text{symbols}[i]$}
+    
+    % Step 3c: Check if n >= v
+    \ifthenelse{20}{10}{$n \geq v$}{$n < v$}
+      % True branch: append and subtract
+      \assign{roman $\gets$ roman $+$ $s$}
+      \assign{$n \gets n - v$}
+      % False branch: increment index
+      \assign{$i \gets i + 1$}
+    \ifend
+  \whileend
+  
+  % Step 4: Return result
+  \assign{\textbf{return} roman}
+  
+\end{struktogramm}
+
+\end{document}

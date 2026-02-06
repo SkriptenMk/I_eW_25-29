@@ -1,0 +1,36 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{struktex}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{struktogramm}(140,115)
+  % Title
+  \assign{\textbf{Hexadecimal to Decimal Conversion}}
+  
+  % Step 1: Initialize counter e
+  \assign{$e \gets 0$}
+  
+  % Step 2: Initialize result variable r
+  \assign{$r \gets 0$}
+  
+  % Step 3-7: Loop through digits
+  \while[30]{for each digit $d$ in hex number\\(from right to left)}
+    % Step 3: Extract digit (implicit in loop)
+    
+    % Step 4: Convert hex digit to decimal
+    \assign{Convert $d$ to decimal using table}
+    
+    % Step 5: Multiply and add
+    \assign{$r \gets r + d \times 16^e$}
+    
+    % Step 6: Increment counter
+    \assign{$e \gets e + 1$}
+  \whileend
+  
+  % Return result
+  \assign{\textbf{return} $r$}
+  
+\end{struktogramm}
+
+\end{document}
