@@ -742,5 +742,27 @@
       "Data Representation",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Number Representation</span>"
     ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260216_numbersystems/number_systems.html#symbolic-number-representation",
+    "href": "files/lektionen_fs26/260216_numbersystems/number_systems.html#symbolic-number-representation",
+    "title": "14  Number Representation",
+    "section": "14.2 Symbolic Number Representation",
+    "text": "14.2 Symbolic Number Representation\nWhile the Romans were not the pioneers of representing numerical values through symbols, their system remains the most prominent historical example. Consequently, the Roman method for denoting the quantity of objects is illustrated in figures Figure 14.1 (a) (V) and Figure 14.1 (b) (XXIV).\nRoman numerals are generally intuitive up to the number twelve; however, representing larger magnitudes increases complexity significantly. In principle, each symbol within a Roman numeral possesses a fixed value. An exception occurs only when a symbol of lesser value precedes one of greater value, indicating subtraction.\nFurthermore, Roman numerals need a lot of space. The current year becomes MMXXVI an increase in space consumption by 50% compared to the decimal 2026.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Number Representation</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260216_numbersystems/number_systems.html#number-representation-and-positional-notation",
+    "href": "files/lektionen_fs26/260216_numbersystems/number_systems.html#number-representation-and-positional-notation",
+    "title": "14  Number Representation",
+    "section": "14.3 Number Representation and Positional Notation",
+    "text": "14.3 Number Representation and Positional Notation\n\n14.3.1 Decimal Representation of Numbers\nUnlike Roman numerals, decimal numerals possess both a face value and a positional value. For instance, the quantity of objects shown in Figure 14.1 (a) is represented by the digit 5, signifying five ones. In Figure 14.1 (b), the quantity becomes 24, representing two tens plus four ones.\nWhen expressed as a formal calculation:\n\\[5 = 5 \\times 10^0 \\quad \\text{and} \\quad 24 = 2 \\times 10^1 + 4 \\times\n10^0\\]\nThis distinction demonstrates the mechanics of a positional numeral system:\n\nThe face value (the digit itself) acts as a coefficient.\nThe positional value (determined by the digit’s position) corresponds to a power of the base.\n\nThis differentiation between face and positional values enables a significantly more compact representation of numbers compared to additive symbolic systems such as Roman numerals.\n\n\n14.3.2 Binary Representation of Numbers\nA well-known joke in computer science circles goes:\n\nThere are 10 kinds of people:\n\nthose who understand binary numbers, and\nthose who don’t.\n\n\nUnderstanding binary numbers is essential to appreciating this joke.\nWhile decimal numbers are represented in formal calculations as products of single digits and powers of the base 10, binary numbers use base 2. The quantities shown in Figure 14.1 (a) and Figure 14.1 (b), when represented as binary numbers, are \\(101_2\\) and \\(11000_2\\), respectively.\nExpressed as formal calculations:\n\\[\n5_{10} = 1 \\times 2^2 + 0 \\times 2^1 + 1 \\times 2^0 = 101_2\n\\]\nand\n\\[\n24_{10} = 1 \\times 2^4 + 1 \\times 2^3 + 0 \\times 2^2 + 0 \\times\n2^1 + 0 \\times 2^0 = 11000_2\n\\]",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Number Representation</span>"
+    ]
   }
 ]

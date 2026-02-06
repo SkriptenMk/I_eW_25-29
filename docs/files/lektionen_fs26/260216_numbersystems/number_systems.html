@@ -74,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -263,6 +292,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#one-to-one-number-representation" id="toc-one-to-one-number-representation" class="nav-link active" data-scroll-target="#one-to-one-number-representation"><span class="header-section-number">14.1</span> One-to-one Number Representation</a></li>
+  <li><a href="#symbolic-number-representation" id="toc-symbolic-number-representation" class="nav-link" data-scroll-target="#symbolic-number-representation"><span class="header-section-number">14.2</span> Symbolic Number Representation</a></li>
+  <li><a href="#number-representation-and-positional-notation" id="toc-number-representation-and-positional-notation" class="nav-link" data-scroll-target="#number-representation-and-positional-notation"><span class="header-section-number">14.3</span> Number Representation and Positional Notation</a>
+  <ul class="collapse">
+  <li><a href="#decimal-representation-of-numbers" id="toc-decimal-representation-of-numbers" class="nav-link" data-scroll-target="#decimal-representation-of-numbers"><span class="header-section-number">14.3.1</span> Decimal Representation of Numbers</a></li>
+  <li><a href="#binary-representation-of-numbers" id="toc-binary-representation-of-numbers" class="nav-link" data-scroll-target="#binary-representation-of-numbers"><span class="header-section-number">14.3.2</span> Binary Representation of Numbers</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_fs26/260216_numbersystems/number_systems.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -339,8 +374,52 @@ Figure&nbsp;14.1: Objects to count
 <section id="one-to-one-number-representation" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="one-to-one-number-representation"><span class="header-section-number">14.1</span> One-to-one Number Representation</h2>
 <p>In a one-to-one number representations the objects in <a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>14.1 (a)</span></a> could be represented by <img src="fuenf_striche.svg" style="height:1em"> the objects in <a href="#fig-twentyfour" class="quarto-xref">Figure&nbsp;<span>14.1 (b)</span></a> by <img src="vierundzwanzig_striche.svg" style="height:1em"> respectively.</p>
+</section>
+<section id="symbolic-number-representation" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="symbolic-number-representation"><span class="header-section-number">14.2</span> Symbolic Number Representation</h2>
+<p>While the Romans were not the pioneers of representing numerical values through symbols, their system remains the most prominent historical example. Consequently, the Roman method for denoting the quantity of objects is illustrated in figures <a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>14.1 (a)</span></a> (<strong>V</strong>) and <a href="#fig-twentyfour" class="quarto-xref">Figure&nbsp;<span>14.1 (b)</span></a> (<strong>XXIV</strong>).</p>
+<p>Roman numerals are generally intuitive up to the number twelve; however, representing larger magnitudes increases complexity significantly. In principle, each symbol within a Roman numeral possesses a fixed value. An exception occurs only when a symbol of lesser value precedes one of greater value, indicating subtraction.</p>
+<p>Furthermore, Roman numerals need a lot of space. The current year becomes <em>MMXXVI</em> an increase in space consumption by 50% compared to the decimal <em>2026</em>.</p>
+</section>
+<section id="number-representation-and-positional-notation" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="number-representation-and-positional-notation"><span class="header-section-number">14.3</span> Number Representation and Positional Notation</h2>
+<section id="decimal-representation-of-numbers" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="decimal-representation-of-numbers"><span class="header-section-number">14.3.1</span> Decimal Representation of Numbers</h3>
+<p>Unlike Roman numerals, decimal numerals possess both a <strong>face value</strong> and a <strong>positional value</strong>. For instance, the quantity of objects shown in <a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>14.1 (a)</span></a> is represented by the digit <em>5</em>, signifying <em>five ones</em>. In <a href="#fig-twentyfour" class="quarto-xref">Figure&nbsp;<span>14.1 (b)</span></a>, the quantity becomes <em>24</em>, representing <em>two tens plus four ones</em>.</p>
+<p>When expressed as a formal calculation:</p>
+<p><span class="math display">\[5 = 5 \times 10^0 \quad \text{and} \quad 24 = 2 \times 10^1 + 4 \times
+10^0\]</span></p>
+<p>This distinction demonstrates the mechanics of a <strong>positional numeral system</strong>:</p>
+<ul>
+<li>The <strong>face value</strong> (the digit itself) acts as a coefficient.</li>
+<li>The <strong>positional value</strong> (determined by the digit’s position) corresponds to a power of the base.</li>
+</ul>
+<p>This differentiation between face and positional values enables a significantly more compact representation of numbers compared to additive symbolic systems such as Roman numerals.</p>
+</section>
+<section id="binary-representation-of-numbers" class="level3" data-number="14.3.2">
+<h3 data-number="14.3.2" class="anchored" data-anchor-id="binary-representation-of-numbers"><span class="header-section-number">14.3.2</span> Binary Representation of Numbers</h3>
+<p>A well-known joke in computer science circles goes:</p>
+<blockquote class="blockquote">
+<p>There are 10 kinds of people:</p>
+<ul>
+<li>those who understand binary numbers, and</li>
+<li>those who don’t.</li>
+</ul>
+</blockquote>
+<p>Understanding binary numbers is essential to appreciating this joke.</p>
+<p>While decimal numbers are represented in formal calculations as products of single digits and powers of the base 10, binary numbers use base 2. The quantities shown in <a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>14.1 (a)</span></a> and <a href="#fig-twentyfour" class="quarto-xref">Figure&nbsp;<span>14.1 (b)</span></a>, when represented as binary numbers, are <span class="math inline">\(101_2\)</span> and <span class="math inline">\(11000_2\)</span>, respectively.</p>
+<p>Expressed as formal calculations:</p>
+<p><span class="math display">\[
+5_{10} = 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 101_2
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+24_{10} = 1 \times 2^4 + 1 \times 2^3 + 0 \times 2^2 + 0 \times
+2^1 + 0 \times 2^0 = 11000_2
+\]</span></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
