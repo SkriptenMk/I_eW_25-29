@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jacques Mock Schindler">
+
+<title>14&nbsp; Number Representation – Unterlagen für das obligatorische Fach Informatik</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../files/lektionen_hs25/260105_uebungen/uebungen.html" rel="prev">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-67f834bce3b14d3b76b9c4a6684feb25.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Unterlagen für das obligatorische Fach Informatik</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/SkriptenMk/I_eW_25-29/tree/main/files" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/SkriptenMk/I_eW_25-29/issues" target="_blank"> <i class="bi bi-bug" role="img" aria-label="Fehler melden">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/SkriptenMk/I_eW_25-29" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <a href="../../../Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_fs26/260216_numbersystems/number_systems.html">Data Representation</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_fs26/260216_numbersystems/number_systems.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Number Representation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anleitungen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einführung in Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250901_probleme/probleme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Problemlösung in der Informatik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabeln in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251124_dict/dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenstrukturen: Dictionary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/260105_uebungen/uebungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung 2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Representation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260216_numbersystems/number_systems.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Number Representation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#one-to-one-number-representation" id="toc-one-to-one-number-representation" class="nav-link active" data-scroll-target="#one-to-one-number-representation"><span class="header-section-number">14.1</span> One-to-one Number Representation</a></li>
+  <li><a href="#symbolic-number-representation" id="toc-symbolic-number-representation" class="nav-link" data-scroll-target="#symbolic-number-representation"><span class="header-section-number">14.2</span> Symbolic Number Representation</a></li>
+  <li><a href="#number-representation-and-positional-notation" id="toc-number-representation-and-positional-notation" class="nav-link" data-scroll-target="#number-representation-and-positional-notation"><span class="header-section-number">14.3</span> Number Representation and Positional Notation</a>
+  <ul class="collapse">
+  <li><a href="#decimal-representation-of-numbers" id="toc-decimal-representation-of-numbers" class="nav-link" data-scroll-target="#decimal-representation-of-numbers"><span class="header-section-number">14.3.1</span> Decimal Representation of Numbers</a></li>
+  <li><a href="#binary-representation-of-numbers" id="toc-binary-representation-of-numbers" class="nav-link" data-scroll-target="#binary-representation-of-numbers"><span class="header-section-number">14.3.2</span> Binary Representation of Numbers</a></li>
+  <li><a href="#hexadecimal-numbers" id="toc-hexadecimal-numbers" class="nav-link" data-scroll-target="#hexadecimal-numbers"><span class="header-section-number">14.3.3</span> Hexadecimal Numbers</a></li>
+  </ul></li>
+  <li><a href="#number-conversion" id="toc-number-conversion" class="nav-link" data-scroll-target="#number-conversion"><span class="header-section-number">14.4</span> Number Conversion</a>
+  <ul class="collapse">
+  <li><a href="#decimal-to-binary-numbers" id="toc-decimal-to-binary-numbers" class="nav-link" data-scroll-target="#decimal-to-binary-numbers"><span class="header-section-number">14.4.1</span> Decimal to Binary Numbers</a></li>
+  <li><a href="#binary-to-decimal-conversion" id="toc-binary-to-decimal-conversion" class="nav-link" data-scroll-target="#binary-to-decimal-conversion"><span class="header-section-number">14.4.2</span> Binary to Decimal Conversion</a></li>
+  <li><a href="#decimal-to-hexadecimal-conversion" id="toc-decimal-to-hexadecimal-conversion" class="nav-link" data-scroll-target="#decimal-to-hexadecimal-conversion"><span class="header-section-number">14.4.3</span> Decimal to Hexadecimal Conversion</a></li>
+  <li><a href="#hexadecimal-to-decimal-conversion" id="toc-hexadecimal-to-decimal-conversion" class="nav-link" data-scroll-target="#hexadecimal-to-decimal-conversion"><span class="header-section-number">14.4.4</span> Hexadecimal to Decimal Conversion</a></li>
+  <li><a href="#decimal-to-roman-numeral-conversion" id="toc-decimal-to-roman-numeral-conversion" class="nav-link" data-scroll-target="#decimal-to-roman-numeral-conversion"><span class="header-section-number">14.4.5</span> Decimal to Roman Numeral Conversion</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_fs26/260216_numbersystems/number_systems.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_fs26/260216_numbersystems/number_systems.html">Data Representation</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_fs26/260216_numbersystems/number_systems.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Number Representation</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Number Representation</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jacques Mock Schindler </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">16. February 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Counting has a long history, as does the representation of numbers. At the beginning of numerical recording, there was a one-to-one representation. This means that each each object to be counted was represented by a symbol. This approach is not particularly efficient. Therefore, early in human history people started developing more compact representations of numbers.</p>
+<div id="fig-numbers" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-numbers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-numbers" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-five" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-five-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fuenf.svg" class="lightbox" data-gallery="fig-numbers" title="Figure&nbsp;14.1&nbsp;(a): Five"><img src="fuenf.svg" class="img-fluid figure-img" data-ref-parent="fig-numbers"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-five-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Five
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-numbers" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-twenty-four" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-twenty-four-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="vierundzwanzig.svg" class="lightbox" data-gallery="fig-numbers" title="Figure&nbsp;14.1&nbsp;(b): Twenty-four"><img src="vierundzwanzig.svg" class="img-fluid figure-img" data-ref-parent="fig-numbers"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-twenty-four-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Twenty-four
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-numbers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: Objects to count
+</figcaption>
+</figure>
+</div>
+<section id="one-to-one-number-representation" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="one-to-one-number-representation"><span class="header-section-number">14.1</span> One-to-one Number Representation</h2>
+<p>In a one-to-one number representations the objects in <a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>14.1 (a)</span></a> could be represented by <img src="fuenf_striche.svg" style="height:1em"> the objects in <a href="#fig-twenty-four" class="quarto-xref">Figure&nbsp;<span>14.1 (b)</span></a> by <img src="vierundzwanzig_striche.svg" style="height:1em"> respectively.</p>
+</section>
+<section id="symbolic-number-representation" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="symbolic-number-representation"><span class="header-section-number">14.2</span> Symbolic Number Representation</h2>
+<p>While the Romans were not the pioneers of representing numerical values through symbols, their system remains the most prominent historical example. Consequently, the Roman method for denoting the quantity of objects is illustrated in figures <a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>14.1 (a)</span></a> (<strong>V</strong>) and <a href="#fig-twenty-four" class="quarto-xref">Figure&nbsp;<span>14.1 (b)</span></a> (<strong>XXIV</strong>).</p>
+<p>Roman numerals are generally intuitive up to the number twelve; however, representing larger values increases complexity significantly. In principle, each symbol within a Roman numeral possesses a fixed value. An exception occurs only when a symbol of lesser value precedes one of greater value, indicating subtraction.</p>
+<p>Furthermore, Roman numerals require considerable space. The current year becomes <em>MMXXVI</em> an increase in space consumption by 50% compared to the decimal <em>2026</em>.</p>
+</section>
+<section id="number-representation-and-positional-notation" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="number-representation-and-positional-notation"><span class="header-section-number">14.3</span> Number Representation and Positional Notation</h2>
+<section id="decimal-representation-of-numbers" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="decimal-representation-of-numbers"><span class="header-section-number">14.3.1</span> Decimal Representation of Numbers</h3>
+<p>Unlike Roman numerals, decimal numerals possess both a <strong>face value</strong> and a <strong>positional value</strong>. For instance, the quantity of objects shown in <a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>14.1 (a)</span></a> is represented by the digit <em>5</em>, signifying <em>five ones</em>. In <a href="#fig-twenty-four" class="quarto-xref">Figure&nbsp;<span>14.1 (b)</span></a>, the quantity becomes <em>24</em>, representing <em>two tens plus four ones</em>.</p>
+<p>When expressed as a formal calculation:</p>
+<p><span class="math display">\[5 = 5 \times 10^0 \quad \text{and} \quad 24 = 2 \times 10^1 + 4 \times
+10^0\]</span></p>
+<p>This distinction demonstrates the mechanics of a <strong>positional numeral system</strong>:</p>
+<ul>
+<li>The <strong>face value</strong> (the digit itself) acts as a coefficient.</li>
+<li>The <strong>positional value</strong> (determined by the digit’s position) corresponds to a power of the base.</li>
+</ul>
+<p>This differentiation between face and positional values enables a significantly more compact representation of numbers compared to additive symbolic systems such as Roman numerals.</p>
+</section>
+<section id="binary-representation-of-numbers" class="level3" data-number="14.3.2">
+<h3 data-number="14.3.2" class="anchored" data-anchor-id="binary-representation-of-numbers"><span class="header-section-number">14.3.2</span> Binary Representation of Numbers</h3>
+<p>A well-known joke in computer science circles goes:</p>
+<blockquote class="blockquote">
+<p>There are 10 kinds of people:</p>
+<ul>
+<li>those who understand binary numbers, and</li>
+<li>those who don’t.</li>
+</ul>
+</blockquote>
+<p>Understanding binary numbers is essential to appreciating this joke.</p>
+<p>While decimal numbers are represented in formal calculations as products of single digits and powers of the base 10, binary numbers use base 2. The quantities shown in <a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>14.1 (a)</span></a> and <a href="#fig-twenty-four" class="quarto-xref">Figure&nbsp;<span>14.1 (b)</span></a>, when represented as binary numbers, are <span class="math inline">\(101_2\)</span> and <span class="math inline">\(11000_2\)</span>, respectively.</p>
+<p>Expressed as formal calculations:</p>
+<p><span class="math display">\[
+5_{10} = 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 101_2
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+24_{10} = 1 \times 2^4 + 1 \times 2^3 + 0 \times 2^2 + 0 \times
+2^1 + 0 \times 2^0 = 11000_2
+\]</span></p>
+<p>One position in a binary number is called a <em>bit</em> (short for <em>binary digit</em>). Eight bits compose a <em>byte</em>, which is the smallest addressable unit of memory in most computer systems. For example, the ASCII code for the letter ‘A’ is stored in one byte: <span class="math inline">\(01000001_2\)</span>.</p>
+</section>
+<section id="hexadecimal-numbers" class="level3" data-number="14.3.3">
+<h3 data-number="14.3.3" class="anchored" data-anchor-id="hexadecimal-numbers"><span class="header-section-number">14.3.3</span> Hexadecimal Numbers</h3>
+<p>Hexadecimal numbers use base <span class="math inline">\(16_{10}\)</span>. Therefore, the quantities shown in <a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>14.1 (a)</span></a> and <a href="#fig-twenty-four" class="quarto-xref">Figure&nbsp;<span>14.1 (b)</span></a> become <span class="math inline">\(5_{16}\)</span> and <span class="math inline">\(18_{16}\)</span>, respectively.</p>
+<p>Because the Arabic numerals used in the decimal system provide only ten digits (0–9), additional symbols are needed to represent hexadecimal numbers. The symbols chosen are the first six uppercase letters of the Latin alphabet. Thus, hexadecimal numbers are composed of the sixteen symbols: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, and F.</p>
+<p>These numbers expressed as a formal calculation:</p>
+<p><span class="math display">\[
+5_{10} = 5 \times 16^0 = 5_{16}
+\]</span></p>
+<p><span class="math display">\[
+24_{10} = 1 \times 16^1 + 8 \times 16^0 = 18_{16}
+\]</span></p>
+<p>Each hexadecimal digit represents exactly four bits (also called a nibble). Hexadecimal numbers are widely used in computer science as the follwing examples demonstrate:</p>
+<ul>
+<li>Memory addresses: <code>0x7FFFFFFF</code></li>
+<li>RGB color codes: <code>#FF5733</code> (red: FF, green: 57, blue: 33)</li>
+<li>Binary-to-hex conversion: Each hex digit represents exactly four bits (e.g., <span class="math inline">\(\text{F}_{16} = 1111_2\)</span>).</li>
+</ul>
+</section>
+</section>
+<section id="number-conversion" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="number-conversion"><span class="header-section-number">14.4</span> Number Conversion</h2>
+<p>The following sections describe the algorithms for the conversion of numbers from one representation to the other.</p>
+<section id="decimal-to-binary-numbers" class="level3" data-number="14.4.1">
+<h3 data-number="14.4.1" class="anchored" data-anchor-id="decimal-to-binary-numbers"><span class="header-section-number">14.4.1</span> Decimal to Binary Numbers</h3>
+<p>First, an empty string is initialized to represent the binary number. In a loop, the number <span class="math inline">\(n\)</span> to be converted is processed using the modulo 2 operation. The result of this operation is prepended as the most significant bit (to the far left) of the existing binary string. Subsequently, the number <span class="math inline">\(n\)</span> is halved using integer division, and the result of this division becomes the new value of <span class="math inline">\(n\)</span>. This process is repeated until <span class="math inline">\(n\)</span> reaches zero.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="struktogram_d2b.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Nassi-Shneiderman diagram describing the algorithm (MSB = Most Significant Bit)."><img src="struktogram_d2b.svg" class="img-fluid figure-img" alt="Nassi-Shneiderman diagram describing the algorithm (MSB = Most Significant Bit)."></a></p>
+<figcaption>Nassi-Shneiderman diagram describing the algorithm (MSB = Most Significant Bit).</figcaption>
+</figure>
+</div>
+<p><strong>Task</strong>: Please implement the algorithm as described.</p>
+<div id="520814a3" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> decimal_to_binary(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implement the aforementioned algorithm </span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="binary-to-decimal-conversion" class="level3" data-number="14.4.2">
+<h3 data-number="14.4.2" class="anchored" data-anchor-id="binary-to-decimal-conversion"><span class="header-section-number">14.4.2</span> Binary to Decimal Conversion</h3>
+<p>To convert binary numbers to decimal numbers, the formal calculation described above must be expressed algorithmically.</p>
+<ol type="1">
+<li>Initialize a counter <span class="math inline">\(e\)</span> to zero.</li>
+<li>Initialize a result variable <span class="math inline">\(r\)</span> to zero.</li>
+<li>Extract the rightmost digit <span class="math inline">\(d\)</span> from the binary number.</li>
+<li>Multiply <span class="math inline">\(d\)</span> by <span class="math inline">\(2^e\)</span> and add the result to <span class="math inline">\(r\)</span>.</li>
+<li>Increment the counter <span class="math inline">\(e\)</span> by one.</li>
+<li>Repeat steps 3–5 for each remaining digit, moving from right to left, until all digits have been processed.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="struktogram_b2d.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Nassi-Shneiderman diagram for the algorithm to convert binary numbers to decimal ones."><img src="struktogram_b2d.svg" class="img-fluid figure-img" alt="Nassi-Shneiderman diagram for the algorithm to convert binary numbers to decimal ones."></a></p>
+<figcaption>Nassi-Shneiderman diagram for the algorithm to convert binary numbers to decimal ones.</figcaption>
+</figure>
+</div>
+<p><strong>Task</strong>: Please implement the algorithm as described.</p>
+<div id="24390fc1" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> binary_to_decimal(b: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implement the aforementioned algorithm</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="decimal-to-hexadecimal-conversion" class="level3" data-number="14.4.3">
+<h3 data-number="14.4.3" class="anchored" data-anchor-id="decimal-to-hexadecimal-conversion"><span class="header-section-number">14.4.3</span> Decimal to Hexadecimal Conversion</h3>
+<p>To convert decimal numbers to hexadecimal numbers, the algorithm can be based on the binary conversion algorithm described earlier. However, hexadecimal representation requires additional symbols beyond 0–9. A lookup table maps decimal values to their hexadecimal equivalents, as shown in <a href="#tbl-dec-to-hex" class="quarto-xref">Table&nbsp;<span>14.1</span></a>.</p>
+<div id="tbl-dec-to-hex" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[25,25,25,25]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dec-to-hex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;14.1: Conversion table: decimal to hexadecimal.
+</figcaption>
+<div aria-describedby="tbl-dec-to-hex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Dec</th>
+<th style="text-align: center;">Hex</th>
+<th style="text-align: right;">Dec</th>
+<th style="text-align: center;">Hex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: center;">D</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: center;">E</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Using this table, the conversion algorithm proceeds as follows:</p>
+<ol type="1">
+<li>Initialize an empty string to represent the hexadecimal number.</li>
+<li>While <span class="math inline">\(n &gt; 0\)</span>:
+<ol type="a">
+<li>Compute <span class="math inline">\(d = n \bmod 16\)</span>.</li>
+<li>Look up the hexadecimal digit corresponding to <span class="math inline">\(d\)</span> in <a href="#tbl-dec-to-hex" class="quarto-xref">Table&nbsp;<span>14.1</span></a>.</li>
+<li>Prepend this digit to the hexadecimal string.</li>
+<li>Update <span class="math inline">\(n\)</span> using integer division: <span class="math inline">\(n \gets \lfloor n / 16
+\rfloor\)</span>.</li>
+</ol></li>
+<li>Return the hexadecimal string.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="struktogram_d2h.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Nassi-Shneiderman diagram of the algorithm for the decimal to hexadecimal conversion."><img src="struktogram_d2h.svg" class="img-fluid figure-img" alt="Nassi-Shneiderman diagram of the algorithm for the decimal to hexadecimal conversion."></a></p>
+<figcaption>Nassi-Shneiderman diagram of the algorithm for the decimal to hexadecimal conversion.</figcaption>
+</figure>
+</div>
+<p><strong>Task</strong>: Please implement the algorithm as described.</p>
+<div id="5e239b95" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> decimal_to_hexadecimal(d: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implement the aforementioned algorithm</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hexadecimal-to-decimal-conversion" class="level3" data-number="14.4.4">
+<h3 data-number="14.4.4" class="anchored" data-anchor-id="hexadecimal-to-decimal-conversion"><span class="header-section-number">14.4.4</span> Hexadecimal to Decimal Conversion</h3>
+<p>As with the conversion from decimal to hexadecimal, the reverse conversion requires only a small adaptation of the binary-to- decimal algorithm.</p>
+<p>The formal calculation must account for the hexadecimal digit mapping shown in <a href="#tbl-dec-to-hex" class="quarto-xref">Table&nbsp;<span>14.1</span></a>.</p>
+<ol type="1">
+<li>Initialize a counter <span class="math inline">\(e\)</span> to zero.</li>
+<li>Initialize a result variable <span class="math inline">\(r\)</span> to zero.</li>
+<li>Extract the rightmost digit <span class="math inline">\(d\)</span> from the hexadecimal number.</li>
+<li>Convert the digit <span class="math inline">\(d\)</span> to its decimal equivalent using <a href="#tbl-dec-to-hex" class="quarto-xref">Table&nbsp;<span>14.1</span></a>.</li>
+<li>Multiply the decimal value by <span class="math inline">\(16^e\)</span> and add the result to <span class="math inline">\(r\)</span>.</li>
+<li>Increment the counter <span class="math inline">\(e\)</span> by one.</li>
+<li>Repeat steps 3–6 for each remaining digit, moving from right to left, until all digits have been processed.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="struktogram_h2d.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Nassi-Shneiderman diagram of the algorithm for the hexadecimal to decimal conversion."><img src="struktogram_h2d.svg" class="img-fluid figure-img" alt="Nassi-Shneiderman diagram of the algorithm for the hexadecimal to decimal conversion."></a></p>
+<figcaption>Nassi-Shneiderman diagram of the algorithm for the hexadecimal to decimal conversion.</figcaption>
+</figure>
+</div>
+<p><strong>Task</strong>: Please implement the algorithm as described.</p>
+<div id="e866cc42" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> hexadecimal_to_decimal(h: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implement the aforementioned algorithm</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="decimal-to-roman-numeral-conversion" class="level3" data-number="14.4.5">
+<h3 data-number="14.4.5" class="anchored" data-anchor-id="decimal-to-roman-numeral-conversion"><span class="header-section-number">14.4.5</span> Decimal to Roman Numeral Conversion</h3>
+<p>To convert decimal numbers to Roman numerals, a greedy algorithm is employed that repeatedly subtracts the largest possible Roman value from the number.</p>
+<p>Roman numerals use seven basic symbols and six subtractive combinations, as shown in <a href="#tbl-roman-values" class="quarto-xref">Table&nbsp;<span>14.2</span></a>.</p>
+<div id="tbl-roman-values" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[30,30,40]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-roman-values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;14.2: Roman numeral values in descending order.
+</figcaption>
+<div aria-describedby="tbl-roman-values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Decimal</th>
+<th style="text-align: center;">Roman</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1000</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: left;">Basic</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">900</td>
+<td style="text-align: center;">CM</td>
+<td style="text-align: left;">Subtractive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">500</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: left;">Basic</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">400</td>
+<td style="text-align: center;">CD</td>
+<td style="text-align: left;">Subtractive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">100</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: left;">Basic</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">90</td>
+<td style="text-align: center;">XC</td>
+<td style="text-align: left;">Subtractive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: left;">Basic</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40</td>
+<td style="text-align: center;">XL</td>
+<td style="text-align: left;">Subtractive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: left;">Basic</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: center;">IX</td>
+<td style="text-align: left;">Subtractive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: left;">Basic</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: center;">IV</td>
+<td style="text-align: left;">Subtractive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: left;">Basic</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Using this table, the conversion algorithm proceeds as follows:</p>
+<ol type="1">
+<li>Initialize an empty string to represent the Roman numeral.</li>
+<li>Initialize an index <span class="math inline">\(i\)</span> to point to the first entry in <a href="#tbl-roman-values" class="quarto-xref">Table&nbsp;<span>14.2</span></a> (largest value).</li>
+<li>While the decimal number <span class="math inline">\(n &gt; 0\)</span>:
+<ol type="a">
+<li>Let <span class="math inline">\(v\)</span> be the decimal value at index <span class="math inline">\(i\)</span>.</li>
+<li>Let <span class="math inline">\(s\)</span> be the Roman symbol(s) at index <span class="math inline">\(i\)</span>.</li>
+<li>If <span class="math inline">\(n \geq v\)</span>:
+<ul>
+<li>Append symbol <span class="math inline">\(s\)</span> to the Roman numeral string.</li>
+<li>Subtract <span class="math inline">\(v\)</span> from <span class="math inline">\(n\)</span>: <span class="math inline">\(n \gets n - v\)</span>.</li>
+</ul></li>
+<li>Otherwise:
+<ul>
+<li>Increment index <span class="math inline">\(i\)</span> to move to the next smaller value.</li>
+</ul></li>
+</ol></li>
+<li>Return the Roman numeral string.</li>
+</ol>
+<p><strong>Example:</strong> Convert <span class="math inline">\(24_{10}\)</span> to Roman numerals.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Step</th>
+<th><span class="math inline">\(n\)</span></th>
+<th><span class="math inline">\(i\)</span></th>
+<th><span class="math inline">\(v\)</span></th>
+<th><span class="math inline">\(s\)</span></th>
+<th>Action</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>24</td>
+<td>0</td>
+<td>1000</td>
+<td>M</td>
+<td>Skip</td>
+<td>“”</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>24</td>
+<td>1</td>
+<td>900</td>
+<td>CM</td>
+<td>Skip</td>
+<td>“”</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>24</td>
+<td>2</td>
+<td>500</td>
+<td>D</td>
+<td>Skip</td>
+<td>“”</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>24</td>
+<td>3</td>
+<td>400</td>
+<td>CD</td>
+<td>Skip</td>
+<td>“”</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>24</td>
+<td>4</td>
+<td>100</td>
+<td>C</td>
+<td>Skip</td>
+<td>“”</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>24</td>
+<td>5</td>
+<td>90</td>
+<td>XC</td>
+<td>Skip</td>
+<td>“”</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>24</td>
+<td>6</td>
+<td>50</td>
+<td>L</td>
+<td>Skip</td>
+<td>“”</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>24</td>
+<td>7</td>
+<td>40</td>
+<td>XL</td>
+<td>Skip</td>
+<td>“”</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>24</td>
+<td>8</td>
+<td>10</td>
+<td>X</td>
+<td>Append</td>
+<td>“X”</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>14</td>
+<td>8</td>
+<td>10</td>
+<td>X</td>
+<td>Append</td>
+<td>“XX”</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>4</td>
+<td>8</td>
+<td>10</td>
+<td>X</td>
+<td>Skip</td>
+<td>“XX”</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>4</td>
+<td>9</td>
+<td>9</td>
+<td>IX</td>
+<td>Skip</td>
+<td>“XX”</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>4</td>
+<td>10</td>
+<td>5</td>
+<td>V</td>
+<td>Skip</td>
+<td>“XX”</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>4</td>
+<td>11</td>
+<td>4</td>
+<td>IV</td>
+<td>Append</td>
+<td>“XXIV”</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>0</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>Done</td>
+<td>“XXIV”</td>
+</tr>
+</tbody>
+</table>
+<p>Result: <span class="math inline">\(24_{10} = \text{XXIV}\)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="struktogram_d2r.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Nassi-Shneiderman diagram of the algorithm for decimal to Roman numeral conversion."><img src="struktogram_d2r.svg" class="img-fluid figure-img" alt="Nassi-Shneiderman diagram of the algorithm for decimal to Roman numeral conversion."></a></p>
+<figcaption>Nassi-Shneiderman diagram of the algorithm for decimal to Roman numeral conversion.</figcaption>
+</figure>
+</div>
+<p><strong>Task</strong>: Please implement the algorithm as described.</p>
+<div id="a92221b9" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> decimal_to_roman(d: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implement the aforementioned algorithm</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../files/lektionen_hs25/260105_uebungen/uebungen.html" class="pagination-link" aria-label="Prüfungsvorbereitung 2">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung 2</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_fs26/260216_numbersystems/number_systems.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,32 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{struktex}
+
+\begin{document}
+
+\begin{struktogramm}(120,80)
+    % Initialisierung
+    \assign{Initialize empty string \texttt{roman} $\gets$ ""}
+    \assign{Initialize index $i \gets 0$}
+    
+    % While-Schleife
+    \while{$n > 0$}
+        % Wertzuweisung
+        \assign{$v \gets$ decimal value at index $i$}
+        \assign{$s \gets$ Roman symbol at index $i$}
+        
+        % If-Verzweigung
+        \ifthenelse{3}{3}{$n \geq v$}{true}{false}
+            % Then-Zweig
+            \assign{\texttt{roman} $\gets$ \texttt{roman} + $s$}
+            \assign{$n \gets n - v$}
+        \change
+            % Else-Zweig
+            \assign{$i \gets i + 1$}
+        \ifend
+    \whileend
+    
+    % Rückgabe
+    \assign{\textbf{return} \texttt{roman}}
+\end{struktogramm}
+
+\end{document}

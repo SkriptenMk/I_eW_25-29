@@ -1,0 +1,37 @@
+\documentclass[tikz]{standalone}
+
+% Schriftart-Vorgabe: Helvetica-Ersatz
+\usepackage{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Notwendige TikZ-Bibliotheken
+\usetikzlibrary{positioning, arrows.meta, calc, shapes, decorations.pathmorphing}
+
+\begin{document}
+
+\tikzset{
+    % Stil für den handschriftlichen Look
+    handdrawn/.style={
+        draw=blue!70!black,
+        line width=1.2pt,
+        line cap=round,
+        % Erzeugt die leichte Unregelmäßigkeit in der Linie
+        decoration={random steps, segment length=2mm, amplitude=0.3pt},
+        decorate
+    }
+}
+
+\begin{tikzpicture}
+
+    % Wir zeichnen 4 vertikale Striche mit leichten Variationen
+    \foreach \x in {0, 0.2, 0.4, 0.6} {
+        \draw[handdrawn] 
+            (\x + rand*0.02, 0 + rand*0.05) -- (\x + rand*0.02, 1 + rand*0.05);
+    }
+
+    % Der diagonale Querstrich (geht über alle 4 Striche)
+    \draw[handdrawn] (-0.15, 0.8) -- (0.75, 0.2);
+
+\end{tikzpicture}
+
+\end{document}

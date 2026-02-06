@@ -4,6 +4,7 @@
 *.swp
 *.aux
 *.log
+*.dvi
 .ipynb_checkpoints
 
 

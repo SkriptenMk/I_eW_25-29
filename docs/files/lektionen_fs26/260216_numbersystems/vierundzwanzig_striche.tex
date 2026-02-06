@@ -1,0 +1,52 @@
+\documentclass[tikz]{standalone}
+
+% Schriftart-Vorgabe: Helvetica-Ersatz
+\usepackage{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Notwendige TikZ-Bibliotheken
+\usetikzlibrary{positioning, arrows.meta, calc, shapes, decorations.pathmorphing}
+
+\begin{document}
+
+\tikzset{
+    % Stil für den handschriftlichen Look
+    handdrawn/.style={
+        draw=blue!70!black,
+        line width=1.2pt,
+        line cap=round,
+        % Erzeugt die leichte Unregelmäßigkeit in der Linie
+        decoration={random steps, segment length=2mm, amplitude=0.3pt},
+        decorate
+    }
+}
+
+\begin{tikzpicture}
+
+    % Schleife für die ersten 4 Fünfergruppen (4 * 5 = 20 Striche)
+    \foreach \g in {0, 1, 2, 3} {
+        \begin{scope}[xshift=\g * 1.5cm] % Horizontaler Abstand zwischen den Gruppen
+            
+            % 4 vertikale Striche pro Gruppe
+            \foreach \x in {0, 0.2, 0.4, 0.6} {
+                \draw[handdrawn] 
+                    (\x + rand*0.02, 0 + rand*0.05) -- (\x + rand*0.02, 1 + rand*0.05);
+            }
+            
+            % Der diagonale Querstrich für den 5. Strich
+            \draw[handdrawn] (-0.1 + rand*0.05, 0.8 + rand*0.05) -- (0.7 + rand*0.05, 0.2 + rand*0.05);
+            
+        \end{scope}
+    }
+
+    % Die letzte Gruppe (nur 4 Striche ohne Querstrich = insgesamt 24)
+    \begin{scope}[xshift=6cm] % Positionierung nach den 4 Blöcken
+        \foreach \x in {0, 0.2, 0.4, 0.6} {
+            \draw[handdrawn] 
+                (\x + rand*0.02, 0 + rand*0.05) -- (\x + rand*0.02, 1 + rand*0.05);
+        }
+    \end{scope}
+
+\end{tikzpicture}
+
+\end{document}
