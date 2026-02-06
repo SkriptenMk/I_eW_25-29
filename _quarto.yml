@@ -40,7 +40,7 @@ book:
       chapters:
         - files/lektionen_fs26/260216_numbersystems/number_systems.ipynb
   
-  downloads: [pdf, ipynb]
+  downloads: [pdf]
   
  # navbar: 
  #   right: 
@@ -88,7 +88,7 @@ format:
       - custom.scss
     code-download: true
     code-copy: true
-    code-tools: false
+    code-tools: true
     code-fold: false
     code-line-numbers: true
     toc: true
