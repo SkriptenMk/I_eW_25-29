@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -302,6 +337,7 @@ window.Quarto = {
   <li><a href="#number-conversion" id="toc-number-conversion" class="nav-link" data-scroll-target="#number-conversion"><span class="header-section-number">14.4</span> Number Conversion</a>
   <ul class="collapse">
   <li><a href="#decimal-to-binary-numbers" id="toc-decimal-to-binary-numbers" class="nav-link" data-scroll-target="#decimal-to-binary-numbers"><span class="header-section-number">14.4.1</span> Decimal to Binary Numbers</a></li>
+  <li><a href="#binary-to-decimal-conversion" id="toc-binary-to-decimal-conversion" class="nav-link" data-scroll-target="#binary-to-decimal-conversion"><span class="header-section-number">14.4.2</span> Binary to Decimal Conversion</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_fs26/260216_numbersystems/number_systems.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -451,8 +487,32 @@ Figure&nbsp;14.1: Objects to count
 <p>First, an empty string is initialized to represent the binary number. In a loop, the number <span class="math inline">\(n\)</span> to be converted is processed using the modulo 2 operation. The result of this operation is prepended as the most significant bit (to the far left) of the existing binary string. Subsequently, the number <span class="math inline">\(n\)</span> is halved using integer division, and the result of this division becomes the new value of <span class="math inline">\(n\)</span>. This process is repeated until <span class="math inline">\(n\)</span> reaches zero.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="struktogram_d2b.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Nassi-Shneiderman diagram to describe the algorithm."><img src="struktogram_d2b.svg" class="img-fluid figure-img" alt="Nassi-Shneiderman diagram to describe the algorithm."></a></p>
-<figcaption>Nassi-Shneiderman diagram to describe the algorithm.</figcaption>
+<p><a href="struktogram_d2b.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Nassi-Shneiderman diagram to describe the algorithm (MSB = Most Significant Bit)."><img src="struktogram_d2b.svg" class="img-fluid figure-img" alt="Nassi-Shneiderman diagram to describe the algorithm (MSB = Most Significant Bit)."></a></p>
+<figcaption>Nassi-Shneiderman diagram to describe the algorithm (MSB = Most Significant Bit).</figcaption>
+</figure>
+</div>
+<p><strong>Task</strong>: Please implement the algorithm as described.</p>
+<div id="520814a3" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> decimal_to_binary(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implement the aforementioned algorithm </span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="binary-to-decimal-conversion" class="level3" data-number="14.4.2">
+<h3 data-number="14.4.2" class="anchored" data-anchor-id="binary-to-decimal-conversion"><span class="header-section-number">14.4.2</span> Binary to Decimal Conversion</h3>
+<p>To convert binary numbers to decimal numbers, the formal calculation described above must be expressed algorithmically.</p>
+<ol type="1">
+<li>Initialize a counter <span class="math inline">\(e\)</span> to zero.</li>
+<li>Initialize a result variable <span class="math inline">\(r\)</span> to zero.</li>
+<li>Extract the rightmost digit <span class="math inline">\(d\)</span> from the binary number.</li>
+<li>Multiply <span class="math inline">\(d\)</span> by <span class="math inline">\(2^e\)</span> and add the result to <span class="math inline">\(r\)</span>.</li>
+<li>Increment the counter <span class="math inline">\(e\)</span> by one.</li>
+<li>Repeat steps 3–5 for each remaining digit, moving from right to left, until all digits have been processed.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="struktogram_b2d.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Nassi-Shneiderman diagram for the algorithm to convert binary numbers to decimal ones."><img src="struktogram_b2d.svg" class="img-fluid figure-img" alt="Nassi-Shneiderman diagram for the algorithm to convert binary numbers to decimal ones."></a></p>
+<figcaption>Nassi-Shneiderman diagram for the algorithm to convert binary numbers to decimal ones.</figcaption>
 </figure>
 </div>
 
