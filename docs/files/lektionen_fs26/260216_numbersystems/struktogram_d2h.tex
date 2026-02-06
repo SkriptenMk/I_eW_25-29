@@ -1,0 +1,35 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{struktex}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{struktogramm}(140,110)
+  % Title
+  \assign{\textbf{Decimal to Hexadecimal Conversion}}
+  
+  % Step 1: Initialize result string
+  \assign{$\text{hex\_string} \gets \text{``''}$ (empty string)}
+  
+  % Step 2-4: Loop while n > 0
+  \while[25]{$n > 0$}
+    % Step 2a: Compute remainder
+    \assign{$d \gets n \bmod 16$}
+    
+    % Step 2b: Lookup hexadecimal digit
+    \assign{$\text{digit} \gets \text{lookup}(d)$ in table}
+    
+    % Step 2c: Prepend digit
+    \assign{$\text{hex\_string} \gets \text{digit} + 
+            \text{hex\_string}$}
+    
+    % Step 2d: Integer division
+    \assign{$n \gets \lfloor n / 16 \rfloor$}
+  \whileend
+  
+  % Return result
+  \assign{\textbf{return} $\text{hex\_string}$}
+  
+\end{struktogramm}
+
+\end{document}
