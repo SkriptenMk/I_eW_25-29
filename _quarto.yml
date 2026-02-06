@@ -40,24 +40,24 @@ book:
       chapters:
         - files/lektionen_fs26/260216_numbersystems/number_systems.ipynb
   
-  downloads: [pdf]
+  downloads: [pdf, ipynb]
   
-  navbar: 
-    right: 
-      - icon: github
-        href: "https://github.com/SkriptenMk/I_eW_25-29/tree/main/files"
-        aria-label: GitHub
-        target: "_blank"
-      - icon: bug
-        href: "https://github.com/SkriptenMk/I_eW_25-29/issues"
-        aria-label: "Fehler melden"
-        target: "_blank"
+ # navbar: 
+ #   right: 
+ #     - icon: github
+ #       href: "https://github.com/SkriptenMk/I_eW_25-29/tree/main/files"
+ #       aria-label: GitHub
+ #       target: "_blank"
+ #     - icon: bug
+ #       href: "https://github.com/SkriptenMk/I_eW_25-29/issues"
+ #       aria-label: "Fehler melden"
+ #       target: "_blank"
 
 # ============================================
 # SPRACHEINSTELLUNGEN
 # ============================================
 # Standardsprache Deutsch (kann pro Datei überschrieben werden)
-lang: de
+lang: de-CH
 
 # ============================================
 # CALLOUT-BLÖCKE
