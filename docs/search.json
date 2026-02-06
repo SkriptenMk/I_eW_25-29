@@ -731,5 +731,16 @@
       "Einführung in Python",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Prüfungsvorbereitung 2</span>"
     ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260216_numbersystems/number_systems.html",
+    "href": "files/lektionen_fs26/260216_numbersystems/number_systems.html",
+    "title": "14  Number Representation",
+    "section": "",
+    "text": "Counting has a long history, as does the representation of numbers. At the beginning of number recording, there was a one-to-one representation. This means that each thing that was counted was represented by a symbol. This is not very convenient. Therefore, early in human history people started developing more compact representations of numbers.\n\n\n\n\n\n\n\n\n\n\n\n(a) Five\n\n\n\n\n\n\n\n\n\n\n\n(b) Twentyfour\n\n\n\n\n\n\n\nFigure 14.1: One-to-one representation of numbers",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Number Representation</span>"
+    ]
   }
 ]

@@ -36,6 +36,9 @@ book:
         - files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.ipynb
         - files/lektionen_hs25/251215_rekursiv/rekursion.ipynb
         - files/lektionen_hs25/260105_uebungen/uebungen.ipynb
+    - part: "Data Representation"
+      chapters:
+        - files/lektionen_fs26/260216_numbersystems/number_systems.ipynb
   
   downloads: [pdf]
   
