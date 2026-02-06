@@ -1,0 +1,17 @@
+\documentclass[tikz,margin=5pt]{standalone}
+\usepackage{struktex}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{struktogramm}(100, 60)
+    \assign{Initialize an empty string $S$}
+    \while{While $n > 0$}
+        \assign{Calculate $r = n \pmod 2$}
+        \assign{Prepend $r$ to the string $S$ (MSB)}
+        \assign{Update $n = \lfloor n / 2 \rfloor$ (Integer Division)}
+    \whileend
+    \assign{Return the binary string $S$}
+\end{struktogramm}
+
+\end{document}
