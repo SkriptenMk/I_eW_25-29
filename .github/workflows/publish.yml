@@ -23,6 +23,11 @@ jobs:
         with:
           tinytex: true
 
+      - name: Install LaTeX packages for German
+        run: |
+          tlmgr update --self
+          tlmgr install babel-german hyphen-german dehyph-exptl
+
       - name: Install Python and Dependencies
         uses: actions/setup-python@v4
         with:
