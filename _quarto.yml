@@ -17,9 +17,7 @@ book:
   repo-url: https://github.com/SkriptenMk/I_eW_25-29
   repo-actions: [edit, issue]
 
-language: 
-  code-tools-source: "Right Click to Download"
-  
+ 
   chapters:
     - index.qmd
     - part: "Anleitungen"
@@ -44,6 +42,9 @@ language:
         - files/lektionen_fs26/260216_numbersystems/number_systems.ipynb
   
   downloads: [pdf]
+
+language: 
+  code-tools-source: "Right Click to Download"
   
  # navbar: 
  #   right: 
@@ -98,6 +99,7 @@ format:
     toc-depth: 3
     number-sections: true
     smooth-scroll: true
+    notebook-links: true
     
     # Mermaid-Diagramme (UML, ER, Flowcharts)
     mermaid:

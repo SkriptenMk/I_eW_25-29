@@ -2,3 +2,7 @@ author: Jacques Mock Schindler
 date: 2026-02-16
 date-format: D. MMMM YYYY
 lang: en-GB
+other-links:
+  - text: "Right Click to Download"
+    icon: download
+    href: "number_systems.ipynb"
