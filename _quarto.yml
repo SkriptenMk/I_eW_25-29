@@ -4,6 +4,7 @@ project:
   resources:
     - "files/"
     - "favicon.ico"
+    - "**/*.ipynb"
 
 book:
   title: "Unterlagen für das obligatorische Fach Informatik"
