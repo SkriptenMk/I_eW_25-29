@@ -1,14 +1,22 @@
+name: Render and Publish
+
 on:
   push:
     branches: main
+  workflow_dispatch:
 
-name: Render and Publish
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -18,27 +26,39 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y librsvg2-bin
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          tinytex: true
-
-      - name: Install LaTeX packages for German
-        run: |
-          export PATH="$HOME/.TinyTeX/bin/x86_64-linux:$PATH"
-          tlmgr update --self || true
-          tlmgr install babel-german hyphen-german dehyph-exptl || true
-
-      - name: Install Python and Dependencies
-        uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
-      - run: pip install -r requirements.txt
 
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
         with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Wir erzwingen Version 1.4 oder höher für other-links
+          version: 1.4.543 
+
+      - name: Install TinyTeX & LaTeX packages
+        run: |
+          quarto install tinytex
+          tlmgr update --self || true
+          tlmgr install babel-german hyphen-german dehyph-exptl polyglossia fontspec || true
+
+      - name: Render Quarto Project
+        run: quarto render
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Da dein output-dir in _quarto.yml 'docs' ist:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
