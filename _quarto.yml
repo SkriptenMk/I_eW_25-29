@@ -16,6 +16,9 @@ book:
   search: true
   repo-url: https://github.com/SkriptenMk/I_eW_25-29
   repo-actions: [edit, issue]
+
+language: 
+  code-tools-source: "Right Click to Download"
   
   chapters:
     - index.qmd
