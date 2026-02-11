@@ -26,7 +26,7 @@ jobs:
       - name: Install LaTeX packages for German
         run: |
           export PATH="$HOME/bin:$PATH"
-          tlmgr update --self
+          tlmgr update --self || true
           tlmgr install babel-german hyphen-german dehyph-exptlg
 
       - name: Install Python and Dependencies
