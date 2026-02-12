@@ -5,4 +5,4 @@ lang: en-GB
 other-links:
   - text: "Right Click to Download"
     icon: download
-    href: "number_systems.ipynb"
+    href: "number_systems_self_contained.ipynb"
