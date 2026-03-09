@@ -41,6 +41,7 @@ book:
     - part: "Data Representation"
       chapters:
         - files/lektionen_fs26/260216_numbersystems/number_systems.ipynb
+        - files/lektionen_fs26/260309_images/images.ipynb
   
   downloads: [pdf]
 
