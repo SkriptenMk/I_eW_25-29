@@ -42,6 +42,7 @@ book:
       chapters:
         - files/lektionen_fs26/260216_numbersystems/number_systems.ipynb
         - files/lektionen_fs26/260309_images/images.ipynb
+        - files/lektionen_fs26/260316_algorithms_intro/algorithms.ipynb
   
   downloads: [pdf]
 
