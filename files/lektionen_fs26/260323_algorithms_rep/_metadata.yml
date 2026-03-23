@@ -5,4 +5,4 @@ lang: en-GB
 other-links:
   - text: "Right Click to Download"
     icon: download
-    href: "algorithms_representation.ipynb"
+    href: "algorithm_representation.ipynb"
