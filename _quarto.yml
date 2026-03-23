@@ -43,7 +43,7 @@ book:
         - files/lektionen_fs26/260216_numbersystems/number_systems.ipynb
         - files/lektionen_fs26/260309_images/images.ipynb
         - files/lektionen_fs26/260316_algorithms_intro/algorithms.ipynb
-        - files/lektionen_fs26/260323_algorithms_rep/algorithms_representation.ipynb
+        - files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.ipynb
   
   downloads: [pdf]
 
