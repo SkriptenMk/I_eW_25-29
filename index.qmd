@@ -12,12 +12,12 @@ Here you will find information about computer science lessons.
 | 16/03/2026 | Concept of Algorithms: Definition, Properties, Notation |
 | 23/03/2026 | Algorithm Representation: Pseudocode and Nassi-Shneiderman Diagrams |
 | 30/03/2026 | Flowcharts and State Diagrams |
-| 13/04/2026 | TEST 1: Data Representation & Algorithm Representation |
-| 04/05/2026 | Functions I: Revision and Consolidation (Parameters, Return) |
-| 11/05/2026 | Functions II: Scope and Namespaces (local vs. global) |
-| 18/05/2026 | Functions III: Modularisation and Code Organisation |
-| 01/06/2026 | Functions IV: Advanced Recursive Functions |
-| 08/06/2026 | Exam Preparation and Subroutine Exercises |
+| 06/05/2026 | Algorithm Complexity |
+| 08/05/2026 | Algorithm Complexity |
+| 11/05/2026 | Test 1: Data Represnetation & Algorithm Representation |
+| 18/05/2026 | Functions I: Revision and Consolidation (Parameters, Return) |
+| 01/06/2026 | Functions II: Scope and Namespaces (local vs. global) |
+| 08/06/2026 | Functions III: Modularisation and Code Organisation |
 | 15/06/2026 | TEST 2: Subroutines (Functions, Scope, Modularisation) |
 | 22/06/2026 | Mini-Project I: Developing a Function-Based Application |
 | 29/06/2026 | Mini-Project II: Completion and Presentation |
