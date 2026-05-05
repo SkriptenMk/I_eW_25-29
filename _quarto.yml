@@ -80,8 +80,8 @@ callout-icon: true
 # ============================================
 execute:
   echo: true
-  warning: false
-  error: false
+  warning: true
+  error: true
   freeze: auto
 
 # Code-Highlighting
