@@ -5,7 +5,11 @@
 *.aux
 *.log
 *.dvi
-.ipynb_checkpoints
+*.ipynb_checkpoints
+*.html
+*.css
+*.js
+*.pyi
 
 
 **/*.quarto_ipynb
