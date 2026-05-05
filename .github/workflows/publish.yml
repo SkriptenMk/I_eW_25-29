@@ -30,7 +30,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          # Caching wurde hier entfernt, um eine saubere Neuinstallation zu erzwingen
 
       - name: Install Python dependencies
         run: pip install -r requirements.txt
@@ -38,14 +37,23 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          # Wir erzwingen Version 1.4 oder höher für other-links
-          version: 1.4.543 
+          version: 1.4.543
 
       - name: Install TinyTeX & LaTeX packages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           quarto install tinytex
           tlmgr update --self || true
           tlmgr install babel-german hyphen-german dehyph-exptl polyglossia fontspec || true
+
+      - name: Cache Quarto freeze
+        uses: actions/cache@v4
+        with:
+          path: _freeze
+          key: quarto-freeze-${{ hashFiles('**/*.ipynb', '**/*.qmd') }}
+          restore-keys: |
+            quarto-freeze-
 
       - name: Render Quarto Project
         run: quarto render
@@ -56,7 +64,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Da dein output-dir in _quarto.yml 'docs' ist:
           path: docs
 
       - name: Deploy to GitHub Pages
