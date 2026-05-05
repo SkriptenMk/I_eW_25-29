@@ -1,12 +1,22 @@
-/.quarto/
-/.venv/
-/.vscode/
-*.swp
-*.aux
-*.log
-*.dvi
-.ipynb_checkpoints
+# Erstmal alles ignorieren
+*
 
+# Verzeichnisse zulassen, damit Git darin nach Dateien suchen kann
+!*/
 
-**/*.quarto_ipynb
-*.pdf
+# Whitelist für die Quelldateien
+!.gitignore
+!*.yml
+!*.ipynb
+!*.md
+!*.qmd
+!*.png
+!*.jpg
+!*.svg
+
+# Explizite Ausschlüsse (Diese Ordner und deren Inhalt werden ignoriert)
+.venv/
+.quarto/
+_site/
+_freeze/
+docs/
