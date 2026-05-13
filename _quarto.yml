@@ -46,6 +46,9 @@ book:
         - files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.ipynb
         - files/lektionen_fs26/260330_sorting/sorting.ipynb
         - files/lektionen_fs26/260506_complexity/complexity.ipynb
+    - part: "Functions"
+      chapters: 
+        - files/lektionen_fs26/260518_functions_i/functions_i.ipynb
   
   downloads: [pdf]
 
