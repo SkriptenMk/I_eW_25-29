@@ -14,7 +14,7 @@
     "href": "index.html#schedule",
     "title": "Unterlagen für das obligatorische Fach Informatik",
     "section": "Schedule",
-    "text": "Schedule\n\n\n\n\n\n\n\nDate\nTopic\n\n\n\n\n16/02/2026\nData Representation I: Number Systems (Binary, Decimal, Hexadecimal)\n\n\n02/03/2026\nData Representation II: Character Encoding (ASCII, Unicode)\n\n\n09/03/2026\nData Representation III: Images (RGB, Pixels, Resolution)\n\n\n16/03/2026\nConcept of Algorithms: Definition, Properties, Notation\n\n\n23/03/2026\nAlgorithm Representation: Pseudocode and Nassi-Shneiderman Diagrams\n\n\n30/03/2026\nFlowcharts and State Diagrams\n\n\n13/04/2026\nTEST 1: Data Representation & Algorithm Representation\n\n\n04/05/2026\nFunctions I: Revision and Consolidation (Parameters, Return)\n\n\n11/05/2026\nFunctions II: Scope and Namespaces (local vs. global)\n\n\n18/05/2026\nFunctions III: Modularisation and Code Organisation\n\n\n01/06/2026\nFunctions IV: Advanced Recursive Functions\n\n\n08/06/2026\nExam Preparation and Subroutine Exercises\n\n\n15/06/2026\nTEST 2: Subroutines (Functions, Scope, Modularisation)\n\n\n22/06/2026\nMini-Project I: Developing a Function-Based Application\n\n\n29/06/2026\nMini-Project II: Completion and Presentation\n\n\n06/07/2026\nReflection, Outlook for 3rd Semester, Feedback Session\n\n\n\nThe programme reflects the current state of planning. Changes are to be expected throughout the semester.",
+    "text": "Schedule\n\n\n\n\n\n\n\nDate\nTopic\n\n\n\n\n16/02/2026\nData Representation I: Number Systems (Binary, Decimal, Hexadecimal)\n\n\n02/03/2026\nData Representation II: Character Encoding (ASCII, Unicode)\n\n\n09/03/2026\nData Representation III: Images (RGB, Pixels, Resolution)\n\n\n16/03/2026\nConcept of Algorithms: Definition, Properties, Notation\n\n\n23/03/2026\nAlgorithm Representation: Pseudocode and Nassi-Shneiderman Diagrams\n\n\n30/03/2026\nFlowcharts and State Diagrams\n\n\n06/05/2026\nAlgorithm Complexity\n\n\n08/05/2026\nAlgorithm Complexity\n\n\n11/05/2026\nTest 1: Data Represnetation & Algorithm Representation\n\n\n18/05/2026\nFunctions I: Revision and Consolidation (Parameters, Return)\n\n\n01/06/2026\nFunctions II: Scope and Namespaces (local vs. global)\n\n\n08/06/2026\nFunctions III: Modularisation and Code Organisation\n\n\n15/06/2026\nTEST 2: Subroutines (Functions, Scope, Modularisation)\n\n\n22/06/2026\nMini-Project I: Developing a Function-Based Application\n\n\n29/06/2026\nMini-Project II: Completion and Presentation\n\n\n06/07/2026\nReflection, Outlook for 3rd Semester, Feedback Session\n\n\n\nThe programme reflects the current state of planning. Changes are to be expected throughout the semester.",
     "crumbs": [
       "Welcome"
     ]
@@ -774,6 +774,424 @@
     "crumbs": [
       "Data Representation",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Number Representation</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260309_images/images.html",
+    "href": "files/lektionen_fs26/260309_images/images.html",
+    "title": "15  Image Representation in Computers",
+    "section": "",
+    "text": "15.1 Colour Representation\nImages are composed of shapes and colours. We have observed this through our work with the PyTamaro library. However, this experience does not answer the question of how shapes and colours are represented in computer systems. While humans perceive colours visually, computers must encode them as numerical data.\nLet us begin with the colour representation.\nTo display a colour on a computer screen two aspects must be considered:",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Image Representation in Computers</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260309_images/images.html#colour-representation",
+    "href": "files/lektionen_fs26/260309_images/images.html#colour-representation",
+    "title": "15  Image Representation in Computers",
+    "section": "",
+    "text": "The colour model, and\nthe colour encoding.\n\n\n15.1.1 The Colour Model\nAt a theoretical level, three distinct colour models exist: light-based additive colour models (RGB), pigment-based subtractive colour models (CMYK), and prerceive oriented models (HSL/HSV).\nFor computer screens, the RGB model is predominant whilst for printers we use the CMYK model. The HSL/HSV model is used in image processing software. Because this is a computer science class, we will focus on the RGB model. The abbreviation RGB stands for red, green, and blue. If the beams of a red, a green, and a blue torch are directed at one spot, the colour of that spot will be white where the three beams overlap, as illustrated in Figure 15.1.\n\n\n\n\n\n\nFigure 15.1: Additive RGB colour mixing\n\n\n\nIIn computer screens, the torches are replaced by a grid of red, green, and blue LEDs. A group of three LEDs (one red, one green, one blue) forms a single pixel on the screen. Colours are created by varying the intensity of light emitted by each LED in the pixel group.\nA typical computer screen LED can emit light at 256 different intensity levels, ranging from 0 (off) to 255 (maximum brightness). Since each pixel contains three LEDs, and each LED has 256 possible intensity levels, the total number of displayable colours is:\n\\[256 \\times 256 \\times 256 = 256^3 = 16{,}777{,}216\\]\nThis is called 8-bit colour depth (or 24-bit true colour) because each of the three colour channels (red, green, blue) uses 8 bits to represent its 256 intensity levels. The term “24-bit” comes from the total: \\(8 \\text{ bits} \\times 3 \\text{ channels}\n= 24 \\text{ bits}\\) per pixel.\n\n\n15.1.2 Colour Encoding\nThe above explanation leads to the question of how the numerical colour representation is encoded in computer systems.\nRGB colour values can be represented in two common notations:\n\nDecimal RGB notation: Three integers ranging from 0 to\n\nFor example, RGB(10, 255, 100) represents a vivid green.\n\nHexadecimal notation: A six-digit hexadecimal number preceded by #. For example, #0AFF64 represents the same vivid green.\n\nIn hexadecimal notation, each pair of hexadecimal digits represents one colour channel. The first two digits represent the red channel, the next two the green channel, and the last two the blue channel:\n\n#0AFF64 breaks down as:\n\n0A₁₆ = 10₁₀ (Red)\nFF₁₆ = 255₁₀ (Green)\n64₁₆ = 100₁₀ (Blue)\n\n\nThis hexadecimal notation is preferred in web development and graphic design because it is compact and aligns with how colours are stored in computer memory (8 bits = 2 hexadecimal digits per channel).",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Image Representation in Computers</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260309_images/images.html#colour-table",
+    "href": "files/lektionen_fs26/260309_images/images.html#colour-table",
+    "title": "15  Image Representation in Computers",
+    "section": "15.2 Colour Table",
+    "text": "15.2 Colour Table\n\nfrom pytamaro import *\n\n# TODO: Create an 8 × 8 RGB colour grid with PyTamaro\n# \n# Requirements:\n# - Create a grid of coloured rectangles (8 rows, 8 columns)\n# - Vary the red and green values across the grid\n# - Keep blue at 0 for simplicity\n# - Each cell should be 40×40 pixels\n#\n# Hints:\n# - Use rgb_color(r, g, b) to create colours\n# - Use rectangle(width, height, color) to create rectangles\n# - Use beside() to place rectangles horizontally\n# - Use above() to stack rows vertically\n# - Calculate RGB values using: value = row * step or col * step\n#   where step = 255 // 7 (to get 8 evenly-spaced values from 0 to 255)",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Image Representation in Computers</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html",
+    "href": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html",
+    "title": "16  The Concept of an Algorithm",
+    "section": "",
+    "text": "16.1 Definition\nIn everyday life we constantly follow step-by-step procedures: cooking recipes, assembly instructions, or tying shoe laces. In computer science we formalise this idea with the concept of an algorithm.\nAn algorithm is a finite sequence of well-defined, unambiguous instructions that, given some input, produces an output in a finite number of steps.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Concept of an Algorithm</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#properties-of-an-algorithm",
+    "href": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#properties-of-an-algorithm",
+    "title": "16  The Concept of an Algorithm",
+    "section": "16.2 Properties of an Algorithm",
+    "text": "16.2 Properties of an Algorithm\nFor a set of instructions to qualify as an algorithm, it must satisfy the following properties:\n\n\n\n\n\n\n\nProperty\nMeaning\n\n\n\n\nFiniteness\nThe algorithm terminates after a finite number of steps.\n\n\nDeterminism\nEach step has exactly one well-defined successor.\n\n\nDefiniteness\nEvery instruction is precise and unambiguous.\n\n\nInput\nThe algorithm receives zero or more inputs.\n\n\nOutput\nThe algorithm produces at least one result.\n\n\nEffectiveness\nEvery step can actually be carried out (is computable).",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Concept of an Algorithm</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#example-tying-shoe-laces",
+    "href": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#example-tying-shoe-laces",
+    "title": "16  The Concept of an Algorithm",
+    "section": "16.3 Example: Tying Shoe Laces",
+    "text": "16.3 Example: Tying Shoe Laces\nAn everyday example of an algorithm is tying shoe laces.\n\nInput: An untied shoe with two loose laces.\nOutput: A tied shoe with a secure bow.\nFiniteness: The process ends once the bow is formed.\nDefiniteness: Each step (cross laces, form loop, wrap around, pull through) can be described precisely.\nDeterminism: Given the same starting position, the same steps always produce the same knot.\nEffectiveness: Every step involves a physical action that can be performed.\n\nWhen you wrote instructions for your partner to tie a shoe, you experienced first-hand how important definiteness is: any vague step (“make a knot”) leads to confusion.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Concept of an Algorithm</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#from-everyday-algorithms-to-mathematical-algorithms",
+    "href": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#from-everyday-algorithms-to-mathematical-algorithms",
+    "title": "16  The Concept of an Algorithm",
+    "section": "16.4 From Everyday Algorithms to Mathematical Algorithms",
+    "text": "16.4 From Everyday Algorithms to Mathematical Algorithms\nAlgorithms are not limited to physical tasks. Many important algorithms operate on numbers. One of the oldest known algorithms is the Euclidean algorithm for computing the Greatest Common Divisor (GCD) of two integers.\nThe GCD of two integers is the largest positive integer that divides both numbers without a remainder.\nExamples: - gcd(12, 8) = 4    (because 4 divides both 12 and 8) - gcd(48, 18) = 6    (because 6 divides both 48 and 18) - gcd(56, 15) = 1    (the numbers share no common factor other than 1)",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Concept of an Algorithm</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#the-euclidean-algorithm",
+    "href": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#the-euclidean-algorithm",
+    "title": "16  The Concept of an Algorithm",
+    "section": "16.5 The Euclidean Algorithm",
+    "text": "16.5 The Euclidean Algorithm\nThe Euclidean algorithm computes the GCD by repeatedly replacing the larger number with the remainder of dividing the two numbers. The process continues until the remainder is zero. At that point, the other number is the GCD.\n\n16.5.1 The Algorithm in Natural Language\n\nGiven two positive integers a and b.\nCompute the remainder r = a mod b.\nReplace a with b and b with r.\nIf b = 0, then a is the GCD. Stop.\nOtherwise, go back to step 2.\n\n\n\n16.5.2 Checking the Algorithm Properties\n\nInput: Two positive integers a and b.\nOutput: Their greatest common divisor.\nFiniteness: The remainder strictly decreases with each step, so the algorithm always terminates.\nDeterminism: Each step is uniquely determined (compute remainder, swap values).\nDefiniteness: “Divide a by b, take the remainder” is unambiguous.\nEffectiveness: Integer division and remainder are basic computable operations.\n\n\n\n16.5.3 Worked Example: gcd(48, 18)\n\n\n\nStep\na\nb\nb * q + r\nr\n\n\n\n\n1\n48\n18\n18 * 2 + 12\n12\n\n\n2\n18\n12\n12 * 1 + 6\n6\n\n\n3\n12\n6\n6 * 2 + 0\n0\n\n\n\nAfter step 3, b = 0, so the GCD is a = 6.\n\n\n16.5.4 Worked Example: gcd(56, 15)\n\n\n\nStep\na\nb\nb * q + r\nr\n\n\n\n\n1\n56\n15\n15 * 3 + 11\n11\n\n\n2\n15\n11\n11 * 1 + 4\n4\n\n\n3\n11\n4\n4 * 2 + 3\n3\n\n\n4\n4\n3\n3 * 1 + 1\n1\n\n\n5\n3\n1\n1 * 3 + 0\n0\n\n\n\nAfter step 5, b = 0, so the GCD is a = 1. The two numbers are coprime (they share no common factor other than 1).",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Concept of an Algorithm</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#implementing-the-euclidean-algorithm-in-python",
+    "href": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#implementing-the-euclidean-algorithm-in-python",
+    "title": "16  The Concept of an Algorithm",
+    "section": "16.6 Implementing the Euclidean Algorithm in Python",
+    "text": "16.6 Implementing the Euclidean Algorithm in Python\nNow it is your turn to translate the algorithm into Python.\nRecall the algorithm:\n\nCompute the remainder r = a mod b. (In Python: a % b)\nReplace a with b and b with r.\nIf b = 0, return a (the GCD).\nOtherwise, repeat from step 1.\n\nHint: You will need a while loop that runs as long as b is not zero.\nTask: Complete the function below so that it returns the GCD of two positive integers.\n\ndef gcd(a: int, b: int) -&gt; int:\n    # The Euclidean Algorithm\n    #\n    # Use a while loop that continues as long as b is not 0.\n    # In each iteration:\n    #   1. Compute the remainder of a divided by b  (hint: use the % operator)\n    #   2. Set a to the old value of b\n    #   3. Set b to the remainder\n    # When b becomes 0, a holds the GCD — return it.\n\n    pass  # TODO: replace this line with your implementation\n\n\n16.6.1 Testing Your Implementation\nRun the cell below to check whether your gcd function produces the correct results.\n\n# Test cases — all should print True\nprint(gcd(48, 18) == 6)\nprint(gcd(56, 15) == 1)\nprint(gcd(12, 8) == 4)\nprint(gcd(100, 75) == 25)\nprint(gcd(17, 13) == 1)",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Concept of an Algorithm</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#ways-to-describe-an-algorithm",
+    "href": "files/lektionen_fs26/260316_algorithms_intro/algorithms.html#ways-to-describe-an-algorithm",
+    "title": "16  The Concept of an Algorithm",
+    "section": "16.7 Ways to Describe an Algorithm",
+    "text": "16.7 Ways to Describe an Algorithm\nIn this notebook we described the Euclidean algorithm in three different ways:\n\n\n\n\n\n\n\n\n\nNotation\nExample\nPros\nCons\n\n\n\n\nNatural language\n“Divide a by b and take the remainder …”\nEasy to understand\nCan be ambiguous\n\n\nTable (trace)\nStep-by-step table with values of a, b, r\nShows execution clearly\nOnly for specific inputs\n\n\nProgramming language\nwhile b != 0: …\nExecutable\nTied to one language",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Concept of an Algorithm</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html",
+    "href": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html",
+    "title": "17  Algorithm Representation: Pseudocode & Struktogramme",
+    "section": "",
+    "text": "17.1 What Is Pseudocode?\nLast week we described the GCD algorithm in three ways: natural language, a trace table, and Python code.\nToday we add two more notations:\nBy the end of this notebook you will be able to translate freely between Python and pseudocode.\nPseudocode is a way of describing an algorithm using structured, human-readable language that resembles a programming language but is not tied to any specific one.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Algorithm Representation: Pseudocode & Struktogramme</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#what-is-pseudocode",
+    "href": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#what-is-pseudocode",
+    "title": "17  Algorithm Representation: Pseudocode & Struktogramme",
+    "section": "",
+    "text": "Advantage\nExplanation\n\n\n\n\nMore precise than natural language\nAvoids ambiguity\n\n\nMore readable than real code\nNo syntax details (colons, brackets, imports)\n\n\nLanguage-independent\nAnyone who knows any language can read it\n\n\nWidely used\nTextbooks, exams, professional documentation",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Algorithm Representation: Pseudocode & Struktogramme</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#pseudocode-conventions",
+    "href": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#pseudocode-conventions",
+    "title": "17  Algorithm Representation: Pseudocode & Struktogramme",
+    "section": "17.2 Pseudocode Conventions",
+    "text": "17.2 Pseudocode Conventions\nThere is no single “official” pseudocode standard, but the conventions below are widely used and will be our standard for this course.\n\n\n\nElement\nPython\nPseudocode\n\n\n\n\nAssignment\nx = 5\nx ← 5\n\n\nInput\nx = int(input())\nREAD x\n\n\nOutput\nprint(x)\nPRINT x\n\n\nCondition\nif x &gt; 0:\nIF x &gt; 0 THEN\n\n\nElse\nelse:\nELSE\n\n\nEnd block\n(indentation)\nEND IF\n\n\nWhile loop\nwhile x &gt; 0:\nWHILE x &gt; 0 DO\n\n\nEnd loop\n(indentation)\nEND WHILE\n\n\nFor loop\nfor i in range(n):\nFOR i ← 0 TO n-1 DO\n\n\nEnd for\n(indentation)\nEND FOR\n\n\nFunction\ndef gcd(a, b):\nFUNCTION gcd(a, b)\n\n\nReturn\nreturn a\nRETURN a\n\n\nNot equal\n!=\n≠\n\n\nModulo\n%\nMOD\n\n\n\n\nKey idea: Python uses indentation to show structure. Pseudocode uses keywords (THEN, DO, END IF, END WHILE) to show where blocks begin and end.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Algorithm Representation: Pseudocode & Struktogramme</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#worked-example-gcd-in-pseudocode",
+    "href": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#worked-example-gcd-in-pseudocode",
+    "title": "17  Algorithm Representation: Pseudocode & Struktogramme",
+    "section": "17.3 Worked Example: GCD in Pseudocode",
+    "text": "17.3 Worked Example: GCD in Pseudocode\nHere is the GCD function you wrote last week in Python:\ndef gcd(a, b):\n    while b != 0:\n        r = a % b\n        a = b\n        b = r\n    return a\nAnd here is the same algorithm in pseudocode:\nFUNCTION gcd(a, b)\n    WHILE b ≠ 0 DO\n        r ← a MOD b\n        a ← b\n        b ← r\n    END WHILE\n    RETURN a\nEND FUNCTION\nNotice the correspondences: - def → FUNCTION … END FUNCTION - while → WHILE … DO … END WHILE - = (assignment) → ← - % → MOD - != → ≠",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Algorithm Representation: Pseudocode & Struktogramme</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#exercise-1-python-pseudocode",
+    "href": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#exercise-1-python-pseudocode",
+    "title": "17  Algorithm Representation: Pseudocode & Struktogramme",
+    "section": "17.4 Exercise 1: Python → Pseudocode",
+    "text": "17.4 Exercise 1: Python → Pseudocode\nRead the Python function below carefully. Then write the equivalent pseudocode on paper (or in a new markdown cell).\nUse the conventions table above as a reference.\n\ndef max_of_three(a, b, c):\n    if a &gt;= b and a &gt;= c:\n        return a\n    elif b &gt;= a and b &gt;= c:\n        return b\n    else:\n        return c\n\n\n\nClick to reveal the solution\n\nFUNCTION max_of_three(a, b, c)\n    IF a ≥ b AND a ≥ c THEN\n        RETURN a\n    ELSE IF b ≥ a AND b ≥ c THEN\n        RETURN b\n    ELSE\n        RETURN c\n    END IF\nEND FUNCTION",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Algorithm Representation: Pseudocode & Struktogramme</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#exercise-2-pseudocode-python",
+    "href": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#exercise-2-pseudocode-python",
+    "title": "17  Algorithm Representation: Pseudocode & Struktogramme",
+    "section": "17.5 Exercise 2: Pseudocode → Python",
+    "text": "17.5 Exercise 2: Pseudocode → Python\nThe pseudocode below describes a linear search algorithm. It searches through a list for a given value and returns the index of the first occurrence, or -1 if the value is not found.\nFUNCTION linear_search(lst, target)\n    FOR i ← 0 TO length(lst) - 1 DO\n        IF lst[i] = target THEN\n            RETURN i\n        END IF\n    END FOR\n    RETURN -1\nEND FUNCTION\nTask: Implement this algorithm in Python in the cell below.\n\ndef linear_search(lst: list, target) -&gt; int:\n    pass  # TODO: implement the pseudocode above\n\n\n# Test cases — all should print True\nprint(linear_search([10, 20, 30, 40, 50], 30) == 2)\nprint(linear_search([10, 20, 30, 40, 50], 10) == 0)\nprint(linear_search([10, 20, 30, 40, 50], 50) == 4)\nprint(linear_search([10, 20, 30, 40, 50], 99) == -1)\nprint(linear_search([], 5) == -1)",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Algorithm Representation: Pseudocode & Struktogramme</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#exercise-3-pseudocode-python",
+    "href": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#exercise-3-pseudocode-python",
+    "title": "17  Algorithm Representation: Pseudocode & Struktogramme",
+    "section": "17.6 Exercise 3: Pseudocode → Python",
+    "text": "17.6 Exercise 3: Pseudocode → Python\nThe pseudocode below prints every integer from 1 to n. For multiples of 3 it prints \"Fizz\" instead of the number, for multiples of 5 it prints \"Buzz\", and for multiples of both 3 and 5 it prints \"FizzBuzz\".\nFUNCTION fizzbuzz(n)\n    FOR i ← 1 TO n DO\n        IF i MOD 3 = 0 AND i MOD 5 = 0 THEN\n            PRINT \"FizzBuzz\"\n        ELSE IF i MOD 3 = 0 THEN\n            PRINT \"Fizz\"\n        ELSE IF i MOD 5 = 0 THEN\n            PRINT \"Buzz\"\n        ELSE\n            PRINT i\n        END IF\n    END FOR\nEND FUNCTION\nTask: Implement this algorithm in Python.\n\ndef fizzbuzz(n: int):\n    pass  # TODO: implement the pseudocode above\n\n\n# Run this cell to test — expected output:\n# 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz,\n# 11, Fizz, 13, 14, FizzBuzz\nfizzbuzz(15)",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Algorithm Representation: Pseudocode & Struktogramme</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#structure-diagrams-struktogramme",
+    "href": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#structure-diagrams-struktogramme",
+    "title": "17  Algorithm Representation: Pseudocode & Struktogramme",
+    "section": "17.7 Structure Diagrams (Struktogramme)",
+    "text": "17.7 Structure Diagrams (Struktogramme)\nA Struktogramm (Nassi–Shneiderman diagram) is a visual way of representing an algorithm using nested rectangles. Each rectangle represents one instruction or control structure.\n\n\n\nAdvantage\nExplanation\n\n\n\n\nVisual\nStructure is visible at a glance\n\n\nNo arrows\nForces structured programming (no “goto”)\n\n\nWidely used\nCommon in German-speaking CS education and exams\n\n\n\n\n17.7.1 The Three Building Blocks\nEvery Struktogramm is built from just three elements:\n\n17.7.1.1 1. Sequence\nInstructions are executed one after another, top to bottom.\n┌─────────────────────────┐\n│ Instruction 1           │\n├─────────────────────────┤\n│ Instruction 2           │\n├─────────────────────────┤\n│ Instruction 3           │\n└─────────────────────────┘\n\n\n17.7.1.2 2. Selection (IF / ELSE)\nA condition splits execution into two branches.\n┌─────────────────────────┐\n│      condition?         │\n├────────────┬────────────┤\n│   TRUE     │   FALSE    │\n│   block    │   block    │\n└────────────┴────────────┘\n\n\n17.7.1.3 3. Iteration (WHILE loop)\nA block is repeated as long as a condition holds.\n┌─────────────────────────┐\n│ WHILE condition         │\n│  ┌──────────────────────┤\n│  │ loop body            │\n│  └──────────────────────┤\n└─────────────────────────┘\n\n\n\n17.7.2 Worked Example: GCD Struktogramm\n┌──────────────────────────────┐\n│ READ a, b                    │\n├──────────────────────────────┤\n│ WHILE b ≠ 0                  │\n│  ┌───────────────────────────┤\n│  │ r ← a MOD b               │\n│  ├───────────────────────────┤\n│  │ a ← b                     │\n│  ├───────────────────────────┤\n│  │ b ← r                     │\n│  └───────────────────────────┤\n├──────────────────────────────┤\n│ PRINT a                      │\n└──────────────────────────────┘\nReading the diagram: - Top to bottom = execution order (sequence) - The indented box = the loop body (iteration) - READ at the top = input, PRINT at the bottom = output\n\n\n17.7.3 Drawing Task (on Paper)\nNow draw Struktogramme on paper for the algorithms you translated above:\n\nmax_of_three(a, b, c) — uses sequence and selection.\nlinear_search(lst, target) — uses sequence, selection, and iteration.\nSum of all integers from 1 to n.\n\nCompare your diagrams with a partner when you’re done.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Algorithm Representation: Pseudocode & Struktogramme</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#summary-comparing-notations",
+    "href": "files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html#summary-comparing-notations",
+    "title": "17  Algorithm Representation: Pseudocode & Struktogramme",
+    "section": "17.8 Summary: Comparing Notations",
+    "text": "17.8 Summary: Comparing Notations\n\n\n\nNotation\nPrecise?\nExecutable?\nVisual?\nLanguage-independent?\n\n\n\n\nNatural language\n✗\n✗\n✗\n✓\n\n\nPseudocode\n✓\n✗\n✗\n✓\n\n\nStruktogramm\n✓\n✗\n✓\n✓\n\n\nPython\n✓\n✓\n✗\n✗\n\n\n\nNo single notation is “best” — each has strengths. Good computer scientists can switch between notations fluently.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Algorithm Representation: Pseudocode & Struktogramme</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260330_sorting/sorting.html",
+    "href": "files/lektionen_fs26/260330_sorting/sorting.html",
+    "title": "18  Sorting Algorithms",
+    "section": "",
+    "text": "18.1 The Sorting Problem\nInput: A sequence of n comparable elements (e.g. numbers, strings).\nOutput: The same elements rearranged in non-descending order.\nExample: - Input: [4, 2, 5, 1, 3] - Output: [1, 2, 3, 4, 5]\nSorting is one of the most fundamental operations in computer science. There are many different algorithms that solve this problem — you just invented one (or more!) with your playing cards.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sorting Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260330_sorting/sorting.html#pseudocode-conventions-quick-reference",
+    "href": "files/lektionen_fs26/260330_sorting/sorting.html#pseudocode-conventions-quick-reference",
+    "title": "18  Sorting Algorithms",
+    "section": "18.2 Pseudocode Conventions (Quick Reference)",
+    "text": "18.2 Pseudocode Conventions (Quick Reference)\nRecall from last week:\n\n\n\nElement\nPython\nPseudocode\n\n\n\n\nAssignment\nx = 5\nx ← 5\n\n\nCondition\nif x &gt; 0:\nIF x &gt; 0 THEN\n\n\nElse\nelse:\nELSE\n\n\nEnd block\n(indentation)\nEND IF\n\n\nWhile loop\nwhile x &gt; 0:\nWHILE x &gt; 0 DO\n\n\nFor loop\nfor i in range(n):\nFOR i ← 0 TO n-1 DO\n\n\nEnd for\n(indentation)\nEND FOR\n\n\nFunction\ndef f(a, b):\nFUNCTION f(a, b)\n\n\nReturn\nreturn a\nRETURN a\n\n\n\nNew for today — SWAP:\n\n\n\n\n\n\n\nPython\nPseudocode\n\n\n\n\na, b = b, a\nSWAP a AND b\n\n\ncards[i], cards[j] = cards[j], cards[i]\nSWAP cards[i] AND cards[j]\n\n\n\nPython lets you swap two variables in one line: a, b = b, a. This works because Python evaluates the right side first, then assigns both values simultaneously.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sorting Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260330_sorting/sorting.html#helper-visualising-each-step",
+    "href": "files/lektionen_fs26/260330_sorting/sorting.html#helper-visualising-each-step",
+    "title": "18  Sorting Algorithms",
+    "section": "18.3 Helper: Visualising Each Step",
+    "text": "18.3 Helper: Visualising Each Step\nThe function below prints the current state of the list and highlights which positions were just compared. Use it inside your sorting function to trace what is happening.\n\ndef show_step(cards: list, compared: tuple = None, label: str = \"\"):\n    \"\"\"Print the list, highlighting the compared positions.\"\"\"\n    parts = []\n    for idx, val in enumerate(cards):\n        if compared and idx in compared:\n            parts.append(f\"[{val}]\")\n        else:\n            parts.append(f\" {val} \")\n    line = \"  \".join(parts)\n    if label:\n        print(f\"{label:&gt;12s}:  {line}\")\n    else:\n        print(f\"              {line}\")\n\n\n# Example usage\ndemo = [4, 2, 5, 1, 3]\nshow_step(demo, label=\"start\")\nshow_step(demo, compared=(0, 1), label=\"compare 0,1\")",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sorting Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260330_sorting/sorting.html#your-sorting-algorithm",
+    "href": "files/lektionen_fs26/260330_sorting/sorting.html#your-sorting-algorithm",
+    "title": "18  Sorting Algorithms",
+    "section": "18.4 Your Sorting Algorithm",
+    "text": "18.4 Your Sorting Algorithm\nYou invented a sorting strategy with the playing cards. Now implement it in Python!\nTask:\n\nIf you haven’t already, write pseudocode for your strategy on the worksheet.\nTranslate your pseudocode into the Python function below.\nUse show_step() to visualise what your algorithm does.\nTest it — does it produce a sorted list for every input?\n\nDon’t worry about efficiency or elegance yet. The goal is to get a working implementation of your strategy.\n\ndef my_sort(cards: list):\n    n = len(cards)\n    show_step(cards, label=\"start\")\n\n    # TODO: implement your sorting strategy here\n    # Use show_step(cards, compared=(i, j), label=...) to trace.\n\n    pass\n\n\n# Test\ntest = [4, 2, 5, 1, 3]\nprint(\"Before:\", test)\nmy_sort(test)\nprint(\"After: \", test)\n\n\n# Once you're happy with your implementation, test it properly:\ntest_cases = [\n    [4, 2, 5, 1, 3],\n    [5, 4, 3, 2, 1],\n    [1, 2, 3, 4, 5],\n    [3, 3, 1, 2, 2],\n    [1],\n]\nfor tc in test_cases:\n    original = tc.copy()\n    my_sort(tc)\n    status = \"✓\" if tc == sorted(original) else \"✗\"\n    print(f\"  {status}  {original} → {tc}\")",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sorting Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260330_sorting/sorting.html#named-sorting-algorithms",
+    "href": "files/lektionen_fs26/260330_sorting/sorting.html#named-sorting-algorithms",
+    "title": "18  Sorting Algorithms",
+    "section": "18.5 Named Sorting Algorithms",
+    "text": "18.5 Named Sorting Algorithms\nNow that you have a working sorting function, let’s look at two well-known sorting algorithms. You may recognise your own strategy in one of them — or discover a completely different approach.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sorting Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260330_sorting/sorting.html#selection-sort",
+    "href": "files/lektionen_fs26/260330_sorting/sorting.html#selection-sort",
+    "title": "18  Sorting Algorithms",
+    "section": "18.6 Selection Sort",
+    "text": "18.6 Selection Sort\nCore idea: Repeatedly find the minimum of the unsorted portion and swap it into the next position.\n\n18.6.1 Pseudocode\nFUNCTION selection_sort(cards, n)\n    FOR i ← 0 TO n - 2 DO\n        min_pos ← i\n        FOR j ← i + 1 TO n - 1 DO\n            IF cards[j] &lt; cards[min_pos] THEN\n                min_pos ← j\n            END IF\n        END FOR\n        SWAP cards[i] AND cards[min_pos]\n    END FOR\nEND FUNCTION\n\n\n18.6.2 Walkthrough (5 cards: 4, 2, 5, 1, 3)\n\n\n\nPass\nUnsorted portion\nMinimum\nSwap with pos\nResult\n\n\n\n\n1\n4, 2, 5, 1, 3\n1 (pos 3)\npos 0\n1, 2, 5, 4, 3\n\n\n2\n2, 5, 4, 3\n2 (pos 1)\npos 1 (no move)\n1, 2, 5, 4, 3\n\n\n3\n5, 4, 3\n3 (pos 4)\npos 2\n1, 2, 3, 4, 5\n\n\n4\n4, 5\n4 (pos 3)\npos 3 (no move)\n1, 2, 3, 4, 5\n\n\n\n\n\n18.6.3 Exercise: Implement Selection Sort\nTranslate the pseudocode above into Python. Use show_step() to print the state after each pass.\n\ndef selection_sort(cards: list) -&gt; list:\n    n = len(cards)\n    # TODO: implement Selection Sort here\n    # Hint: use the pseudocode as your guide.\n    # Use show_step(cards, compared=(i, j), label=...) to trace.\n    pass\n\n\n# Test\ntest = [4, 2, 5, 1, 3]\nprint(\"Before:\", test)\nselection_sort(test)\nprint(\"After: \", test)\n\n\n\nClick to reveal the solution\n\ndef selection_sort(cards: list) -&gt; list:\n    n = len(cards)\n    for i in range(n - 1):\n        min_pos = i\n        for j in range(i + 1, n):\n            if cards[j] &lt; cards[min_pos]:\n                min_pos = j\n        cards[i], cards[min_pos] = cards[min_pos], cards[i]\n        show_step(cards, label=f\"pass {i+1}\")",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sorting Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260330_sorting/sorting.html#bubble-sort",
+    "href": "files/lektionen_fs26/260330_sorting/sorting.html#bubble-sort",
+    "title": "18  Sorting Algorithms",
+    "section": "18.7 Bubble Sort",
+    "text": "18.7 Bubble Sort\nCore idea: Walk through the list from left to right, compare adjacent elements, and swap them if they are in the wrong order. Repeat until the list is sorted. The largest unsorted element “bubbles up” to the end in each pass.\n\n18.7.1 Pseudocode\nFUNCTION bubble_sort(cards, n)\n    FOR i ← 0 TO n - 2 DO\n        FOR j ← 0 TO n - 2 - i DO\n            IF cards[j] &gt; cards[j + 1] THEN\n                SWAP cards[j] AND cards[j + 1]\n            END IF\n        END FOR\n    END FOR\nEND FUNCTION\n\n\n18.7.2 Walkthrough (5 cards: 4, 2, 5, 1, 3)\nPass 1: (compare positions 0–1, 1–2, 2–3, 3–4)\n\n\n\nCompare\nBefore\nSwap?\nAfter\n\n\n\n\npos 0 & 1\n4 2 5 1 3\nYes\n2 4 5 1 3\n\n\npos 1 & 2\n2 4 5 1 3\nNo\n2 4 5 1 3\n\n\npos 2 & 3\n2 4 5 1 3\nYes\n2 4 1 5 3\n\n\npos 3 & 4\n2 4 1 5 3\nYes\n2 4 1 3 5\n\n\n\n→ After pass 1: 2, 4, 1, 3, 5 — the 5 has bubbled to the end.\nPasses 2–3 continue until the list is fully sorted: 1, 2, 3, 4, 5.\n\n\n18.7.3 Exercise: Implement Bubble Sort\nTranslate the pseudocode above into Python. Use show_step() to print the state after each pass.\n\ndef bubble_sort(cards: list) -&gt; list:\n    n = len(cards)\n    # TODO: implement Bubble Sort here\n    \n\n\n# Test\ntest = [4, 2, 5, 1, 3]\nprint(\"Before:\", test)\nbubble_sort(test)\nprint(\"After: \", test)\n\n\n\nClick to reveal the solution\n\ndef bubble_sort(cards: list) -&gt; list:\n    n = len(cards)\n    for i in range(n - 1):\n        for j in range(n - 1 - i):\n            if cards[j] &gt; cards[j + 1]:\n                cards[j], cards[j + 1] = cards[j + 1], cards[j]\n        show_step(cards, label=f\"pass {i+1}\")",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sorting Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260330_sorting/sorting.html#testing-your-implementations",
+    "href": "files/lektionen_fs26/260330_sorting/sorting.html#testing-your-implementations",
+    "title": "18  Sorting Algorithms",
+    "section": "18.8 Testing Your Implementations",
+    "text": "18.8 Testing Your Implementations\nRun the cell below to test whichever sorting function you implemented. Then test selection_sort and bubble_sort after you’ve implemented them.\n\nimport random\n\n\ndef test_sort(sort_func, uses_bounds=False):\n    \"\"\"Test a sorting function on several inputs.\"\"\"\n    test_cases = [\n        [4, 2, 5, 1, 3],\n        [1, 2, 3, 4, 5],         # already sorted\n        [5, 4, 3, 2, 1],         # reverse sorted\n        [1],                      # single element\n        [3, 3, 1, 2, 2],         # duplicates\n        random.sample(range(1, 11), 10),  # random 10 elements\n    ]\n    all_passed = True\n    for i, case in enumerate(test_cases):\n        original = case.copy()\n        expected = sorted(case)\n        if uses_bounds:\n            sort_func(case, 0, len(case) - 1)\n        else:\n            sort_func(case)\n        if case == expected:\n            print(f\"Test {i+1}: PASS  {original} → {case}\")\n        else:\n            print(f\"Test {i+1}: FAIL  {original} → {case}  (expected {expected})\")\n            all_passed = False\n    if all_passed:\n        print(\"\\n✓ All tests passed!\")\n    else:\n        print(\"\\n✗ Some tests failed — check your code.\")\n\n\n# Test your own sorting function:\ntest_sort(my_sort)\n\n\n# Test Selection Sort:\ntest_sort(selection_sort)\n\n\n# Test Bubble Sort:\ntest_sort(bubble_sort)",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sorting Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260330_sorting/sorting.html#counting-comparisons",
+    "href": "files/lektionen_fs26/260330_sorting/sorting.html#counting-comparisons",
+    "title": "18  Sorting Algorithms",
+    "section": "18.9 Counting Comparisons",
+    "text": "18.9 Counting Comparisons\nHow many comparisons does each algorithm need? The functions below are instrumented versions that count every comparison. Run them on the same input to compare.\n\ndef selection_sort_count(cards: list) -&gt; int:\n    \"\"\"Selection Sort that returns the number of comparisons.\"\"\"\n    n = len(cards)\n    comparisons = 0\n    for i in range(n - 1):\n        min_pos = i\n        for j in range(i + 1, n):\n            comparisons += 1\n            if cards[j] &lt; cards[min_pos]:\n                min_pos = j\n        cards[i], cards[min_pos] = cards[min_pos], cards[i]\n    return comparisons\n\n\ndef bubble_sort_count(cards: list) -&gt; int:\n    \"\"\"Bubble Sort that returns the number of comparisons.\"\"\"\n    n = len(cards)\n    comparisons = 0\n    for i in range(n - 1):\n        for j in range(n - 1 - i):\n            comparisons += 1\n            if cards[j] &gt; cards[j + 1]:\n                cards[j], cards[j + 1] = cards[j + 1], cards[j]\n    return comparisons\n\n\n# Compare on the same input\noriginal = [6, 3, 8, 2, 7, 1]\n\ncards_a = original.copy()\nc_sel = selection_sort_count(cards_a)\nprint(f\"Selection Sort: {c_sel} comparisons → {cards_a}\")\n\ncards_b = original.copy()\nc_bub = bubble_sort_count(cards_b)\nprint(f\"Bubble Sort:    {c_bub} comparisons → {cards_b}\")",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sorting Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260506_complexity/complexity.html",
+    "href": "files/lektionen_fs26/260506_complexity/complexity.html",
+    "title": "19  Algorithms and Computational Complexity",
+    "section": "",
+    "text": "19.1 Selection Sort\nSelection Sort works as follows:\nIn order to evaluate the time complexity of Selection Sort, it is necessary to analyse how the number of comparisons increases as a function of the number of elements being sorted. Due to the way Selection Sort operates, approximately \\(\\frac{1}{2}n^2\\) comparisons are required for \\(n\\) elements. This means the number of operations increases quadratically relative to the input size.\nSince we categorise an algorithm’s efficiency according to its order of magnitude, we refer to this as having quadratic time complexity. In this process, constant factors (like the \\(\\frac{1}{2}\\)) and lower-order terms are disregarded, as the primary concern when evaluating an algorithm is how the time requirement scales with extremely large datasets.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Algorithms and Computational Complexity</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260506_complexity/complexity.html#selection-sort",
+    "href": "files/lektionen_fs26/260506_complexity/complexity.html#selection-sort",
+    "title": "19  Algorithms and Computational Complexity",
+    "section": "",
+    "text": "Go through the array to find the lowest value.\nMove the lowest value to the front of the unsorted part of the array.\nRepeat this process for the unsorted part as many times as there are values in the array.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Algorithms and Computational Complexity</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260506_complexity/complexity.html#big-o-notation",
+    "href": "files/lektionen_fs26/260506_complexity/complexity.html#big-o-notation",
+    "title": "19  Algorithms and Computational Complexity",
+    "section": "19.2 Big O Notation",
+    "text": "19.2 Big O Notation\nTo formally capture this focus on the fundamental rate of growth, computer scientists use a specific shorthand known as Big O notation.\nThe ‘O’ stands for ‘Order of’, indicating the complexity class of an algorithm. Instead of meticulously counting every single operation, Big O notation describes the upper bound of the growth rate. For instance, stating that Selection Sort has a time complexity of \\(O(n^2)\\) tells us that if the input size doubles, the time required will roughly quadruple, regardless of the computer’s speed or any minor mathematical constants.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Algorithms and Computational Complexity</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260506_complexity/complexity.html#merge-sort-a-more-efficient-approach",
+    "href": "files/lektionen_fs26/260506_complexity/complexity.html#merge-sort-a-more-efficient-approach",
+    "title": "19  Algorithms and Computational Complexity",
+    "section": "19.3 Merge Sort: A More Efficient Approach",
+    "text": "19.3 Merge Sort: A More Efficient Approach\nTo illustrate why choosing the right complexity class matters, let’s compare Selection Sort with Merge Sort. While Selection Sort works by repeatedly searching for the minimum, Merge Sort uses a “divide and conquer” strategy. It recursively splits the array into two halves until each part contains only one element, and then merges these parts back together in the correct order.\n\n19.3.1 The Merge Step: Combining with Efficiency\nThe actual efficiency of Merge Sort lies in the merge step:\n\nImagine you have two smaller piles of cards, both already sorted from lowest to highest.\nYou only ever need to compare the two “top” cards of each pile.\nYou pick the smaller one, place it into the new, larger array, and move to the next card in that pile.\n\nBecause this step only requires a single pass through the elements, merging two sorted lists of total size \\(n\\) takes linear time, or \\(O(n)\\). Since the “Divide” phase splits the problem into \\(\\log n\\) levels and an \\(O(n)\\) merge operation is performed at each level, the total time complexity becomes:\n\\[n \\cdot \\log n = O(n \\log n)\\]",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Algorithms and Computational Complexity</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260506_complexity/complexity.html#comparison-of-growth-rates",
+    "href": "files/lektionen_fs26/260506_complexity/complexity.html#comparison-of-growth-rates",
+    "title": "19  Algorithms and Computational Complexity",
+    "section": "19.4 Comparison of Growth Rates",
+    "text": "19.4 Comparison of Growth Rates\nThe “log-linear” growth of Merge Sort is significantly more efficient than the “quadratic” growth of Selection Sort as the input size \\(n\\) increases.\n\n\n\nTable 19.1: Comparison of time complexity between Selection Sort and Merge Sort\n\n\n\n\n\n\n\n\n\n\n\nNumber of Elements(\\(n\\))\nSelection Sort(\\(O(n^2)\\))\nMerge Sort(\\(O(n \\log n)\\))\nEfficiency(Ratio)\n\n\n\n\n10\n100 operations\n~33 operations\n3x faster\n\n\n1,000\n1,000,000\n~10,000\n100x faster\n\n\n1,000,000\n1,000,000,000,000\n~20,000,000\n50,000x faster\n\n\n\n\n\n\nFor a small list, the difference is negligible. However, for large datasets, Selection Sort becomes unusable, while Merge Sort remains efficient. This is the power of understanding computational complexity: it allows us to predict how an algorithm will perform when data scales up.",
+    "crumbs": [
+      "Data Representation",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Algorithms and Computational Complexity</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260518_functions_i/functions_i.html",
+    "href": "files/lektionen_fs26/260518_functions_i/functions_i.html",
+    "title": "20  Functions: Revision and Consolidation",
+    "section": "",
+    "text": "20.1 Function: A Definition\nA function is a self-contained block of code that encapsulates specific logic. By using parameters and return values, it acts as a ‘black box’ that processes inputs into outputs.\nLet’s break this definition down into its core components to understand how a function actually works:",
+    "crumbs": [
+      "Functions",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Functions: Revision and Consolidation</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260518_functions_i/functions_i.html#function-a-definition",
+    "href": "files/lektionen_fs26/260518_functions_i/functions_i.html#function-a-definition",
+    "title": "20  Functions: Revision and Consolidation",
+    "section": "",
+    "text": "“Self-contained block”\nA function is like a “mini-program” within the main program. It has its own name and its own scope. This means that variables defined inside a function usually don’t interfere with the rest of the code. It promotes modular design, making the code organised and easier to read and to debug.\n“Encapsulates specific logic”\nEncapsulation means “wrapping things up.” There is no need to know how the function actually works to use it. It is sufficient to know what parameters it takes and what values it returns. This is the first step toward abstraction.\n“Parameters” (The Inputs)\nParameters are the “knobs” or “settings” of a function. They allow for passing information into the function. Without parameters, a function would do exactly the same thing every time. With parameters, it becomes flexible and can handle different inputs each time it is called.\n“Return Values” (The Outputs)\nA function doesn’t just “do” something; it often “gives” something back. The return statement is the exit point of the function, handing a result back to the part of the program that called it.\nThe “Black Box” Concept\nThis is a key concept in computer science. The user provides an input, the “black box” (the function) performs its processing logic, and it produces an output. The user of a function only cares about the interface (Inputs/Outputs), not the implementation.",
+    "crumbs": [
+      "Functions",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Functions: Revision and Consolidation</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260518_functions_i/functions_i.html#practical-example-the-vat-calculator",
+    "href": "files/lektionen_fs26/260518_functions_i/functions_i.html#practical-example-the-vat-calculator",
+    "title": "20  Functions: Revision and Consolidation",
+    "section": "20.2 Practical Example: The VAT Calculator",
+    "text": "20.2 Practical Example: The VAT Calculator\nIn this example, we calculate the net price from a given gross price. In Swiss retail, prices are usually quoted as gross — i.e., including VAT. The net price is what remains after the VAT portion is removed. Since the standard VAT rate in Switzerland is 8.1 %, we use this as a default parameter. This makes the function easier to use for standard cases while remaining flexible for others.\n\ndef calculate_net_price(gross_price: float, vat_rate: float = 8.1) -&gt; float:\n    \"\"\"\n    Calculates the net price from a given gross price.\n\n    Args:\n        gross_price (float): The total price including VAT.\n        vat_rate (float): The VAT percentage to be removed. \n                          Defaults to 8.1 (Swiss standard rate).\n\n    Returns:\n        float: The calculated net price, rounded to two decimal places.\n    \"\"\"\n    # gross = net * (1 + VAT/100)  -&gt;  net = gross / (1 + VAT/100)\n    gross_factor = 1 + (vat_rate / 100)\n    net_price = gross_price / gross_factor\n    \n    return round(net_price, 2)\n\n# --- Using the \"Black Box\" ---\n\n# Case A: Standard rate (8.1% is used automatically)\nstandard_total = calculate_net_price(100.0)\nprint(f\"Standard Net Price: {standard_total} CHF\")\n\n# Case B: Reduced rate for everyday goods (2.6%)\nreduced_total = calculate_net_price(100.0, 2.6)\nprint(f\"Reduced Net Price: {reduced_total} CHF\")\n\n\n\n\n\n\n\nNoteNew Elements Explained\n\n\n\n\nType Hints (: float and -&gt; float): These document for the programmer (and the IDE) that the function expects decimal numbers and will return a decimal number. They are like labels on the “knobs” of our black box. Note: Python does not enforce Type Hints at runtime — they serve documentation and tooling, not validation.\nThe Docstring (\"\"\" ... \"\"\"): This is the manual for the black box. It explains what the function does, what the arguments (Args) represent, and what the function Returns. In professional IDEs, this text pops up when you hover over the function name. The format used here is the Google style for docstrings.\nDefault Parameter (vat_rate: float = 8.1): By assigning a value in the signature, we make this input optional. If the user doesn’t provide a rate, Python automatically uses 8.1.\n\n\n\nHow this illustrates our five points:\nModularity & Scope: The variables gross_factor and net_price only exist inside the function. Your main program stays “clean” and doesn’t get cluttered with temporary calculation variables.\nEncapsulation: The mathematical formula (dividing by the factor rather than just subtracting a percentage) is hidden. The user doesn’t need to be a maths expert; they just need to call the function.\nDefault Parameters: By setting vat_rate=8.1, we’ve made the function smarter. It assumes the most common case but allows the user to override it for special cases like hotels or groceries.\nThe Interface: The “interface” here is simply calculate_net_price(gross_price, vat_rate). As long as you know this signature, you can use the tool without ever looking at the code inside the function again.",
+    "crumbs": [
+      "Functions",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Functions: Revision and Consolidation</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260518_functions_i/functions_i.html#coding-exercise-the-bmi-calculator",
+    "href": "files/lektionen_fs26/260518_functions_i/functions_i.html#coding-exercise-the-bmi-calculator",
+    "title": "20  Functions: Revision and Consolidation",
+    "section": "20.3 Coding Exercise: The BMI Calculator",
+    "text": "20.3 Coding Exercise: The BMI Calculator\n\n20.3.1 Objective\nApply your knowledge of functions, encapsulation, and documentation by creating a tool to calculate the Body Mass Index (BMI).\n\n\n20.3.2 The Task\nWrite a Python function named calculate_bmi that takes a person’s weight and height as inputs and returns their BMI. Remember the “Black Box” principle: the user should only need to provide the numbers; your function handles the maths.\n\n\n20.3.3 The Formula\nThe BMI is calculated by dividing a person’s weight in kilograms by the square of their height in metres:\n\\[\nBMI = \\frac{\\text{weight (kg)}}{\\text{height (m)}^2}\n\\]\n\n\n20.3.4 Requirements\n\nFunction Signature: Use Type Hints to specify that both inputs and the return value are floats.\nDocstring: Include a complete Docstring at the beginning of the function. Use the Google style (with the sections Args: and Returns:) as shown in the previous example. Write the prose in British English spelling (e.g., “metres”, “organised”).\nEncapsulation: The internal calculation should be performed within the function, and the result should be returned rounded to two decimal places.\nTesting: Call your function at the end of your script to calculate the BMI for a person who weighs 80 kg and is 1.85 m tall.\n\n\n\n20.3.5 Exercise Template:\n\n# Define the signature: which parameters with which Type Hints?\n# What is the return type?\ndef calculate_bmi(...) -&gt; ...:\n    \"\"\"\n    [Write a brief description of the function here]\n\n    Args:\n        [List the arguments here]\n\n    Returns:\n        [Describe the return value here]\n    \"\"\"\n    # 1. Implementation: Calculate the BMI using the formula\n    \n    # 2. Return Value: Return the result rounded to 2 decimal places\n    pass\n\n# --- Test your \"Black Box\" ---\n# 1. Call the function with 80.0 and 1.85\n# 2. Print the result with an appropriate message\n\n\n\n20.3.6 Success Criteria\n\nThe function returns 23.37 for a weight of 80 kg and a height of 1.85 m.\nThe Docstring clearly explains what the parameters represent.\nThe calculation logic is entirely contained within the function (Encapsulation).\nThe function uses the return statement correctly rather than just printing the result inside the function.\n\n\n\n20.3.7 Optional Extension: A Classifier Function\nThe BMI is a rough indicator and has well-known limitations (it ignores muscle mass and body composition). As a follow-up exercise, write a second function classify_bmi(bmi: float) -&gt; str that returns a category according to the WHO scale (e.g. underweight, normal, overweight, obese).\nThis is the natural bridge to the next topic — conditional statements (if / elif / else) — and it also lets you practice function composition:\ncategory = classify_bmi(calculate_bmi(80.0, 1.85))",
+    "crumbs": [
+      "Functions",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Functions: Revision and Consolidation</span>"
+    ]
+  },
+  {
+    "objectID": "files/lektionen_fs26/260518_functions_i/functions_i.html#coding-exercise-the-cuboid-space-diagonal",
+    "href": "files/lektionen_fs26/260518_functions_i/functions_i.html#coding-exercise-the-cuboid-space-diagonal",
+    "title": "20  Functions: Revision and Consolidation",
+    "section": "20.4 Coding Exercise: The Cuboid Space Diagonal",
+    "text": "20.4 Coding Exercise: The Cuboid Space Diagonal\n\n20.4.1 Objective\nCreate a geometry tool that calculates the space diagonal (the longest internal line) of a cuboid. This exercise will help you practice handling multiple parameters and using Python’s mathematical libraries.\n\n\n20.4.2 The Task\nWrite a Python function named calculate_space_diagonal that accepts the three edge lengths of a cuboid and returns the length of the space diagonal.\n\n\n20.4.3 The Formula\nTo find the space diagonal (\\(d\\)) of a cuboid with edge lengths \\(a\\), \\(b\\), and \\(c\\), we use the 3D version of Pythagoras’ Theorem:\n\\[\nd = \\sqrt{a^2 + b^2 + c^2}\n\\]\n\n\n20.4.4 Requirements\n\nModule Import: You will need the sqrt function from Python’s math module. After import math, the call math.sqrt(x) calculates the square root of a float.\nFunction Signature: Use Type Hints to ensure all three inputs and the return value are floats.\nDocstring: Write a professional Docstring in the Google style (sections Args: and Returns:), using British English spelling (e.g., “metres”, “calculated”).\nEncapsulation: The user should not have to worry about the square root or the squaring of numbers; the “Black Box” handles the maths internally.\nTesting: Test your function with a cuboid that has the dimensions \\(a = 5.0\\), \\(b = 10.0\\), and \\(c = 2.0\\).\n\nTip: You can square a number with x ** 2 (or x * x). The square root requires math.sqrt(x) after import math.\n\nimport math  # this works analogously to the import of PyTamaro\n\ndef calculate_space_diagonal(...) -&gt; ...:\n    # TODO: implement the function according to the given requirements \n    pass\n\n# --- Test your \"Black Box\" ---\n# Call the function with edge lengths 5.0, 10.0, and 2.0\n# Expected result: approx. 11.36",
+    "crumbs": [
+      "Functions",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Functions: Revision and Consolidation</span>"
     ]
   }
 ]
