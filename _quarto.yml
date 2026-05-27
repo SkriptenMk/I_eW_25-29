@@ -62,6 +62,7 @@ book:
     - part: "Functions"
       chapters: 
         - files/lektionen_fs26/260518_functions_i/functions_i.ipynb
+        - files/lektionen_fs26/260601_triangles/triangles.ipynb
   
   downloads: [pdf]
 
