@@ -6,6 +6,19 @@ project:
     - "favicon.ico"
     - "**/*.ipynb"
 
+filters:
+  - diagram
+
+# ============================================
+# DIAGRAM FILTER KONFIGURATION
+# ============================================
+diagram:
+  engine:
+    tikz:
+      execpath: lualatex
+      preamble: |
+        - \usetikzlibrary{calc, angles, quotes}
+
 book:
   title: "Unterlagen für das obligatorische Fach Informatik"
   subtitle: "Gymnasium – Einführung in die Programmierung mit Python"
@@ -169,7 +182,7 @@ format:
       % TikZ für Diagramme
       \usepackage{tikz}
       \usetikzlibrary{shapes, arrows, positioning, calc, fit, backgrounds}
-      \usetikzlibrary{er, shapes.geometric}
+      \usetikzlibrary{er, shapes.geometric, angles, quotes}
     
     block-headings: true
     code-line-numbers: true
