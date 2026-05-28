@@ -6,8 +6,6 @@ project:
     - "favicon.ico"
     - "**/*.ipynb"
 
-filters:
-  - diagram
 
 # ============================================
 # DIAGRAM FILTER KONFIGURATION
