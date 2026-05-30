@@ -189,6 +189,10 @@ format:
       \usepackage{tikz}
       \usetikzlibrary{shapes, arrows, positioning, calc, fit, backgrounds}
       \usetikzlibrary{er, shapes.geometric, angles, quotes}
+
+      % Code Overflow verhindern
+      \usepackage{fvextra}
+      \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
     
     block-headings: true
     code-line-numbers: true
