@@ -1,2 +1,19 @@
 /*-- scss:defaults --*/
 $web-font-path: '';
+/* ==========================================================================
+   Hängender Einzug für umgebrochene Code-Zeilen
+   ========================================================================== */
+
+// Erzeugt den Einzug für Code-Blöcke MIT Zeilennummern
+pre.numberSource code > span {
+  display: inline-block;
+  text-indent: -3.5em;   /* Zieht die erste Zeile des Blocks wieder nach links */
+  margin-left: 3.5em;    /* Schiebt alle Zeilen (auch die umgebrochenen) nach rechts */
+}
+
+// Falls Sie auch Code-Blöcke OHNE Zeilennummern nutzen (optional)
+code.sourceCode > span {
+  display: inline-block;
+  text-indent: -3.5em;
+  padding-left: 3.5em;
+}

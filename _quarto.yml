@@ -118,6 +118,7 @@ format:
       - cosmo
       - brand
       - custom.scss
+    code-overflow: wrap
     code-download: true
     code-copy: true
     code-tools: true
@@ -189,6 +190,10 @@ format:
       \usepackage{tikz}
       \usetikzlibrary{shapes, arrows, positioning, calc, fit, backgrounds}
       \usetikzlibrary{er, shapes.geometric, angles, quotes}
+
+      % Code Overflow verhindern
+      \usepackage{fvextra}
+      \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
     
     block-headings: true
     code-line-numbers: true
