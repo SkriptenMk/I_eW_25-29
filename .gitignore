@@ -13,6 +13,7 @@
 !*.png
 !*.jpg
 !*.svg
+!*.csl
 
 # Explizite Ausschlüsse (Diese Ordner und deren Inhalt werden ignoriert)
 .venv/
