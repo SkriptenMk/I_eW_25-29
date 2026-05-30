@@ -61,6 +61,7 @@ book:
       chapters: 
         - files/lektionen_fs26/260518_functions_i/functions_i.ipynb
         - files/lektionen_fs26/260601_triangles/triangles.ipynb
+        - files/lektionen_fs26/260601_triangles/triangle_class.ipynb
   
   downloads: [pdf]
 
@@ -83,6 +84,12 @@ language:
 # ============================================
 # Standardsprache Deutsch (kann pro Datei überschrieben werden)
 lang: de-CH
+
+# ============================================
+# BIBLIOGRAPHIEEINSTELLUNGEN
+# ============================================
+bibliography: references.bib
+csl: chicago-shortened-notes-bibliography-subsequent-ibid-classic.csl
 
 # ============================================
 # CALLOUT-BLÖCKE
