@@ -39,15 +39,19 @@ jobs:
         with:
           version: release
 
-      - name: Install TinyTeX & LaTeX packages
+      - name: Install TinyTeX
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          quarto install tinytex
-          # Sucht flexibel im gesamten Share-Ordner nach der tlmgr-Datei
-          TLMGR=$(find $HOME/.local/share -name tlmgr -type f -print -quit)
-          $TLMGR update --self || true
-          $TLMGR install babel-german hyphen-german dehyph-exptl polyglossia fontspec || true
+          quarto install tinytex --no-prompt
+          # TinyTeX-bin ins PATH aufnehmen (Pfad variiert je nach Version)
+          echo "$HOME/.TinyTeX/bin/x86_64-linux" >> "$GITHUB_PATH"
+
+      - name: Install LaTeX packages
+        run: |
+          tlmgr update --self || true
+          tlmgr install babel-german hyphen-german dehyph-exptl polyglossia fontspec || true
+
       - name: Cache Quarto freeze
         uses: actions/cache@v4
         with:
