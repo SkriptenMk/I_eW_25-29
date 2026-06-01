@@ -37,7 +37,7 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: 1.4.543
+          version: release
 
       - name: Install TinyTeX & LaTeX packages
         env:
