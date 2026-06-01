@@ -44,8 +44,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           quarto install tinytex
-          # Findet automatisch den exakten Pfad zur tlmgr-Datei im Quarto-Verzeichnis
-          TLMGR=$(find $HOME/.local/share/Quarto/TinyTeX -name tlmgr -type f -print -quit)
+          # Sucht flexibel im gesamten Share-Ordner nach der tlmgr-Datei
+          TLMGR=$(find $HOME/.local/share -name tlmgr -type f -print -quit)
           $TLMGR update --self || true
           $TLMGR install babel-german hyphen-german dehyph-exptl polyglossia fontspec || true
       - name: Cache Quarto freeze
