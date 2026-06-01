@@ -44,8 +44,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           quarto install tinytex
-          tlmgr update --self || true
-          tlmgr install babel-german hyphen-german dehyph-exptl polyglossia fontspec || true
+          quarto tlmgr update --self || true
+          quarto tlmgr install babel-german hyphen-german dehyph-exptl polyglossia fontspec || true
 
       - name: Cache Quarto freeze
         uses: actions/cache@v4
