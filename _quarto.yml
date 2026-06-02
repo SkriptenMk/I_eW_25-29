@@ -5,6 +5,8 @@ project:
     - "files/"
     - "favicon.ico"
     - "**/*.ipynb"
+    - "references.bib"
+    - "*.csl"
 
 
 # ============================================
@@ -62,6 +64,7 @@ book:
         - files/lektionen_fs26/260518_functions_i/functions_i.ipynb
         - files/lektionen_fs26/260601_triangles/triangles.ipynb
         - files/lektionen_fs26/260601_triangle_class/triangle_class.ipynb
+    - references.qmd
   
   downloads: [pdf]
 
@@ -144,6 +147,7 @@ format:
     documentclass: scrreprt
     papersize: a4
     fontsize: 11pt
+    cite-method: citeproc
     classoption: 
       - "DIV=11"
       - "parskip=half"
