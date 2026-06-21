@@ -44,8 +44,13 @@ function Pandoc(doc)
     repo, branch, relpath
   )
 
-  -- Lokaler Download-Pfad (same-origin → download-Attribut greift zuverlässig)
-  local local_url = "/" .. relpath
+  -- Relativen Download-Pfad berechnen.
+  -- Die Ausgabe-HTML liegt unter docs/<relpath_ohne_.ipynb>.html, also auf
+  -- derselben Verschachtelungstiefe wie das Notebook. Die .ipynb-Resource wird
+  -- nach docs/<relpath> kopiert → der Link ist nur der Dateiname.
+  -- Damit funktioniert der Download unabhängig vom Pages-Unterverzeichnis.
+  local filename = relpath:match("([^/]+)$")
+  local local_url = filename
 
   -- HTML zusammenbauen
   local html = string.format([[
