@@ -8,6 +8,12 @@ project:
     - "references.bib"
     - "*.csl"
 
+# ===========================================
+# Lua Filter für Binder
+# ===========================================
+filters:
+  - binder
+
 
 # ============================================
 # DIAGRAM FILTER KONFIGURATION

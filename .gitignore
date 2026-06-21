@@ -15,7 +15,7 @@
 !*.svg
 !*.csl
 !*.bib
-
+!*.lua
 # Explizite Ausschlüsse (Diese Ordner und deren Inhalt werden ignoriert)
 .venv/
 .quarto/

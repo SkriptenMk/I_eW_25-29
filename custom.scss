@@ -17,3 +17,23 @@ code.sourceCode > span {
   text-indent: -3.5em;
   padding-left: 3.5em;
 }
+
+.binder-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.binder-bar .binder-download {
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--bs-border-color, #ccc);
+  border-radius: 0.375rem;
+}
+
+.binder-bar .binder-download:hover {
+  background: var(--bs-secondary-bg, #f0f0f0);
+}
