@@ -64,6 +64,7 @@ book:
         - files/lektionen_fs26/260518_functions_i/functions_i.ipynb
         - files/lektionen_fs26/260601_triangles/triangles.ipynb
         - files/lektionen_fs26/260601_triangle_class/triangle_class.ipynb
+        - files/lektionen_fs26/260622_functions_ii/260622_functions_ii.ipynb
     - references.qmd
   
   downloads: [pdf]
