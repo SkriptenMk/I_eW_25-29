@@ -44,13 +44,16 @@ function Pandoc(doc)
     repo, branch, relpath
   )
 
-  -- Relativen Download-Pfad berechnen.
-  -- Die Ausgabe-HTML liegt unter docs/<relpath_ohne_.ipynb>.html, also auf
-  -- derselben Verschachtelungstiefe wie das Notebook. Die .ipynb-Resource wird
-  -- nach docs/<relpath> kopiert → der Link ist nur der Dateiname.
-  -- Damit funktioniert der Download unabhängig vom Pages-Unterverzeichnis.
-  local filename = relpath:match("([^/]+)$")
-  local local_url = filename
+  -- Download-URL auf raw.githubusercontent.com.
+  -- Ein lokaler Link (Dateiname oder relativer Pfad) würde von Quarto als
+  -- interner Verweis erkannt und auf die gerenderte .html umgeschrieben –
+  -- dann lädt der Button HTML statt des Notebooks. Ein absoluter externer
+  -- URL umgeht diese Link-Resolution vollständig und liefert immer die
+  -- echte .ipynb-Datei.
+  local download_url = string.format(
+    "https://raw.githubusercontent.com/%s/%s/%s",
+    repo, branch, relpath
+  )
 
   -- HTML zusammenbauen
   local html = string.format([[
@@ -58,11 +61,11 @@ function Pandoc(doc)
   <a class="binder-badge" href="%s" target="_blank" rel="noopener">
     <img src="https://mybinder.org/badge_logo.svg" alt="Open in Binder">
   </a>
-  <a class="binder-download" href="%s" download>
-    ⬇️ Notebook (.ipynb) herunterladen
+  <a class="binder-download" href="%s" target="_blank" rel="noopener">
+    ⬇️ Notebook (.ipynb) öffnen
   </a>
 </div>
-]], binder_url, local_url)
+]], binder_url, download_url)
 
   local block = pandoc.RawBlock("html", html)
   table.insert(doc.blocks, 1, block)
