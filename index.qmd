@@ -6,22 +6,27 @@ Here you will find information about computer science lessons.
 
 | Date | Topic |
 | :---- | :---- |
-| 16/02/2026 | Data Representation I: Number Systems (Binary, Decimal, Hexadecimal) |
-| 02/03/2026 | Data Representation II: Character Encoding (ASCII, Unicode) |
-| 09/03/2026 | Data Representation III: Images (RGB, Pixels, Resolution) |
-| 16/03/2026 | Concept of Algorithms: Definition, Properties, Notation |
-| 23/03/2026 | Algorithm Representation: Pseudocode and Nassi-Shneiderman Diagrams |
-| 30/03/2026 | Flowcharts and State Diagrams |
-| 06/05/2026 | Algorithm Complexity |
-| 08/05/2026 | Algorithm Complexity |
-| 11/05/2026 | Test 1: Data Represnetation & Algorithm Representation |
-| 18/05/2026 | Functions I: Revision and Consolidation (Parameters, Return) |
-| 01/06/2026 | Functions II: Scope and Namespaces (local vs. global) |
-| 08/06/2026 | Functions III: Modularisation and Code Organisation |
-| 15/06/2026 | TEST 2: Subroutines (Functions, Scope, Modularisation) |
-| 22/06/2026 | Mini-Project I: Developing a Function-Based Application |
-| 29/06/2026 | Mini-Project II: Completion and Presentation |
-| 06/07/2026 | Reflection, Outlook for 3rd Semester, Feedback Session |
+| 21.08.2026 | Introduction and Revision |
+| 28.08.2026 | National Surveying I |
+| 04.09.2026 | National Surveying II |
+| 11.09.2026 | Cyber Risks |
+| 18.09.2026 | Cyber Self-Defence I |
+| 25.09.2026 | Cyber Self-Defence II |
+| 23.10.2026 | Computer Networks I: Layer Models |
+| 30.10.2026 | Exam 1: National Surveying and Cyber Security |
+| 06.11.2026 | Computer Networks II: IP and DNS |
+| 13.11.2026 | Computer Networks III: NAT |
+| 20.11.2026 | Computer Networks IV: Top-Level Domains |
+| 27.11.2026 | Computer Networks V: Monitoring Connections |
+| 04.12.2026 | Python Sockets I |
+| 11.12.2026 | Python Sockets II |
+| 18.12.2026 | Data Structures I: Stack and Queue |
+| 08.01.2027 | Data Structures II: Queues in Python |
+| 15.01.2027 | Data Structures III: Binary Search Tree |
+| 22.01.2027 | Exam 2: Computer Networks and Data Structures |
+| 29.01.2027 | Databases: Introduction |
+| 05.02.2027 | Basic SQL Queries and End of Semester |
+
 
 :  {tbl-colwidths="[20,80]"}
 
