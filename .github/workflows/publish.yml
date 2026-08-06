@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install System Dependencies
         run: |
@@ -27,7 +27,7 @@ jobs:
           sudo apt-get install -y librsvg2-bin
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -53,7 +53,7 @@ jobs:
           tlmgr install babel-german hyphen-german dehyph-exptl polyglossia fontspec || true
 
       - name: Cache Quarto freeze
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: _freeze
           key: quarto-freeze-${{ hashFiles('**/*.ipynb', '**/*.qmd') }}
@@ -64,10 +64,10 @@ jobs:
         run: quarto render
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: docs
 
