@@ -25,7 +25,7 @@ Here you will find information about computer science lessons.
 | 15.01.2027 | Data Structures III: Binary Search Tree |
 | 22.01.2027 | Exam 2: Computer Networks and Data Structures |
 | 29.01.2027 | Databases: Introduction |
-| 05.02.2027 | Basic SQL Queries and End of Semester |
+| 05.02.2027 | Basic SQL Queries and End of Semester | 
 
 
 :  {tbl-colwidths="[20,80]"}
