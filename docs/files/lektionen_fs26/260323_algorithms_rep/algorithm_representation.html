@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jonathan Rappl">
+
+<title>17&nbsp; Algorithm Representation: Pseudocode &amp; Struktogramme – Unterlagen für das obligatorische Fach Informatik</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../files/lektionen_fs26/260330_sorting/sorting.html" rel="next">
+<link href="../../../files/lektionen_fs26/260316_algorithms_intro/algorithms.html" rel="prev">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-832488a561a9654318fce4209dc4caff.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-2c5592fffe51db5ba48a42a5ed3c55a5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_fs26/260216_numbersystems/number_systems.html">Data Representation</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Algorithm Representation: Pseudocode &amp; Struktogramme</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">Unterlagen für das obligatorische Fach Informatik</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/SkriptenMk/I_eW_25-29" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <a href="../../../Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anleitungen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einführung in Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250901_probleme/probleme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Problemlösung in der Informatik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabeln in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251124_dict/dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenstrukturen: Dictionary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/260105_uebungen/uebungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung 2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Representation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260216_numbersystems/number_systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Number Representation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260309_images/images.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Image Representation in Computers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260316_algorithms_intro/algorithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The Concept of an Algorithm</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Algorithm Representation: Pseudocode &amp; Struktogramme</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260330_sorting/sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sorting Algorithms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260506_complexity/complexity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Algorithms and Computational Complexity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Functions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260518_functions_i/functions_i.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Functions: Revision and Consolidation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260601_triangles/triangles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Functions II: Calculating Triangles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260601_triangle_class/triangle_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Classes: Triangle as Object</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260622_functions_ii/260622_functions_ii.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Functions: Exercises</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs26/260821_review/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Triangulation: Inheriting from Triangle</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Literaturverzeichnis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-pseudocode" id="toc-what-is-pseudocode" class="nav-link active" data-scroll-target="#what-is-pseudocode"><span class="header-section-number">17.1</span> What Is Pseudocode?</a></li>
+  <li><a href="#pseudocode-conventions" id="toc-pseudocode-conventions" class="nav-link" data-scroll-target="#pseudocode-conventions"><span class="header-section-number">17.2</span> Pseudocode Conventions</a></li>
+  <li><a href="#worked-example-gcd-in-pseudocode" id="toc-worked-example-gcd-in-pseudocode" class="nav-link" data-scroll-target="#worked-example-gcd-in-pseudocode"><span class="header-section-number">17.3</span> Worked Example: GCD in Pseudocode</a></li>
+  <li><a href="#exercise-1-python-pseudocode" id="toc-exercise-1-python-pseudocode" class="nav-link" data-scroll-target="#exercise-1-python-pseudocode"><span class="header-section-number">17.4</span> Exercise 1: Python → Pseudocode</a></li>
+  <li><a href="#exercise-2-pseudocode-python" id="toc-exercise-2-pseudocode-python" class="nav-link" data-scroll-target="#exercise-2-pseudocode-python"><span class="header-section-number">17.5</span> Exercise 2: Pseudocode → Python</a></li>
+  <li><a href="#exercise-3-pseudocode-python" id="toc-exercise-3-pseudocode-python" class="nav-link" data-scroll-target="#exercise-3-pseudocode-python"><span class="header-section-number">17.6</span> Exercise 3: Pseudocode → Python</a></li>
+  <li><a href="#structure-diagrams-struktogramme" id="toc-structure-diagrams-struktogramme" class="nav-link" data-scroll-target="#structure-diagrams-struktogramme"><span class="header-section-number">17.7</span> Structure Diagrams (Struktogramme)</a>
+  <ul class="collapse">
+  <li><a href="#the-three-building-blocks" id="toc-the-three-building-blocks" class="nav-link" data-scroll-target="#the-three-building-blocks"><span class="header-section-number">17.7.1</span> The Three Building Blocks</a></li>
+  <li><a href="#worked-example-gcd-struktogramm" id="toc-worked-example-gcd-struktogramm" class="nav-link" data-scroll-target="#worked-example-gcd-struktogramm"><span class="header-section-number">17.7.2</span> Worked Example: GCD Struktogramm</a></li>
+  <li><a href="#drawing-task-on-paper" id="toc-drawing-task-on-paper" class="nav-link" data-scroll-target="#drawing-task-on-paper"><span class="header-section-number">17.7.3</span> Drawing Task (on Paper)</a></li>
+  </ul></li>
+  <li><a href="#summary-comparing-notations" id="toc-summary-comparing-notations" class="nav-link" data-scroll-target="#summary-comparing-notations"><span class="header-section-number">17.8</span> Summary: Comparing Notations</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="algorithm_representation.ipynb"><i class="bi bi-download"></i>Right Click to Download</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_fs26/260216_numbersystems/number_systems.html">Data Representation</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Algorithm Representation: Pseudocode &amp; Struktogramme</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Algorithm Representation: Pseudocode &amp; Struktogramme</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jonathan Rappl </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23. March 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="binder-bar">
+  <a class="binder-badge" href="https://mybinder.org/v2/gh/SkriptenMk/I_eW_25-29/main?urlpath=lab/tree/files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.ipynb" target="_blank" rel="noopener">
+    <img src="https://mybinder.org/badge_logo.svg" alt="Open in Binder">
+  </a>
+  <a class="binder-download" href="../../../files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html" download="">
+    ⬇️ Notebook (.ipynb) herunterladen
+  </a>
+</div>
+
+<p>Last week we described the GCD algorithm in three ways: natural language, a trace table, and Python code.</p>
+<p>Today we add two more notations:</p>
+<ul>
+<li><strong>Pseudocode</strong> — precise, structured, language-independent text</li>
+<li><strong>Struktogramme</strong> (Nassi–Shneiderman diagrams) — visual block diagrams</li>
+</ul>
+<p>By the end of this notebook you will be able to translate freely between Python and pseudocode.</p>
+<section id="what-is-pseudocode" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="what-is-pseudocode"><span class="header-section-number">17.1</span> What Is Pseudocode?</h2>
+<p><strong>Pseudocode</strong> is a way of describing an algorithm using structured, human-readable language that <em>resembles</em> a programming language but is not tied to any specific one.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Advantage</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>More precise than natural language</td>
+<td>Avoids ambiguity</td>
+</tr>
+<tr class="even">
+<td>More readable than real code</td>
+<td>No syntax details (colons, brackets, imports)</td>
+</tr>
+<tr class="odd">
+<td>Language-independent</td>
+<td>Anyone who knows <em>any</em> language can read it</td>
+</tr>
+<tr class="even">
+<td>Widely used</td>
+<td>Textbooks, exams, professional documentation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pseudocode-conventions" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="pseudocode-conventions"><span class="header-section-number">17.2</span> Pseudocode Conventions</h2>
+<p>There is no single “official” pseudocode standard, but the conventions below are widely used and will be our standard for this course.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Python</th>
+<th>Pseudocode</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Assignment</td>
+<td><code>x = 5</code></td>
+<td><code>x ← 5</code></td>
+</tr>
+<tr class="even">
+<td>Input</td>
+<td><code>x = int(input())</code></td>
+<td><code>READ x</code></td>
+</tr>
+<tr class="odd">
+<td>Output</td>
+<td><code>print(x)</code></td>
+<td><code>PRINT x</code></td>
+</tr>
+<tr class="even">
+<td>Condition</td>
+<td><code>if x &gt; 0:</code></td>
+<td><code>IF x &gt; 0 THEN</code></td>
+</tr>
+<tr class="odd">
+<td>Else</td>
+<td><code>else:</code></td>
+<td><code>ELSE</code></td>
+</tr>
+<tr class="even">
+<td>End block</td>
+<td><em>(indentation)</em></td>
+<td><code>END IF</code></td>
+</tr>
+<tr class="odd">
+<td>While loop</td>
+<td><code>while x &gt; 0:</code></td>
+<td><code>WHILE x &gt; 0 DO</code></td>
+</tr>
+<tr class="even">
+<td>End loop</td>
+<td><em>(indentation)</em></td>
+<td><code>END WHILE</code></td>
+</tr>
+<tr class="odd">
+<td>For loop</td>
+<td><code>for i in range(n):</code></td>
+<td><code>FOR i ← 0 TO n-1 DO</code></td>
+</tr>
+<tr class="even">
+<td>End for</td>
+<td><em>(indentation)</em></td>
+<td><code>END FOR</code></td>
+</tr>
+<tr class="odd">
+<td>Function</td>
+<td><code>def gcd(a, b):</code></td>
+<td><code>FUNCTION gcd(a, b)</code></td>
+</tr>
+<tr class="even">
+<td>Return</td>
+<td><code>return a</code></td>
+<td><code>RETURN a</code></td>
+</tr>
+<tr class="odd">
+<td>Not equal</td>
+<td><code>!=</code></td>
+<td><code>≠</code></td>
+</tr>
+<tr class="even">
+<td>Modulo</td>
+<td><code>%</code></td>
+<td><code>MOD</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Key idea:</strong> Python uses <em>indentation</em> to show structure. Pseudocode uses <em>keywords</em> (<code>THEN</code>, <code>DO</code>, <code>END IF</code>, <code>END WHILE</code>) to show where blocks begin and end.</p>
+</blockquote>
+</section>
+<section id="worked-example-gcd-in-pseudocode" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="worked-example-gcd-in-pseudocode"><span class="header-section-number">17.3</span> Worked Example: GCD in Pseudocode</h2>
+<p>Here is the GCD function you wrote last week in Python:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> gcd(a, b):</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">while</span> b <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb1-3"><a href="#cb1-3"></a>        r <span class="op">=</span> a <span class="op">%</span> b</span>
+<span id="cb1-4"><a href="#cb1-4"></a>        a <span class="op">=</span> b</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        b <span class="op">=</span> r</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">return</span> a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>And here is the same algorithm in pseudocode:</p>
+<pre><code>FUNCTION gcd(a, b)
+    WHILE b ≠ 0 DO
+        r ← a MOD b
+        a ← b
+        b ← r
+    END WHILE
+    RETURN a
+END FUNCTION</code></pre>
+<p>Notice the correspondences: - <code>def</code> → <code>FUNCTION</code> … <code>END FUNCTION</code> - <code>while</code> → <code>WHILE</code> … <code>DO</code> … <code>END WHILE</code> - <code>=</code> (assignment) → <code>←</code> - <code>%</code> → <code>MOD</code> - <code>!=</code> → <code>≠</code></p>
+<hr>
+</section>
+<section id="exercise-1-python-pseudocode" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="exercise-1-python-pseudocode"><span class="header-section-number">17.4</span> Exercise 1: Python → Pseudocode</h2>
+<p>Read the Python function below carefully. Then <strong>write the equivalent pseudocode on paper</strong> (or in a new markdown cell).</p>
+<p>Use the conventions table above as a reference.</p>
+<div id="c6450acb" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> max_of_three(a, b, c):</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="cf">if</span> a <span class="op">&gt;=</span> b <span class="kw">and</span> a <span class="op">&gt;=</span> c:</span>
+<span id="cb3-3"><a href="#cb3-3"></a>        <span class="cf">return</span> a</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="cf">elif</span> b <span class="op">&gt;=</span> a <span class="kw">and</span> b <span class="op">&gt;=</span> c:</span>
+<span id="cb3-5"><a href="#cb3-5"></a>        <span class="cf">return</span> b</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-7"><a href="#cb3-7"></a>        <span class="cf">return</span> c</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Click to reveal the solution
+</summary>
+<pre><code>FUNCTION max_of_three(a, b, c)
+    IF a ≥ b AND a ≥ c THEN
+        RETURN a
+    ELSE IF b ≥ a AND b ≥ c THEN
+        RETURN b
+    ELSE
+        RETURN c
+    END IF
+END FUNCTION</code></pre>
+</details>
+<hr>
+</section>
+<section id="exercise-2-pseudocode-python" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="exercise-2-pseudocode-python"><span class="header-section-number">17.5</span> Exercise 2: Pseudocode → Python</h2>
+<p>The pseudocode below describes a <strong>linear search</strong> algorithm. It searches through a list for a given value and returns the index of the first occurrence, or <code>-1</code> if the value is not found.</p>
+<pre><code>FUNCTION linear_search(lst, target)
+    FOR i ← 0 TO length(lst) - 1 DO
+        IF lst[i] = target THEN
+            RETURN i
+        END IF
+    END FOR
+    RETURN -1
+END FUNCTION</code></pre>
+<p><strong>Task:</strong> Implement this algorithm in Python in the cell below.</p>
+<div id="e5604a90" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> linear_search(lst: <span class="bu">list</span>, target) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="cf">pass</span>  <span class="co"># </span><span class="al">TODO</span><span class="co">: implement the pseudocode above</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="f7f988e6" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Test cases — all should print True</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(linear_search([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>], <span class="dv">30</span>) <span class="op">==</span> <span class="dv">2</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(linear_search([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>], <span class="dv">10</span>) <span class="op">==</span> <span class="dv">0</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="bu">print</span>(linear_search([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>], <span class="dv">50</span>) <span class="op">==</span> <span class="dv">4</span>)</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="bu">print</span>(linear_search([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>], <span class="dv">99</span>) <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="bu">print</span>(linear_search([], <span class="dv">5</span>) <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exercise-3-pseudocode-python" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="exercise-3-pseudocode-python"><span class="header-section-number">17.6</span> Exercise 3: Pseudocode → Python</h2>
+<p>The pseudocode below prints every integer from 1 to <em>n</em>. For multiples of 3 it prints <code>"Fizz"</code> instead of the number, for multiples of 5 it prints <code>"Buzz"</code>, and for multiples of both 3 and 5 it prints <code>"FizzBuzz"</code>.</p>
+<pre><code>FUNCTION fizzbuzz(n)
+    FOR i ← 1 TO n DO
+        IF i MOD 3 = 0 AND i MOD 5 = 0 THEN
+            PRINT "FizzBuzz"
+        ELSE IF i MOD 3 = 0 THEN
+            PRINT "Fizz"
+        ELSE IF i MOD 5 = 0 THEN
+            PRINT "Buzz"
+        ELSE
+            PRINT i
+        END IF
+    END FOR
+END FUNCTION</code></pre>
+<p><strong>Task:</strong> Implement this algorithm in Python.</p>
+<div id="c222f1b8" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> fizzbuzz(n: <span class="bu">int</span>):</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="cf">pass</span>  <span class="co"># </span><span class="al">TODO</span><span class="co">: implement the pseudocode above</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="1f87ebb3" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Run this cell to test — expected output:</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co"># 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz,</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># 11, Fizz, 13, 14, FizzBuzz</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>fizzbuzz(<span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="structure-diagrams-struktogramme" class="level2" data-number="17.7">
+<h2 data-number="17.7" class="anchored" data-anchor-id="structure-diagrams-struktogramme"><span class="header-section-number">17.7</span> Structure Diagrams (Struktogramme)</h2>
+<p>A <strong>Struktogramm</strong> (Nassi–Shneiderman diagram) is a visual way of representing an algorithm using nested rectangles. Each rectangle represents one instruction or control structure.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Advantage</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Visual</td>
+<td>Structure is visible at a glance</td>
+</tr>
+<tr class="even">
+<td>No arrows</td>
+<td>Forces structured programming (no “goto”)</td>
+</tr>
+<tr class="odd">
+<td>Widely used</td>
+<td>Common in German-speaking CS education and exams</td>
+</tr>
+</tbody>
+</table>
+<section id="the-three-building-blocks" class="level3" data-number="17.7.1">
+<h3 data-number="17.7.1" class="anchored" data-anchor-id="the-three-building-blocks"><span class="header-section-number">17.7.1</span> The Three Building Blocks</h3>
+<p>Every Struktogramm is built from just three elements:</p>
+<section id="sequence" class="level4" data-number="17.7.1.1">
+<h4 data-number="17.7.1.1" class="anchored" data-anchor-id="sequence"><span class="header-section-number">17.7.1.1</span> 1. Sequence</h4>
+<p>Instructions are executed one after another, top to bottom.</p>
+<pre><code>┌─────────────────────────┐
+│ Instruction 1           │
+├─────────────────────────┤
+│ Instruction 2           │
+├─────────────────────────┤
+│ Instruction 3           │
+└─────────────────────────┘</code></pre>
+</section>
+<section id="selection-if-else" class="level4" data-number="17.7.1.2">
+<h4 data-number="17.7.1.2" class="anchored" data-anchor-id="selection-if-else"><span class="header-section-number">17.7.1.2</span> 2. Selection (IF / ELSE)</h4>
+<p>A condition splits execution into two branches.</p>
+<pre><code>┌─────────────────────────┐
+│      condition?         │
+├────────────┬────────────┤
+│   TRUE     │   FALSE    │
+│   block    │   block    │
+└────────────┴────────────┘</code></pre>
+</section>
+<section id="iteration-while-loop" class="level4" data-number="17.7.1.3">
+<h4 data-number="17.7.1.3" class="anchored" data-anchor-id="iteration-while-loop"><span class="header-section-number">17.7.1.3</span> 3. Iteration (WHILE loop)</h4>
+<p>A block is repeated as long as a condition holds.</p>
+<pre><code>┌─────────────────────────┐
+│ WHILE condition         │
+│  ┌──────────────────────┤
+│  │ loop body            │
+│  └──────────────────────┤
+└─────────────────────────┘</code></pre>
+</section>
+</section>
+<section id="worked-example-gcd-struktogramm" class="level3" data-number="17.7.2">
+<h3 data-number="17.7.2" class="anchored" data-anchor-id="worked-example-gcd-struktogramm"><span class="header-section-number">17.7.2</span> Worked Example: GCD Struktogramm</h3>
+<pre><code>┌──────────────────────────────┐
+│ READ a, b                    │
+├──────────────────────────────┤
+│ WHILE b ≠ 0                  │
+│  ┌───────────────────────────┤
+│  │ r ← a MOD b               │
+│  ├───────────────────────────┤
+│  │ a ← b                     │
+│  ├───────────────────────────┤
+│  │ b ← r                     │
+│  └───────────────────────────┤
+├──────────────────────────────┤
+│ PRINT a                      │
+└──────────────────────────────┘</code></pre>
+<p><strong>Reading the diagram:</strong> - Top to bottom = execution order (sequence) - The indented box = the loop body (iteration) - <code>READ</code> at the top = input, <code>PRINT</code> at the bottom = output</p>
+</section>
+<section id="drawing-task-on-paper" class="level3" data-number="17.7.3">
+<h3 data-number="17.7.3" class="anchored" data-anchor-id="drawing-task-on-paper"><span class="header-section-number">17.7.3</span> Drawing Task (on Paper)</h3>
+<p>Now draw Struktogramme on paper for the algorithms you translated above:</p>
+<ol type="1">
+<li><strong><code>max_of_three(a, b, c)</code></strong> — uses sequence and selection.</li>
+<li><strong><code>linear_search(lst, target)</code></strong> — uses sequence, selection, and iteration.</li>
+<li>Sum of all integers from 1 to <em>n</em>.</li>
+</ol>
+<p>Compare your diagrams with a partner when you’re done.</p>
+<hr>
+</section>
+</section>
+<section id="summary-comparing-notations" class="level2" data-number="17.8">
+<h2 data-number="17.8" class="anchored" data-anchor-id="summary-comparing-notations"><span class="header-section-number">17.8</span> Summary: Comparing Notations</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Notation</th>
+<th>Precise?</th>
+<th>Executable?</th>
+<th>Visual?</th>
+<th>Language-independent?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Natural language</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>Pseudocode</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>Struktogramm</td>
+<td>✓</td>
+<td>✗</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>Python</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+</tbody>
+</table>
+<p>No single notation is “best” — each has strengths. Good computer scientists can switch between notations fluently.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../files/lektionen_fs26/260316_algorithms_intro/algorithms.html" class="pagination-link" aria-label="The Concept of an Algorithm">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The Concept of an Algorithm</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../files/lektionen_fs26/260330_sorting/sorting.html" class="pagination-link" aria-label="Sorting Algorithms">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sorting Algorithms</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

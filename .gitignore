@@ -1,26 +1,57 @@
-# Erstmal alles ignorieren
-*
+# ────────────────────────────────────────────────────────
+# .gitignore — Quarto Book (TuxedoOS / VS Code / Positron)
+# ────────────────────────────────────────────────────────
 
-# Verzeichnisse zulassen, damit Git darin nach Dateien suchen kann
-!*/
-
-# Whitelist für die Quelldateien
-!.gitignore
-!*.yml
-!*.ipynb
-!*.md
-!*.qmd
-!*.png
-!*.jpg
-!*.svg
-!*.csl
-!*.bib
-!*.lua
-# Explizite Ausschlüsse (Diese Ordner und deren Inhalt werden ignoriert)
-.venv/
-.quarto/
-_site/
-_freeze/
-docs/
+# ── Quarto ──────────────────────────────────────────────
+# gerendertes Output-Verzeichnis
+/_book/
+# Quarto-interner Cache/Metadaten
 /.quarto/
+# temporäre Notebook-Kopien beim Rendern
 **/*.quarto_ipynb
+
+# WICHTIG: _freeze/ NICHT ignorieren!
+# Bei freeze: true muss der Ordner committet werden,
+# sonst schlägt der CI-Build fehl (kein Kernel im Runner).
+
+# ── Jupyter ─────────────────────────────────────────────
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*.nbconvert.ipynb
+# Kein nbstripout/Output-Cleaning: gespeicherte Outputs
+# sind Voraussetzung für den Build ohne Code-Ausführung.
+
+# ── Python ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.python-version
+
+# ── LaTeX (PDF-Build-Artefakte) ─────────────────────────
+*.aux
+*.log
+*.toc
+*.synctex.gz
+index.tex
+
+# ── Editor / IDE ────────────────────────────────────────
+# geteilte Projekteinstellungen und Extension-Empfehlungen
+# bleiben versioniert
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.positron/
+.idea/
+*.swp
+.luarc.json
+
+# ── Linux / KDE Plasma ──────────────────────────────────
+.directory
+*~
+.Trash-*
+.fuse_hidden*
+
+# ── Fremde OS ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
