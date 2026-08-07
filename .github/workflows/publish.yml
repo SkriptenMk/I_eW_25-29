@@ -1,76 +1,11 @@
-name: Render and Publish
-
-on:
-  push:
-    branches: main
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
-
-      - name: Install System Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y librsvg2-bin
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.11'
-
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
-
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: release
-
-      - name: Install TinyTeX
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          quarto install tinytex --no-prompt
-          # TinyTeX-bin ins PATH aufnehmen (Pfad variiert je nach Version)
-          echo "$HOME/.TinyTeX/bin/x86_64-linux" >> "$GITHUB_PATH"
-
-      - name: Install LaTeX packages
-        run: |
-          tlmgr update --self || true
-          tlmgr install babel-german hyphen-german dehyph-exptl polyglossia fontspec || true
-
-      - name: Cache Quarto freeze
-        uses: actions/cache@v5
-        with:
-          path: _freeze
-          key: quarto-freeze-${{ hashFiles('**/*.ipynb', '**/*.qmd') }}
-          restore-keys: |
-            quarto-freeze-
-
-      - name: Render Quarto Project
-        run: quarto render
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+- name: Setup Pages
+        uses: actions/configure-pages@v6
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: docs
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
