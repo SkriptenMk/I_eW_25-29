@@ -45,7 +45,7 @@ at the start of the lesson to last for a double period.
 ## Assessment
 
 Two written tests are planned per semester. In addition, oral
-participation will be graded. Asking questions is specifically
+participation will be graded. **Asking questions** is specifically
 considered as part of oral participation. 
 
 The final grade is calculated as a weighted average of the two written
