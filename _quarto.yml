@@ -2,17 +2,13 @@ project:
   type: book
   output-dir: docs
   resources:
-    - "files/"
     - "favicon.ico"
-    - "**/*.ipynb"
-    - "references.bib"
     - "*.csl"
-
 # ===========================================
 # Lua Filter für Binder
 # ===========================================
-filters:
-  - binder.lua
+#filters:
+#  - binder.lua
 
 
 # ============================================
@@ -72,6 +68,9 @@ book:
         - files/lektionen_fs26/260601_triangle_class/triangle_class.ipynb
         - files/lektionen_fs26/260622_functions_ii/260622_functions_ii.ipynb
         - files/lektionen_hs26/260821_review/index.ipynb
+    - part: "Object Oriented Programming"
+      chapters:
+        - files/lektionen_hs26/260904_inheritance/260904_inheritance.ipynb
     - references.qmd
   
   downloads: [pdf]
