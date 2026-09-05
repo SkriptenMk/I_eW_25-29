@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jacques Mock Schindler">
+<meta name="dcterms.date" content="2026-09-05">
+
+<title>25&nbsp; Interest-Bearing Accounts: Inheriting from Account – Unterlagen für das obligatorische Fach Informatik</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../references.html" rel="next">
+<link href="../../../files/lektionen_hs26/260821_review/index.html" rel="prev">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-832488a561a9654318fce4209dc4caff.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-2c5592fffe51db5ba48a42a5ed3c55a5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="mermaid-theme" content="default">
+<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260904_inheritance/260904_inheritance.html">Object Oriented Programming</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260904_inheritance/260904_inheritance.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Interest-Bearing Accounts: Inheriting from Account</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">Unterlagen für das obligatorische Fach Informatik</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/SkriptenMk/I_eW_25-29" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <a href="../../../Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anleitungen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einführung in Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250901_probleme/probleme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Problemlösung in der Informatik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabeln in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251124_dict/dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenstrukturen: Dictionary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/260105_uebungen/uebungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung 2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Representation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260216_numbersystems/number_systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Number Representation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260309_images/images.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Image Representation in Computers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260316_algorithms_intro/algorithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The Concept of an Algorithm</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Algorithm Representation: Pseudocode &amp; Struktogramme</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260330_sorting/sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sorting Algorithms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260506_complexity/complexity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Algorithms and Computational Complexity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Functions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260518_functions_i/functions_i.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Functions: Revision and Consolidation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260601_triangles/triangles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Functions II: Calculating Triangles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260601_triangle_class/triangle_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Classes: Triangle as Object</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260622_functions_ii/260622_functions_ii.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Functions: Exercises</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs26/260821_review/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Triangulation: Inheriting from Triangle</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Object Oriented Programming</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs26/260904_inheritance/260904_inheritance.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Interest-Bearing Accounts: Inheriting from Account</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Literaturverzeichnis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-design-at-a-glance" id="toc-the-design-at-a-glance" class="nav-link active" data-scroll-target="#the-design-at-a-glance"><span class="header-section-number">25.1</span> The Design at a Glance</a></li>
+  <li><a href="#sec-stage1" id="toc-sec-stage1" class="nav-link" data-scroll-target="#sec-stage1"><span class="header-section-number">25.2</span> Stage 1 — A Class for a Single Entry</a></li>
+  <li><a href="#sec-stage2" id="toc-sec-stage2" class="nav-link" data-scroll-target="#sec-stage2"><span class="header-section-number">25.3</span> Stage 2 — Bundling into an Account</a></li>
+  <li><a href="#sec-stage3" id="toc-sec-stage3" class="nav-link" data-scroll-target="#sec-stage3"><span class="header-section-number">25.4</span> Stage 3 — Inheritance: a Current Account <em>is an</em> Account</a>
+  <ul class="collapse">
+  <li><a href="#sec-first-version" id="toc-sec-first-version" class="nav-link" data-scroll-target="#sec-first-version"><span class="header-section-number">25.4.1</span> A First Version</a></li>
+  <li><a href="#sec-refactoring" id="toc-sec-refactoring" class="nav-link" data-scroll-target="#sec-refactoring"><span class="header-section-number">25.4.2</span> Refactoring <code>calculate_interest</code></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs26/260904_inheritance/260904_inheritance.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260904_inheritance/260904_inheritance.html">Object Oriented Programming</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260904_inheritance/260904_inheritance.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Interest-Bearing Accounts: Inheriting from Account</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Interest-Bearing Accounts: Inheriting from Account</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jacques Mock Schindler </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">5 September 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Double-entry bookkeeping records every business transaction as an <em>entry</em> that debits one account and credits another. In this chapter we build a small ledger in Python and, in doing so, revisit the whole progression of this course:</p>
+<ol type="1">
+<li><strong>A data-carrying class</strong> that models a single booking (<code>Entry</code>).</li>
+<li><strong>Bundling</strong> state and behaviour into a class that keeps a running balance (<code>Account</code>).</li>
+<li><strong>Inheritance</strong> — the new idea: a current account <em>is an</em> <code>Account</code>, so it can inherit everything the <code>Account</code> class already knows and add only what interest-bearing accounts need.</li>
+</ol>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Bookkeeping Fundamentals
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every entry touches two accounts. By convention an account’s balance (its <em>Saldo</em>) moves according to which side the entry lands on:</p>
+<ul>
+<li>a <strong>debit</strong> on the account increases its balance;</li>
+<li>a <strong>credit</strong> on the account decreases it.</li>
+</ul>
+<p>The <em>interest</em> on a balance held over a period follows the simple day-count formula</p>
+<p><span class="math display">\[\text{interest} = \text{balance} \times \frac{\text{rate}}{360} \times \text{days},\]</span></p>
+<p>where the year is taken as 360 days (the <em>30/360</em> convention common in Swiss practice).</p>
+</div>
+</div>
+<section id="the-design-at-a-glance" class="level2" data-number="25.1">
+<h2 data-number="25.1" class="anchored" data-anchor-id="the-design-at-a-glance"><span class="header-section-number">25.1</span> The Design at a Glance</h2>
+<p>Before writing any code, it helps to picture where we are heading. <a href="#fig-uml" class="quarto-xref">Figure&nbsp;<span>25.1</span></a> is a <strong>UML class diagram</strong> of the three classes in this chapter and how they relate.</p>
+<div class="cell" data-layout-align="default">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1"></a>classDiagram</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    class Entry {</span>
+<span id="cb1-3"><a href="#cb1-3"></a>        +int debit</span>
+<span id="cb1-4"><a href="#cb1-4"></a>        +int credit</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        +float amount</span>
+<span id="cb1-6"><a href="#cb1-6"></a>        +date date</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        +dict accounting_scheme</span>
+<span id="cb1-8"><a href="#cb1-8"></a>        +__str__() str</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    }</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    class Account {</span>
+<span id="cb1-11"><a href="#cb1-11"></a>        +str name</span>
+<span id="cb1-12"><a href="#cb1-12"></a>        +int accountNr</span>
+<span id="cb1-13"><a href="#cb1-13"></a>        +float startAmount</span>
+<span id="cb1-14"><a href="#cb1-14"></a>        +list~Entry~ entries</span>
+<span id="cb1-15"><a href="#cb1-15"></a>        +float saldo</span>
+<span id="cb1-16"><a href="#cb1-16"></a>        +add_entry(entry) None</span>
+<span id="cb1-17"><a href="#cb1-17"></a>        +calculate_saldo() float</span>
+<span id="cb1-18"><a href="#cb1-18"></a>    }</span>
+<span id="cb1-19"><a href="#cb1-19"></a>    class CurrentAccount {</span>
+<span id="cb1-20"><a href="#cb1-20"></a>        +float interest_rate</span>
+<span id="cb1-21"><a href="#cb1-21"></a>        +list saldi</span>
+<span id="cb1-22"><a href="#cb1-22"></a>        +add_entry(entry) None</span>
+<span id="cb1-23"><a href="#cb1-23"></a>        +calculate_interest(end_date) float</span>
+<span id="cb1-24"><a href="#cb1-24"></a>    }</span>
+<span id="cb1-25"><a href="#cb1-25"></a>    Account &lt;|-- CurrentAccount : is-a (inherits)</span>
+<span id="cb1-26"><a href="#cb1-26"></a>    Account o-- Entry : has-many</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-uml" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-uml-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-uml">classDiagram
+    class Entry {
+        +int debit
+        +int credit
+        +float amount
+        +date date
+        +dict accounting_scheme
+        +__str__() str
+    }
+    class Account {
+        +str name
+        +int accountNr
+        +float startAmount
+        +list~Entry~ entries
+        +float saldo
+        +add_entry(entry) None
+        +calculate_saldo() float
+    }
+    class CurrentAccount {
+        +float interest_rate
+        +list saldi
+        +add_entry(entry) None
+        +calculate_interest(end_date) float
+    }
+    Account &lt;|-- CurrentAccount : is-a (inherits)
+    Account o-- Entry : has-many
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-uml-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each Account holds Entry objects.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Two relationships appear here, and telling them apart is the whole point of the chapter:</p>
+<ul>
+<li>The <strong>hollow triangle</strong> arrow (<code>Account &lt;|-- CurrentAccount</code>) is <em>inheritance</em>: a <code>CurrentAccount</code> <strong>is an</strong> <code>Account</code>. It inherits every attribute and method of the parent and adds <code>interest_rate</code>, <code>saldi</code> and <code>calculate_interest</code>. Note that <code>add_entry</code> appears in <em>both</em> boxes — the subclass <strong>overrides</strong> it.</li>
+<li>The <strong>hollow diamond</strong> arrow (<code>Account o-- Entry</code>) is <em>aggregation</em>: an <code>Account</code> <strong>has</strong> a list of <code>Entry</code> objects. This is composition, not inheritance — an account is not a kind of entry.</li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Reading a UML Class Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each box has three compartments: the class <strong>name</strong>, its <strong>attributes</strong> (data) and its <strong>methods</strong> (behaviour). A <code>+</code> marks a public member. The arrow <em>type</em> encodes the relationship — an <em>is-a</em> link (inheritance) uses a hollow triangle pointing at the parent, whereas a <em>has-a</em> link (aggregation) uses a hollow diamond at the containing class.</p>
+</div>
+</div>
+</section>
+<section id="sec-stage1" class="level2" data-number="25.2">
+<h2 data-number="25.2" class="anchored" data-anchor-id="sec-stage1"><span class="header-section-number">25.2</span> Stage 1 — A Class for a Single Entry</h2>
+<p>We begin with the smallest unit of the ledger: one booking. An <code>Entry</code> stores the debit account number, the credit account number, an amount and a date. It also carries the chart of accounts (<em>Kontenrahmen</em>) so that it can print itself in a human-readable form.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The <code>__str__</code> Method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When an object appears in <code>print()</code>, Python looks for a <code>__str__</code> method and uses whatever string it returns. Defining <code>__str__</code> lets an <code>Entry</code> describe itself — date, both account names and the amount — instead of showing the default <code>&lt;Entry object at 0x…&gt;</code>.</p>
+</div>
+</div>
+<div id="d325301f" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> datetime <span class="im">import</span> date</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="6047c495" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">class</span> Entry:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co">"""A single double-entry booking (one debit, one credit).</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">    Attributes:</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">        debit (int): Account number debited.</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">        credit (int): Account number credited.</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">        amount (float): The amount booked.</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">        date (date): The date of the booking.</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">    """</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, debit: <span class="bu">int</span>,</span>
+<span id="cb3-12"><a href="#cb3-12"></a>                 credit: <span class="bu">int</span>,</span>
+<span id="cb3-13"><a href="#cb3-13"></a>                 amount: <span class="bu">float</span>,</span>
+<span id="cb3-14"><a href="#cb3-14"></a>                 date: date) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb3-15"><a href="#cb3-15"></a>        <span class="va">self</span>.debit <span class="op">=</span> debit</span>
+<span id="cb3-16"><a href="#cb3-16"></a>        <span class="va">self</span>.credit <span class="op">=</span> credit</span>
+<span id="cb3-17"><a href="#cb3-17"></a>        <span class="va">self</span>.amount <span class="op">=</span> amount</span>
+<span id="cb3-18"><a href="#cb3-18"></a>        <span class="va">self</span>.date <span class="op">=</span> date</span>
+<span id="cb3-19"><a href="#cb3-19"></a>        <span class="co"># Abridged chart of accounts (Kontenrahmen KMU) for readable output.</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>        <span class="va">self</span>.accounting_scheme <span class="op">=</span> {</span>
+<span id="cb3-21"><a href="#cb3-21"></a>            <span class="dv">1000</span>: <span class="st">"Kasse"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22"></a>            <span class="dv">1020</span>: <span class="st">"Bankguthaben"</span>,</span>
+<span id="cb3-23"><a href="#cb3-23"></a>            <span class="dv">2000</span>: <span class="st">"Verbindlichkeiten aus Lieferungen und Leistungen (Kreditoren)"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24"></a>            <span class="dv">6950</span>: <span class="st">"Finanzertrag"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25"></a>        }</span>
+<span id="cb3-26"><a href="#cb3-26"></a></span>
+<span id="cb3-27"><a href="#cb3-27"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb3-28"><a href="#cb3-28"></a>        text <span class="op">=</span> (</span>
+<span id="cb3-29"><a href="#cb3-29"></a>            <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>date<span class="sc">.</span>strftime(<span class="st">'</span><span class="sc">%d</span><span class="st"> %b %Y'</span>)<span class="sc">}</span><span class="ss">: "</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a>            <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>accounting_scheme[<span class="va">self</span>.debit]<span class="sc">}</span><span class="ss"> "</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a>            <span class="ss">f"(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>debit<span class="sc">}</span><span class="ss">) - </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>accounting_scheme[<span class="va">self</span>.credit]<span class="sc">}</span><span class="ss"> "</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a>            <span class="ss">f"(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>credit<span class="sc">}</span><span class="ss">) </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>amount<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a>        )</span>
+<span id="cb3-34"><a href="#cb3-34"></a>        <span class="cf">return</span> <span class="st">" "</span>.join(text.split())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A first booking: 50.00 moved from <em>Bankguthaben</em> (1020) to <em>Kasse</em> (1000). Printing the object triggers <code>__str__</code>.</p>
+<div id="5935216e" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>first_entry <span class="op">=</span> Entry(<span class="dv">1000</span>, <span class="dv">1020</span>, <span class="fl">50.00</span>, date(<span class="dv">2026</span>, <span class="dv">8</span>, <span class="dv">28</span>))</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(first_entry)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="sec-stage2" class="level2" data-number="25.3">
+<h2 data-number="25.3" class="anchored" data-anchor-id="sec-stage2"><span class="header-section-number">25.3</span> Stage 2 — Bundling into an Account</h2>
+<p>A single entry is of little use on its own. An <strong>account</strong> collects the entries that touch it and can compute its balance at any time. We bundle that state (name, number, opening balance, list of entries) and the behaviour (<code>add_entry</code>, <code>calculate_saldo</code>) into one class.</p>
+<p><code>calculate_saldo</code> walks through every entry: an entry that <strong>debits</strong> this account raises the balance, one that <strong>credits</strong> it lowers the balance, and entries touching neither are skipped.</p>
+<div id="9f269758" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> Account:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co">"""A ledger account that collects entries and computes its balance.</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">    Attributes:</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">        name (str): Human-readable account name.</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">        accountNr (int): The account number.</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">        startAmount (float): Opening balance.</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">        entries (list[Entry]): All entries booked to this account.</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">        saldo (float | None): Most recently computed balance.</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">    """</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a></span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,</span>
+<span id="cb5-13"><a href="#cb5-13"></a>                 name: <span class="bu">str</span>,</span>
+<span id="cb5-14"><a href="#cb5-14"></a>                 accountNr: <span class="bu">int</span>,</span>
+<span id="cb5-15"><a href="#cb5-15"></a>                 startAmount: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb5-16"><a href="#cb5-16"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb5-17"><a href="#cb5-17"></a>        <span class="va">self</span>.accountNr <span class="op">=</span> accountNr</span>
+<span id="cb5-18"><a href="#cb5-18"></a>        <span class="va">self</span>.startAmount <span class="op">=</span> startAmount</span>
+<span id="cb5-19"><a href="#cb5-19"></a>        <span class="va">self</span>.entries <span class="op">=</span> []</span>
+<span id="cb5-20"><a href="#cb5-20"></a>        <span class="va">self</span>.saldo <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a></span>
+<span id="cb5-22"><a href="#cb5-22"></a>    <span class="kw">def</span> add_entry(<span class="va">self</span>, entry: Entry) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb5-23"><a href="#cb5-23"></a>        <span class="co">"""Appends an entry to the account and reports it.</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co">        Args:</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="co">            entry (Entry): The booking to add.</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="co">        """</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a>        <span class="va">self</span>.entries.append(entry)</span>
+<span id="cb5-29"><a href="#cb5-29"></a>        <span class="bu">print</span>(<span class="ss">f'Entry "</span><span class="sc">{</span>entry<span class="sc">}</span><span class="ss">" added.'</span>)</span>
+<span id="cb5-30"><a href="#cb5-30"></a></span>
+<span id="cb5-31"><a href="#cb5-31"></a>    <span class="kw">def</span> calculate_saldo(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb5-32"><a href="#cb5-32"></a>        <span class="co">"""Computes the balance from the opening amount and all entries.</span></span>
+<span id="cb5-33"><a href="#cb5-33"></a></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="co">        A debit on this account increases the balance; a credit</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="co">        decreases it.</span></span>
+<span id="cb5-36"><a href="#cb5-36"></a></span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="co">        Returns:</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="co">            float: The resulting balance.</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="co">        """</span></span>
+<span id="cb5-40"><a href="#cb5-40"></a>        saldo <span class="op">=</span> <span class="va">self</span>.startAmount</span>
+<span id="cb5-41"><a href="#cb5-41"></a>        <span class="cf">for</span> entry <span class="kw">in</span> <span class="va">self</span>.entries:</span>
+<span id="cb5-42"><a href="#cb5-42"></a>            <span class="cf">if</span> entry.debit <span class="op">==</span> <span class="va">self</span>.accountNr:</span>
+<span id="cb5-43"><a href="#cb5-43"></a>                saldo <span class="op">+=</span> entry.amount</span>
+<span id="cb5-44"><a href="#cb5-44"></a>            <span class="cf">elif</span> entry.credit <span class="op">==</span> <span class="va">self</span>.accountNr:</span>
+<span id="cb5-45"><a href="#cb5-45"></a>                saldo <span class="op">-=</span> entry.amount</span>
+<span id="cb5-46"><a href="#cb5-46"></a>            <span class="cf">else</span>:</span>
+<span id="cb5-47"><a href="#cb5-47"></a>                <span class="cf">continue</span></span>
+<span id="cb5-48"><a href="#cb5-48"></a>        <span class="bu">print</span>(<span class="ss">f'Saldo: </span><span class="sc">{</span>saldo<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-49"><a href="#cb5-49"></a>        <span class="va">self</span>.saldo <span class="op">=</span> saldo</span>
+<span id="cb5-50"><a href="#cb5-50"></a>        <span class="cf">return</span> saldo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We open the cash account 1000 with 10.00, book two entries and read off the balance.</p>
+<div id="5f33e3c6" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>a1000 <span class="op">=</span> Account(<span class="st">'Cash'</span>, <span class="dv">1000</span>, <span class="fl">10.00</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>a1000.add_entry(Entry(<span class="dv">1000</span>, <span class="dv">1020</span>, <span class="fl">50.0</span>, date(<span class="dv">2026</span>, <span class="dv">8</span>, <span class="dv">28</span>)))</span>
+<span id="cb6-3"><a href="#cb6-3"></a>a1000.add_entry(Entry(<span class="dv">2000</span>, <span class="dv">1000</span>, <span class="fl">5.00</span>, date(<span class="dv">2026</span>, <span class="dv">8</span>, <span class="dv">28</span>)))</span>
+<span id="cb6-4"><a href="#cb6-4"></a>a1000.calculate_saldo()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="sec-stage3" class="level2" data-number="25.4">
+<h2 data-number="25.4" class="anchored" data-anchor-id="sec-stage3"><span class="header-section-number">25.4</span> Stage 3 — Inheritance: a Current Account <em>is an</em> Account</h2>
+<p>A <strong>current account</strong> (<em>Kontokorrent</em>) behaves exactly like an ordinary account — it collects entries and has a balance — but it does something extra: it earns <strong>interest</strong>. That is the textbook signal for inheritance: a current account <em>is an</em> account, plus a little more. In the UML diagram (<a href="#fig-uml" class="quarto-xref">Figure&nbsp;<span>25.1</span></a>) this is the hollow-triangle link from <code>CurrentAccount</code> to <code>Account</code>.</p>
+<p>Rather than copying all of <code>Account</code>, we let a new class <strong>inherit</strong> from it and add only what interest requires.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The <code>is-a</code> Relationship and <code>super()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Writing <code>class CurrentAccount(Account)</code> makes <code>CurrentAccount</code> a <strong>subclass</strong> (child) of <code>Account</code>. It automatically gains every method of the parent — <code>add_entry</code>, <code>calculate_saldo</code> and the constructor. Inside its own <code>__init__</code>, the call <code>super().__init__(...)</code> runs the parent’s constructor, so <code>name</code>, <code>accountNr</code>, <code>startAmount</code>, <code>entries</code> and <code>saldo</code> are set up for us. We then add just the new attributes <code>interest_rate</code> and <code>saldi</code>.</p>
+<p>Contrast this with <em>composition</em> (the hollow-diamond <code>has-a</code> link between <code>Account</code> and <code>Entry</code>): inheritance is the right tool when the new type genuinely <strong>is a</strong> specialised kind of the old one.</p>
+</div>
+</div>
+<section id="sec-first-version" class="level3" data-number="25.4.1">
+<h3 data-number="25.4.1" class="anchored" data-anchor-id="sec-first-version"><span class="header-section-number">25.4.1</span> A First Version</h3>
+<p>We build the subclass step by step. The constructor takes one extra argument, <code>interest_rate</code>, hands the rest to the parent via <code>super().__init__(...)</code>, and keeps a dated history of balances (<code>saldi</code>) so that interest can later be computed period by period. <code>add_entry</code> is <strong>overridden</strong>: it first calls <code>super().add_entry(entry)</code> to keep the inherited behaviour, then records the new balance together with the entry’s date.</p>
+<p>For <code>calculate_interest</code> we write the calculation out in full, in the most direct way we can think of — index by index. It works; we will scrutinise it afterwards.</p>
+<div id="c611e286" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">class</span> CurrentAccount(Account):</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">"""An interest-bearing account — first version.</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">    Inherits entry handling and balance calculation from Account and</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">    adds an interest rate together with a dated history of balances.</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">    Attributes:</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">        interest_rate (float): Annual interest rate (e.g. 0.05 for 5%).</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">        saldi (list[tuple[float, date]]): Balance history as</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">            (balance, date) pairs, opened with the start amount.</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">    """</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,</span>
+<span id="cb7-14"><a href="#cb7-14"></a>                 name: <span class="bu">str</span>,</span>
+<span id="cb7-15"><a href="#cb7-15"></a>                 accountNr: <span class="bu">int</span>,</span>
+<span id="cb7-16"><a href="#cb7-16"></a>                 startAmount: <span class="bu">float</span>,</span>
+<span id="cb7-17"><a href="#cb7-17"></a>                 interest_rate: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb7-18"><a href="#cb7-18"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, accountNr, startAmount)  <span class="co"># parent sets up the account</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a>        <span class="va">self</span>.interest_rate <span class="op">=</span> interest_rate              <span class="co"># the new attributes</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a>        <span class="va">self</span>.saldi <span class="op">=</span> []</span>
+<span id="cb7-21"><a href="#cb7-21"></a>        <span class="va">self</span>.saldi.append((startAmount, date(<span class="dv">2026</span>, <span class="dv">1</span>, <span class="dv">1</span>)))</span>
+<span id="cb7-22"><a href="#cb7-22"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a>    <span class="kw">def</span> add_entry(<span class="va">self</span>, entry: Entry) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb7-24"><a href="#cb7-24"></a>        <span class="co">"""Extends Account.add_entry by recording the new dated balance."""</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a>        <span class="bu">super</span>().add_entry(entry)                                 <span class="co"># inherited behaviour</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a>        <span class="va">self</span>.saldi.append((<span class="va">self</span>.calculate_saldo(), entry.date))  <span class="co"># plus history</span></span>
+<span id="cb7-27"><a href="#cb7-27"></a></span>
+<span id="cb7-28"><a href="#cb7-28"></a>    <span class="kw">def</span> calculate_interest(<span class="va">self</span>, end_date<span class="op">=</span>date(<span class="dv">2026</span>, <span class="dv">12</span>, <span class="dv">31</span>)) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb7-29"><a href="#cb7-29"></a>        <span class="co">"""Computes 30/360 interest across the balance history.</span></span>
+<span id="cb7-30"><a href="#cb7-30"></a></span>
+<span id="cb7-31"><a href="#cb7-31"></a><span class="co">        Each balance earns interest over the number of days it was held,</span></span>
+<span id="cb7-32"><a href="#cb7-32"></a><span class="co">        i.e. until the next balance change (and finally until end_date).</span></span>
+<span id="cb7-33"><a href="#cb7-33"></a><span class="co">        If end_date is the year-end, the total is booked as Finanzertrag.</span></span>
+<span id="cb7-34"><a href="#cb7-34"></a><span class="co">        """</span></span>
+<span id="cb7-35"><a href="#cb7-35"></a>        number_of_days <span class="op">=</span> []</span>
+<span id="cb7-36"><a href="#cb7-36"></a>        interests <span class="op">=</span> []</span>
+<span id="cb7-37"><a href="#cb7-37"></a>        end_date <span class="op">=</span> end_date</span>
+<span id="cb7-38"><a href="#cb7-38"></a>        i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-39"><a href="#cb7-39"></a>        saldi <span class="op">=</span> [saldo[<span class="dv">0</span>] <span class="cf">for</span> saldo <span class="kw">in</span> <span class="va">self</span>.saldi]</span>
+<span id="cb7-40"><a href="#cb7-40"></a>        day_list <span class="op">=</span> [saldo[<span class="dv">1</span>] <span class="cf">for</span> saldo <span class="kw">in</span> <span class="va">self</span>.saldi]</span>
+<span id="cb7-41"><a href="#cb7-41"></a>        <span class="cf">while</span> i <span class="op">&lt;</span> (<span class="bu">len</span>(day_list) <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb7-42"><a href="#cb7-42"></a>            d <span class="op">=</span> (day_list[i<span class="op">+</span><span class="dv">1</span>] <span class="op">-</span> day_list[i]).days</span>
+<span id="cb7-43"><a href="#cb7-43"></a>            number_of_days.append(d)</span>
+<span id="cb7-44"><a href="#cb7-44"></a>            i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb7-45"><a href="#cb7-45"></a>        rest_days <span class="op">=</span> (end_date <span class="op">-</span> day_list[<span class="op">-</span><span class="dv">1</span>]).days</span>
+<span id="cb7-46"><a href="#cb7-46"></a>        number_of_days.append(rest_days)</span>
+<span id="cb7-47"><a href="#cb7-47"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(saldi)):</span>
+<span id="cb7-48"><a href="#cb7-48"></a>            interest <span class="op">=</span> (saldi[i] <span class="op">*</span> <span class="va">self</span>.interest_rate <span class="op">/</span> <span class="dv">360</span>) <span class="op">*</span> number_of_days[i]</span>
+<span id="cb7-49"><a href="#cb7-49"></a>            interests.append(interest)</span>
+<span id="cb7-50"><a href="#cb7-50"></a>        <span class="cf">if</span> end_date <span class="op">==</span> date(<span class="dv">2026</span>, <span class="dv">12</span>, <span class="dv">31</span>):</span>
+<span id="cb7-51"><a href="#cb7-51"></a>            entry <span class="op">=</span> Entry(<span class="dv">1020</span>, <span class="dv">6950</span>, <span class="bu">sum</span>(interests), end_date)</span>
+<span id="cb7-52"><a href="#cb7-52"></a>            <span class="va">self</span>.add_entry(entry)</span>
+<span id="cb7-53"><a href="#cb7-53"></a>        <span class="cf">return</span> <span class="bu">sum</span>(interests)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We open a bank current account 1020 with 100.00 at 5 % interest, book a movement in March, and compute the interest to the year-end.</p>
+<div id="d579961e" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>bank <span class="op">=</span> CurrentAccount(<span class="st">'Bank'</span>, <span class="dv">1020</span>, <span class="fl">100.00</span>, <span class="fl">0.05</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>bank.add_entry(Entry(<span class="dv">1020</span>, <span class="dv">1000</span>, <span class="fl">150.00</span>, date(<span class="dv">2026</span>, <span class="dv">3</span>, <span class="dv">1</span>)))</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(bank.calculate_interest())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="sec-refactoring" class="level3" data-number="25.4.2">
+<h3 data-number="25.4.2" class="anchored" data-anchor-id="sec-refactoring"><span class="header-section-number">25.4.2</span> Refactoring <code>calculate_interest</code></h3>
+<p>The first version is correct, but it does more bookkeeping of its own than the problem requires. Reading it closely, a few things stand out:</p>
+<ul>
+<li>Two accumulator lists (<code>number_of_days</code>, <code>interests</code>) are filled with <code>append</code> inside loops.</li>
+<li>A manual index <code>i</code> and a <code>while</code> loop walk through consecutive dates — a classic place for off-by-one errors.</li>
+<li>The line <code>end_date = end_date</code> does nothing.</li>
+</ul>
+<p>Python lets us say the same thing more directly. The days between consecutive balances are just the differences of <strong>adjacent pairs</strong>, which <code>zip(day_list, day_list[1:])</code> produces without any index. Both loops then collapse into <strong>list comprehensions</strong>, and the intent — <em>“each balance, times its days, times the daily rate”</em> — becomes readable in one line.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Pairing Adjacent Elements with <code>zip</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>zip(seq, seq[1:])</code> pairs each element with its successor: from <code>[d0, d1, d2]</code> it yields <code>(d0, d1)</code> and <code>(d1, d2)</code>. Iterating over those pairs replaces the manual index arithmetic <code>day_list[i+1] - day_list[i]</code> and removes the risk of mis-counting the loop bounds.</p>
+</div>
+</div>
+<p>The behaviour is identical — only <code>calculate_interest</code> changes; everything inherited from <code>Account</code> stays untouched.</p>
+<div id="6c8585c7" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> CurrentAccount(Account):</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="co">"""An interest-bearing account — refactored version.</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">    Identical behaviour to the first version; only calculate_interest</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">    is rewritten using zip and list comprehensions.</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">    """</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,</span>
+<span id="cb9-9"><a href="#cb9-9"></a>                 name: <span class="bu">str</span>,</span>
+<span id="cb9-10"><a href="#cb9-10"></a>                 accountNr: <span class="bu">int</span>,</span>
+<span id="cb9-11"><a href="#cb9-11"></a>                 startAmount: <span class="bu">float</span>,</span>
+<span id="cb9-12"><a href="#cb9-12"></a>                 interest_rate: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb9-13"><a href="#cb9-13"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, accountNr, startAmount)</span>
+<span id="cb9-14"><a href="#cb9-14"></a>        <span class="va">self</span>.interest_rate <span class="op">=</span> interest_rate</span>
+<span id="cb9-15"><a href="#cb9-15"></a>        <span class="va">self</span>.saldi <span class="op">=</span> []</span>
+<span id="cb9-16"><a href="#cb9-16"></a>        <span class="va">self</span>.saldi.append((startAmount, date(<span class="dv">2026</span>, <span class="dv">1</span>, <span class="dv">1</span>)))</span>
+<span id="cb9-17"><a href="#cb9-17"></a></span>
+<span id="cb9-18"><a href="#cb9-18"></a>    <span class="kw">def</span> add_entry(<span class="va">self</span>, entry: Entry) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb9-19"><a href="#cb9-19"></a>        <span class="co">"""Extends Account.add_entry by recording the new dated balance."""</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a>        <span class="bu">super</span>().add_entry(entry)</span>
+<span id="cb9-21"><a href="#cb9-21"></a>        <span class="va">self</span>.saldi.append((<span class="va">self</span>.calculate_saldo(), entry.date))</span>
+<span id="cb9-22"><a href="#cb9-22"></a></span>
+<span id="cb9-23"><a href="#cb9-23"></a>    <span class="kw">def</span> calculate_interest(<span class="va">self</span>, end_date<span class="op">=</span>date(<span class="dv">2026</span>, <span class="dv">12</span>, <span class="dv">31</span>)) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb9-24"><a href="#cb9-24"></a>        <span class="co">"""Computes 30/360 interest across the balance history.</span></span>
+<span id="cb9-25"><a href="#cb9-25"></a></span>
+<span id="cb9-26"><a href="#cb9-26"></a><span class="co">        Args:</span></span>
+<span id="cb9-27"><a href="#cb9-27"></a><span class="co">            end_date (date, optional): End of the interest period.</span></span>
+<span id="cb9-28"><a href="#cb9-28"></a><span class="co">                Defaults to 31 December 2026.</span></span>
+<span id="cb9-29"><a href="#cb9-29"></a></span>
+<span id="cb9-30"><a href="#cb9-30"></a><span class="co">        Returns:</span></span>
+<span id="cb9-31"><a href="#cb9-31"></a><span class="co">            float: The total interest over the period.</span></span>
+<span id="cb9-32"><a href="#cb9-32"></a><span class="co">        """</span></span>
+<span id="cb9-33"><a href="#cb9-33"></a>        saldi <span class="op">=</span> [saldo[<span class="dv">0</span>] <span class="cf">for</span> saldo <span class="kw">in</span> <span class="va">self</span>.saldi]</span>
+<span id="cb9-34"><a href="#cb9-34"></a>        day_list <span class="op">=</span> [saldo[<span class="dv">1</span>] <span class="cf">for</span> saldo <span class="kw">in</span> <span class="va">self</span>.saldi]</span>
+<span id="cb9-35"><a href="#cb9-35"></a></span>
+<span id="cb9-36"><a href="#cb9-36"></a>        <span class="co"># Days between consecutive balances (adjacent pairs via zip)...</span></span>
+<span id="cb9-37"><a href="#cb9-37"></a>        number_of_days <span class="op">=</span> [</span>
+<span id="cb9-38"><a href="#cb9-38"></a>            (nxt <span class="op">-</span> cur).days</span>
+<span id="cb9-39"><a href="#cb9-39"></a>            <span class="cf">for</span> cur, nxt <span class="kw">in</span> <span class="bu">zip</span>(day_list, day_list[<span class="dv">1</span>:])</span>
+<span id="cb9-40"><a href="#cb9-40"></a>        ]</span>
+<span id="cb9-41"><a href="#cb9-41"></a>        <span class="co"># ... plus the remaining days from the last balance to end_date.</span></span>
+<span id="cb9-42"><a href="#cb9-42"></a>        number_of_days.append((end_date <span class="op">-</span> day_list[<span class="op">-</span><span class="dv">1</span>]).days)</span>
+<span id="cb9-43"><a href="#cb9-43"></a></span>
+<span id="cb9-44"><a href="#cb9-44"></a>        <span class="co"># Charge each balance interest over the days it was held.</span></span>
+<span id="cb9-45"><a href="#cb9-45"></a>        interests <span class="op">=</span> [</span>
+<span id="cb9-46"><a href="#cb9-46"></a>            saldo <span class="op">*</span> <span class="va">self</span>.interest_rate <span class="op">/</span> <span class="dv">360</span> <span class="op">*</span> days</span>
+<span id="cb9-47"><a href="#cb9-47"></a>            <span class="cf">for</span> saldo, days <span class="kw">in</span> <span class="bu">zip</span>(saldi, number_of_days)</span>
+<span id="cb9-48"><a href="#cb9-48"></a>        ]</span>
+<span id="cb9-49"><a href="#cb9-49"></a></span>
+<span id="cb9-50"><a href="#cb9-50"></a>        <span class="cf">if</span> end_date <span class="op">==</span> date(<span class="dv">2026</span>, <span class="dv">12</span>, <span class="dv">31</span>):</span>
+<span id="cb9-51"><a href="#cb9-51"></a>            entry <span class="op">=</span> Entry(<span class="dv">1020</span>, <span class="dv">6950</span>, <span class="bu">sum</span>(interests), end_date)</span>
+<span id="cb9-52"><a href="#cb9-52"></a>            <span class="va">self</span>.add_entry(entry)</span>
+<span id="cb9-53"><a href="#cb9-53"></a>        <span class="cf">return</span> <span class="bu">sum</span>(interests)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Running the same example confirms that the refactored version yields exactly the same interest — same result, clearer code.</p>
+<div id="ebb3a22d" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>bank <span class="op">=</span> CurrentAccount(<span class="st">'Bank'</span>, <span class="dv">1020</span>, <span class="fl">100.00</span>, <span class="fl">0.05</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>bank.add_entry(Entry(<span class="dv">1020</span>, <span class="dv">1000</span>, <span class="fl">150.00</span>, date(<span class="dv">2026</span>, <span class="dv">3</span>, <span class="dv">1</span>)))</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(bank.calculate_interest())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Because <code>CurrentAccount</code> <em>is an</em> <code>Account</code>, every inherited method just works — and <code>isinstance()</code> confirms the relationship.</p>
+<div id="c73244c9" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">print</span>(<span class="st">"Is an Account:"</span>, <span class="bu">isinstance</span>(bank, Account))</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="bu">print</span>(<span class="st">"Balance:"</span>, bank.saldo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../files/lektionen_hs26/260821_review/index.html" class="pagination-link" aria-label="Triangulation: Inheriting from Triangle">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Triangulation: Inheriting from Triangle</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../references.html" class="pagination-link" aria-label="Literaturverzeichnis">
+        <span class="nav-page-text">Literaturverzeichnis</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs26/260904_inheritance/260904_inheritance.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
