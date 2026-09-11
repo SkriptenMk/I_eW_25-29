@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jacques Mock Schindler">
-<meta name="dcterms.date" content="2026-09-07">
+<meta name="dcterms.date" content="2026-09-11">
 
 <title>25&nbsp; Interest-Bearing Accounts: Inheriting from Account – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
@@ -413,9 +413,9 @@ window.Quarto = {
    
   <ul>
   <li><a href="#the-design-at-a-glance" id="toc-the-design-at-a-glance" class="nav-link active" data-scroll-target="#the-design-at-a-glance"><span class="header-section-number">25.1</span> The Design at a Glance</a></li>
-  <li><a href="#sec-stage1" id="toc-sec-stage1" class="nav-link" data-scroll-target="#sec-stage1"><span class="header-section-number">25.2</span> Stage 1 — A Class for a Single Entry</a></li>
-  <li><a href="#sec-stage2" id="toc-sec-stage2" class="nav-link" data-scroll-target="#sec-stage2"><span class="header-section-number">25.3</span> Stage 2 — Bundling into an Account</a></li>
-  <li><a href="#sec-stage3" id="toc-sec-stage3" class="nav-link" data-scroll-target="#sec-stage3"><span class="header-section-number">25.4</span> Stage 3 — Inheritance: a Current Account <em>is an</em> Account</a>
+  <li><a href="#sec-inh-stage1" id="toc-sec-inh-stage1" class="nav-link" data-scroll-target="#sec-inh-stage1"><span class="header-section-number">25.2</span> Stage 1 — A Class for a Single Entry</a></li>
+  <li><a href="#sec-inh-stage2" id="toc-sec-inh-stage2" class="nav-link" data-scroll-target="#sec-inh-stage2"><span class="header-section-number">25.3</span> Stage 2 — Bundling into an Account</a></li>
+  <li><a href="#sec-inh-stage3" id="toc-sec-inh-stage3" class="nav-link" data-scroll-target="#sec-inh-stage3"><span class="header-section-number">25.4</span> Stage 3 — Inheritance: a Current Account <em>is an</em> Account</a>
   <ul class="collapse">
   <li><a href="#sec-first-version" id="toc-sec-first-version" class="nav-link" data-scroll-target="#sec-first-version"><span class="header-section-number">25.4.1</span> A First Version</a></li>
   <li><a href="#sec-refactoring" id="toc-sec-refactoring" class="nav-link" data-scroll-target="#sec-refactoring"><span class="header-section-number">25.4.2</span> Refactoring <code>calculate_interest</code></a></li>
@@ -445,7 +445,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">7 September 2026</p>
+      <p class="date">11 September 2026</p>
     </div>
   </div>
   
@@ -547,8 +547,8 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
 </div>
 </div>
 </section>
-<section id="sec-stage1" class="level2" data-number="25.2">
-<h2 data-number="25.2" class="anchored" data-anchor-id="sec-stage1"><span class="header-section-number">25.2</span> Stage 1 — A Class for a Single Entry</h2>
+<section id="sec-inh-stage1" class="level2" data-number="25.2">
+<h2 data-number="25.2" class="anchored" data-anchor-id="sec-inh-stage1"><span class="header-section-number">25.2</span> Stage 1 — A Class for a Single Entry</h2>
 <p>We begin with the smallest unit of the ledger: one booking. An <code>Entry</code> stores the debit account number, the credit account number, an amount and a date. It also carries the chart of accounts (<em>Kontenrahmen</em>) so that it can print itself in a human-readable form.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -556,11 +556,13 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>The <code>__str__</code> Method
+<span class="screen-reader-only">Note</span>Dunder Methods
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When an object appears in <code>print()</code>, Python looks for a <code>__str__</code> method and uses whatever string it returns. Defining <code>__str__</code> lets an <code>Entry</code> describe itself — date, both account names and the amount — instead of showing the default <code>&lt;Entry object at 0x…&gt;</code>.</p>
+<p>Methods whose names begin and end with two underscores — <code>__init__</code>, <code>__str__</code>, <code>__len__</code>, <code>__eq__</code> — are called <strong>dunder</strong> methods (from <em>double underscore</em>). They are also known as <em>magic</em> or <em>special</em> methods. The double underscores mark them as part of Python’s own protocol, so they never clash with method names you choose yourself.</p>
+<p>You rarely call a dunder method by name. Instead, Python invokes it for you when you use ordinary syntax or a built-in function: creating an <code>Entry</code> runs <code>__init__</code>; <code>print(entry)</code> and <code>str(entry)</code> run <code>__str__</code>; <code>len(x)</code> runs <code>__len__</code>; and <code>x == y</code> runs <code>__eq__</code>. (We do not need <code>__len__</code> or <code>__eq__</code> here — they only show the pattern.)</p>
+<p>Defining a dunder method is how a class connects to that syntax and lets its objects behave like built-in types. In this chapter we implement two. <code>__init__</code> sets a new object up. <code>__str__</code> must return a string; defining it lets an <code>Entry</code> describe itself — date, both account names and the amount — instead of showing the default <code>&lt;Entry object at 0x…&gt;</code>.</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -573,7 +575,9 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The first parameter of every method is <code>self</code>: it refers to the particular object the method was called on. When Python runs <code>print(first_entry)</code>, it calls <code>first_entry.__str__()</code> and passes <code>first_entry</code> in as <code>self</code>. So inside <code>__init__</code>, <code>self.debit = debit</code> stores the value <em>on that one object</em>, and inside <code>__str__</code>, <code>self.debit</code> and <code>self.accounting_scheme</code> read the data back from <em>the same</em> object. Any value that must outlive the method call has to be reached through <code>self.</code>; a plain local name like <code>text</code> disappears when the method returns.</p>
+<p>A class bundles data and the methods that act on it. The class definition is only a <em>template</em>; from it, individual objects are created at run time, and each object carries its own set of attribute values.</p>
+<p>The first parameter of every method refers to the object the method was called on. It is named <code>self</code> by convention, not by language rule — but always write <code>self</code>. When Python runs <code>first_entry = Entry(1000, 1020, 50.00, date(2026, 8, 28))</code>, it runs <code>__init__</code> with <code>self</code> bound to the new object. Later, <code>print(first_entry)</code> calls <code>first_entry.__str__()</code> with <code>self</code> bound to that same object.</p>
+<p>So inside <code>__init__</code>, <code>self.debit = debit</code> stores the value <em>on that one object</em>, and inside <code>__str__</code>, <code>self.debit</code> and <code>self.accounting_scheme</code> read the data back from <em>the same</em> object. Any value the object should still have after the method finishes must be stored on <code>self</code>. A plain local name like <code>text</code> in <code>__str__</code> is gone as soon as the method returns.</p>
 </div>
 </div>
 <div id="d325301f" class="cell">
@@ -621,8 +625,8 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
 <span id="cb3-2"><a href="#cb3-2"></a><span class="bu">print</span>(first_entry)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="sec-stage2" class="level2" data-number="25.3">
-<h2 data-number="25.3" class="anchored" data-anchor-id="sec-stage2"><span class="header-section-number">25.3</span> Stage 2 — Bundling into an Account</h2>
+<section id="sec-inh-stage2" class="level2" data-number="25.3">
+<h2 data-number="25.3" class="anchored" data-anchor-id="sec-inh-stage2"><span class="header-section-number">25.3</span> Stage 2 — Bundling into an Account</h2>
 <p>A single entry is of little use on its own. An <strong>account</strong> collects the entries that touch it and can compute its balance at any time. We bundle that state (name, number, opening balance, list of entries) and the behaviour (<code>add_entry</code>, <code>calculate_saldo</code>) into one class.</p>
 <p><code>calculate_saldo</code> walks through every entry: an entry that <strong>debits</strong> this account raises the balance, one that <strong>credits</strong> it lowers the balance, and entries touching neither are skipped.</p>
 <div id="9f269758" class="cell">
@@ -685,8 +689,8 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
 <span id="cb5-4"><a href="#cb5-4"></a>a1000.calculate_saldo()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="sec-stage3" class="level2" data-number="25.4">
-<h2 data-number="25.4" class="anchored" data-anchor-id="sec-stage3"><span class="header-section-number">25.4</span> Stage 3 — Inheritance: a Current Account <em>is an</em> Account</h2>
+<section id="sec-inh-stage3" class="level2" data-number="25.4">
+<h2 data-number="25.4" class="anchored" data-anchor-id="sec-inh-stage3"><span class="header-section-number">25.4</span> Stage 3 — Inheritance: a Current Account <em>is an</em> Account</h2>
 <p>A <strong>current account</strong> (<em>Kontokorrent</em>) behaves exactly like an ordinary account — it collects entries and has a balance — but it does something extra: it earns <strong>interest</strong>. That is the textbook signal for inheritance: a current account <em>is an</em> account, plus a little more. In the UML diagram (<a href="#fig-uml" class="quarto-xref">Figure&nbsp;<span>25.1</span></a>) this is the hollow-triangle link from <code>CurrentAccount</code> to <code>Account</code>.</p>
 <p>Rather than copying all of <code>Account</code>, we let a new class <strong>inherit</strong> from it and add only what interest requires.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
