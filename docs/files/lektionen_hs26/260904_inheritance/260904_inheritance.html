@@ -82,6 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-2c5592fffe51db5ba48a42a5ed3c55a5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -110,10 +113,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-<meta name="mermaid-theme" content="default">
-<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -413,12 +412,13 @@ window.Quarto = {
    
   <ul>
   <li><a href="#the-design-at-a-glance" id="toc-the-design-at-a-glance" class="nav-link active" data-scroll-target="#the-design-at-a-glance"><span class="header-section-number">25.1</span> The Design at a Glance</a></li>
-  <li><a href="#sec-inh-stage1" id="toc-sec-inh-stage1" class="nav-link" data-scroll-target="#sec-inh-stage1"><span class="header-section-number">25.2</span> Stage 1 — A Class for a Single Entry</a></li>
-  <li><a href="#sec-inh-stage2" id="toc-sec-inh-stage2" class="nav-link" data-scroll-target="#sec-inh-stage2"><span class="header-section-number">25.3</span> Stage 2 — Bundling into an Account</a></li>
-  <li><a href="#sec-inh-stage3" id="toc-sec-inh-stage3" class="nav-link" data-scroll-target="#sec-inh-stage3"><span class="header-section-number">25.4</span> Stage 3 — Inheritance: a Current Account <em>is an</em> Account</a>
+  <li><a href="#the-design-at-a-glance-1" id="toc-the-design-at-a-glance-1" class="nav-link" data-scroll-target="#the-design-at-a-glance-1"><span class="header-section-number">25.2</span> The Design at a Glance</a></li>
+  <li><a href="#sec-inh-stage1" id="toc-sec-inh-stage1" class="nav-link" data-scroll-target="#sec-inh-stage1"><span class="header-section-number">25.3</span> Stage 1 — A Class for a Single Entry</a></li>
+  <li><a href="#sec-inh-stage2" id="toc-sec-inh-stage2" class="nav-link" data-scroll-target="#sec-inh-stage2"><span class="header-section-number">25.4</span> Stage 2 — Bundling into an Account</a></li>
+  <li><a href="#sec-inh-stage3" id="toc-sec-inh-stage3" class="nav-link" data-scroll-target="#sec-inh-stage3"><span class="header-section-number">25.5</span> Stage 3 — Inheritance: a Current Account <em>is an</em> Account</a>
   <ul class="collapse">
-  <li><a href="#sec-first-version" id="toc-sec-first-version" class="nav-link" data-scroll-target="#sec-first-version"><span class="header-section-number">25.4.1</span> A First Version</a></li>
-  <li><a href="#sec-refactoring" id="toc-sec-refactoring" class="nav-link" data-scroll-target="#sec-refactoring"><span class="header-section-number">25.4.2</span> Refactoring <code>calculate_interest</code></a></li>
+  <li><a href="#sec-first-version" id="toc-sec-first-version" class="nav-link" data-scroll-target="#sec-first-version"><span class="header-section-number">25.5.1</span> A First Version</a></li>
+  <li><a href="#sec-refactoring" id="toc-sec-refactoring" class="nav-link" data-scroll-target="#sec-refactoring"><span class="header-section-number">25.5.2</span> Refactoring <code>calculate_interest</code></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs26/260904_inheritance/260904_inheritance.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -486,47 +486,19 @@ window.Quarto = {
 <section id="the-design-at-a-glance" class="level2" data-number="25.1">
 <h2 data-number="25.1" class="anchored" data-anchor-id="the-design-at-a-glance"><span class="header-section-number">25.1</span> The Design at a Glance</h2>
 <p>Before writing any code, it helps to picture where we are heading. <a href="#fig-uml" class="quarto-xref">Figure&nbsp;<span>25.1</span></a> is a <strong>UML class diagram</strong> of the three classes in this chapter and how they relate.</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
+</section>
+<section id="the-design-at-a-glance-1" class="level2" data-number="25.2">
+<h2 data-number="25.2" class="anchored" data-anchor-id="the-design-at-a-glance-1"><span class="header-section-number">25.2</span> The Design at a Glance</h2>
+<p>Before writing any code, it helps to picture where we are heading. <a href="#fig-uml" class="quarto-xref">Figure&nbsp;<span>25.1</span></a> is a <strong>UML class diagram</strong> of the three classes in this chapter and how they relate.</p>
 <div id="fig-uml" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-uml-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-<pre class="mermaid mermaid-js" data-label="fig-uml">classDiagram
-    class Entry {
-        +int debit
-        +int credit
-        +float amount
-        +date date
-        +dict accounting_scheme
-        +__str__() str
-    }
-    class Account {
-        +str name
-        +int accountNr
-        +float startAmount
-        +list~Entry~ entries
-        +float saldo
-        +add_entry(entry) None
-        +calculate_saldo() float
-    }
-    class CurrentAccount {
-        +float interest_rate
-        +list saldi
-        +add_entry(entry) None
-        +calculate_interest(end_date) float
-    }
-    Account &lt;|-- CurrentAccount : is-a (inherits)
-    Account o-- Entry : has-many
-</pre>
-</div>
+<a href="uml-class-diagram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each Account holds Entry objects."><img src="uml-class-diagram.png" class="img-fluid figure-img" style="width:90.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-uml-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each Account holds Entry objects.
 </figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p>Two relationships appear here, and telling them apart is the whole point of the chapter:</p>
 <ul>
@@ -547,8 +519,8 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
 </div>
 </div>
 </section>
-<section id="sec-inh-stage1" class="level2" data-number="25.2">
-<h2 data-number="25.2" class="anchored" data-anchor-id="sec-inh-stage1"><span class="header-section-number">25.2</span> Stage 1 — A Class for a Single Entry</h2>
+<section id="sec-inh-stage1" class="level2" data-number="25.3">
+<h2 data-number="25.3" class="anchored" data-anchor-id="sec-inh-stage1"><span class="header-section-number">25.3</span> Stage 1 — A Class for a Single Entry</h2>
 <p>We begin with the smallest unit of the ledger: one booking. An <code>Entry</code> stores the debit account number, the credit account number, an amount and a date. It also carries the chart of accounts (<em>Kontenrahmen</em>) so that it can print itself in a human-readable form.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -625,8 +597,8 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
 <span id="cb3-2"><a href="#cb3-2"></a><span class="bu">print</span>(first_entry)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="sec-inh-stage2" class="level2" data-number="25.3">
-<h2 data-number="25.3" class="anchored" data-anchor-id="sec-inh-stage2"><span class="header-section-number">25.3</span> Stage 2 — Bundling into an Account</h2>
+<section id="sec-inh-stage2" class="level2" data-number="25.4">
+<h2 data-number="25.4" class="anchored" data-anchor-id="sec-inh-stage2"><span class="header-section-number">25.4</span> Stage 2 — Bundling into an Account</h2>
 <p>A single entry is of little use on its own. An <strong>account</strong> collects the entries that touch it and can compute its balance at any time. We bundle that state (name, number, opening balance, list of entries) and the behaviour (<code>add_entry</code>, <code>calculate_saldo</code>) into one class.</p>
 <p><code>calculate_saldo</code> walks through every entry: an entry that <strong>debits</strong> this account raises the balance, one that <strong>credits</strong> it lowers the balance, and entries touching neither are skipped.</p>
 <div id="9f269758" class="cell">
@@ -689,8 +661,8 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
 <span id="cb5-4"><a href="#cb5-4"></a>a1000.calculate_saldo()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="sec-inh-stage3" class="level2" data-number="25.4">
-<h2 data-number="25.4" class="anchored" data-anchor-id="sec-inh-stage3"><span class="header-section-number">25.4</span> Stage 3 — Inheritance: a Current Account <em>is an</em> Account</h2>
+<section id="sec-inh-stage3" class="level2" data-number="25.5">
+<h2 data-number="25.5" class="anchored" data-anchor-id="sec-inh-stage3"><span class="header-section-number">25.5</span> Stage 3 — Inheritance: a Current Account <em>is an</em> Account</h2>
 <p>A <strong>current account</strong> (<em>Kontokorrent</em>) behaves exactly like an ordinary account — it collects entries and has a balance — but it does something extra: it earns <strong>interest</strong>. That is the textbook signal for inheritance: a current account <em>is an</em> account, plus a little more. In the UML diagram (<a href="#fig-uml" class="quarto-xref">Figure&nbsp;<span>25.1</span></a>) this is the hollow-triangle link from <code>CurrentAccount</code> to <code>Account</code>.</p>
 <p>Rather than copying all of <code>Account</code>, we let a new class <strong>inherit</strong> from it and add only what interest requires.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -707,8 +679,8 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
 <p>Contrast this with <em>composition</em> (the hollow-diamond <code>has-a</code> link between <code>Account</code> and <code>Entry</code>): inheritance is the right tool when the new type genuinely <strong>is a</strong> specialised kind of the old one.</p>
 </div>
 </div>
-<section id="sec-first-version" class="level3" data-number="25.4.1">
-<h3 data-number="25.4.1" class="anchored" data-anchor-id="sec-first-version"><span class="header-section-number">25.4.1</span> A First Version</h3>
+<section id="sec-first-version" class="level3" data-number="25.5.1">
+<h3 data-number="25.5.1" class="anchored" data-anchor-id="sec-first-version"><span class="header-section-number">25.5.1</span> A First Version</h3>
 <p>We build the subclass step by step. The constructor takes one extra argument, <code>interest_rate</code>, hands the rest to the parent via <code>super().__init__(...)</code>, and keeps a dated history of balances (<code>saldi</code>) so that interest can later be computed period by period. <code>add_entry</code> is <strong>overridden</strong>: it first calls <code>super().add_entry(entry)</code> to keep the inherited behaviour, then records the new balance together with the entry’s date.</p>
 <p>For <code>calculate_interest</code> we write the calculation out in full, in the most direct way we can think of — index by index. It works; we will scrutinise it afterwards.</p>
 <div id="c611e286" class="cell">
@@ -773,8 +745,8 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
 <span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(bank.calculate_interest())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="sec-refactoring" class="level3" data-number="25.4.2">
-<h3 data-number="25.4.2" class="anchored" data-anchor-id="sec-refactoring"><span class="header-section-number">25.4.2</span> Refactoring <code>calculate_interest</code></h3>
+<section id="sec-refactoring" class="level3" data-number="25.5.2">
+<h3 data-number="25.5.2" class="anchored" data-anchor-id="sec-refactoring"><span class="header-section-number">25.5.2</span> Refactoring <code>calculate_interest</code></h3>
 <p>The first version is correct, but it does more bookkeeping of its own than the problem requires. Reading it closely, a few things stand out:</p>
 <ul>
 <li>Two accumulator lists (<code>number_of_days</code>, <code>interests</code>) are filled with <code>append</code> inside loops.</li>
@@ -1332,9 +1304,41 @@ Figure&nbsp;25.1: UML class diagram: CurrentAccount inherits from Account; each 
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs26/260904_inheritance/260904_inheritance.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs26/260904_inheritance/260904_inheritance.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
