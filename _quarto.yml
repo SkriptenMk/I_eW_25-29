@@ -71,6 +71,10 @@ book:
     - part: "Object Oriented Programming"
       chapters:
         - files/lektionen_hs26/260904_inheritance/260904_inheritance.ipynb
+      part: "Cyber Securtity"
+      chapters:
+        - files/lektionen_hs26/260918_caesar/caesar.ipynb
+        - files/lektionen_hs26/260918_files/files.ipynb
     - references.qmd
   
   downloads: [pdf]
