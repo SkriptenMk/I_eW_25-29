@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jacques Mock Schindler">
 
-<title>7&nbsp; Programmieren einfacher Funktionen – Unterlagen für das obligatorische Fach Informatik</title>
+<title>27&nbsp; File Handling in Python – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" rel="next">
-<link href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" rel="prev">
+<link href="../../../references.html" rel="next">
+<link href="../../../files/lektionen_hs26/260918_caesar/caesar.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -110,35 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -151,7 +121,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260918_caesar/caesar.html">Cyber Securtity</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260918_files/files.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">File Handling in Python</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -244,7 +214,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span></a>
   </div>
 </li>
@@ -397,7 +367,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs26/260918_files/files.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs26/260918_files/files.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">File Handling in Python</span></span></a>
   </div>
 </li>
@@ -414,50 +384,22 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Inhaltsverzeichnis</h2>
-   
-  <ul>
-  <li><a href="#kreisfläche" id="toc-kreisfläche" class="nav-link active" data-scroll-target="#kreisfläche"><span class="header-section-number">7.1</span> Kreisfläche</a></li>
-  <li><a href="#quotient" id="toc-quotient" class="nav-link" data-scroll-target="#quotient"><span class="header-section-number">7.2</span> Quotient</a></li>
-  <li><a href="#fakultät" id="toc-fakultät" class="nav-link" data-scroll-target="#fakultät"><span class="header-section-number">7.3</span> Fakultät</a></li>
-  <li><a href="#quadratische-gleichungen-mitternachtsformel" id="toc-quadratische-gleichungen-mitternachtsformel" class="nav-link" data-scroll-target="#quadratische-gleichungen-mitternachtsformel"><span class="header-section-number">7.4</span> Quadratische Gleichungen (Mitternachtsformel)</a></li>
-  <li><a href="#musterlösungen" id="toc-musterlösungen" class="nav-link" data-scroll-target="#musterlösungen"><span class="header-section-number">7.5</span> Musterlösungen</a>
-  <ul class="collapse">
-  <li><a href="#kreisfläche-1" id="toc-kreisfläche-1" class="nav-link" data-scroll-target="#kreisfläche-1"><span class="header-section-number">7.5.1</span> Kreisfläche</a></li>
-  <li><a href="#quotient-1" id="toc-quotient-1" class="nav-link" data-scroll-target="#quotient-1"><span class="header-section-number">7.5.2</span> Quotient</a></li>
-  <li><a href="#fakultät-1" id="toc-fakultät-1" class="nav-link" data-scroll-target="#fakultät-1"><span class="header-section-number">7.5.3</span> Fakultät</a></li>
-  <li><a href="#mitternachtsformel" id="toc-mitternachtsformel" class="nav-link" data-scroll-target="#mitternachtsformel"><span class="header-section-number">7.5.4</span> Mitternachtsformel</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/251020_funktionen/funktionen.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260918_caesar/caesar.html">Cyber Securtity</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260918_files/files.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">File Handling in Python</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></h1>
+<h1 class="title"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">File Handling in Python</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor:in</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jacques Mock Schindler </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">20.10.2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -467,182 +409,56 @@ window.Quarto = {
 </header>
 
 
-<p><a target="_blank" href="https://colab.research.google.com/github/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/251020_funktionen/funktionen.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
-<section id="kreisfläche" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="kreisfläche"><span class="header-section-number">7.1</span> Kreisfläche</h2>
-<p>Die Fläche eines Kreises berechnet sich nach der Formel <span class="math display">\[
-A = \pi r^2
-\]</span> wobei <span class="math inline">\(A\)</span> die Fläche <span class="math inline">\(\pi\)</span> die Kreiszahl - hier mit zwei Nachkommastellen - 3.14 und <span class="math inline">\(r\)</span> den Radius des Kreises darstellt.</p>
-<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>kreisflaeche()</code> welche ein Argument <code>r</code> für Radius entgegennimmt und die Fläche eines Kreises zurückgibt.</p>
-<div id="bb6c9d16" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> kreisflaeche():</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Um Textdateien in Python zu bearbeiten, schreiben wir eine Funktion, mit welcher der Inhalt einer Datei einer Variabel als String zugewiesen wird.</p>
+<div id="e2204579" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> file_reader(path : <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">with</span> <span class="bu">open</span>(path, mode<span class="op">=</span><span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb1-4"><a href="#cb1-4"></a>        text <span class="op">=</span> f.read()</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">return</span> text</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="quotient" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="quotient"><span class="header-section-number">7.2</span> Quotient</h2>
-<p>Ein Quotient kann unterschiedlich dargestellt werden. Eine Möglichkeit ist die Darstellung als Dezimalzahl.</p>
-<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>quotient()</code> welche zwei Dezimalzahlen als Argumente entgegennimmt und den Quotienten als Dezimalzahl zurückgibt. Sehen Sie für den Sonderfall der Division durch Null eine Lösung vor.</p>
-<div id="cd071a54" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> quotient():</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Um ver- oder entschlüsselte Texte in eine Datei zu schreiben, schreiben wir eine Funktion, die einen String in eine Datei schreibt.</p>
+<div id="5cf6a8b5" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> file_writer(path : <span class="bu">str</span>, text : <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    grouped_text <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="cf">for</span> c <span class="kw">in</span> text:</span>
+<span id="cb2-5"><a href="#cb2-5"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>        <span class="cf">if</span> i <span class="op">%</span> <span class="dv">50</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-7"><a href="#cb2-7"></a>            grouped_text <span class="op">+=</span> c <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>        <span class="cf">elif</span> i <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-9"><a href="#cb2-9"></a>            grouped_text <span class="op">+=</span> c <span class="op">+</span> <span class="st">" "</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-11"><a href="#cb2-11"></a>            grouped_text <span class="op">+=</span> c</span>
+<span id="cb2-12"><a href="#cb2-12"></a>        </span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="cf">with</span> <span class="bu">open</span>(path, mode<span class="op">=</span><span class="st">'w'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb2-14"><a href="#cb2-14"></a>        f.write(grouped_text)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="fakultät" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="fakultät"><span class="header-section-number">7.3</span> Fakultät</h2>
-<p>Die Fakultät ist jene Funktion, welche das Produkt der natürlichen Zahlen bis <span class="math inline">\(n\)</span> berechnet und wird als <span class="math inline">\(n!\)</span> geschrieben. Es gilt also</p>
-<p><span class="math display">\[
-n! = 1 \cdot 2 \cdot 3 \cdot ... \cdot n
-\]</span></p>
-<p>Wobei zu beachten ist, dass <span class="math inline">\(0! = 1\)</span> gilt.</p>
-<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>fakultaet</code> welche als Argument <span class="math inline">\(n \in \mathbb{N}\)</span> entgegennimmt.</p>
-<div id="ae5009b2" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> fakultaet():</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Damit Texte ausschliesslich aus ASCII Grossbuchstaben bestehen, schreiben wir eine Funktion, die alle Kleinbuchstaben in Grossbuchstaben umwandelt und alle Umlaute in ihre aequivalenten Buchstaben umwandelt. Alle anderen Zeichen werden entfernt.</p>
+<p>Damit alle Methoden für die Bearbeitung von Strings zur Verfügung stehen, muss das String-Modul importiert werden.</p>
+<div id="8efb8d8f" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> string</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="quadratische-gleichungen-mitternachtsformel" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="quadratische-gleichungen-mitternachtsformel"><span class="header-section-number">7.4</span> Quadratische Gleichungen (Mitternachtsformel)</h2>
-<p>Quadratische Gleichungen der Form <span class="math inline">\(ax^2 + bx + c = 0\)</span> können mit der Formel</p>
-<p><span class="math display">\[
-x_{1,2} = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
-\]</span></p>
-<p>gelöst werden.<br>
-Für die Implementierung ergibt sich daraus allerdings das Problem, dass die Formel zwei Resultate ergibt und eine Python Funktion nur ein Objekt zurückgeben kann.</p>
-<p>Als Workaround können die beiden Resultate in ein Tupel gepackt werden. Ein Tupel ist eine unveränderliche Zusammenstellung mehrer Werte. In Python werden sie in Klammern dargestellt. Die Zuweisung eines Tupels zu einer Variabel sieht dementsprechend folgendermassen aus:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>t <span class="op">=</span> (wert_1, wert_2, ..., wert_n)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Die detaillierten eigenschaften von Tupeln können hier ausser Acht gelassen werden. Es reicht <span class="math inline">\(x_1\)</span> und <span class="math inline">\(x_2\)</span> einem Tupel <code>resultat</code> zuzuweisen und <code>resultat</code> zurückzugeben.</p>
-<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>mitternachtsformel</code>, welche die Argumente <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> und <span class="math inline">\(c\)</span> entgegennimt und das Tupel <span class="math inline">\(x_1\)</span> und <span class="math inline">\(x_2\)</span> zurückgibt.</p>
-<div id="78610807" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> mitternachtsformel():</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="musterlösungen" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="musterlösungen"><span class="header-section-number">7.5</span> Musterlösungen</h2>
-<section id="kreisfläche-1" class="level3" data-number="7.5.1">
-<h3 data-number="7.5.1" class="anchored" data-anchor-id="kreisfläche-1"><span class="header-section-number">7.5.1</span> Kreisfläche</h3>
-<div id="462fecfa" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> kreisflaeche(r: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="co">"""</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">    Berechnet die Fläche eines Kreises anhand des gegebenen Radius.</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">    Parameter</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">    ----------</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">    r : float</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">        Der Radius des Kreises.</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">    Rückgabewert</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">    ------------</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co">    float</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co">        Die Fläche des Kreises.</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co">    """</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a>    PI <span class="op">=</span> <span class="fl">3.14</span>  <span class="co"># Näherungswert für die Kreiszahl Pi</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a>    a <span class="op">=</span> PI <span class="op">*</span> r <span class="op">**</span> <span class="dv">2</span>  <span class="co"># Formel: Fläche = Pi * r^2</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a>    <span class="cf">return</span> a</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="quotient-1" class="level3" data-number="7.5.2">
-<h3 data-number="7.5.2" class="anchored" data-anchor-id="quotient-1"><span class="header-section-number">7.5.2</span> Quotient</h3>
-<div id="45001582" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> quotient(z: <span class="bu">float</span>, n: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">"""</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">    Berechnet den Quotienten zweier Zahlen.</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">    Gibt eine Fehlermeldung zurück, falls der Nenner null ist.</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co">    Parameter</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">    ----------</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="co">    z : float</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="co">        Der Zähler der Division.</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="co">    n : float</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="co">        Der Nenner der Division.</span></span>
-<span id="cb7-13"><a href="#cb7-13"></a></span>
-<span id="cb7-14"><a href="#cb7-14"></a><span class="co">    Rückgabewert</span></span>
-<span id="cb7-15"><a href="#cb7-15"></a><span class="co">    ------------</span></span>
-<span id="cb7-16"><a href="#cb7-16"></a><span class="co">    float oder str</span></span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="co">        Der berechnete Quotient oder eine Fehlermeldung als Zeichenkette,</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="co">        falls eine Division durch Null versucht wurde.</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="co">    """</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a>    </span>
-<span id="cb7-21"><a href="#cb7-21"></a>    <span class="co"># Fehlermeldung für Division durch Null</span></span>
-<span id="cb7-22"><a href="#cb7-22"></a>    fehlermeldung <span class="op">=</span> <span class="st">"Eine Division durch Null ist unzulässig."</span>  </span>
-<span id="cb7-23"><a href="#cb7-23"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb7-24"><a href="#cb7-24"></a>        <span class="cf">return</span> fehlermeldung  <span class="co"># Fehlerfall: Division durch Null</span></span>
-<span id="cb7-25"><a href="#cb7-25"></a>    <span class="cf">else</span>:</span>
-<span id="cb7-26"><a href="#cb7-26"></a>        q <span class="op">=</span> z <span class="op">/</span> n  <span class="co"># Berechnung des Quotienten</span></span>
-<span id="cb7-27"><a href="#cb7-27"></a>        <span class="cf">return</span> q</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="fakultät-1" class="level3" data-number="7.5.3">
-<h3 data-number="7.5.3" class="anchored" data-anchor-id="fakultät-1"><span class="header-section-number">7.5.3</span> Fakultät</h3>
-<div id="1f9477e1" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> fakultaet(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    <span class="co">"""</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co">    Berechnet die Fakultät einer nicht-negativen ganzen Zahl n.</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="co">    Die Fakultät n! ist das Produkt aller positiven ganzen Zahlen</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co">    von 1 bis n. Für n &lt; 0 ist die Fakultät nicht definiert.</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">    Parameter:</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="co">        n (int): Die Zahl, deren Fakultät berechnet werden soll.</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="co">    Rückgabewert:</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="co">        int: Die Fakultät von n, oder eine Fehlermeldung als String bei n &lt; 0.</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co">    """</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb8-15"><a href="#cb8-15"></a>        <span class="co"># Fakultät ist für negative Zahlen nicht definiert</span></span>
-<span id="cb8-16"><a href="#cb8-16"></a>        <span class="cf">return</span> <span class="ss">f'Die Fakultät für </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> ist nicht definiert.'</span></span>
-<span id="cb8-17"><a href="#cb8-17"></a>    <span class="cf">elif</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb8-18"><a href="#cb8-18"></a>        <span class="co"># Per Definition ist 0! = 1</span></span>
-<span id="cb8-19"><a href="#cb8-19"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb8-20"><a href="#cb8-20"></a>    <span class="cf">else</span>:</span>
-<span id="cb8-21"><a href="#cb8-21"></a>        prod <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Initialisiere das Produkt mit 1</span></span>
-<span id="cb8-22"><a href="#cb8-22"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb8-23"><a href="#cb8-23"></a>            prod <span class="op">*=</span> i  <span class="co"># Multipliziere prod mit dem aktuellen Wert von i</span></span>
-<span id="cb8-24"><a href="#cb8-24"></a>        <span class="cf">return</span> prod  <span class="co"># Gib das berechnete Produkt zurück</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="mitternachtsformel" class="level3" data-number="7.5.4">
-<h3 data-number="7.5.4" class="anchored" data-anchor-id="mitternachtsformel"><span class="header-section-number">7.5.4</span> Mitternachtsformel</h3>
-<div id="b4260ef3" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> mitternachtsformel(a: <span class="bu">float</span>, b: <span class="bu">float</span>, c: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>:</span>
-<span id="cb9-2"><a href="#cb9-2"></a>    <span class="co">"""</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">    Löst eine quadratische Gleichung der Form ax² + bx + c = 0 </span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">    mit der Mitternachtsformel.</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">    Parameter</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">    ----------</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">    a : float</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">        Der Koeffizient vor x² (muss ungleich 0 sein).</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">    b : float</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">        Der Koeffizient vor x.</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">    c : float</span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co">        Der konstante Term.</span></span>
-<span id="cb9-14"><a href="#cb9-14"></a></span>
-<span id="cb9-15"><a href="#cb9-15"></a><span class="co">    Rückgabewert</span></span>
-<span id="cb9-16"><a href="#cb9-16"></a><span class="co">    ------------</span></span>
-<span id="cb9-17"><a href="#cb9-17"></a><span class="co">    tuple oder str</span></span>
-<span id="cb9-18"><a href="#cb9-18"></a><span class="co">        Ein Tupel mit den beiden Lösungen (x1, x2) oder eine Fehlermeldung</span></span>
-<span id="cb9-19"><a href="#cb9-19"></a><span class="co">        als Zeichenkette, falls die Gleichung keine reellen Lösungen besitzt.</span></span>
-<span id="cb9-20"><a href="#cb9-20"></a><span class="co">    """</span></span>
-<span id="cb9-21"><a href="#cb9-21"></a>    <span class="co"># Berechnung der Diskriminante: d = b² - 4ac</span></span>
-<span id="cb9-22"><a href="#cb9-22"></a>    d <span class="op">=</span> b <span class="op">**</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">4</span> <span class="op">*</span> a <span class="op">*</span> c</span>
-<span id="cb9-23"><a href="#cb9-23"></a>    <span class="cf">if</span> d <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb9-24"><a href="#cb9-24"></a>        <span class="co"># Keine reellen Lösungen vorhanden</span></span>
-<span id="cb9-25"><a href="#cb9-25"></a>        <span class="cf">return</span> <span class="st">"Diese Gleichung hat keine Lösung."</span>  </span>
-<span id="cb9-26"><a href="#cb9-26"></a>    <span class="cf">else</span>:</span>
-<span id="cb9-27"><a href="#cb9-27"></a>        <span class="co"># Berechnung der beiden Lösungen mit der Mitternachtsformel:</span></span>
-<span id="cb9-28"><a href="#cb9-28"></a>        <span class="co"># x1 = (-b + d ** (1/2)) / (2a)</span></span>
-<span id="cb9-29"><a href="#cb9-29"></a>        <span class="co"># x2 = (-b -  d ** (1/2)) / (2a)</span></span>
-<span id="cb9-30"><a href="#cb9-30"></a>        x1 <span class="op">=</span> (<span class="op">-</span>b <span class="op">+</span> d <span class="op">**</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> a)</span>
-<span id="cb9-31"><a href="#cb9-31"></a>        x2 <span class="op">=</span> (<span class="op">-</span>b <span class="op">-</span> d <span class="op">**</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> a)</span>
-<span id="cb9-32"><a href="#cb9-32"></a>        <span class="cf">return</span> (x1, x2)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="fbd7c80a" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> text_cleaning(text : <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    clean <span class="op">=</span> text.upper() <span class="op">\</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>                .replace(<span class="st">'Ä'</span>, <span class="st">'AE'</span>) <span class="op">\</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>                .replace(<span class="st">'Ö'</span>, <span class="st">'OE'</span>) <span class="op">\</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>                .replace(<span class="st">'Ü'</span>, <span class="st">'UE'</span>) <span class="op">\</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>                .replace(<span class="st">'ß'</span>, <span class="st">'SS'</span>) <span class="op">\</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>                .replace(<span class="st">' '</span>, <span class="st">''</span>) <span class="op">\</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    cleaned_text <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="cf">for</span> c <span class="kw">in</span> clean:</span>
+<span id="cb4-12"><a href="#cb4-12"></a>        <span class="cf">if</span> c.isalpha():</span>
+<span id="cb4-13"><a href="#cb4-13"></a>            cleaned_text <span class="op">+=</span> c</span>
+<span id="cb4-14"><a href="#cb4-14"></a>    </span>
+<span id="cb4-15"><a href="#cb4-15"></a>    <span class="cf">return</span> cleaned_text</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1098,13 +914,13 @@ Für die Implementierung ergibt sich daraus allerdings das Problem, dass die For
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="pagination-link" aria-label="Programmverzweigungen (Bedingungen)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span>
+      <a href="../../../files/lektionen_hs26/260918_caesar/caesar.html" class="pagination-link" aria-label="Caesar Chiffre">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caesar Chiffre</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="pagination-link" aria-label="Prüfungsvorbereitung">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../references.html" class="pagination-link" aria-label="Literaturverzeichnis">
+        <span class="nav-page-text">Literaturverzeichnis</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1113,5 +929,5 @@ Für die Implementierung ergibt sich daraus allerdings das Problem, dass die For
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/251020_funktionen/funktionen.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs26/260918_files/files.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

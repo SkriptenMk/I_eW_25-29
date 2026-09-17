@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jacques Mock Schindler">
 
-<title>7&nbsp; Programmieren einfacher Funktionen – Unterlagen für das obligatorische Fach Informatik</title>
+<title>26&nbsp; Caesar Chiffre – Unterlagen für das obligatorische Fach Informatik</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" rel="next">
-<link href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" rel="prev">
+<link href="../../../files/lektionen_hs26/260918_files/files.html" rel="next">
+<link href="../../../files/lektionen_hs26/260904_inheritance/260904_inheritance.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -151,7 +150,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260918_caesar/caesar.html">Cyber Securtity</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260918_caesar/caesar.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caesar Chiffre</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -244,7 +243,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span></a>
   </div>
 </li>
@@ -391,7 +390,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../files/lektionen_hs26/260918_caesar/caesar.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../files/lektionen_hs26/260918_caesar/caesar.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caesar Chiffre</span></span></a>
   </div>
 </li>
@@ -419,45 +418,32 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#kreisfläche" id="toc-kreisfläche" class="nav-link active" data-scroll-target="#kreisfläche"><span class="header-section-number">7.1</span> Kreisfläche</a></li>
-  <li><a href="#quotient" id="toc-quotient" class="nav-link" data-scroll-target="#quotient"><span class="header-section-number">7.2</span> Quotient</a></li>
-  <li><a href="#fakultät" id="toc-fakultät" class="nav-link" data-scroll-target="#fakultät"><span class="header-section-number">7.3</span> Fakultät</a></li>
-  <li><a href="#quadratische-gleichungen-mitternachtsformel" id="toc-quadratische-gleichungen-mitternachtsformel" class="nav-link" data-scroll-target="#quadratische-gleichungen-mitternachtsformel"><span class="header-section-number">7.4</span> Quadratische Gleichungen (Mitternachtsformel)</a></li>
-  <li><a href="#musterlösungen" id="toc-musterlösungen" class="nav-link" data-scroll-target="#musterlösungen"><span class="header-section-number">7.5</span> Musterlösungen</a>
+  <li><a href="#python-implementation" id="toc-python-implementation" class="nav-link active" data-scroll-target="#python-implementation"><span class="header-section-number">26.1</span> Python Implementation</a>
   <ul class="collapse">
-  <li><a href="#kreisfläche-1" id="toc-kreisfläche-1" class="nav-link" data-scroll-target="#kreisfläche-1"><span class="header-section-number">7.5.1</span> Kreisfläche</a></li>
-  <li><a href="#quotient-1" id="toc-quotient-1" class="nav-link" data-scroll-target="#quotient-1"><span class="header-section-number">7.5.2</span> Quotient</a></li>
-  <li><a href="#fakultät-1" id="toc-fakultät-1" class="nav-link" data-scroll-target="#fakultät-1"><span class="header-section-number">7.5.3</span> Fakultät</a></li>
-  <li><a href="#mitternachtsformel" id="toc-mitternachtsformel" class="nav-link" data-scroll-target="#mitternachtsformel"><span class="header-section-number">7.5.4</span> Mitternachtsformel</a></li>
+  <li><a href="#simple-naive-implementation" id="toc-simple-naive-implementation" class="nav-link" data-scroll-target="#simple-naive-implementation"><span class="header-section-number">26.1.1</span> Simple (naive) Implementation</a></li>
+  <li><a href="#verbesserte-implementation" id="toc-verbesserte-implementation" class="nav-link" data-scroll-target="#verbesserte-implementation"><span class="header-section-number">26.1.2</span> Verbesserte Implementation</a></li>
+  </ul></li>
+  <li><a href="#caesar-chiffre-brechen" id="toc-caesar-chiffre-brechen" class="nav-link" data-scroll-target="#caesar-chiffre-brechen"><span class="header-section-number">26.2</span> Caesar Chiffre brechen</a>
+  <ul class="collapse">
+  <li><a href="#brute-force-attack" id="toc-brute-force-attack" class="nav-link" data-scroll-target="#brute-force-attack"><span class="header-section-number">26.2.1</span> Brute Force Attack</a></li>
+  <li><a href="#häufigkeitsanalyse" id="toc-häufigkeitsanalyse" class="nav-link" data-scroll-target="#häufigkeitsanalyse"><span class="header-section-number">26.2.2</span> Häufigkeitsanalyse</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/251020_funktionen/funktionen.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs26/260918_caesar/caesar.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div><div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="caesar.ipynb"><i class="bi bi-file-code"></i>Notebook herunterladen (Rechtsklick -&gt; speichern unter)</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/250901_probleme/probleme.html">Einführung in Python</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260918_caesar/caesar.html">Cyber Securtity</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260918_caesar/caesar.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caesar Chiffre</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></h1>
+<h1 class="title"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caesar Chiffre</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor:in</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jacques Mock Schindler </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">20.10.2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -467,177 +453,277 @@ window.Quarto = {
 </header>
 
 
-<p><a target="_blank" href="https://colab.research.google.com/github/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/251020_funktionen/funktionen.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
-<section id="kreisfläche" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="kreisfläche"><span class="header-section-number">7.1</span> Kreisfläche</h2>
-<p>Die Fläche eines Kreises berechnet sich nach der Formel <span class="math display">\[
-A = \pi r^2
-\]</span> wobei <span class="math inline">\(A\)</span> die Fläche <span class="math inline">\(\pi\)</span> die Kreiszahl - hier mit zwei Nachkommastellen - 3.14 und <span class="math inline">\(r\)</span> den Radius des Kreises darstellt.</p>
-<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>kreisflaeche()</code> welche ein Argument <code>r</code> für Radius entgegennimmt und die Fläche eines Kreises zurückgibt.</p>
-<div id="bb6c9d16" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> kreisflaeche():</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In der Kryptologie wird mit Verschlüsselung jener Prozess beschrieben, der eine Nachricht so transformiert, dass sie idealerweise nur von autorisierten Parteien gelesen werden kann. Dieser Prozess wandelt die ursprüngliche Darstellung der Informationen, bekannt als Klartext, in eine alternative Form, bekannt als Chiffretext, um. Trotz seines Ziels verhindert die Verschlüsselung nicht selbst die Interferenz, sondern verweigert dem potenziellen Abhörer den verständlichen Inhalt.</p>
+<p><em>Aus <a href="https://en.wikipedia.org/wiki/Encryption">Wikipedia</a></em></p>
+<p>Das erste Beispiel für eine Chiffre, das wir uns ansehen werden, ist die Caesar-Chiffre.</p>
+<p>Die Caesar-Chiffre ist eine einfache Substitutionsverschlüsselungstechnik, bei der jeder Buchstabe des zu verschlüsselnden Textes durch einen Buchstaben ersetzt wird, der sich um eine feste Anzahl von Positionen im Alphabet verschiebt. Zum Beispiel würde bei einer Verschiebung um vier Positionen nach rechts <code>A</code> durch <code>E</code> ersetzt werden, und das Wort <code>CIPHER</code> würde zu <code>GMTLIV</code>. Die Technik ist nach Julius Caesar benannt, der sie in seinen Briefen verwendete. Die Einfachheit der Caesar-Chiffre macht sie zu einer beliebten Quelle für Freizeit-Kryptogramme.</p>
+<p><em>Aus <a href="https://www.britannica.com/topic/Caesar-cipher">Encyclopedia Britannica</a></em></p>
+<section id="python-implementation" class="level2" data-number="26.1">
+<h2 data-number="26.1" class="anchored" data-anchor-id="python-implementation"><span class="header-section-number">26.1</span> Python Implementation</h2>
+<p>Um die Caesar-Chiffre in Python zu implementieren, bauen wir auf den von Python angebotenen String-Methoden auf. Die Funktion <code>ord</code> gibt den <a href="https://home.unicode.org/" target="_blank"> Unicode-</a>Codepunkt für ein gegebenes Zeichen zurück, und die Funktion <code>chr</code> gibt das Zeichen zurück, das dem gegebenen Unicode-Codepunkt entspricht.</p>
+<div id="cell-6" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Was ist der Unicode Wert des Buchstabens 'A'?</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="simple-naive-implementation" class="level3" data-number="26.1.1">
+<h3 data-number="26.1.1" class="anchored" data-anchor-id="simple-naive-implementation"><span class="header-section-number">26.1.1</span> Simple (naive) Implementation</h3>
+<p>Als erstes definieren wir eine Funktion, die einen gegebenen Klartext verschlüsselt, indem sie jeden Buchstaben um eine bestimmte Anzahl von Positionen im Alphabet verschiebt.</p>
+<div id="cell-9" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>plain <span class="op">=</span> <span class="st">"CIPHER"</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>shift <span class="op">=</span> <span class="dv">4</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="cell-10" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> caesar_encode(plain, shift):</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    cipher <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    </span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="cf">for</span> char <span class="kw">in</span> plain:</span>
+<span id="cb3-5"><a href="#cb3-5"></a>        shifted <span class="op">=</span> <span class="bu">ord</span>(char) <span class="op">+</span> shift</span>
+<span id="cb3-6"><a href="#cb3-6"></a>        cipher <span class="op">+=</span> <span class="bu">chr</span>(shifted)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>        </span>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="cf">return</span> cipher</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="quotient" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="quotient"><span class="header-section-number">7.2</span> Quotient</h2>
-<p>Ein Quotient kann unterschiedlich dargestellt werden. Eine Möglichkeit ist die Darstellung als Dezimalzahl.</p>
-<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>quotient()</code> welche zwei Dezimalzahlen als Argumente entgegennimmt und den Quotienten als Dezimalzahl zurückgibt. Sehen Sie für den Sonderfall der Division durch Null eine Lösung vor.</p>
-<div id="cd071a54" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> quotient():</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="fakultät" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="fakultät"><span class="header-section-number">7.3</span> Fakultät</h2>
-<p>Die Fakultät ist jene Funktion, welche das Produkt der natürlichen Zahlen bis <span class="math inline">\(n\)</span> berechnet und wird als <span class="math inline">\(n!\)</span> geschrieben. Es gilt also</p>
+<section id="verbesserte-implementation" class="level3" data-number="26.1.2">
+<h3 data-number="26.1.2" class="anchored" data-anchor-id="verbesserte-implementation"><span class="header-section-number">26.1.2</span> Verbesserte Implementation</h3>
+<p>Was geschieht aber, wenn wir das Ende des Alphabets erreichen? Zum Beispiel, wenn wir <code>Z</code> um 4 Positionen verschieben, würden wir über <code>Z</code> hinausgehen. Um dies zu handhaben, können wir den Modulo-Operator <code>%</code> verwenden, um im Alphabet von vorne zu beginnen. Der Modulo-Operator gibt den Rest einer Division zurück, was es uns ermöglicht, wieder bei Null zu beginnen, wenn wir die Länge des Alphabets überschreiten. Im Fall der Caesar-Chiffre können wir ihn verwenden, um sicherzustellen, dass unsere verschobenen Positionen innerhalb der Grenzen des Alphabets bleiben.</p>
+<p>Daher verwenden wir modulo 26 (die Anzahl der Buchstaben im lateinischen Alphabet), um sicherzustellen, dass unsere verschobenen Positionen korrekt “herumwickeln”. Wenn wir <code>Z</code> um 4 Positionen verschieben, landen wir bei <code>D</code>. Dieses Wickelverhalten ist für die Funktionsweise der Caesar-Chiffre von entscheidender Bedeutung. Die Berechnung der neuen Position eines Buchstabens kann wie folgt ausgedrückt werden:</p>
 <p><span class="math display">\[
-n! = 1 \cdot 2 \cdot 3 \cdot ... \cdot n
+x' = (x + n) \mod 26
 \]</span></p>
-<p>Wobei zu beachten ist, dass <span class="math inline">\(0! = 1\)</span> gilt.</p>
-<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>fakultaet</code> welche als Argument <span class="math inline">\(n \in \mathbb{N}\)</span> entgegennimmt.</p>
-<div id="ae5009b2" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> fakultaet():</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="quadratische-gleichungen-mitternachtsformel" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="quadratische-gleichungen-mitternachtsformel"><span class="header-section-number">7.4</span> Quadratische Gleichungen (Mitternachtsformel)</h2>
-<p>Quadratische Gleichungen der Form <span class="math inline">\(ax^2 + bx + c = 0\)</span> können mit der Formel</p>
+<p>oder in einer kompakteren Form mit dem Modulo-Additionsoperator:</p>
 <p><span class="math display">\[
-x_{1,2} = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
+x' = x \oplus_{26} n
 \]</span></p>
-<p>gelöst werden.<br>
-Für die Implementierung ergibt sich daraus allerdings das Problem, dass die Formel zwei Resultate ergibt und eine Python Funktion nur ein Objekt zurückgeben kann.</p>
-<p>Als Workaround können die beiden Resultate in ein Tupel gepackt werden. Ein Tupel ist eine unveränderliche Zusammenstellung mehrer Werte. In Python werden sie in Klammern dargestellt. Die Zuweisung eines Tupels zu einer Variabel sieht dementsprechend folgendermassen aus:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>t <span class="op">=</span> (wert_1, wert_2, ..., wert_n)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Die detaillierten eigenschaften von Tupeln können hier ausser Acht gelassen werden. Es reicht <span class="math inline">\(x_1\)</span> und <span class="math inline">\(x_2\)</span> einem Tupel <code>resultat</code> zuzuweisen und <code>resultat</code> zurückzugeben.</p>
-<p><em>Aufgabe</em>: Implementieren Sie eine Funktion <code>mitternachtsformel</code>, welche die Argumente <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> und <span class="math inline">\(c\)</span> entgegennimt und das Tupel <span class="math inline">\(x_1\)</span> und <span class="math inline">\(x_2\)</span> zurückgibt.</p>
-<div id="78610807" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> mitternachtsformel():</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: implementieren Sie die Funktion</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In Python können wir dies wie folgt implementieren:</p>
+<div id="cell-13" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> caesar_encrypt_mod(plain, shift):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    cipher <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    </span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="cf">for</span> char <span class="kw">in</span> plain:</span>
+<span id="cb4-5"><a href="#cb4-5"></a>        shifted <span class="op">=</span> (<span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>) <span class="op">+</span> shift) <span class="op">%</span> <span class="dv">26</span> <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>        cipher <span class="op">+=</span> <span class="bu">chr</span>(shifted)</span>
+<span id="cb4-7"><a href="#cb4-7"></a>        </span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="cf">return</span> cipher</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Weil</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">ord</span>(<span class="st">'A'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>65 zurückgibt, müssen wir 65 von dem Ergebnis von <code>ord('A')</code> subtrahieren, um 0 zu erhalten. Dies gibt uns den 0-basierten Index des Buchstabens im Alphabet, der für unsere Berechnungen nützlich ist.</p>
+<p>Daher die oben gezeigte Berechnung.</p>
+<p>Für die Entschlüsselung können wir einfach den Verschiebungswert subtrahieren anstatt ihn zu addieren:</p>
+<div id="cell-16" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> caesar_decrypt_mod(plain, shift):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    cipher <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>    </span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="cf">for</span> char <span class="kw">in</span> plain:</span>
+<span id="cb6-5"><a href="#cb6-5"></a>        shifted <span class="op">=</span> (<span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>) <span class="op">-</span> shift) <span class="op">%</span> <span class="dv">26</span> <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a>        cipher <span class="op">+=</span> <span class="bu">chr</span>(shifted)</span>
+<span id="cb6-7"><a href="#cb6-7"></a>        </span>
+<span id="cb6-8"><a href="#cb6-8"></a>    <span class="cf">return</span> cipher</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Für die Bequemlichkeit implementieren wir eine Funktion die sowohl ver- als auch entschlüsselt.</p>
+<div id="cell-18" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> caesar(text : <span class="bu">str</span>, shift : <span class="bu">int</span>, encrypt<span class="op">=</span><span class="va">True</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    text <span class="op">=</span> text.upper()</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    result <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>    </span>
+<span id="cb7-5"><a href="#cb7-5"></a>    <span class="cf">if</span> encrypt:</span>
+<span id="cb7-6"><a href="#cb7-6"></a>        <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb7-7"><a href="#cb7-7"></a>            shifted <span class="op">=</span> (<span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>) <span class="op">+</span> shift) <span class="op">%</span> <span class="dv">26</span> <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb7-8"><a href="#cb7-8"></a>            result <span class="op">+=</span> <span class="bu">chr</span>(shifted)</span>
+<span id="cb7-9"><a href="#cb7-9"></a>    <span class="cf">else</span>:</span>
+<span id="cb7-10"><a href="#cb7-10"></a>        <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb7-11"><a href="#cb7-11"></a>            shifted <span class="op">=</span> (<span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>) <span class="op">-</span> shift) <span class="op">%</span> <span class="dv">26</span> <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb7-12"><a href="#cb7-12"></a>            result <span class="op">+=</span> <span class="bu">chr</span>(shifted)</span>
+<span id="cb7-13"><a href="#cb7-13"></a>            </span>
+<span id="cb7-14"><a href="#cb7-14"></a>    <span class="cf">return</span> result</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="musterlösungen" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="musterlösungen"><span class="header-section-number">7.5</span> Musterlösungen</h2>
-<section id="kreisfläche-1" class="level3" data-number="7.5.1">
-<h3 data-number="7.5.1" class="anchored" data-anchor-id="kreisfläche-1"><span class="header-section-number">7.5.1</span> Kreisfläche</h3>
-<div id="462fecfa" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> kreisflaeche(r: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="co">"""</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">    Berechnet die Fläche eines Kreises anhand des gegebenen Radius.</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">    Parameter</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">    ----------</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">    r : float</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">        Der Radius des Kreises.</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">    Rückgabewert</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">    ------------</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co">    float</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co">        Die Fläche des Kreises.</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co">    """</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a>    PI <span class="op">=</span> <span class="fl">3.14</span>  <span class="co"># Näherungswert für die Kreiszahl Pi</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a>    a <span class="op">=</span> PI <span class="op">*</span> r <span class="op">**</span> <span class="dv">2</span>  <span class="co"># Formel: Fläche = Pi * r^2</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a>    <span class="cf">return</span> a</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="caesar-chiffre-brechen" class="level2" data-number="26.2">
+<h2 data-number="26.2" class="anchored" data-anchor-id="caesar-chiffre-brechen"><span class="header-section-number">26.2</span> Caesar Chiffre brechen</h2>
+<p>Es gibt zwei Hauptmethoden, um eine Caesar-Chiffre zu brechen:</p>
+<ol type="1">
+<li>Brute Force Attack: Versuchen Sie alle möglichen Verschiebungen (1-25) und sehen Sie, welche eine sinnvolle Ausgabe erzeugt.</li>
+<li>Frequency Analysis: Analysieren Sie die Häufigkeit von Buchstaben im Chiffretext und vergleichen Sie sie mit der erwarteten Häufigkeit von Buchstaben in der Sprache.</li>
+</ol>
+<section id="brute-force-attack" class="level3" data-number="26.2.1">
+<h3 data-number="26.2.1" class="anchored" data-anchor-id="brute-force-attack"><span class="header-section-number">26.2.1</span> Brute Force Attack</h3>
+<div id="cell-22" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> caesar_bruteforce(ciphertext: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="cf">for</span> shift <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">26</span>):</span>
+<span id="cb8-3"><a href="#cb8-3"></a>        decrypted_text <span class="op">=</span> caesar(ciphertext, shift, encrypt<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-4"><a href="#cb8-4"></a>        <span class="bu">print</span>(<span class="ss">f"Shift </span><span class="sc">{</span>shift<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>decrypted_text<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="quotient-1" class="level3" data-number="7.5.2">
-<h3 data-number="7.5.2" class="anchored" data-anchor-id="quotient-1"><span class="header-section-number">7.5.2</span> Quotient</h3>
-<div id="45001582" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> quotient(z: <span class="bu">float</span>, n: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">"""</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">    Berechnet den Quotienten zweier Zahlen.</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">    Gibt eine Fehlermeldung zurück, falls der Nenner null ist.</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co">    Parameter</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">    ----------</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="co">    z : float</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="co">        Der Zähler der Division.</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="co">    n : float</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="co">        Der Nenner der Division.</span></span>
-<span id="cb7-13"><a href="#cb7-13"></a></span>
-<span id="cb7-14"><a href="#cb7-14"></a><span class="co">    Rückgabewert</span></span>
-<span id="cb7-15"><a href="#cb7-15"></a><span class="co">    ------------</span></span>
-<span id="cb7-16"><a href="#cb7-16"></a><span class="co">    float oder str</span></span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="co">        Der berechnete Quotient oder eine Fehlermeldung als Zeichenkette,</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="co">        falls eine Division durch Null versucht wurde.</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="co">    """</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a>    </span>
-<span id="cb7-21"><a href="#cb7-21"></a>    <span class="co"># Fehlermeldung für Division durch Null</span></span>
-<span id="cb7-22"><a href="#cb7-22"></a>    fehlermeldung <span class="op">=</span> <span class="st">"Eine Division durch Null ist unzulässig."</span>  </span>
-<span id="cb7-23"><a href="#cb7-23"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb7-24"><a href="#cb7-24"></a>        <span class="cf">return</span> fehlermeldung  <span class="co"># Fehlerfall: Division durch Null</span></span>
-<span id="cb7-25"><a href="#cb7-25"></a>    <span class="cf">else</span>:</span>
-<span id="cb7-26"><a href="#cb7-26"></a>        q <span class="op">=</span> z <span class="op">/</span> n  <span class="co"># Berechnung des Quotienten</span></span>
-<span id="cb7-27"><a href="#cb7-27"></a>        <span class="cf">return</span> q</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="häufigkeitsanalyse" class="level3" data-number="26.2.2">
+<h3 data-number="26.2.2" class="anchored" data-anchor-id="häufigkeitsanalyse"><span class="header-section-number">26.2.2</span> Häufigkeitsanalyse</h3>
+<p>In der deutschen Sprache erscheinen bestimmte Buchstaben häufiger als andere. Zum Beispiel ist der Buchstabe ‘E’ der häufigste Buchstabe in deutschen Texten, gefolgt von ‘N’, ‘I’, ‘S’, ‘R’ und ‘A’. Durch die Analyse der Häufigkeit von Buchstaben im Chiffretext können wir fundierte Vermutungen darüber anstellen, welche Buchstaben im Klartext welchen im Chiffretext entsprechen.</p>
+<p>Für eine genauere Analyse siehe die folgende Häufigkeitstabelle:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Platz</th>
+<th style="text-align: left;">Buchstabe</th>
+<th style="text-align: right;">Relative Häufigkeit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1.</td>
+<td style="text-align: left;">E</td>
+<td style="text-align: right;">17,40 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2.</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: right;">9,78 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3.</td>
+<td style="text-align: left;">I</td>
+<td style="text-align: right;">7,55 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: right;">7,27 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5.</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">7,00 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6.</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">6,51 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7.</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: right;">6,15 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8.</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: right;">5,08 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9.</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">4,76 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.</td>
+<td style="text-align: left;">U</td>
+<td style="text-align: right;">4,35 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.</td>
+<td style="text-align: left;">L</td>
+<td style="text-align: right;">3,44 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12.</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">3,06 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13.</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: right;">3,01 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">14.</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">2,53 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15.</td>
+<td style="text-align: left;">O</td>
+<td style="text-align: right;">2,51 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">16.</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">1,89 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">17.</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">1,89 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">18.</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">1,66 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">19.</td>
+<td style="text-align: left;">K</td>
+<td style="text-align: right;">1,21 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">20.</td>
+<td style="text-align: left;">Z</td>
+<td style="text-align: right;">1,13 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">21.</td>
+<td style="text-align: left;">P</td>
+<td style="text-align: right;">0,79 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">22.</td>
+<td style="text-align: left;">V</td>
+<td style="text-align: right;">0,67 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">23.</td>
+<td style="text-align: left;">J</td>
+<td style="text-align: right;">0,27 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">24.</td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: right;">0,04 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">25.</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">0,03 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">26.</td>
+<td style="text-align: left;">Q</td>
+<td style="text-align: right;">0,02 %</td>
+</tr>
+</tbody>
+</table>
+<p><em>Quelle: <a href="https://de.wikipedia.org/wiki/H%C3%A4ufigkeitsanalyse">Wikipedia</a></em></p>
+<p>Wir brauchen also eine Funktion, die die Häufigkeit jedes Buchstabens im Chiffretext zählt. Das Ergebnis sollte ein Dictionary sein, bei dem die Schlüssel die Buchstaben und die Werte die Zählungen jedes Buchstabens sind. Oder noch besser, die Häufigkeiten in Prozent.</p>
+<p>Um die Sache einfach zu halten, nehmen wir an, dass der Eingabetext nur Großbuchstaben von <code>A</code> bis <code>Z</code> und keine Leerzeichen oder Satzzeichen enthält.</p>
+<div id="cell-25" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> letter_frequency(text: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    frequency <span class="op">=</span> {}</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    total_letters <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>    </span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb9-6"><a href="#cb9-6"></a>        <span class="cf">if</span> char <span class="kw">not</span> <span class="kw">in</span> frequency:</span>
+<span id="cb9-7"><a href="#cb9-7"></a>            frequency[char] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>        <span class="cf">else</span>:</span>
+<span id="cb9-9"><a href="#cb9-9"></a>            frequency[char] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>        total_letters <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a>        </span>
+<span id="cb9-12"><a href="#cb9-12"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> frequency.items():</span>
+<span id="cb9-13"><a href="#cb9-13"></a>        frequency[key] <span class="op">=</span> (value <span class="op">/</span> total_letters) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a>        </span>
+<span id="cb9-15"><a href="#cb9-15"></a>           </span>
+<span id="cb9-16"><a href="#cb9-16"></a>    <span class="cf">return</span> frequency</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="fakultät-1" class="level3" data-number="7.5.3">
-<h3 data-number="7.5.3" class="anchored" data-anchor-id="fakultät-1"><span class="header-section-number">7.5.3</span> Fakultät</h3>
-<div id="1f9477e1" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> fakultaet(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    <span class="co">"""</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co">    Berechnet die Fakultät einer nicht-negativen ganzen Zahl n.</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="co">    Die Fakultät n! ist das Produkt aller positiven ganzen Zahlen</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co">    von 1 bis n. Für n &lt; 0 ist die Fakultät nicht definiert.</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">    Parameter:</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="co">        n (int): Die Zahl, deren Fakultät berechnet werden soll.</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="co">    Rückgabewert:</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="co">        int: Die Fakultät von n, oder eine Fehlermeldung als String bei n &lt; 0.</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co">    """</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb8-15"><a href="#cb8-15"></a>        <span class="co"># Fakultät ist für negative Zahlen nicht definiert</span></span>
-<span id="cb8-16"><a href="#cb8-16"></a>        <span class="cf">return</span> <span class="ss">f'Die Fakultät für </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> ist nicht definiert.'</span></span>
-<span id="cb8-17"><a href="#cb8-17"></a>    <span class="cf">elif</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb8-18"><a href="#cb8-18"></a>        <span class="co"># Per Definition ist 0! = 1</span></span>
-<span id="cb8-19"><a href="#cb8-19"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb8-20"><a href="#cb8-20"></a>    <span class="cf">else</span>:</span>
-<span id="cb8-21"><a href="#cb8-21"></a>        prod <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Initialisiere das Produkt mit 1</span></span>
-<span id="cb8-22"><a href="#cb8-22"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb8-23"><a href="#cb8-23"></a>            prod <span class="op">*=</span> i  <span class="co"># Multipliziere prod mit dem aktuellen Wert von i</span></span>
-<span id="cb8-24"><a href="#cb8-24"></a>        <span class="cf">return</span> prod  <span class="co"># Gib das berechnete Produkt zurück</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="mitternachtsformel" class="level3" data-number="7.5.4">
-<h3 data-number="7.5.4" class="anchored" data-anchor-id="mitternachtsformel"><span class="header-section-number">7.5.4</span> Mitternachtsformel</h3>
-<div id="b4260ef3" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> mitternachtsformel(a: <span class="bu">float</span>, b: <span class="bu">float</span>, c: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>:</span>
-<span id="cb9-2"><a href="#cb9-2"></a>    <span class="co">"""</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">    Löst eine quadratische Gleichung der Form ax² + bx + c = 0 </span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">    mit der Mitternachtsformel.</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">    Parameter</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">    ----------</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">    a : float</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">        Der Koeffizient vor x² (muss ungleich 0 sein).</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">    b : float</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">        Der Koeffizient vor x.</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">    c : float</span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co">        Der konstante Term.</span></span>
-<span id="cb9-14"><a href="#cb9-14"></a></span>
-<span id="cb9-15"><a href="#cb9-15"></a><span class="co">    Rückgabewert</span></span>
-<span id="cb9-16"><a href="#cb9-16"></a><span class="co">    ------------</span></span>
-<span id="cb9-17"><a href="#cb9-17"></a><span class="co">    tuple oder str</span></span>
-<span id="cb9-18"><a href="#cb9-18"></a><span class="co">        Ein Tupel mit den beiden Lösungen (x1, x2) oder eine Fehlermeldung</span></span>
-<span id="cb9-19"><a href="#cb9-19"></a><span class="co">        als Zeichenkette, falls die Gleichung keine reellen Lösungen besitzt.</span></span>
-<span id="cb9-20"><a href="#cb9-20"></a><span class="co">    """</span></span>
-<span id="cb9-21"><a href="#cb9-21"></a>    <span class="co"># Berechnung der Diskriminante: d = b² - 4ac</span></span>
-<span id="cb9-22"><a href="#cb9-22"></a>    d <span class="op">=</span> b <span class="op">**</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">4</span> <span class="op">*</span> a <span class="op">*</span> c</span>
-<span id="cb9-23"><a href="#cb9-23"></a>    <span class="cf">if</span> d <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb9-24"><a href="#cb9-24"></a>        <span class="co"># Keine reellen Lösungen vorhanden</span></span>
-<span id="cb9-25"><a href="#cb9-25"></a>        <span class="cf">return</span> <span class="st">"Diese Gleichung hat keine Lösung."</span>  </span>
-<span id="cb9-26"><a href="#cb9-26"></a>    <span class="cf">else</span>:</span>
-<span id="cb9-27"><a href="#cb9-27"></a>        <span class="co"># Berechnung der beiden Lösungen mit der Mitternachtsformel:</span></span>
-<span id="cb9-28"><a href="#cb9-28"></a>        <span class="co"># x1 = (-b + d ** (1/2)) / (2a)</span></span>
-<span id="cb9-29"><a href="#cb9-29"></a>        <span class="co"># x2 = (-b -  d ** (1/2)) / (2a)</span></span>
-<span id="cb9-30"><a href="#cb9-30"></a>        x1 <span class="op">=</span> (<span class="op">-</span>b <span class="op">+</span> d <span class="op">**</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> a)</span>
-<span id="cb9-31"><a href="#cb9-31"></a>        x2 <span class="op">=</span> (<span class="op">-</span>b <span class="op">-</span> d <span class="op">**</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> a)</span>
-<span id="cb9-32"><a href="#cb9-32"></a>        <span class="cf">return</span> (x1, x2)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nachdem wir den häufigsten Buchstaben im Chiffretext gefunden haben, können wir annehmen, dass er dem Buchstaben ‘E’ im Klartext entspricht. Indem wir die Verschiebung berechnen, die erforderlich ist, um den häufigsten Buchstaben in ‘E’ zu verwandeln, können wir dann den gesamten Chiffretext mit diesem Verschiebungswert entschlüsseln.</p>
+<div id="cell-27" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> find_shift(char: <span class="bu">str</span>, e <span class="op">=</span> <span class="st">'E'</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    <span class="cf">return</span> (<span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(e)) <span class="op">%</span> <span class="dv">26</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
@@ -1098,13 +1184,13 @@ Für die Implementierung ergibt sich daraus allerdings das Problem, dass die For
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="pagination-link" aria-label="Programmverzweigungen (Bedingungen)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span>
+      <a href="../../../files/lektionen_hs26/260904_inheritance/260904_inheritance.html" class="pagination-link" aria-label="Interest-Bearing Accounts: Inheriting from Account">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Interest-Bearing Accounts: Inheriting from Account</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="pagination-link" aria-label="Prüfungsvorbereitung">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../files/lektionen_hs26/260918_files/files.html" class="pagination-link" aria-label="File Handling in Python">
+        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">File Handling in Python</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1113,5 +1199,5 @@ Für die Implementierung ergibt sich daraus allerdings das Problem, dass die For
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs25/251020_funktionen/funktionen.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_eW_25-29/blob/main/files/lektionen_hs26/260918_caesar/caesar.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
