@@ -1,0 +1,8 @@
+author: Jacques Mock Schindler
+date: 2026-10-23
+date-format: D. MMMM YYYY
+lang: de-CH
+other-links:
+  - text: "Right Click to Download"
+    icon: download
+    href: "triangles.ipynb"
