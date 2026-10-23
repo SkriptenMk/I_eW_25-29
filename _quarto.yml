@@ -73,6 +73,8 @@ book:
       chapters:
         - files/lektionen_hs26/260918_caesar/caesar.ipynb
         - files/lektionen_hs26/260918_files/files.ipynb
+        - files/lektionen_hs26/261023_caesar_knacken/261023_caesar_knacken.ipynb
+        - files/lektionen_hs26/261023_caesar_knacken/261023_vigenere.ipynb
     - references.qmd
   
   downloads: [pdf]
