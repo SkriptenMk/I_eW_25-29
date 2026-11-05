@@ -101,15 +101,15 @@ auszurechnen ist dann unmöglich: Das Ergebnis hätte mehr Stellen, als es
 Atome im Universum gibt.
 
 Zwei Ideen machen die Rechnung trotzdem einfach. Die erste hält die
-**Zahlen klein**, die zweite hält die **Anzahl Rechenschritte klein**.
+Zahlen klein, die zweite hält die Anzahl Rechenschritte klein.
 
 #### Idee 1: Den Rest darf man jederzeit bilden
 
 Wir wollen $17 \cdot 19 \bmod 5$ berechnen. Es gibt zwei Wege:
 
-- **Zuerst multiplizieren, dann den Rest bilden:**
+- Zuerst multiplizieren, dann den Rest bilden:
   $17 \cdot 19 = 323 = 64 \cdot 5 + 3$, also Rest $3$.
-- **Zuerst die Reste bilden, dann multiplizieren:**
+- Zuerst die Reste bilden, dann multiplizieren:
   $17 \bmod 5 = 2$ und $19 \bmod 5 = 4$. Dann ist
   $2 \cdot 4 = 8 = 1 \cdot 5 + 3$, also ebenfalls Rest $3$.
 
@@ -166,7 +166,7 @@ $$
 a^x \cdot a^y = a^{x+y} \qquad\qquad \left(a^x\right)^2 = a^{2x}
 $$
 
-Das zweite Gesetz bedeutet: Wer eine Potenz **quadriert**, verdoppelt den
+Das zweite Gesetz bedeutet: Wer eine Potenz quadriert, verdoppelt den
 Exponenten. Aus $13^1$ wird durch Quadrieren $13^2$, daraus $13^4$, daraus
 $13^8$ und so weiter. Mit jeder Multiplikation verdoppelt sich der
 Exponent.
@@ -182,15 +182,15 @@ $$
 ## Ein alter Bekannter: das Binärsystem
 
 Die Zerlegung in die Zahlen 1, 2, 4, 8, … ist nichts anderes als die
-Darstellung des Exponenten im **Binärsystem**: $7 = 111_2$, also
+Darstellung des Exponenten im Binärsystem: $7 = 111_2$, also
 $1 \cdot 4 + 1 \cdot 2 + 1 \cdot 1$. Jede Eins im Binärcode sagt, welche
 Quadratzahl man für das Endergebnis braucht. Deshalb heisst das Verfahren
-auch **Quadrieren und Multiplizieren** (*square and multiply*).
+auch Quadrieren und Multiplizieren (*square and multiply*).
 :::
 
 #### Beide Ideen zusammen: $13^7 \bmod 33$ Schritt für Schritt
 
-**Schritt 1: Die Quadrate berechnen.** Wir beginnen bei $13$ und
+Schritt 1: Die Quadrate berechnen. Wir beginnen bei $13$ und
 quadrieren so lange, bis wir alle benötigten Potenzen ($13^1$, $13^2$,
 $13^4$) haben. Nach jedem Schritt bilden wir den Rest (Idee 1).
 
@@ -206,7 +206,7 @@ Beachten Sie die letzte Zeile: Für $13^4$ rechnen wir nicht
 $169 \cdot 169 = 28\,561$, sondern nur $4 \cdot 4$. Das ist Idee 1 in
 Aktion.
 
-**Schritt 2: Die benötigten Potenzen multiplizieren.** Nach der Zerlegung
+Schritt 2: Die benötigten Potenzen multiplizieren. Nach der Zerlegung
 $13^7 = 13^4 \cdot 13^2 \cdot 13^1$ multiplizieren wir die Reste aus
 Schritt 1 – wieder mit Restbildung nach jeder Multiplikation:
 
@@ -223,7 +223,7 @@ $$
 13^7 \bmod 33 = 7
 $$
 
-**Bilanz:** Wir haben nur vier kleine Multiplikationen gebraucht (zwei zum
+Bilanz: Wir haben nur vier kleine Multiplikationen gebraucht (zwei zum
 Quadrieren, zwei zum Zusammensetzen), und keine Zahl war grösser als 403.
 Der direkte Weg hätte über $62\,748\,517$ geführt.
 
