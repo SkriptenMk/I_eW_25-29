@@ -1,0 +1,2612 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-CH" xml:lang="de-CH"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>30&nbsp; Die RSA-Verschlüsselung – Unterlagen für das obligatorische Fach Informatik</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../references.html" rel="next">
+<link href="../../../files/lektionen_hs26/261023_caesar_knacken/261023_vigenere.html" rel="prev">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-832488a561a9654318fce4209dc4caff.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-2c5592fffe51db5ba48a42a5ed3c55a5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="mermaid-theme" content="default">
+<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260918_caesar/caesar.html">Cyber Securtity</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/261106_rsa/261106_rsa.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Die RSA-Verschlüsselung</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">Unterlagen für das obligatorische Fach Informatik</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/SkriptenMk/I_eW_25-29" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <a href="../../../Unterlagen-für-das-obligatorische-Fach-Informatik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anleitungen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250628_speicher/speicherorganisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Speicherorganisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250702_systemeinrichtung/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arbeitsumgebung (Arbeiten mit Jupyter Notebooks)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einführung in Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250901_probleme/probleme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Problemlösung in der Informatik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250908_variablen/Variablen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabeln in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250915_schlaufen/for_loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wiederholungen in Python (For-Loops)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/250922_bedingungen/arbeitsblatt_bedingungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Programmverzweigungen (Bedingungen)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251020_funktionen/funktionen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Programmieren einfacher Funktionen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251027_funktionen/funktionen_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251110_listen/listen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenstrukturen: Listen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251124_dict/dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenstrukturen: Dictionary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/beurteilung_von_algorithmen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Beurteilung von Algorithmen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/251215_rekursiv/rekursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Divide and Conquer</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs25/260105_uebungen/uebungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Prüfungsvorbereitung 2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Representation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260216_numbersystems/number_systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Number Representation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260309_images/images.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Image Representation in Computers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260316_algorithms_intro/algorithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The Concept of an Algorithm</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260323_algorithms_rep/algorithm_representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Algorithm Representation: Pseudocode &amp; Struktogramme</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260330_sorting/sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sorting Algorithms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260506_complexity/complexity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Algorithms and Computational Complexity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Functions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260518_functions_i/functions_i.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Functions: Revision and Consolidation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260601_triangles/triangles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Functions II: Calculating Triangles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260601_triangle_class/triangle_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Classes: Triangle as Object</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_fs26/260622_functions_ii/260622_functions_ii.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Functions: Exercises</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs26/260821_review/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Triangulation: Inheriting from Triangle</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs26/260904_inheritance/260904_inheritance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Interest-Bearing Accounts: Inheriting from Account</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cyber Securtity</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs26/260918_caesar/caesar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caesar Chiffre</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs26/260918_files/files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">File Handling in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs26/261023_caesar_knacken/261023_caesar_knacken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Caesar-Chiffre knacken</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs26/261023_caesar_knacken/261023_vigenere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Die Vigenère-Chiffre</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/lektionen_hs26/261106_rsa/261106_rsa.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Die RSA-Verschlüsselung</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Literaturverzeichnis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#sec-rsa" id="toc-sec-rsa" class="nav-link active" data-scroll-target="#sec-rsa"><span class="header-section-number">31</span> Die RSA-Verschlüsselung</a>
+  <ul class="collapse">
+  <li><a href="#das-problem-wie-kommt-der-schlüssel-zum-empfänger" id="toc-das-problem-wie-kommt-der-schlüssel-zum-empfänger" class="nav-link" data-scroll-target="#das-problem-wie-kommt-der-schlüssel-zum-empfänger"><span class="header-section-number">31.1</span> Das Problem: Wie kommt der Schlüssel zum Empfänger?</a></li>
+  <li><a href="#die-idee-zwei-verschiedene-schlüssel" id="toc-die-idee-zwei-verschiedene-schlüssel" class="nav-link" data-scroll-target="#die-idee-zwei-verschiedene-schlüssel"><span class="header-section-number">31.2</span> Die Idee: zwei verschiedene Schlüssel</a></li>
+  <li><a href="#das-werkzeug-rechnen-mit-rest" id="toc-das-werkzeug-rechnen-mit-rest" class="nav-link" data-scroll-target="#das-werkzeug-rechnen-mit-rest"><span class="header-section-number">31.3</span> Das Werkzeug: Rechnen mit Rest</a></li>
+  <li><a href="#das-verfahren-von-hand" id="toc-das-verfahren-von-hand" class="nav-link" data-scroll-target="#das-verfahren-von-hand"><span class="header-section-number">31.4</span> Das Verfahren von Hand</a>
+  <ul class="collapse">
+  <li><a href="#schritt-1-bob-erzeugt-sein-schlüsselpaar" id="toc-schritt-1-bob-erzeugt-sein-schlüsselpaar" class="nav-link" data-scroll-target="#schritt-1-bob-erzeugt-sein-schlüsselpaar"><span class="header-section-number">31.4.1</span> Schritt 1: Bob erzeugt sein Schlüsselpaar</a></li>
+  <li><a href="#schritt-2-alice-verschlüsselt" id="toc-schritt-2-alice-verschlüsselt" class="nav-link" data-scroll-target="#schritt-2-alice-verschlüsselt"><span class="header-section-number">31.4.2</span> Schritt 2: Alice verschlüsselt</a></li>
+  <li><a href="#schritt-3-bob-entschlüsselt" id="toc-schritt-3-bob-entschlüsselt" class="nav-link" data-scroll-target="#schritt-3-bob-entschlüsselt"><span class="header-section-number">31.4.3</span> Schritt 3: Bob entschlüsselt</a></li>
+  <li><a href="#was-eve-weiss" id="toc-was-eve-weiss" class="nav-link" data-scroll-target="#was-eve-weiss"><span class="header-section-number">31.4.4</span> Was Eve weiss</a></li>
+  </ul></li>
+  <li><a href="#die-formeln-im-überblick" id="toc-die-formeln-im-überblick" class="nav-link" data-scroll-target="#die-formeln-im-überblick"><span class="header-section-number">31.5</span> Die Formeln im Überblick</a></li>
+  <li><a href="#die-ganze-tabelle-eine-überraschung" id="toc-die-ganze-tabelle-eine-überraschung" class="nav-link" data-scroll-target="#die-ganze-tabelle-eine-überraschung"><span class="header-section-number">31.6</span> Die ganze Tabelle: eine Überraschung</a></li>
+  <li><a href="#sec-rsa-sicherheit" id="toc-sec-rsa-sicherheit" class="nav-link" data-scroll-target="#sec-rsa-sicherheit"><span class="header-section-number">31.7</span> Wie sicher ist RSA?</a>
+  <ul class="collapse">
+  <li><a href="#multiplizieren-ist-leicht-zerlegen-ist-schwer" id="toc-multiplizieren-ist-leicht-zerlegen-ist-schwer" class="nav-link" data-scroll-target="#multiplizieren-ist-leicht-zerlegen-ist-schwer"><span class="header-section-number">31.7.1</span> Multiplizieren ist leicht, Zerlegen ist schwer</a></li>
+  <li><a href="#wie-gross-sind-die-zahlen-in-der-praxis" id="toc-wie-gross-sind-die-zahlen-in-der-praxis" class="nav-link" data-scroll-target="#wie-gross-sind-die-zahlen-in-der-praxis"><span class="header-section-number">31.7.2</span> Wie gross sind die Zahlen in der Praxis?</a></li>
+  <li><a href="#die-bedrohung-durch-quantencomputer" id="toc-die-bedrohung-durch-quantencomputer" class="nav-link" data-scroll-target="#die-bedrohung-durch-quantencomputer"><span class="header-section-number">31.7.3</span> Die Bedrohung durch Quantencomputer</a></li>
+  <li><a href="#die-schwachstelle-mensch-und-software" id="toc-die-schwachstelle-mensch-und-software" class="nav-link" data-scroll-target="#die-schwachstelle-mensch-und-software"><span class="header-section-number">31.7.4</span> Die Schwachstelle Mensch und Software</a></li>
+  </ul></li>
+  <li><a href="#rsa-im-alltag" id="toc-rsa-im-alltag" class="nav-link" data-scroll-target="#rsa-im-alltag"><span class="header-section-number">31.8</span> RSA im Alltag</a>
+  <ul class="collapse">
+  <li><a href="#digitale-signaturen" id="toc-digitale-signaturen" class="nav-link" data-scroll-target="#digitale-signaturen"><span class="header-section-number">31.8.1</span> Digitale Signaturen</a></li>
+  <li><a href="#hybride-verschlüsselung" id="toc-hybride-verschlüsselung" class="nav-link" data-scroll-target="#hybride-verschlüsselung"><span class="header-section-number">31.8.2</span> Hybride Verschlüsselung</a></li>
+  </ul></li>
+  <li><a href="#geschichte" id="toc-geschichte" class="nav-link" data-scroll-target="#geschichte"><span class="header-section-number">31.9</span> Geschichte</a></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="header-section-number">31.10</span> Aufgaben</a>
+  <ul class="collapse">
+  <li><a href="#lösungen" id="toc-lösungen" class="nav-link" data-scroll-target="#lösungen"><span class="header-section-number">31.10.1</span> Lösungen</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/edit/main/files/lektionen_hs26/261106_rsa/261106_rsa.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/260918_caesar/caesar.html">Cyber Securtity</a></li><li class="breadcrumb-item"><a href="../../../files/lektionen_hs26/261106_rsa/261106_rsa.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Die RSA-Verschlüsselung</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Die RSA-Verschlüsselung</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-rsa" class="level1" data-number="31">
+<h1 data-number="31"><span class="header-section-number">31</span> Die RSA-Verschlüsselung</h1>
+<section id="das-problem-wie-kommt-der-schlüssel-zum-empfänger" class="level2" data-number="31.1">
+<h2 data-number="31.1" class="anchored" data-anchor-id="das-problem-wie-kommt-der-schlüssel-zum-empfänger"><span class="header-section-number">31.1</span> Das Problem: Wie kommt der Schlüssel zum Empfänger?</h2>
+<p>Die Caesar- und die Vigenère-Chiffre haben etwas gemeinsam, das wir bisher kaum beachtet haben: Sender und Empfänger brauchen <strong>denselben Schlüssel</strong>. Wer mit dem Schlüssel <code>BUELRAIN</code> verschlüsselt, muss diesen Schlüssel dem Empfänger vorher irgendwie mitteilen. Man spricht deshalb von <strong>symmetrischer Verschlüsselung</strong>: Der Schlüssel zum Abschliessen und der Schlüssel zum Aufschliessen sind gleich.</p>
+<p>Daraus ergibt sich ein Henne-Ei-Problem:</p>
+<ul>
+<li>Um den Schlüssel sicher zu übermitteln, bräuchte man einen sicheren Kanal.</li>
+<li>Hätte man einen sicheren Kanal, bräuchte man keine Verschlüsselung.</li>
+</ul>
+<p>Früher löste man das Problem mit Boten, Codebüchern und persönlichen Treffen. Für das Internet taugt das nicht. Wenn Sie zum ersten Mal bei einem Onlineshop einkaufen, haben Sie mit diesem Shop nie einen Schlüssel vereinbart. Trotzdem wird Ihre Kreditkartennummer verschlüsselt übertragen.</p>
+<p>Dazu kommt ein Mengenproblem. Wenn in einer Klasse mit 25 Personen jede mit jeder geheim kommunizieren will, braucht jedes Paar einen eigenen Schlüssel:</p>
+<p><span class="math display">\[
+\frac{25 \cdot 24}{2} = 300 \text{ Schlüssel}
+\]</span></p>
+<p>Bei einer Million Teilnehmerinnen und Teilnehmern wären es rund 500 Milliarden.</p>
+</section>
+<section id="die-idee-zwei-verschiedene-schlüssel" class="level2" data-number="31.2">
+<h2 data-number="31.2" class="anchored" data-anchor-id="die-idee-zwei-verschiedene-schlüssel"><span class="header-section-number">31.2</span> Die Idee: zwei verschiedene Schlüssel</h2>
+<p>1976 veröffentlichten Whitfield Diffie und Martin Hellman eine Idee, die die Kryptologie grundlegend veränderte: Was wäre, wenn man zum Verschlüsseln einen <em>anderen</em> Schlüssel verwenden könnte als zum Entschlüsseln?</p>
+<p>Das Bild dazu ist ein <strong>offenes Vorhängeschloss</strong>:</p>
+<ul>
+<li>Bob kauft viele gleiche Vorhängeschlösser und verteilt sie offen an alle, die ihm schreiben wollen. Den einzigen Schlüssel dazu behält er für sich.</li>
+<li>Alice legt ihre Nachricht in eine Kiste und drückt eines von Bobs Schlössern zu. Dazu braucht sie keinen Schlüssel.</li>
+<li>Ab jetzt kann nur noch Bob die Kiste öffnen. Nicht einmal Alice selbst kommt wieder an die Nachricht.</li>
+</ul>
+<p>In der Kryptologie heissen die beiden Teile:</p>
+<div id="tbl-rsa-schluessel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rsa-schluessel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;31.1: Die beiden Schlüssel eines asymmetrischen Verfahrens
+</figcaption>
+<div aria-describedby="tbl-rsa-schluessel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teil</th>
+<th style="text-align: left;">Bild</th>
+<th style="text-align: left;">Wer kennt ihn?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>öffentlicher Schlüssel</strong> (<em>public key</em>)</td>
+<td style="text-align: left;">das offene Schloss</td>
+<td style="text-align: left;">alle</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>privater Schlüssel</strong> (<em>private key</em>)</td>
+<td style="text-align: left;">der Schlüssel zum Schloss</td>
+<td style="text-align: left;">nur Bob</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Man spricht von <strong>asymmetrischer Verschlüsselung</strong> oder <strong>Public-Key-Kryptografie</strong>. Das Mengenproblem verschwindet dabei: In der Klasse mit 25 Personen braucht jede Person genau ein Schlüsselpaar, also 25 statt 300.</p>
+<div class="cell" data-layout-align="default">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1"></a>sequenceDiagram</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    participant A as Alice</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    participant E as Eve (hört mit)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    participant B as Bob</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    Note over B: erzeugt Schlüsselpaar&lt;br/&gt;öffentlich: (n, e)&lt;br/&gt;privat: d</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    B-&gt;&gt;A: öffentlicher Schlüssel (n, e)</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    Note over E: kennt (n, e)</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    Note over A: verschlüsselt m mit (n, e)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    A-&gt;&gt;B: Geheimtext c</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    Note over E: kennt c,&lt;br/&gt;aber nicht d</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    Note over B: entschlüsselt c mit d</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-rsa-ablauf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rsa-ablauf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-rsa-ablauf">sequenceDiagram
+    participant A as Alice
+    participant E as Eve (hört mit)
+    participant B as Bob
+    Note over B: erzeugt Schlüsselpaar&lt;br/&gt;öffentlich: (n, e)&lt;br/&gt;privat: d
+    B-&gt;&gt;A: öffentlicher Schlüssel (n, e)
+    Note over E: kennt (n, e)
+    Note over A: verschlüsselt m mit (n, e)
+    A-&gt;&gt;B: Geheimtext c
+    Note over E: kennt c,&lt;br/&gt;aber nicht d
+    Note over B: entschlüsselt c mit d
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsa-ablauf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;31.1: Ablauf einer Public-Key-Verschlüsselung. Eve kann alles mithören, was über die Leitung geht.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Idee von Diffie und Hellman war zunächst nur ein Wunsch. Es fehlte ein mathematisches Verfahren, das sich wie ein solches Vorhängeschloss verhält. Dieses Verfahren fanden 1977 Ron <strong>R</strong>ivest, Adi <strong>S</strong>hamir und Leonard <strong>A</strong>dleman am MIT. Nach ihren Anfangsbuchstaben heisst es <strong>RSA</strong>.</p>
+</section>
+<section id="das-werkzeug-rechnen-mit-rest" class="level2" data-number="31.3">
+<h2 data-number="31.3" class="anchored" data-anchor-id="das-werkzeug-rechnen-mit-rest"><span class="header-section-number">31.3</span> Das Werkzeug: Rechnen mit Rest</h2>
+<p>Bei der Caesar-Chiffre haben Sie bereits mit Rest gerechnet: Wenn man <code>X</code> um 3 verschiebt, landet man nicht bei Position 26, sondern wieder bei <code>A</code>. Man rechnet <em>modulo 26</em>:</p>
+<p><span class="math display">\[
+(23 + 3) \bmod 26 = 26 \bmod 26 = 0 \quad\Rightarrow\quad \texttt{A}
+\]</span></p>
+<p><span class="math inline">\(a \bmod n\)</span> ist der Rest, der bei der Division von <span class="math inline">\(a\)</span> durch <span class="math inline">\(n\)</span> übrig bleibt. Ein Alltagsbeispiel ist die Uhr: 10 Uhr plus 5 Stunden ergibt nicht 15 Uhr, sondern 3 Uhr, denn <span class="math inline">\(15 \bmod 12 = 3\)</span>.</p>
+<p>RSA verwendet genau dieses Rechnen mit Rest, aber statt mit Addition mit <strong>Potenzen</strong>. Ein Beispiel:</p>
+<p><span class="math display">\[
+7^3 = 343 \qquad 343 \bmod 33 = 343 - 10 \cdot 33 = 13
+\]</span></p>
+<p>Also ist <span class="math inline">\(7^3 \bmod 33 = 13\)</span>.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Grosse Potenzen von Hand
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bei Potenzen werden die Zahlen schnell riesig. Der Trick: Man darf <strong>nach jedem Zwischenschritt</strong> den Rest bilden. Das Ergebnis bleibt gleich, die Zahlen bleiben klein. So berechnet man zum Beispiel <span class="math inline">\(13^7 \bmod 33\)</span>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 31%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Schritt</th>
+<th style="text-align: left;">Rechnung</th>
+<th style="text-align: right;">Rest mod 33</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(13^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(169 = 5 \cdot 33 + 4\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(4\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(13^4 = (13^2)^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4^2 = 16\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(16\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(13^7 = 13^4 \cdot 13^2 \cdot 13\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(16 \cdot 4 \cdot 13 = 832 = 25 \cdot 33 + 7\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(7\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Also ist <span class="math inline">\(13^7 \bmod 33 = 7\)</span>. Ohne den Trick hätte man mit <span class="math inline">\(13^7 = 62\,748\,517\)</span> rechnen müssen.</p>
+</div>
+</div>
+</section>
+<section id="das-verfahren-von-hand" class="level2" data-number="31.4">
+<h2 data-number="31.4" class="anchored" data-anchor-id="das-verfahren-von-hand"><span class="header-section-number">31.4</span> Das Verfahren von Hand</h2>
+<p>Wir spielen RSA mit sehr kleinen Zahlen durch. Bob erzeugt sein Schlüsselpaar, Alice schickt ihm eine Nachricht.</p>
+<section id="schritt-1-bob-erzeugt-sein-schlüsselpaar" class="level3" data-number="31.4.1">
+<h3 data-number="31.4.1" class="anchored" data-anchor-id="schritt-1-bob-erzeugt-sein-schlüsselpaar"><span class="header-section-number">31.4.1</span> Schritt 1: Bob erzeugt sein Schlüsselpaar</h3>
+<p><strong>a) Zwei Primzahlen wählen.</strong> Bob wählt zwei verschiedene Primzahlen und hält sie geheim:</p>
+<p><span class="math display">\[
+p = 3 \qquad q = 11
+\]</span></p>
+<p><strong>b) Das Produkt bilden.</strong> Das Produkt heisst <strong>RSA-Modul</strong>:</p>
+<p><span class="math display">\[
+n = p \cdot q = 3 \cdot 11 = 33
+\]</span></p>
+<p><strong>c) Die Hilfszahl <span class="math inline">\(\varphi\)</span> berechnen.</strong> Man spricht «phi»:</p>
+<p><span class="math display">\[
+\varphi = (p - 1) \cdot (q - 1) = 2 \cdot 10 = 20
+\]</span></p>
+<p><strong>d) Den öffentlichen Exponenten <span class="math inline">\(e\)</span> wählen.</strong> <span class="math inline">\(e\)</span> muss grösser als 1 sein und darf mit <span class="math inline">\(\varphi = 20\)</span> keinen gemeinsamen Teiler haben. <span class="math inline">\(e = 2\)</span> geht nicht (gemeinsamer Teiler 2), <span class="math inline">\(e = 3\)</span> geht:</p>
+<p><span class="math display">\[
+e = 3
+\]</span></p>
+<p><strong>e) Den privaten Exponenten <span class="math inline">\(d\)</span> berechnen.</strong> Gesucht ist eine Zahl <span class="math inline">\(d\)</span>, für die gilt:</p>
+<p><span class="math display">\[
+e \cdot d \bmod \varphi = 1
+\]</span></p>
+<p>Bob probiert der Reihe nach:</p>
+<div id="tbl-rsa-d" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rsa-d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;31.2: Suche nach dem privaten Exponenten
+</figcaption>
+<div aria-describedby="tbl-rsa-d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(d\)</span></th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+<th style="text-align: right;">6</th>
+<th style="text-align: right;"><strong>7</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(3 \cdot d\)</span></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;"><strong>21</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(3 \cdot d \bmod 20\)</span></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;"><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Also ist <span class="math inline">\(d = 7\)</span>.</p>
+<p>Damit hat Bob sein Schlüsselpaar:</p>
+<div id="tbl-rsa-bob" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rsa-bob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;31.3: Bobs Schlüsselpaar
+</figcaption>
+<div aria-describedby="tbl-rsa-bob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Inhalt</th>
+<th style="text-align: left;">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">öffentlicher Schlüssel</td>
+<td style="text-align: left;"><span class="math inline">\((n, e) = (33, 3)\)</span></td>
+<td style="text-align: left;">wird veröffentlicht</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">privater Schlüssel</td>
+<td style="text-align: left;"><span class="math inline">\(d = 7\)</span></td>
+<td style="text-align: left;">bleibt geheim</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hilfszahlen</td>
+<td style="text-align: left;"><span class="math inline">\(p = 3\)</span>, <span class="math inline">\(q = 11\)</span>, <span class="math inline">\(\varphi = 20\)</span></td>
+<td style="text-align: left;">werden vernichtet oder geheim gehalten</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="schritt-2-alice-verschlüsselt" class="level3" data-number="31.4.2">
+<h3 data-number="31.4.2" class="anchored" data-anchor-id="schritt-2-alice-verschlüsselt"><span class="header-section-number">31.4.2</span> Schritt 2: Alice verschlüsselt</h3>
+<p>Alice will Bob das Wort <code>HALLO</code> schicken. Wie bei der Caesar-Chiffre übersetzt sie die Buchstaben zuerst in Zahlen (<code>A</code> = 0, <code>B</code> = 1, …, <code>Z</code> = 25). Dann rechnet sie für jede Zahl <span class="math inline">\(m\)</span> mit Bobs öffentlichem Schlüssel:</p>
+<p><span class="math display">\[
+c = m^e \bmod n
+\]</span></p>
+<div id="tbl-rsa-hallo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rsa-hallo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;31.4: Alice verschlüsselt HALLO
+</figcaption>
+<div aria-describedby="tbl-rsa-hallo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Buchstabe</th>
+<th style="text-align: right;"><span class="math inline">\(m\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(m^3\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(c = m^3 \bmod 33\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">343</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>A</code></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>L</code></td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1331</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>L</code></td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1331</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>O</code></td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">2744</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Alice schickt den Geheimtext <code>13 0 11 11 5</code>. Der Geheimtext besteht aus <strong>Zahlen</strong>, nicht aus Buchstaben, denn das Ergebnis kann zwischen 0 und 32 liegen.</p>
+</section>
+<section id="schritt-3-bob-entschlüsselt" class="level3" data-number="31.4.3">
+<h3 data-number="31.4.3" class="anchored" data-anchor-id="schritt-3-bob-entschlüsselt"><span class="header-section-number">31.4.3</span> Schritt 3: Bob entschlüsselt</h3>
+<p>Bob rechnet für jede empfangene Zahl <span class="math inline">\(c\)</span> mit seinem privaten Schlüssel:</p>
+<p><span class="math display">\[
+m = c^d \bmod n
+\]</span></p>
+<p>Für die erste Zahl haben wir die Rechnung oben bereits gemacht:</p>
+<p><span class="math display">\[
+13^7 \bmod 33 = 7 \quad\Rightarrow\quad \texttt{H}
+\]</span></p>
+<p>Und für die letzte:</p>
+<p><span class="math display">\[
+5^7 = 78\,125 = 2367 \cdot 33 + 14 \quad\Rightarrow\quad 14 \quad\Rightarrow\quad \texttt{O}
+\]</span></p>
+<p>Bob erhält wieder <code>HALLO</code>.</p>
+</section>
+<section id="was-eve-weiss" class="level3" data-number="31.4.4">
+<h3 data-number="31.4.4" class="anchored" data-anchor-id="was-eve-weiss"><span class="header-section-number">31.4.4</span> Was Eve weiss</h3>
+<p>Eve hat alles mitgehört. Sie kennt den öffentlichen Schlüssel <span class="math inline">\((33, 3)\)</span> und den Geheimtext <code>13 0 11 11 5</code>. Um zu entschlüsseln, bräuchte sie <span class="math inline">\(d\)</span>. Um <span class="math inline">\(d\)</span> zu berechnen, bräuchte sie <span class="math inline">\(\varphi\)</span>. Und um <span class="math inline">\(\varphi\)</span> zu berechnen, bräuchte sie <span class="math inline">\(p\)</span> und <span class="math inline">\(q\)</span>.</p>
+<p>Die ganze Sicherheit von RSA hängt also an einer Frage:</p>
+<blockquote class="blockquote">
+<p><strong>Kann man aus <span class="math inline">\(n\)</span> die beiden Primzahlen <span class="math inline">\(p\)</span> und <span class="math inline">\(q\)</span> herausfinden?</strong></p>
+</blockquote>
+<p>Bei <span class="math inline">\(n = 33\)</span> ist das natürlich trivial. Wie es bei grossen Zahlen aussieht, klären wir in <a href="#sec-rsa-sicherheit" class="quarto-xref"><span>Kapitel 31.7</span></a>.</p>
+</section>
+</section>
+<section id="die-formeln-im-überblick" class="level2" data-number="31.5">
+<h2 data-number="31.5" class="anchored" data-anchor-id="die-formeln-im-überblick"><span class="header-section-number">31.5</span> Die Formeln im Überblick</h2>
+<div id="tbl-rsa-formeln" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rsa-formeln-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;31.5: RSA in sechs Zeilen
+</figcaption>
+<div aria-describedby="tbl-rsa-formeln-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Formel</th>
+<th style="text-align: left;">wer?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Modul</td>
+<td style="text-align: left;"><span class="math inline">\(n = p \cdot q\)</span></td>
+<td style="text-align: left;">Bob</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hilfszahl</td>
+<td style="text-align: left;"><span class="math inline">\(\varphi = (p-1)(q-1)\)</span></td>
+<td style="text-align: left;">Bob</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">öffentlicher Exponent</td>
+<td style="text-align: left;"><span class="math inline">\(e\)</span> ohne gemeinsamen Teiler mit <span class="math inline">\(\varphi\)</span></td>
+<td style="text-align: left;">Bob</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">privater Exponent</td>
+<td style="text-align: left;"><span class="math inline">\(e \cdot d \bmod \varphi = 1\)</span></td>
+<td style="text-align: left;">Bob</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Verschlüsseln</td>
+<td style="text-align: left;"><span class="math inline">\(c = m^e \bmod n\)</span></td>
+<td style="text-align: left;">Alice (und alle anderen)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Entschlüsseln</td>
+<td style="text-align: left;"><span class="math inline">\(m = c^d \bmod n\)</span></td>
+<td style="text-align: left;">nur Bob</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Dabei muss die Zahl <span class="math inline">\(m\)</span> kleiner als <span class="math inline">\(n\)</span> sein. Bei <span class="math inline">\(n = 33\)</span> ist das für unsere Buchstaben 0 bis 25 erfüllt.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Für Interessierte: Warum funktioniert das?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Dass <span class="math inline">\(\left(m^e\right)^d \bmod n\)</span> wieder <span class="math inline">\(m\)</span> ergibt, folgt aus einem Satz, den Leonhard Euler im 18. Jahrhundert bewiesen hat. Er besagt, dass für jede Zahl <span class="math inline">\(m\)</span> ohne gemeinsamen Teiler mit <span class="math inline">\(n\)</span> gilt:</p>
+<p><span class="math display">\[
+m^{\varphi} \bmod n = 1
+\]</span></p>
+<p>Weil <span class="math inline">\(e \cdot d = k \cdot \varphi + 1\)</span> für irgendeine ganze Zahl <span class="math inline">\(k\)</span> gilt, folgt:</p>
+<p><span class="math display">\[
+m^{e \cdot d} = m^{k \cdot \varphi + 1} = \left(m^{\varphi}\right)^k \cdot m
+\;\equiv\; 1^k \cdot m = m \pmod n
+\]</span></p>
+<p>In unserem Beispiel ist <span class="math inline">\(e \cdot d = 21 = 1 \cdot 20 + 1\)</span>. Man kann zeigen, dass die Rechnung auch für die Zahlen <span class="math inline">\(m\)</span> aufgeht, die mit <span class="math inline">\(n\)</span> einen gemeinsamen Teiler haben.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Kontrollieren mit Python
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sie müssen RSA nicht programmieren. Zum Überprüfen Ihrer Handrechnungen ist aber die eingebaute Funktion <code>pow</code> praktisch. Mit drei Argumenten rechnet sie direkt modulo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">pow</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">33</span>)    <span class="co"># 7 hoch 3 modulo 33 → 13</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">pow</span>(<span class="dv">13</span>, <span class="dv">7</span>, <span class="dv">33</span>)   <span class="co"># 13 hoch 7 modulo 33 → 7</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="die-ganze-tabelle-eine-überraschung" class="level2" data-number="31.6">
+<h2 data-number="31.6" class="anchored" data-anchor-id="die-ganze-tabelle-eine-überraschung"><span class="header-section-number">31.6</span> Die ganze Tabelle: eine Überraschung</h2>
+<p>Weil Alice jeden Buchstaben einzeln verschlüsselt, kann man für den Schlüssel <span class="math inline">\((33, 3)\)</span> eine vollständige Tabelle erstellen:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Klartext</th>
+<th style="text-align: right;">A</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">C</th>
+<th style="text-align: right;">D</th>
+<th style="text-align: right;">E</th>
+<th style="text-align: right;">F</th>
+<th style="text-align: right;">G</th>
+<th style="text-align: right;">H</th>
+<th style="text-align: right;">I</th>
+<th style="text-align: right;">J</th>
+<th style="text-align: right;">K</th>
+<th style="text-align: right;">L</th>
+<th style="text-align: right;">M</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(m\)</span></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(c\)</span></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>1</strong></td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;"><strong>10</strong></td>
+<td style="text-align: right;"><strong>11</strong></td>
+<td style="text-align: right;"><strong>12</strong></td>
+</tr>
+</tbody>
+</table>
+<div id="tbl-rsa-tabelle" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rsa-tabelle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;31.6: Verschlüsselungstabelle für den Schlüssel (33, 3); fett: Buchstaben, die sich nicht verändern
+</figcaption>
+<div aria-describedby="tbl-rsa-tabelle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Klartext</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">O</th>
+<th style="text-align: right;">P</th>
+<th style="text-align: right;">Q</th>
+<th style="text-align: right;">R</th>
+<th style="text-align: right;">S</th>
+<th style="text-align: right;">T</th>
+<th style="text-align: right;">U</th>
+<th style="text-align: right;">V</th>
+<th style="text-align: right;">W</th>
+<th style="text-align: right;">X</th>
+<th style="text-align: right;">Y</th>
+<th style="text-align: right;">Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(m\)</span></td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(c\)</span></td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;"><strong>21</strong></td>
+<td style="text-align: right;"><strong>22</strong></td>
+<td style="text-align: right;"><strong>23</strong></td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">16</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Zwei Dinge fallen auf:</p>
+<ol type="1">
+<li><strong>Acht Buchstaben bleiben unverändert:</strong> <code>A</code>, <code>B</code>, <code>K</code>, <code>L</code>, <code>M</code>, <code>V</code>, <code>W</code> und <code>X</code>. Darum stand im Geheimtext von <code>HALLO</code> die 0 und zweimal die 11 – man kann <code>A</code> und <code>LL</code> direkt ablesen.</li>
+<li><strong>Jeder Buchstabe wird immer gleich verschlüsselt.</strong> Das <code>E</code> wird immer zur 31. Damit ist buchstabenweises RSA nichts anderes als eine <strong>monoalphabetische Substitution</strong>, wie die Caesar-Chiffre auch. Die Häufigkeitsanalyse, die Sie bereits kennen, knackt es mühelos: Die häufigste Zahl im Geheimtext steht für <code>E</code>.</li>
+</ol>
+<p>Die Mathematik von RSA ist also stark, aber die Art, wie wir sie hier eingesetzt haben, ist schwach. In der Praxis verschlüsselt man deshalb nie einzelne Buchstaben. Man fasst lange Textblöcke zu einer einzigen riesigen Zahl zusammen und mischt vor dem Verschlüsseln zusätzlich Zufallsdaten bei (das sogenannte <em>Padding</em>). So wird derselbe Klartext jedes Mal anders verschlüsselt.</p>
+</section>
+<section id="sec-rsa-sicherheit" class="level2" data-number="31.7">
+<h2 data-number="31.7" class="anchored" data-anchor-id="sec-rsa-sicherheit"><span class="header-section-number">31.7</span> Wie sicher ist RSA?</h2>
+<section id="multiplizieren-ist-leicht-zerlegen-ist-schwer" class="level3" data-number="31.7.1">
+<h3 data-number="31.7.1" class="anchored" data-anchor-id="multiplizieren-ist-leicht-zerlegen-ist-schwer"><span class="header-section-number">31.7.1</span> Multiplizieren ist leicht, Zerlegen ist schwer</h3>
+<p>Die Sicherheit von RSA beruht auf einer Asymmetrie, die Sie selbst ausprobieren können:</p>
+<ul>
+<li>Berechnen Sie <span class="math inline">\(61 \cdot 53\)</span>. Das dauert mit Papier und Bleistift eine halbe Minute.</li>
+<li>Zerlegen Sie <span class="math inline">\(3233\)</span> in zwei Primzahlen. Das dauert deutlich länger, weil man ausprobieren muss.</li>
+</ul>
+<p>(Es ist dieselbe Aufgabe: <span class="math inline">\(61 \cdot 53 = 3233\)</span>.)</p>
+<p>Mit dem Computer verschiebt sich diese Grenze, aber die Asymmetrie bleibt. Zwei Primzahlen mit je 300 Stellen multipliziert ein Computer in Sekundenbruchteilen. Für die umgekehrte Richtung, die <strong>Primfaktorzerlegung</strong>, ist kein schnelles Verfahren bekannt. Mathematiker nennen so etwas eine <strong>Falltürfunktion</strong>: In die eine Richtung fällt man leicht hinein, zurück kommt man nur mit dem Geheimnis – hier mit <span class="math inline">\(p\)</span> und <span class="math inline">\(q\)</span>.</p>
+</section>
+<section id="wie-gross-sind-die-zahlen-in-der-praxis" class="level3" data-number="31.7.2">
+<h3 data-number="31.7.2" class="anchored" data-anchor-id="wie-gross-sind-die-zahlen-in-der-praxis"><span class="header-section-number">31.7.2</span> Wie gross sind die Zahlen in der Praxis?</h3>
+<p>Heute verwendet man für <span class="math inline">\(n\)</span> mindestens 2048 Bit, das sind rund <strong>617 Dezimalstellen</strong>. Behörden wie das deutsche Bundesamt für Sicherheit in der Informationstechnik (BSI) empfehlen für neue Systeme inzwischen mindestens 3000 Bit.</p>
+<p>Zum Vergleich: Der Rekord für eine öffentlich bekannte Zerlegung liegt bei einer Zahl mit 250 Dezimalstellen (829 Bit). Sie wurde 2020 von einem Forschungsteam zerlegt, das dafür Rechenzeit im Umfang von rund 2700 Prozessorkern-Jahren brauchte.</p>
+<p>Beachten Sie den Unterschied zur Vigenère-Chiffre: Dort war der Schlüsselraum zwar gross, aber ein cleverer Angriff (Kasiski) machte das Ausprobieren überflüssig. Bei RSA sucht die Mathematik seit fast fünfzig Jahren nach einem solchen Trick – bisher ohne Erfolg.</p>
+</section>
+<section id="die-bedrohung-durch-quantencomputer" class="level3" data-number="31.7.3">
+<h3 data-number="31.7.3" class="anchored" data-anchor-id="die-bedrohung-durch-quantencomputer"><span class="header-section-number">31.7.3</span> Die Bedrohung durch Quantencomputer</h3>
+<p>1994 zeigte der Mathematiker Peter Shor, dass ein ausreichend grosser <strong>Quantencomputer</strong> die Primfaktorzerlegung schnell erledigen könnte. Einen solchen Quantencomputer gibt es bis heute nicht. Weil verschlüsselte Daten aber heute abgefangen und in zwanzig Jahren entschlüsselt werden könnten, hat das amerikanische Normungsinstitut NIST 2024 erste Verschlüsselungsverfahren standardisiert, die auch gegen Quantencomputer sicher sein sollen. Man spricht von <strong>Post-Quanten-Kryptografie</strong>.</p>
+</section>
+<section id="die-schwachstelle-mensch-und-software" class="level3" data-number="31.7.4">
+<h3 data-number="31.7.4" class="anchored" data-anchor-id="die-schwachstelle-mensch-und-software"><span class="header-section-number">31.7.4</span> Die Schwachstelle Mensch und Software</h3>
+<p>Die meisten erfolgreichen Angriffe auf RSA knacken nicht die Mathematik, sondern die Umsetzung:</p>
+<ul>
+<li>schlechte Zufallszahlen bei der Wahl von <span class="math inline">\(p\)</span> und <span class="math inline">\(q\)</span>,</li>
+<li>zu kleine Schlüssel,</li>
+<li>fehlendes Padding (siehe <a href="#tbl-rsa-tabelle" class="quarto-xref">Tabelle&nbsp;<span>31.6</span></a>),</li>
+<li>gestohlene private Schlüssel.</li>
+</ul>
+</section>
+</section>
+<section id="rsa-im-alltag" class="level2" data-number="31.8">
+<h2 data-number="31.8" class="anchored" data-anchor-id="rsa-im-alltag"><span class="header-section-number">31.8</span> RSA im Alltag</h2>
+<section id="digitale-signaturen" class="level3" data-number="31.8.1">
+<h3 data-number="31.8.1" class="anchored" data-anchor-id="digitale-signaturen"><span class="header-section-number">31.8.1</span> Digitale Signaturen</h3>
+<p>RSA kann noch etwas, das symmetrische Verfahren nicht können. Dreht man die Rollen der Schlüssel um, entsteht eine <strong>digitale Unterschrift</strong>:</p>
+<ul>
+<li>Bob «verschlüsselt» eine Nachricht mit seinem <strong>privaten</strong> Schlüssel.</li>
+<li>Alle können sie mit Bobs <strong>öffentlichem</strong> Schlüssel prüfen.</li>
+<li>Weil nur Bob den privaten Schlüssel kennt, kann nur er diese Unterschrift erzeugt haben.</li>
+</ul>
+<p>Ein Beispiel mit unseren Zahlen: Bob will die Zahl 9 unterschreiben.</p>
+<p><span class="math display">\[
+\text{Unterschrift: } s = 9^7 \bmod 33 = 15
+\]</span></p>
+<p>Er schickt die Nachricht 9 zusammen mit der Unterschrift 15. Alice prüft mit Bobs öffentlichem Schlüssel:</p>
+<p><span class="math display">\[
+15^3 \bmod 33 = 3375 \bmod 33 = 9 \quad\checkmark
+\]</span></p>
+<p>Die Prüfung ergibt wieder die Nachricht. Also stammt die Unterschrift von Bob, und die Nachricht wurde unterwegs nicht verändert. Hätte Eve die Nachricht auf 8 geändert, würde die Prüfung nicht mehr passen.</p>
+</section>
+<section id="hybride-verschlüsselung" class="level3" data-number="31.8.2">
+<h3 data-number="31.8.2" class="anchored" data-anchor-id="hybride-verschlüsselung"><span class="header-section-number">31.8.2</span> Hybride Verschlüsselung</h3>
+<p>RSA hat einen Nachteil: Es ist <strong>langsam</strong>, etwa tausendmal langsamer als moderne symmetrische Verfahren wie AES. Darum kombiniert man in der Praxis beide Welten:</p>
+<ol type="1">
+<li>Der Browser erzeugt einen zufälligen symmetrischen Schlüssel.</li>
+<li>Er verschlüsselt diesen Schlüssel mit dem öffentlichen Schlüssel des Servers und schickt ihn hin. Das ist eine sehr kurze Nachricht, also spielt die Langsamkeit keine Rolle.</li>
+<li>Ab jetzt verschlüsseln beide mit dem gemeinsamen symmetrischen Schlüssel.</li>
+</ol>
+<p>Das Henne-Ei-Problem vom Anfang dieses Kapitels ist damit gelöst: Das asymmetrische Verfahren sorgt für die sichere Schlüsselübergabe, das symmetrische für die schnelle Verschlüsselung der eigentlichen Daten. Jedes Mal, wenn Ihr Browser ein Schloss-Symbol neben der Adresse zeigt (<code>https://</code>), läuft im Hintergrund ein solches Verfahren ab.</p>
+</section>
+</section>
+<section id="geschichte" class="level2" data-number="31.9">
+<h2 data-number="31.9" class="anchored" data-anchor-id="geschichte"><span class="header-section-number">31.9</span> Geschichte</h2>
+<div id="tbl-rsa-geschichte" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rsa-geschichte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;31.7: Meilensteine der Public-Key-Kryptografie
+</figcaption>
+<div aria-describedby="tbl-rsa-geschichte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 62%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Jahr</th>
+<th style="text-align: left;">Ereignis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1973</td>
+<td style="text-align: left;">Clifford Cocks, Mathematiker beim britischen Nachrichtendienst GCHQ, entwickelt ein Verfahren, das RSA entspricht. Es bleibt geheim.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1976</td>
+<td style="text-align: left;">Whitfield Diffie und Martin Hellman veröffentlichen die Idee der Public-Key-Kryptografie.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1977</td>
+<td style="text-align: left;">Rivest, Shamir und Adleman finden RSA. Martin Gardner stellt es im <em>Scientific American</em> einem breiten Publikum vor.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1994</td>
+<td style="text-align: left;">Peter Shor zeigt, dass Quantencomputer RSA brechen könnten.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1997</td>
+<td style="text-align: left;">Die britische Regierung macht die Arbeit von Cocks öffentlich.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2000</td>
+<td style="text-align: left;">Das Patent auf RSA läuft aus; das Verfahren ist frei nutzbar.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Wie bei der Vigenère-Chiffre, die eigentlich auf Bellaso zurückgeht, trägt also auch RSA nicht den Namen seines ersten Erfinders. Bei Cocks lag es allerdings nicht an einer Verwechslung, sondern an der Geheimhaltung.</p>
+</section>
+<section id="aufgaben" class="level2" data-number="31.10">
+<h2 data-number="31.10" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">31.10</span> Aufgaben</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Aufgabe 1: Verschlüsseln
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Verschlüsseln Sie das Wort <code>GEHEIM</code> mit Bobs öffentlichem Schlüssel <span class="math inline">\((n, e) = (33, 3)\)</span>. Rechnen Sie von Hand und kontrollieren Sie mit <a href="#tbl-rsa-tabelle" class="quarto-xref">Tabelle&nbsp;<span>31.6</span></a>.</p>
+<p>Welche Schwäche des buchstabenweisen Verschlüsselns sehen Sie im Ergebnis?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Aufgabe 2: Entschlüsseln
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bob erhält den Geheimtext <code>29 24 0</code>. Entschlüsseln Sie ihn mit dem privaten Schlüssel <span class="math inline">\(d = 7\)</span>. Verwenden Sie den Trick aus dem Abschnitt «Grosse Potenzen von Hand».</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Aufgabe 3: Ein eigenes Schlüsselpaar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Erzeugen Sie ein Schlüsselpaar mit den Primzahlen <span class="math inline">\(p = 7\)</span> und <span class="math inline">\(q = 13\)</span> und dem öffentlichen Exponenten <span class="math inline">\(e = 5\)</span>.</p>
+<ol type="a">
+<li>Berechnen Sie <span class="math inline">\(n\)</span> und <span class="math inline">\(\varphi\)</span>.</li>
+<li>Prüfen Sie, dass <span class="math inline">\(e = 5\)</span> zulässig ist.</li>
+<li>Bestimmen Sie <span class="math inline">\(d\)</span>.</li>
+<li>Verschlüsseln Sie das Wort <code>KRYPTO</code>. Python-Kontrolle mit <code>pow</code> ist erlaubt.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Aufgabe 4: Eve greift an
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Eve fängt eine Nachricht ab, die mit dem öffentlichen Schlüssel <span class="math inline">\((n, e) = (55, 7)\)</span> verschlüsselt wurde.</p>
+<ol type="a">
+<li>Zerlegen Sie <span class="math inline">\(n\)</span> in seine Primfaktoren.</li>
+<li>Berechnen Sie damit den privaten Schlüssel <span class="math inline">\(d\)</span>.</li>
+<li>Erklären Sie in zwei bis drei Sätzen, warum dieser Angriff bei einem echten RSA-Schlüssel nicht funktioniert.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Aufgabe 5: Unterschrift prüfen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sie erhalten von Bob (öffentlicher Schlüssel <span class="math inline">\((33, 3)\)</span>) zwei Nachrichten mit Unterschrift:</p>
+<ul>
+<li>Nachricht 4, Unterschrift 16</li>
+<li>Nachricht 5, Unterschrift 20</li>
+</ul>
+<p>Welche Unterschrift ist echt?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Aufgabe 6: Kritische Würdigung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vergleichen Sie die Caesar-Chiffre, die Vigenère-Chiffre und RSA. Gehen Sie dabei auf folgende Fragen ein:</p>
+<ul>
+<li>Wie viele Schlüssel braucht eine Gruppe von 100 Personen?</li>
+<li>Wie muss der Schlüssel übergeben werden?</li>
+<li>Worauf beruht die Sicherheit, und welcher Angriff ist bekannt?</li>
+</ul>
+</div>
+</div>
+<section id="lösungen" class="level3" data-number="31.10.1">
+<h3 data-number="31.10.1" class="anchored" data-anchor-id="lösungen"><span class="header-section-number">31.10.1</span> Lösungen</h3>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Lösung Aufgabe 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">G</th>
+<th style="text-align: right;">E</th>
+<th style="text-align: right;">H</th>
+<th style="text-align: right;">E</th>
+<th style="text-align: right;">I</th>
+<th style="text-align: right;">M</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(m\)</span></td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(c\)</span></td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">12</td>
+</tr>
+</tbody>
+</table>
+<p>Geheimtext: <code>18 31 13 31 17 12</code>.</p>
+<p>Schwächen: Die beiden <code>E</code> werden beide zur 31; das Muster des Wortes bleibt sichtbar (Substitution). Das <code>M</code> bleibt als 12 unverändert.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Lösung Aufgabe 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(29^7 \bmod 33\)</span>:</p>
+<ul>
+<li><span class="math inline">\(29^2 = 841 = 25 \cdot 33 + 16 \Rightarrow 16\)</span></li>
+<li><span class="math inline">\(29^4 \Rightarrow 16^2 = 256 = 7 \cdot 33 + 25 \Rightarrow 25\)</span></li>
+<li><span class="math inline">\(29^7 = 29^4 \cdot 29^2 \cdot 29 \Rightarrow 25 \cdot 16 \cdot 29\)</span>; <span class="math inline">\(25 \cdot 16 = 400 \Rightarrow 4\)</span>; <span class="math inline">\(4 \cdot 29 = 116 \Rightarrow 17\)</span></li>
+</ul>
+<p><span class="math inline">\(17 \Rightarrow\)</span> <code>R</code>. Ebenso <span class="math inline">\(24^7 \bmod 33 = 18 \Rightarrow\)</span> <code>S</code> und <span class="math inline">\(0^7 = 0 \Rightarrow\)</span> <code>A</code>.</p>
+<p>Klartext: <code>RSA</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Lösung Aufgabe 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><span class="math inline">\(n = 7 \cdot 13 = 91\)</span>, <span class="math inline">\(\varphi = 6 \cdot 12 = 72\)</span></li>
+<li><span class="math inline">\(72 = 2^3 \cdot 3^2\)</span>; 5 ist weder durch 2 noch durch 3 teilbar, also kein gemeinsamer Teiler.</li>
+<li><span class="math inline">\(5 \cdot 29 = 145 = 2 \cdot 72 + 1\)</span>, also <span class="math inline">\(d = 29\)</span>.</li>
+<li><code>K R Y P T O</code> = <code>10 17 24 15 19 14</code> wird zu <code>82 75 33 71 80 14</code>. Das <code>O</code> bleibt auch hier unverändert.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Lösung Aufgabe 4
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><span class="math inline">\(55 = 5 \cdot 11\)</span></li>
+<li><span class="math inline">\(\varphi = 4 \cdot 10 = 40\)</span>. Gesucht: <span class="math inline">\(7 \cdot d \bmod 40 = 1\)</span>. <span class="math inline">\(7 \cdot 23 = 161 = 4 \cdot 40 + 1\)</span>, also <span class="math inline">\(d = 23\)</span>.</li>
+<li>Bei einem echten Schlüssel hat <span class="math inline">\(n\)</span> über 600 Dezimalstellen. Für die Zerlegung so grosser Zahlen ist kein schnelles Verfahren bekannt; selbst der aktuelle Rekord liegt bei 250 Stellen und brauchte enorme Rechenleistung. Ohne <span class="math inline">\(p\)</span> und <span class="math inline">\(q\)</span> kann Eve <span class="math inline">\(\varphi\)</span> und damit <span class="math inline">\(d\)</span> nicht berechnen.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Lösung Aufgabe 5
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="math inline">\(16^3 = 4096 = 124 \cdot 33 + 4 \Rightarrow 4\)</span>. Das ergibt die Nachricht 4. <strong>Echt.</strong></li>
+<li><span class="math inline">\(20^3 = 8000 = 242 \cdot 33 + 14 \Rightarrow 14\)</span>. Das ergibt 14, nicht 5. <strong>Gefälscht.</strong> Die echte Unterschrift zu 5 wäre <span class="math inline">\(5^7 \bmod 33 = 14\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Lösung Aufgabe 6 (Stichworte)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Caesar</th>
+<th style="text-align: left;">Vigenère</th>
+<th style="text-align: left;">RSA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Schlüssel für 100 Personen</td>
+<td style="text-align: left;">4950</td>
+<td style="text-align: left;">4950</td>
+<td style="text-align: left;">100 Schlüsselpaare</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Übergabe</td>
+<td style="text-align: left;">geheim, vorab</td>
+<td style="text-align: left;">geheim, vorab</td>
+<td style="text-align: left;">öffentlicher Schlüssel offen</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sicherheit beruht auf</td>
+<td style="text-align: left;">Geheimhaltung der Verschiebung</td>
+<td style="text-align: left;">Geheimhaltung und Länge des Schlüsselworts</td>
+<td style="text-align: left;">Schwierigkeit der Primfaktorzerlegung</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bekannter Angriff</td>
+<td style="text-align: left;">Brute Force (25 Versuche), Häufigkeitsanalyse</td>
+<td style="text-align: left;">Kasiski-Test, dann Häufigkeitsanalyse</td>
+<td style="text-align: left;">keiner für grosse Schlüssel; Quantencomputer (Shor) in Zukunft</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../files/lektionen_hs26/261023_caesar_knacken/261023_vigenere.html" class="pagination-link" aria-label="Die Vigenère-Chiffre">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Die Vigenère-Chiffre</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../references.html" class="pagination-link" aria-label="Literaturverzeichnis">
+        <span class="nav-page-text">Literaturverzeichnis</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> "Die RSA-Verschlüsselung"</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="an">lang:</span><span class="co"> de-CH</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">---</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="fu"># Die RSA-Verschlüsselung {#sec-rsa}</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="fu">## Das Problem: Wie kommt der Schlüssel zum Empfänger?</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a>Die Caesar- und die Vigenère-Chiffre haben etwas gemeinsam, das wir bisher</span>
+<span id="cb3-11"><a href="#cb3-11"></a>kaum beachtet haben: Sender und Empfänger brauchen **denselben Schlüssel**.</span>
+<span id="cb3-12"><a href="#cb3-12"></a>Wer mit dem Schlüssel <span class="in">`BUELRAIN`</span> verschlüsselt, muss diesen Schlüssel dem</span>
+<span id="cb3-13"><a href="#cb3-13"></a>Empfänger vorher irgendwie mitteilen. Man spricht deshalb von</span>
+<span id="cb3-14"><a href="#cb3-14"></a>**symmetrischer Verschlüsselung**: Der Schlüssel zum Abschliessen und der</span>
+<span id="cb3-15"><a href="#cb3-15"></a>Schlüssel zum Aufschliessen sind gleich.</span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a>Daraus ergibt sich ein Henne-Ei-Problem:</span>
+<span id="cb3-18"><a href="#cb3-18"></a></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="ss">- </span>Um den Schlüssel sicher zu übermitteln, bräuchte man einen sicheren Kanal.</span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="ss">- </span>Hätte man einen sicheren Kanal, bräuchte man keine Verschlüsselung.</span>
+<span id="cb3-21"><a href="#cb3-21"></a></span>
+<span id="cb3-22"><a href="#cb3-22"></a>Früher löste man das Problem mit Boten, Codebüchern und persönlichen</span>
+<span id="cb3-23"><a href="#cb3-23"></a>Treffen. Für das Internet taugt das nicht. Wenn Sie zum ersten Mal bei einem</span>
+<span id="cb3-24"><a href="#cb3-24"></a>Onlineshop einkaufen, haben Sie mit diesem Shop nie einen Schlüssel</span>
+<span id="cb3-25"><a href="#cb3-25"></a>vereinbart. Trotzdem wird Ihre Kreditkartennummer verschlüsselt übertragen.</span>
+<span id="cb3-26"><a href="#cb3-26"></a></span>
+<span id="cb3-27"><a href="#cb3-27"></a>Dazu kommt ein Mengenproblem. Wenn in einer Klasse mit 25 Personen jede mit</span>
+<span id="cb3-28"><a href="#cb3-28"></a>jeder geheim kommunizieren will, braucht jedes Paar einen eigenen</span>
+<span id="cb3-29"><a href="#cb3-29"></a>Schlüssel:</span>
+<span id="cb3-30"><a href="#cb3-30"></a></span>
+<span id="cb3-31"><a href="#cb3-31"></a>$$</span>
+<span id="cb3-32"><a href="#cb3-32"></a>\frac{25 \cdot 24}{2} = 300 \text{ Schlüssel}</span>
+<span id="cb3-33"><a href="#cb3-33"></a>$$</span>
+<span id="cb3-34"><a href="#cb3-34"></a></span>
+<span id="cb3-35"><a href="#cb3-35"></a>Bei einer Million Teilnehmerinnen und Teilnehmern wären es rund 500</span>
+<span id="cb3-36"><a href="#cb3-36"></a>Milliarden.</span>
+<span id="cb3-37"><a href="#cb3-37"></a></span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="fu">## Die Idee: zwei verschiedene Schlüssel</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a></span>
+<span id="cb3-40"><a href="#cb3-40"></a>1976 veröffentlichten Whitfield Diffie und Martin Hellman eine Idee, die die</span>
+<span id="cb3-41"><a href="#cb3-41"></a>Kryptologie grundlegend veränderte: Was wäre, wenn man zum Verschlüsseln</span>
+<span id="cb3-42"><a href="#cb3-42"></a>einen *anderen* Schlüssel verwenden könnte als zum Entschlüsseln?</span>
+<span id="cb3-43"><a href="#cb3-43"></a></span>
+<span id="cb3-44"><a href="#cb3-44"></a>Das Bild dazu ist ein **offenes Vorhängeschloss**:</span>
+<span id="cb3-45"><a href="#cb3-45"></a></span>
+<span id="cb3-46"><a href="#cb3-46"></a><span class="ss">- </span>Bob kauft viele gleiche Vorhängeschlösser und verteilt sie offen an alle,</span>
+<span id="cb3-47"><a href="#cb3-47"></a>  die ihm schreiben wollen. Den einzigen Schlüssel dazu behält er für sich.</span>
+<span id="cb3-48"><a href="#cb3-48"></a><span class="ss">- </span>Alice legt ihre Nachricht in eine Kiste und drückt eines von Bobs</span>
+<span id="cb3-49"><a href="#cb3-49"></a>  Schlössern zu. Dazu braucht sie keinen Schlüssel.</span>
+<span id="cb3-50"><a href="#cb3-50"></a><span class="ss">- </span>Ab jetzt kann nur noch Bob die Kiste öffnen. Nicht einmal Alice selbst</span>
+<span id="cb3-51"><a href="#cb3-51"></a>  kommt wieder an die Nachricht.</span>
+<span id="cb3-52"><a href="#cb3-52"></a></span>
+<span id="cb3-53"><a href="#cb3-53"></a>In der Kryptologie heissen die beiden Teile:</span>
+<span id="cb3-54"><a href="#cb3-54"></a></span>
+<span id="cb3-55"><a href="#cb3-55"></a><span class="pp">|</span> Teil <span class="pp">|</span> Bild <span class="pp">|</span> Wer kennt ihn? <span class="pp">|</span></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="pp">|:-----|:-----|:---------------|</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a><span class="pp">|</span> **öffentlicher Schlüssel** (*public key*) <span class="pp">|</span> das offene Schloss <span class="pp">|</span> alle <span class="pp">|</span></span>
+<span id="cb3-58"><a href="#cb3-58"></a><span class="pp">|</span> **privater Schlüssel** (*private key*) <span class="pp">|</span> der Schlüssel zum Schloss <span class="pp">|</span> nur Bob <span class="pp">|</span></span>
+<span id="cb3-59"><a href="#cb3-59"></a></span>
+<span id="cb3-60"><a href="#cb3-60"></a>: Die beiden Schlüssel eines asymmetrischen Verfahrens {#tbl-rsa-schluessel}</span>
+<span id="cb3-61"><a href="#cb3-61"></a></span>
+<span id="cb3-62"><a href="#cb3-62"></a>Man spricht von **asymmetrischer Verschlüsselung** oder</span>
+<span id="cb3-63"><a href="#cb3-63"></a>**Public-Key-Kryptografie**. Das Mengenproblem verschwindet dabei: In der</span>
+<span id="cb3-64"><a href="#cb3-64"></a>Klasse mit 25 Personen braucht jede Person genau ein Schlüsselpaar, also 25</span>
+<span id="cb3-65"><a href="#cb3-65"></a>statt 300.</span>
+<span id="cb3-66"><a href="#cb3-66"></a></span>
+<span id="cb3-69"><a href="#cb3-69"></a><span class="in">```{mermaid}</span></span>
+<span id="cb3-70"><a href="#cb3-70"></a>%%| label: fig-rsa-ablauf</span>
+<span id="cb3-71"><a href="#cb3-71"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Ablauf einer Public-Key-Verschlüsselung. Eve kann alles mithören, was über die Leitung geht.</span><span class="ot">"</span></span>
+<span id="cb3-72"><a href="#cb3-72"></a>sequenceDiagram</span>
+<span id="cb3-73"><a href="#cb3-73"></a>    participant A as Alice</span>
+<span id="cb3-74"><a href="#cb3-74"></a>    participant E as Eve (hört mit)</span>
+<span id="cb3-75"><a href="#cb3-75"></a>    participant B as Bob</span>
+<span id="cb3-76"><a href="#cb3-76"></a>    Note over B: erzeugt Schlüsselpaar&lt;br/&gt;öffentlich: (n, e)&lt;br/&gt;privat: d</span>
+<span id="cb3-77"><a href="#cb3-77"></a>    B-&gt;&gt;A: öffentlicher Schlüssel (n, e)</span>
+<span id="cb3-78"><a href="#cb3-78"></a>    Note over E: kennt (n, e)</span>
+<span id="cb3-79"><a href="#cb3-79"></a>    Note over A: verschlüsselt m mit (n, e)</span>
+<span id="cb3-80"><a href="#cb3-80"></a>    A-&gt;&gt;B: Geheimtext c</span>
+<span id="cb3-81"><a href="#cb3-81"></a>    Note over E: kennt c,&lt;br/&gt;aber nicht d</span>
+<span id="cb3-82"><a href="#cb3-82"></a>    Note over B: entschlüsselt c mit d</span>
+<span id="cb3-83"><a href="#cb3-83"></a><span class="in">```</span></span>
+<span id="cb3-84"><a href="#cb3-84"></a></span>
+<span id="cb3-85"><a href="#cb3-85"></a>Die Idee von Diffie und Hellman war zunächst nur ein Wunsch. Es fehlte ein</span>
+<span id="cb3-86"><a href="#cb3-86"></a>mathematisches Verfahren, das sich wie ein solches Vorhängeschloss verhält.</span>
+<span id="cb3-87"><a href="#cb3-87"></a>Dieses Verfahren fanden 1977 Ron **R**ivest, Adi **S**hamir und Leonard</span>
+<span id="cb3-88"><a href="#cb3-88"></a>**A**dleman am MIT. Nach ihren Anfangsbuchstaben heisst es **RSA**.</span>
+<span id="cb3-89"><a href="#cb3-89"></a></span>
+<span id="cb3-90"><a href="#cb3-90"></a><span class="fu">## Das Werkzeug: Rechnen mit Rest</span></span>
+<span id="cb3-91"><a href="#cb3-91"></a></span>
+<span id="cb3-92"><a href="#cb3-92"></a>Bei der Caesar-Chiffre haben Sie bereits mit Rest gerechnet: Wenn man <span class="in">`X`</span></span>
+<span id="cb3-93"><a href="#cb3-93"></a>um 3 verschiebt, landet man nicht bei Position 26, sondern wieder bei <span class="in">`A`</span>.</span>
+<span id="cb3-94"><a href="#cb3-94"></a>Man rechnet *modulo 26*:</span>
+<span id="cb3-95"><a href="#cb3-95"></a></span>
+<span id="cb3-96"><a href="#cb3-96"></a>$$</span>
+<span id="cb3-97"><a href="#cb3-97"></a>(23 + 3) \bmod 26 = 26 \bmod 26 = 0 \quad\Rightarrow\quad \texttt{A}</span>
+<span id="cb3-98"><a href="#cb3-98"></a>$$</span>
+<span id="cb3-99"><a href="#cb3-99"></a></span>
+<span id="cb3-100"><a href="#cb3-100"></a>$a \bmod n$ ist der Rest, der bei der Division von $a$ durch $n$ übrig</span>
+<span id="cb3-101"><a href="#cb3-101"></a>bleibt. Ein Alltagsbeispiel ist die Uhr: 10 Uhr plus 5 Stunden ergibt nicht</span>
+<span id="cb3-102"><a href="#cb3-102"></a>15 Uhr, sondern 3 Uhr, denn $15 \bmod 12 = 3$.</span>
+<span id="cb3-103"><a href="#cb3-103"></a></span>
+<span id="cb3-104"><a href="#cb3-104"></a>RSA verwendet genau dieses Rechnen mit Rest, aber statt mit Addition mit</span>
+<span id="cb3-105"><a href="#cb3-105"></a>**Potenzen**. Ein Beispiel:</span>
+<span id="cb3-106"><a href="#cb3-106"></a></span>
+<span id="cb3-107"><a href="#cb3-107"></a>$$</span>
+<span id="cb3-108"><a href="#cb3-108"></a>7^3 = 343 \qquad 343 \bmod 33 = 343 - 10 \cdot 33 = 13</span>
+<span id="cb3-109"><a href="#cb3-109"></a>$$</span>
+<span id="cb3-110"><a href="#cb3-110"></a></span>
+<span id="cb3-111"><a href="#cb3-111"></a>Also ist $7^3 \bmod 33 = 13$.</span>
+<span id="cb3-112"><a href="#cb3-112"></a></span>
+<span id="cb3-113"><a href="#cb3-113"></a>::: {.callout-tip}</span>
+<span id="cb3-114"><a href="#cb3-114"></a><span class="fu">## Grosse Potenzen von Hand</span></span>
+<span id="cb3-115"><a href="#cb3-115"></a></span>
+<span id="cb3-116"><a href="#cb3-116"></a>Bei Potenzen werden die Zahlen schnell riesig. Der Trick: Man darf **nach</span>
+<span id="cb3-117"><a href="#cb3-117"></a>jedem Zwischenschritt** den Rest bilden. Das Ergebnis bleibt gleich, die</span>
+<span id="cb3-118"><a href="#cb3-118"></a>Zahlen bleiben klein. So berechnet man zum Beispiel $13^7 \bmod 33$:</span>
+<span id="cb3-119"><a href="#cb3-119"></a></span>
+<span id="cb3-120"><a href="#cb3-120"></a><span class="pp">|</span> Schritt <span class="pp">|</span> Rechnung <span class="pp">|</span> Rest mod 33 <span class="pp">|</span></span>
+<span id="cb3-121"><a href="#cb3-121"></a><span class="pp">|:--------|:---------|------------:|</span></span>
+<span id="cb3-122"><a href="#cb3-122"></a><span class="pp">|</span> $13^2$ <span class="pp">|</span> $169 = 5 \cdot 33 + 4$ <span class="pp">|</span> $4$ <span class="pp">|</span></span>
+<span id="cb3-123"><a href="#cb3-123"></a><span class="pp">|</span> $13^4 = (13^2)^2$ <span class="pp">|</span> $4^2 = 16$ <span class="pp">|</span> $16$ <span class="pp">|</span></span>
+<span id="cb3-124"><a href="#cb3-124"></a><span class="pp">|</span> $13^7 = 13^4 \cdot 13^2 \cdot 13$ <span class="pp">|</span> $16 \cdot 4 \cdot 13 = 832 = 25 \cdot 33 + 7$ <span class="pp">|</span> $7$ <span class="pp">|</span></span>
+<span id="cb3-125"><a href="#cb3-125"></a></span>
+<span id="cb3-126"><a href="#cb3-126"></a>Also ist $13^7 \bmod 33 = 7$. Ohne den Trick hätte man mit</span>
+<span id="cb3-127"><a href="#cb3-127"></a>$13^7 = 62\,748\,517$ rechnen müssen.</span>
+<span id="cb3-128"><a href="#cb3-128"></a>:::</span>
+<span id="cb3-129"><a href="#cb3-129"></a></span>
+<span id="cb3-130"><a href="#cb3-130"></a><span class="fu">## Das Verfahren von Hand</span></span>
+<span id="cb3-131"><a href="#cb3-131"></a></span>
+<span id="cb3-132"><a href="#cb3-132"></a>Wir spielen RSA mit sehr kleinen Zahlen durch. Bob erzeugt sein</span>
+<span id="cb3-133"><a href="#cb3-133"></a>Schlüsselpaar, Alice schickt ihm eine Nachricht.</span>
+<span id="cb3-134"><a href="#cb3-134"></a></span>
+<span id="cb3-135"><a href="#cb3-135"></a><span class="fu">### Schritt 1: Bob erzeugt sein Schlüsselpaar</span></span>
+<span id="cb3-136"><a href="#cb3-136"></a></span>
+<span id="cb3-137"><a href="#cb3-137"></a>**a) Zwei Primzahlen wählen.** Bob wählt zwei verschiedene Primzahlen und</span>
+<span id="cb3-138"><a href="#cb3-138"></a>hält sie geheim:</span>
+<span id="cb3-139"><a href="#cb3-139"></a></span>
+<span id="cb3-140"><a href="#cb3-140"></a>$$</span>
+<span id="cb3-141"><a href="#cb3-141"></a>p = 3 \qquad q = 11</span>
+<span id="cb3-142"><a href="#cb3-142"></a>$$</span>
+<span id="cb3-143"><a href="#cb3-143"></a></span>
+<span id="cb3-144"><a href="#cb3-144"></a>**b) Das Produkt bilden.** Das Produkt heisst **RSA-Modul**:</span>
+<span id="cb3-145"><a href="#cb3-145"></a></span>
+<span id="cb3-146"><a href="#cb3-146"></a>$$</span>
+<span id="cb3-147"><a href="#cb3-147"></a>n = p \cdot q = 3 \cdot 11 = 33</span>
+<span id="cb3-148"><a href="#cb3-148"></a>$$</span>
+<span id="cb3-149"><a href="#cb3-149"></a></span>
+<span id="cb3-150"><a href="#cb3-150"></a>**c) Die Hilfszahl $\varphi$ berechnen.** Man spricht «phi»:</span>
+<span id="cb3-151"><a href="#cb3-151"></a></span>
+<span id="cb3-152"><a href="#cb3-152"></a>$$</span>
+<span id="cb3-153"><a href="#cb3-153"></a>\varphi = (p - 1) \cdot (q - 1) = 2 \cdot 10 = 20</span>
+<span id="cb3-154"><a href="#cb3-154"></a>$$</span>
+<span id="cb3-155"><a href="#cb3-155"></a></span>
+<span id="cb3-156"><a href="#cb3-156"></a>**d) Den öffentlichen Exponenten $e$ wählen.** $e$ muss grösser als 1 sein</span>
+<span id="cb3-157"><a href="#cb3-157"></a>und darf mit $\varphi = 20$ keinen gemeinsamen Teiler haben. $e = 2$ geht</span>
+<span id="cb3-158"><a href="#cb3-158"></a>nicht (gemeinsamer Teiler 2), $e = 3$ geht:</span>
+<span id="cb3-159"><a href="#cb3-159"></a></span>
+<span id="cb3-160"><a href="#cb3-160"></a>$$</span>
+<span id="cb3-161"><a href="#cb3-161"></a>e = 3</span>
+<span id="cb3-162"><a href="#cb3-162"></a>$$</span>
+<span id="cb3-163"><a href="#cb3-163"></a></span>
+<span id="cb3-164"><a href="#cb3-164"></a>**e) Den privaten Exponenten $d$ berechnen.** Gesucht ist eine Zahl $d$, für</span>
+<span id="cb3-165"><a href="#cb3-165"></a>die gilt:</span>
+<span id="cb3-166"><a href="#cb3-166"></a></span>
+<span id="cb3-167"><a href="#cb3-167"></a>$$</span>
+<span id="cb3-168"><a href="#cb3-168"></a>e \cdot d \bmod \varphi = 1</span>
+<span id="cb3-169"><a href="#cb3-169"></a>$$</span>
+<span id="cb3-170"><a href="#cb3-170"></a></span>
+<span id="cb3-171"><a href="#cb3-171"></a>Bob probiert der Reihe nach:</span>
+<span id="cb3-172"><a href="#cb3-172"></a></span>
+<span id="cb3-173"><a href="#cb3-173"></a><span class="pp">|</span> $d$ <span class="pp">|</span> 1 <span class="pp">|</span> 2 <span class="pp">|</span> 3 <span class="pp">|</span> 4 <span class="pp">|</span> 5 <span class="pp">|</span> 6 <span class="pp">|</span> **7** <span class="pp">|</span></span>
+<span id="cb3-174"><a href="#cb3-174"></a><span class="pp">|:----|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|------:|</span></span>
+<span id="cb3-175"><a href="#cb3-175"></a><span class="pp">|</span> $3 \cdot d$ <span class="pp">|</span> 3 <span class="pp">|</span> 6 <span class="pp">|</span> 9 <span class="pp">|</span> 12 <span class="pp">|</span> 15 <span class="pp">|</span> 18 <span class="pp">|</span> **21** <span class="pp">|</span></span>
+<span id="cb3-176"><a href="#cb3-176"></a><span class="pp">|</span> $3 \cdot d \bmod 20$ <span class="pp">|</span> 3 <span class="pp">|</span> 6 <span class="pp">|</span> 9 <span class="pp">|</span> 12 <span class="pp">|</span> 15 <span class="pp">|</span> 18 <span class="pp">|</span> **1** <span class="pp">|</span></span>
+<span id="cb3-177"><a href="#cb3-177"></a></span>
+<span id="cb3-178"><a href="#cb3-178"></a>: Suche nach dem privaten Exponenten {#tbl-rsa-d}</span>
+<span id="cb3-179"><a href="#cb3-179"></a></span>
+<span id="cb3-180"><a href="#cb3-180"></a>Also ist $d = 7$.</span>
+<span id="cb3-181"><a href="#cb3-181"></a></span>
+<span id="cb3-182"><a href="#cb3-182"></a>Damit hat Bob sein Schlüsselpaar:</span>
+<span id="cb3-183"><a href="#cb3-183"></a></span>
+<span id="cb3-184"><a href="#cb3-184"></a><span class="pp">|</span> <span class="pp">|</span> Inhalt <span class="pp">|</span> Status <span class="pp">|</span></span>
+<span id="cb3-185"><a href="#cb3-185"></a><span class="pp">|</span>:--<span class="pp">|</span>:--<span class="pp">|</span>:--<span class="pp">|</span></span>
+<span id="cb3-186"><a href="#cb3-186"></a><span class="pp">|</span> öffentlicher Schlüssel <span class="pp">|</span> $(n, e) = (33, 3)$ <span class="pp">|</span> wird veröffentlicht <span class="pp">|</span></span>
+<span id="cb3-187"><a href="#cb3-187"></a><span class="pp">|</span> privater Schlüssel <span class="pp">|</span> $d = 7$ <span class="pp">|</span> bleibt geheim <span class="pp">|</span></span>
+<span id="cb3-188"><a href="#cb3-188"></a><span class="pp">|</span> Hilfszahlen <span class="pp">|</span> $p = 3$, $q = 11$, $\varphi = 20$ <span class="pp">|</span> werden vernichtet oder geheim gehalten <span class="pp">|</span></span>
+<span id="cb3-189"><a href="#cb3-189"></a></span>
+<span id="cb3-190"><a href="#cb3-190"></a>: Bobs Schlüsselpaar {#tbl-rsa-bob}</span>
+<span id="cb3-191"><a href="#cb3-191"></a></span>
+<span id="cb3-192"><a href="#cb3-192"></a><span class="fu">### Schritt 2: Alice verschlüsselt</span></span>
+<span id="cb3-193"><a href="#cb3-193"></a></span>
+<span id="cb3-194"><a href="#cb3-194"></a>Alice will Bob das Wort <span class="in">`HALLO`</span> schicken. Wie bei der Caesar-Chiffre</span>
+<span id="cb3-195"><a href="#cb3-195"></a>übersetzt sie die Buchstaben zuerst in Zahlen (<span class="in">`A`</span> = 0, <span class="in">`B`</span> = 1, …,</span>
+<span id="cb3-196"><a href="#cb3-196"></a><span class="in">`Z`</span> = 25). Dann rechnet sie für jede Zahl $m$ mit Bobs öffentlichem</span>
+<span id="cb3-197"><a href="#cb3-197"></a>Schlüssel:</span>
+<span id="cb3-198"><a href="#cb3-198"></a></span>
+<span id="cb3-199"><a href="#cb3-199"></a>$$</span>
+<span id="cb3-200"><a href="#cb3-200"></a>c = m^e \bmod n</span>
+<span id="cb3-201"><a href="#cb3-201"></a>$$</span>
+<span id="cb3-202"><a href="#cb3-202"></a></span>
+<span id="cb3-203"><a href="#cb3-203"></a><span class="pp">|</span> Buchstabe <span class="pp">|</span> $m$ <span class="pp">|</span> $m^3$ <span class="pp">|</span> $c = m^3 \bmod 33$ <span class="pp">|</span></span>
+<span id="cb3-204"><a href="#cb3-204"></a><span class="pp">|:---------:|----:|------:|-------------------:|</span></span>
+<span id="cb3-205"><a href="#cb3-205"></a><span class="pp">|</span> <span class="in">`H`</span> <span class="pp">|</span> 7  <span class="pp">|</span> 343  <span class="pp">|</span> 13 <span class="pp">|</span></span>
+<span id="cb3-206"><a href="#cb3-206"></a><span class="pp">|</span> <span class="in">`A`</span> <span class="pp">|</span> 0  <span class="pp">|</span> 0    <span class="pp">|</span> 0  <span class="pp">|</span></span>
+<span id="cb3-207"><a href="#cb3-207"></a><span class="pp">|</span> <span class="in">`L`</span> <span class="pp">|</span> 11 <span class="pp">|</span> 1331 <span class="pp">|</span> 11 <span class="pp">|</span></span>
+<span id="cb3-208"><a href="#cb3-208"></a><span class="pp">|</span> <span class="in">`L`</span> <span class="pp">|</span> 11 <span class="pp">|</span> 1331 <span class="pp">|</span> 11 <span class="pp">|</span></span>
+<span id="cb3-209"><a href="#cb3-209"></a><span class="pp">|</span> <span class="in">`O`</span> <span class="pp">|</span> 14 <span class="pp">|</span> 2744 <span class="pp">|</span> 5  <span class="pp">|</span></span>
+<span id="cb3-210"><a href="#cb3-210"></a></span>
+<span id="cb3-211"><a href="#cb3-211"></a>: Alice verschlüsselt HALLO {#tbl-rsa-hallo}</span>
+<span id="cb3-212"><a href="#cb3-212"></a></span>
+<span id="cb3-213"><a href="#cb3-213"></a>Alice schickt den Geheimtext <span class="in">`13 0 11 11 5`</span>. Der Geheimtext besteht aus</span>
+<span id="cb3-214"><a href="#cb3-214"></a>**Zahlen**, nicht aus Buchstaben, denn das Ergebnis kann zwischen 0 und 32</span>
+<span id="cb3-215"><a href="#cb3-215"></a>liegen.</span>
+<span id="cb3-216"><a href="#cb3-216"></a></span>
+<span id="cb3-217"><a href="#cb3-217"></a><span class="fu">### Schritt 3: Bob entschlüsselt</span></span>
+<span id="cb3-218"><a href="#cb3-218"></a></span>
+<span id="cb3-219"><a href="#cb3-219"></a>Bob rechnet für jede empfangene Zahl $c$ mit seinem privaten Schlüssel:</span>
+<span id="cb3-220"><a href="#cb3-220"></a></span>
+<span id="cb3-221"><a href="#cb3-221"></a>$$</span>
+<span id="cb3-222"><a href="#cb3-222"></a>m = c^d \bmod n</span>
+<span id="cb3-223"><a href="#cb3-223"></a>$$</span>
+<span id="cb3-224"><a href="#cb3-224"></a></span>
+<span id="cb3-225"><a href="#cb3-225"></a>Für die erste Zahl haben wir die Rechnung oben bereits gemacht:</span>
+<span id="cb3-226"><a href="#cb3-226"></a></span>
+<span id="cb3-227"><a href="#cb3-227"></a>$$</span>
+<span id="cb3-228"><a href="#cb3-228"></a>13^7 \bmod 33 = 7 \quad\Rightarrow\quad \texttt{H}</span>
+<span id="cb3-229"><a href="#cb3-229"></a>$$</span>
+<span id="cb3-230"><a href="#cb3-230"></a></span>
+<span id="cb3-231"><a href="#cb3-231"></a>Und für die letzte:</span>
+<span id="cb3-232"><a href="#cb3-232"></a></span>
+<span id="cb3-233"><a href="#cb3-233"></a>$$</span>
+<span id="cb3-234"><a href="#cb3-234"></a>5^7 = 78\,125 = 2367 \cdot 33 + 14 \quad\Rightarrow\quad 14 \quad\Rightarrow\quad \texttt{O}</span>
+<span id="cb3-235"><a href="#cb3-235"></a>$$</span>
+<span id="cb3-236"><a href="#cb3-236"></a></span>
+<span id="cb3-237"><a href="#cb3-237"></a>Bob erhält wieder <span class="in">`HALLO`</span>.</span>
+<span id="cb3-238"><a href="#cb3-238"></a></span>
+<span id="cb3-239"><a href="#cb3-239"></a><span class="fu">### Was Eve weiss</span></span>
+<span id="cb3-240"><a href="#cb3-240"></a></span>
+<span id="cb3-241"><a href="#cb3-241"></a>Eve hat alles mitgehört. Sie kennt den öffentlichen Schlüssel $(33, 3)$ und</span>
+<span id="cb3-242"><a href="#cb3-242"></a>den Geheimtext <span class="in">`13 0 11 11 5`</span>. Um zu entschlüsseln, bräuchte sie $d$. Um $d$</span>
+<span id="cb3-243"><a href="#cb3-243"></a>zu berechnen, bräuchte sie $\varphi$. Und um $\varphi$ zu berechnen,</span>
+<span id="cb3-244"><a href="#cb3-244"></a>bräuchte sie $p$ und $q$.</span>
+<span id="cb3-245"><a href="#cb3-245"></a></span>
+<span id="cb3-246"><a href="#cb3-246"></a>Die ganze Sicherheit von RSA hängt also an einer Frage:</span>
+<span id="cb3-247"><a href="#cb3-247"></a></span>
+<span id="cb3-248"><a href="#cb3-248"></a><span class="at">&gt; **Kann man aus $n$ die beiden Primzahlen $p$ und $q$ herausfinden?**</span></span>
+<span id="cb3-249"><a href="#cb3-249"></a></span>
+<span id="cb3-250"><a href="#cb3-250"></a>Bei $n = 33$ ist das natürlich trivial. Wie es bei grossen Zahlen aussieht,</span>
+<span id="cb3-251"><a href="#cb3-251"></a>klären wir in @sec-rsa-sicherheit.</span>
+<span id="cb3-252"><a href="#cb3-252"></a></span>
+<span id="cb3-253"><a href="#cb3-253"></a><span class="fu">## Die Formeln im Überblick</span></span>
+<span id="cb3-254"><a href="#cb3-254"></a></span>
+<span id="cb3-255"><a href="#cb3-255"></a><span class="pp">|</span> <span class="pp">|</span> Formel <span class="pp">|</span> wer? <span class="pp">|</span></span>
+<span id="cb3-256"><a href="#cb3-256"></a><span class="pp">|</span>:--<span class="pp">|</span>:--<span class="pp">|</span>:--<span class="pp">|</span></span>
+<span id="cb3-257"><a href="#cb3-257"></a><span class="pp">|</span> Modul <span class="pp">|</span> $n = p \cdot q$ <span class="pp">|</span> Bob <span class="pp">|</span></span>
+<span id="cb3-258"><a href="#cb3-258"></a><span class="pp">|</span> Hilfszahl <span class="pp">|</span> $\varphi = (p-1)(q-1)$ <span class="pp">|</span> Bob <span class="pp">|</span></span>
+<span id="cb3-259"><a href="#cb3-259"></a><span class="pp">|</span> öffentlicher Exponent <span class="pp">|</span> $e$ ohne gemeinsamen Teiler mit $\varphi$ <span class="pp">|</span> Bob <span class="pp">|</span></span>
+<span id="cb3-260"><a href="#cb3-260"></a><span class="pp">|</span> privater Exponent <span class="pp">|</span> $e \cdot d \bmod \varphi = 1$ <span class="pp">|</span> Bob <span class="pp">|</span></span>
+<span id="cb3-261"><a href="#cb3-261"></a><span class="pp">|</span> Verschlüsseln <span class="pp">|</span> $c = m^e \bmod n$ <span class="pp">|</span> Alice (und alle anderen) <span class="pp">|</span></span>
+<span id="cb3-262"><a href="#cb3-262"></a><span class="pp">|</span> Entschlüsseln <span class="pp">|</span> $m = c^d \bmod n$ <span class="pp">|</span> nur Bob <span class="pp">|</span></span>
+<span id="cb3-263"><a href="#cb3-263"></a></span>
+<span id="cb3-264"><a href="#cb3-264"></a>: RSA in sechs Zeilen {#tbl-rsa-formeln}</span>
+<span id="cb3-265"><a href="#cb3-265"></a></span>
+<span id="cb3-266"><a href="#cb3-266"></a>Dabei muss die Zahl $m$ kleiner als $n$ sein. Bei $n = 33$ ist das für</span>
+<span id="cb3-267"><a href="#cb3-267"></a>unsere Buchstaben 0 bis 25 erfüllt.</span>
+<span id="cb3-268"><a href="#cb3-268"></a></span>
+<span id="cb3-269"><a href="#cb3-269"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb3-270"><a href="#cb3-270"></a><span class="fu">## Für Interessierte: Warum funktioniert das?</span></span>
+<span id="cb3-271"><a href="#cb3-271"></a></span>
+<span id="cb3-272"><a href="#cb3-272"></a>Dass $\left(m^e\right)^d \bmod n$ wieder $m$ ergibt, folgt aus einem Satz,</span>
+<span id="cb3-273"><a href="#cb3-273"></a>den Leonhard Euler im 18. Jahrhundert bewiesen hat. Er besagt, dass für jede</span>
+<span id="cb3-274"><a href="#cb3-274"></a>Zahl $m$ ohne gemeinsamen Teiler mit $n$ gilt:</span>
+<span id="cb3-275"><a href="#cb3-275"></a></span>
+<span id="cb3-276"><a href="#cb3-276"></a>$$</span>
+<span id="cb3-277"><a href="#cb3-277"></a>m^{\varphi} \bmod n = 1</span>
+<span id="cb3-278"><a href="#cb3-278"></a>$$</span>
+<span id="cb3-279"><a href="#cb3-279"></a></span>
+<span id="cb3-280"><a href="#cb3-280"></a>Weil $e \cdot d = k \cdot \varphi + 1$ für irgendeine ganze Zahl $k$ gilt,</span>
+<span id="cb3-281"><a href="#cb3-281"></a>folgt:</span>
+<span id="cb3-282"><a href="#cb3-282"></a></span>
+<span id="cb3-283"><a href="#cb3-283"></a>$$</span>
+<span id="cb3-284"><a href="#cb3-284"></a>m^{e \cdot d} = m^{k \cdot \varphi + 1} = \left(m^{\varphi}\right)^k \cdot m</span>
+<span id="cb3-285"><a href="#cb3-285"></a>\;\equiv\; 1^k \cdot m = m \pmod n</span>
+<span id="cb3-286"><a href="#cb3-286"></a>$$</span>
+<span id="cb3-287"><a href="#cb3-287"></a></span>
+<span id="cb3-288"><a href="#cb3-288"></a>In unserem Beispiel ist $e \cdot d = 21 = 1 \cdot 20 + 1$. Man kann zeigen,</span>
+<span id="cb3-289"><a href="#cb3-289"></a>dass die Rechnung auch für die Zahlen $m$ aufgeht, die mit $n$ einen</span>
+<span id="cb3-290"><a href="#cb3-290"></a>gemeinsamen Teiler haben.</span>
+<span id="cb3-291"><a href="#cb3-291"></a>:::</span>
+<span id="cb3-292"><a href="#cb3-292"></a></span>
+<span id="cb3-293"><a href="#cb3-293"></a>::: {.callout-tip}</span>
+<span id="cb3-294"><a href="#cb3-294"></a><span class="fu">## Kontrollieren mit Python</span></span>
+<span id="cb3-295"><a href="#cb3-295"></a></span>
+<span id="cb3-296"><a href="#cb3-296"></a>Sie müssen RSA nicht programmieren. Zum Überprüfen Ihrer Handrechnungen</span>
+<span id="cb3-297"><a href="#cb3-297"></a>ist aber die eingebaute Funktion <span class="in">`pow`</span> praktisch. Mit drei Argumenten</span>
+<span id="cb3-298"><a href="#cb3-298"></a>rechnet sie direkt modulo:</span>
+<span id="cb3-299"><a href="#cb3-299"></a></span>
+<span id="cb3-300"><a href="#cb3-300"></a><span class="in">```python</span></span>
+<span id="cb3-301"><a href="#cb3-301"></a><span class="bu">pow</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">33</span>)    <span class="co"># 7 hoch 3 modulo 33 → 13</span></span>
+<span id="cb3-302"><a href="#cb3-302"></a><span class="bu">pow</span>(<span class="dv">13</span>, <span class="dv">7</span>, <span class="dv">33</span>)   <span class="co"># 13 hoch 7 modulo 33 → 7</span></span>
+<span id="cb3-303"><a href="#cb3-303"></a><span class="in">```</span></span>
+<span id="cb3-304"><a href="#cb3-304"></a>:::</span>
+<span id="cb3-305"><a href="#cb3-305"></a></span>
+<span id="cb3-306"><a href="#cb3-306"></a><span class="fu">## Die ganze Tabelle: eine Überraschung</span></span>
+<span id="cb3-307"><a href="#cb3-307"></a></span>
+<span id="cb3-308"><a href="#cb3-308"></a>Weil Alice jeden Buchstaben einzeln verschlüsselt, kann man für den</span>
+<span id="cb3-309"><a href="#cb3-309"></a>Schlüssel $(33, 3)$ eine vollständige Tabelle erstellen:</span>
+<span id="cb3-310"><a href="#cb3-310"></a></span>
+<span id="cb3-311"><a href="#cb3-311"></a><span class="pp">|</span> Klartext <span class="pp">|</span> A <span class="pp">|</span> B <span class="pp">|</span> C <span class="pp">|</span> D <span class="pp">|</span> E <span class="pp">|</span> F <span class="pp">|</span> G <span class="pp">|</span> H <span class="pp">|</span> I <span class="pp">|</span> J <span class="pp">|</span> K <span class="pp">|</span> L <span class="pp">|</span> M <span class="pp">|</span></span>
+<span id="cb3-312"><a href="#cb3-312"></a><span class="pp">|</span>:--<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span></span>
+<span id="cb3-313"><a href="#cb3-313"></a><span class="pp">|</span> $m$ <span class="pp">|</span> 0 <span class="pp">|</span> 1 <span class="pp">|</span> 2 <span class="pp">|</span> 3 <span class="pp">|</span> 4 <span class="pp">|</span> 5 <span class="pp">|</span> 6 <span class="pp">|</span> 7 <span class="pp">|</span> 8 <span class="pp">|</span> 9 <span class="pp">|</span> 10 <span class="pp">|</span> 11 <span class="pp">|</span> 12 <span class="pp">|</span></span>
+<span id="cb3-314"><a href="#cb3-314"></a><span class="pp">|</span> $c$ <span class="pp">|</span> **0** | **1** | 8 | 27 | 31 | 26 | 18 | 13 | 17 | 3 | **10** | **11** | **12** <span class="pp">|</span></span>
+<span id="cb3-315"><a href="#cb3-315"></a></span>
+<span id="cb3-316"><a href="#cb3-316"></a><span class="pp">|</span> Klartext <span class="pp">|</span> N <span class="pp">|</span> O <span class="pp">|</span> P <span class="pp">|</span> Q <span class="pp">|</span> R <span class="pp">|</span> S <span class="pp">|</span> T <span class="pp">|</span> U <span class="pp">|</span> V <span class="pp">|</span> W <span class="pp">|</span> X <span class="pp">|</span> Y <span class="pp">|</span> Z <span class="pp">|</span></span>
+<span id="cb3-317"><a href="#cb3-317"></a><span class="pp">|</span>:--<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span></span>
+<span id="cb3-318"><a href="#cb3-318"></a><span class="pp">|</span> $m$ <span class="pp">|</span> 13 <span class="pp">|</span> 14 <span class="pp">|</span> 15 <span class="pp">|</span> 16 <span class="pp">|</span> 17 <span class="pp">|</span> 18 <span class="pp">|</span> 19 <span class="pp">|</span> 20 <span class="pp">|</span> 21 <span class="pp">|</span> 22 <span class="pp">|</span> 23 <span class="pp">|</span> 24 <span class="pp">|</span> 25 <span class="pp">|</span></span>
+<span id="cb3-319"><a href="#cb3-319"></a><span class="pp">|</span> $c$ <span class="pp">|</span> 19 <span class="pp">|</span> 5 <span class="pp">|</span> 9 <span class="pp">|</span> 4 <span class="pp">|</span> 29 <span class="pp">|</span> 24 <span class="pp">|</span> 28 <span class="pp">|</span> 14 <span class="pp">|</span> **21** | **22** | **23** <span class="pp">|</span> 30 <span class="pp">|</span> 16 <span class="pp">|</span></span>
+<span id="cb3-320"><a href="#cb3-320"></a></span>
+<span id="cb3-321"><a href="#cb3-321"></a>: Verschlüsselungstabelle für den Schlüssel (33, 3); fett: Buchstaben, die sich nicht verändern {#tbl-rsa-tabelle}</span>
+<span id="cb3-322"><a href="#cb3-322"></a></span>
+<span id="cb3-323"><a href="#cb3-323"></a>Zwei Dinge fallen auf:</span>
+<span id="cb3-324"><a href="#cb3-324"></a></span>
+<span id="cb3-325"><a href="#cb3-325"></a><span class="ss">1. </span>**Acht Buchstaben bleiben unverändert:** <span class="in">`A`</span>, <span class="in">`B`</span>, <span class="in">`K`</span>, <span class="in">`L`</span>, <span class="in">`M`</span>, <span class="in">`V`</span>,</span>
+<span id="cb3-326"><a href="#cb3-326"></a>   <span class="in">`W`</span> und <span class="in">`X`</span>. Darum stand im Geheimtext von <span class="in">`HALLO`</span> die 0 und zweimal die</span>
+<span id="cb3-327"><a href="#cb3-327"></a>   11 – man kann <span class="in">`A`</span> und <span class="in">`LL`</span> direkt ablesen.</span>
+<span id="cb3-328"><a href="#cb3-328"></a><span class="ss">2. </span>**Jeder Buchstabe wird immer gleich verschlüsselt.** Das <span class="in">`E`</span> wird immer</span>
+<span id="cb3-329"><a href="#cb3-329"></a>   zur 31. Damit ist buchstabenweises RSA nichts anderes als eine</span>
+<span id="cb3-330"><a href="#cb3-330"></a>   **monoalphabetische Substitution**, wie die Caesar-Chiffre auch. Die</span>
+<span id="cb3-331"><a href="#cb3-331"></a>   Häufigkeitsanalyse, die Sie bereits kennen, knackt es mühelos: Die</span>
+<span id="cb3-332"><a href="#cb3-332"></a>   häufigste Zahl im Geheimtext steht für <span class="in">`E`</span>.</span>
+<span id="cb3-333"><a href="#cb3-333"></a></span>
+<span id="cb3-334"><a href="#cb3-334"></a>Die Mathematik von RSA ist also stark, aber die Art, wie wir sie hier</span>
+<span id="cb3-335"><a href="#cb3-335"></a>eingesetzt haben, ist schwach. In der Praxis verschlüsselt man deshalb</span>
+<span id="cb3-336"><a href="#cb3-336"></a>nie einzelne Buchstaben. Man fasst lange Textblöcke zu einer einzigen</span>
+<span id="cb3-337"><a href="#cb3-337"></a>riesigen Zahl zusammen und mischt vor dem Verschlüsseln zusätzlich</span>
+<span id="cb3-338"><a href="#cb3-338"></a>Zufallsdaten bei (das sogenannte *Padding*). So wird derselbe Klartext</span>
+<span id="cb3-339"><a href="#cb3-339"></a>jedes Mal anders verschlüsselt.</span>
+<span id="cb3-340"><a href="#cb3-340"></a></span>
+<span id="cb3-341"><a href="#cb3-341"></a><span class="fu">## Wie sicher ist RSA? {#sec-rsa-sicherheit}</span></span>
+<span id="cb3-342"><a href="#cb3-342"></a></span>
+<span id="cb3-343"><a href="#cb3-343"></a><span class="fu">### Multiplizieren ist leicht, Zerlegen ist schwer</span></span>
+<span id="cb3-344"><a href="#cb3-344"></a></span>
+<span id="cb3-345"><a href="#cb3-345"></a>Die Sicherheit von RSA beruht auf einer Asymmetrie, die Sie selbst</span>
+<span id="cb3-346"><a href="#cb3-346"></a>ausprobieren können:</span>
+<span id="cb3-347"><a href="#cb3-347"></a></span>
+<span id="cb3-348"><a href="#cb3-348"></a><span class="ss">- </span>Berechnen Sie $61 \cdot 53$. Das dauert mit Papier und Bleistift eine</span>
+<span id="cb3-349"><a href="#cb3-349"></a>  halbe Minute.</span>
+<span id="cb3-350"><a href="#cb3-350"></a><span class="ss">- </span>Zerlegen Sie $3233$ in zwei Primzahlen. Das dauert deutlich länger, weil</span>
+<span id="cb3-351"><a href="#cb3-351"></a>  man ausprobieren muss.</span>
+<span id="cb3-352"><a href="#cb3-352"></a></span>
+<span id="cb3-353"><a href="#cb3-353"></a>(Es ist dieselbe Aufgabe: $61 \cdot 53 = 3233$.)</span>
+<span id="cb3-354"><a href="#cb3-354"></a></span>
+<span id="cb3-355"><a href="#cb3-355"></a>Mit dem Computer verschiebt sich diese Grenze, aber die Asymmetrie bleibt.</span>
+<span id="cb3-356"><a href="#cb3-356"></a>Zwei Primzahlen mit je 300 Stellen multipliziert ein Computer in</span>
+<span id="cb3-357"><a href="#cb3-357"></a>Sekundenbruchteilen. Für die umgekehrte Richtung, die</span>
+<span id="cb3-358"><a href="#cb3-358"></a>**Primfaktorzerlegung**, ist kein schnelles Verfahren bekannt. Mathematiker</span>
+<span id="cb3-359"><a href="#cb3-359"></a>nennen so etwas eine **Falltürfunktion**: In die eine Richtung fällt man</span>
+<span id="cb3-360"><a href="#cb3-360"></a>leicht hinein, zurück kommt man nur mit dem Geheimnis – hier mit $p$ und</span>
+<span id="cb3-361"><a href="#cb3-361"></a>$q$.</span>
+<span id="cb3-362"><a href="#cb3-362"></a></span>
+<span id="cb3-363"><a href="#cb3-363"></a><span class="fu">### Wie gross sind die Zahlen in der Praxis?</span></span>
+<span id="cb3-364"><a href="#cb3-364"></a></span>
+<span id="cb3-365"><a href="#cb3-365"></a>Heute verwendet man für $n$ mindestens 2048 Bit, das sind rund **617</span>
+<span id="cb3-366"><a href="#cb3-366"></a>Dezimalstellen**. Behörden wie das deutsche Bundesamt für Sicherheit in der</span>
+<span id="cb3-367"><a href="#cb3-367"></a>Informationstechnik (BSI) empfehlen für neue Systeme inzwischen mindestens</span>
+<span id="cb3-368"><a href="#cb3-368"></a>3000 Bit.</span>
+<span id="cb3-369"><a href="#cb3-369"></a></span>
+<span id="cb3-370"><a href="#cb3-370"></a>Zum Vergleich: Der Rekord für eine öffentlich bekannte Zerlegung liegt bei</span>
+<span id="cb3-371"><a href="#cb3-371"></a>einer Zahl mit 250 Dezimalstellen (829 Bit). Sie wurde 2020 von einem</span>
+<span id="cb3-372"><a href="#cb3-372"></a>Forschungsteam zerlegt, das dafür Rechenzeit im Umfang von rund 2700</span>
+<span id="cb3-373"><a href="#cb3-373"></a>Prozessorkern-Jahren brauchte.</span>
+<span id="cb3-374"><a href="#cb3-374"></a></span>
+<span id="cb3-375"><a href="#cb3-375"></a>Beachten Sie den Unterschied zur Vigenère-Chiffre: Dort war der</span>
+<span id="cb3-376"><a href="#cb3-376"></a>Schlüsselraum zwar gross, aber ein cleverer Angriff (Kasiski) machte das</span>
+<span id="cb3-377"><a href="#cb3-377"></a>Ausprobieren überflüssig. Bei RSA sucht die Mathematik seit fast fünfzig</span>
+<span id="cb3-378"><a href="#cb3-378"></a>Jahren nach einem solchen Trick – bisher ohne Erfolg.</span>
+<span id="cb3-379"><a href="#cb3-379"></a></span>
+<span id="cb3-380"><a href="#cb3-380"></a><span class="fu">### Die Bedrohung durch Quantencomputer</span></span>
+<span id="cb3-381"><a href="#cb3-381"></a></span>
+<span id="cb3-382"><a href="#cb3-382"></a>1994 zeigte der Mathematiker Peter Shor, dass ein ausreichend grosser</span>
+<span id="cb3-383"><a href="#cb3-383"></a>**Quantencomputer** die Primfaktorzerlegung schnell erledigen könnte. Einen</span>
+<span id="cb3-384"><a href="#cb3-384"></a>solchen Quantencomputer gibt es bis heute nicht. Weil verschlüsselte Daten</span>
+<span id="cb3-385"><a href="#cb3-385"></a>aber heute abgefangen und in zwanzig Jahren entschlüsselt werden könnten,</span>
+<span id="cb3-386"><a href="#cb3-386"></a>hat das amerikanische Normungsinstitut NIST 2024 erste</span>
+<span id="cb3-387"><a href="#cb3-387"></a>Verschlüsselungsverfahren standardisiert, die auch gegen Quantencomputer</span>
+<span id="cb3-388"><a href="#cb3-388"></a>sicher sein sollen. Man spricht von **Post-Quanten-Kryptografie**.</span>
+<span id="cb3-389"><a href="#cb3-389"></a></span>
+<span id="cb3-390"><a href="#cb3-390"></a><span class="fu">### Die Schwachstelle Mensch und Software</span></span>
+<span id="cb3-391"><a href="#cb3-391"></a></span>
+<span id="cb3-392"><a href="#cb3-392"></a>Die meisten erfolgreichen Angriffe auf RSA knacken nicht die Mathematik,</span>
+<span id="cb3-393"><a href="#cb3-393"></a>sondern die Umsetzung:</span>
+<span id="cb3-394"><a href="#cb3-394"></a></span>
+<span id="cb3-395"><a href="#cb3-395"></a><span class="ss">- </span>schlechte Zufallszahlen bei der Wahl von $p$ und $q$,</span>
+<span id="cb3-396"><a href="#cb3-396"></a><span class="ss">- </span>zu kleine Schlüssel,</span>
+<span id="cb3-397"><a href="#cb3-397"></a><span class="ss">- </span>fehlendes Padding (siehe @tbl-rsa-tabelle),</span>
+<span id="cb3-398"><a href="#cb3-398"></a><span class="ss">- </span>gestohlene private Schlüssel.</span>
+<span id="cb3-399"><a href="#cb3-399"></a></span>
+<span id="cb3-400"><a href="#cb3-400"></a><span class="fu">## RSA im Alltag</span></span>
+<span id="cb3-401"><a href="#cb3-401"></a></span>
+<span id="cb3-402"><a href="#cb3-402"></a><span class="fu">### Digitale Signaturen</span></span>
+<span id="cb3-403"><a href="#cb3-403"></a></span>
+<span id="cb3-404"><a href="#cb3-404"></a>RSA kann noch etwas, das symmetrische Verfahren nicht können. Dreht man die</span>
+<span id="cb3-405"><a href="#cb3-405"></a>Rollen der Schlüssel um, entsteht eine **digitale Unterschrift**:</span>
+<span id="cb3-406"><a href="#cb3-406"></a></span>
+<span id="cb3-407"><a href="#cb3-407"></a><span class="ss">- </span>Bob «verschlüsselt» eine Nachricht mit seinem **privaten** Schlüssel.</span>
+<span id="cb3-408"><a href="#cb3-408"></a><span class="ss">- </span>Alle können sie mit Bobs **öffentlichem** Schlüssel prüfen.</span>
+<span id="cb3-409"><a href="#cb3-409"></a><span class="ss">- </span>Weil nur Bob den privaten Schlüssel kennt, kann nur er diese Unterschrift</span>
+<span id="cb3-410"><a href="#cb3-410"></a>  erzeugt haben.</span>
+<span id="cb3-411"><a href="#cb3-411"></a></span>
+<span id="cb3-412"><a href="#cb3-412"></a>Ein Beispiel mit unseren Zahlen: Bob will die Zahl 9 unterschreiben.</span>
+<span id="cb3-413"><a href="#cb3-413"></a></span>
+<span id="cb3-414"><a href="#cb3-414"></a>$$</span>
+<span id="cb3-415"><a href="#cb3-415"></a>\text{Unterschrift: } s = 9^7 \bmod 33 = 15</span>
+<span id="cb3-416"><a href="#cb3-416"></a>$$</span>
+<span id="cb3-417"><a href="#cb3-417"></a></span>
+<span id="cb3-418"><a href="#cb3-418"></a>Er schickt die Nachricht 9 zusammen mit der Unterschrift 15. Alice prüft mit</span>
+<span id="cb3-419"><a href="#cb3-419"></a>Bobs öffentlichem Schlüssel:</span>
+<span id="cb3-420"><a href="#cb3-420"></a></span>
+<span id="cb3-421"><a href="#cb3-421"></a>$$</span>
+<span id="cb3-422"><a href="#cb3-422"></a>15^3 \bmod 33 = 3375 \bmod 33 = 9 \quad\checkmark</span>
+<span id="cb3-423"><a href="#cb3-423"></a>$$</span>
+<span id="cb3-424"><a href="#cb3-424"></a></span>
+<span id="cb3-425"><a href="#cb3-425"></a>Die Prüfung ergibt wieder die Nachricht. Also stammt die Unterschrift von</span>
+<span id="cb3-426"><a href="#cb3-426"></a>Bob, und die Nachricht wurde unterwegs nicht verändert. Hätte Eve die</span>
+<span id="cb3-427"><a href="#cb3-427"></a>Nachricht auf 8 geändert, würde die Prüfung nicht mehr passen.</span>
+<span id="cb3-428"><a href="#cb3-428"></a></span>
+<span id="cb3-429"><a href="#cb3-429"></a><span class="fu">### Hybride Verschlüsselung</span></span>
+<span id="cb3-430"><a href="#cb3-430"></a></span>
+<span id="cb3-431"><a href="#cb3-431"></a>RSA hat einen Nachteil: Es ist **langsam**, etwa tausendmal langsamer als</span>
+<span id="cb3-432"><a href="#cb3-432"></a>moderne symmetrische Verfahren wie AES. Darum kombiniert man in der Praxis</span>
+<span id="cb3-433"><a href="#cb3-433"></a>beide Welten:</span>
+<span id="cb3-434"><a href="#cb3-434"></a></span>
+<span id="cb3-435"><a href="#cb3-435"></a><span class="ss">1. </span>Der Browser erzeugt einen zufälligen symmetrischen Schlüssel.</span>
+<span id="cb3-436"><a href="#cb3-436"></a><span class="ss">2. </span>Er verschlüsselt diesen Schlüssel mit dem öffentlichen Schlüssel des</span>
+<span id="cb3-437"><a href="#cb3-437"></a>   Servers und schickt ihn hin. Das ist eine sehr kurze Nachricht, also</span>
+<span id="cb3-438"><a href="#cb3-438"></a>   spielt die Langsamkeit keine Rolle.</span>
+<span id="cb3-439"><a href="#cb3-439"></a><span class="ss">3. </span>Ab jetzt verschlüsseln beide mit dem gemeinsamen symmetrischen</span>
+<span id="cb3-440"><a href="#cb3-440"></a>   Schlüssel.</span>
+<span id="cb3-441"><a href="#cb3-441"></a></span>
+<span id="cb3-442"><a href="#cb3-442"></a>Das Henne-Ei-Problem vom Anfang dieses Kapitels ist damit gelöst: Das</span>
+<span id="cb3-443"><a href="#cb3-443"></a>asymmetrische Verfahren sorgt für die sichere Schlüsselübergabe, das</span>
+<span id="cb3-444"><a href="#cb3-444"></a>symmetrische für die schnelle Verschlüsselung der eigentlichen Daten.</span>
+<span id="cb3-445"><a href="#cb3-445"></a>Jedes Mal, wenn Ihr Browser ein Schloss-Symbol neben der Adresse zeigt</span>
+<span id="cb3-446"><a href="#cb3-446"></a>(<span class="in">`https://`</span>), läuft im Hintergrund ein solches Verfahren ab.</span>
+<span id="cb3-447"><a href="#cb3-447"></a></span>
+<span id="cb3-448"><a href="#cb3-448"></a><span class="fu">## Geschichte</span></span>
+<span id="cb3-449"><a href="#cb3-449"></a></span>
+<span id="cb3-450"><a href="#cb3-450"></a><span class="pp">|</span> Jahr <span class="pp">|</span> Ereignis <span class="pp">|</span></span>
+<span id="cb3-451"><a href="#cb3-451"></a><span class="pp">|:-----|:---------|</span></span>
+<span id="cb3-452"><a href="#cb3-452"></a><span class="pp">|</span> 1973 <span class="pp">|</span> Clifford Cocks, Mathematiker beim britischen Nachrichtendienst GCHQ, entwickelt ein Verfahren, das RSA entspricht. Es bleibt geheim. <span class="pp">|</span></span>
+<span id="cb3-453"><a href="#cb3-453"></a><span class="pp">|</span> 1976 <span class="pp">|</span> Whitfield Diffie und Martin Hellman veröffentlichen die Idee der Public-Key-Kryptografie. <span class="pp">|</span></span>
+<span id="cb3-454"><a href="#cb3-454"></a><span class="pp">|</span> 1977 <span class="pp">|</span> Rivest, Shamir und Adleman finden RSA. Martin Gardner stellt es im *Scientific American* einem breiten Publikum vor. <span class="pp">|</span></span>
+<span id="cb3-455"><a href="#cb3-455"></a><span class="pp">|</span> 1994 <span class="pp">|</span> Peter Shor zeigt, dass Quantencomputer RSA brechen könnten. <span class="pp">|</span></span>
+<span id="cb3-456"><a href="#cb3-456"></a><span class="pp">|</span> 1997 <span class="pp">|</span> Die britische Regierung macht die Arbeit von Cocks öffentlich. <span class="pp">|</span></span>
+<span id="cb3-457"><a href="#cb3-457"></a><span class="pp">|</span> 2000 <span class="pp">|</span> Das Patent auf RSA läuft aus; das Verfahren ist frei nutzbar. <span class="pp">|</span></span>
+<span id="cb3-458"><a href="#cb3-458"></a></span>
+<span id="cb3-459"><a href="#cb3-459"></a>: Meilensteine der Public-Key-Kryptografie {#tbl-rsa-geschichte}</span>
+<span id="cb3-460"><a href="#cb3-460"></a></span>
+<span id="cb3-461"><a href="#cb3-461"></a>Wie bei der Vigenère-Chiffre, die eigentlich auf Bellaso zurückgeht, trägt</span>
+<span id="cb3-462"><a href="#cb3-462"></a>also auch RSA nicht den Namen seines ersten Erfinders. Bei Cocks lag es</span>
+<span id="cb3-463"><a href="#cb3-463"></a>allerdings nicht an einer Verwechslung, sondern an der Geheimhaltung.</span>
+<span id="cb3-464"><a href="#cb3-464"></a></span>
+<span id="cb3-465"><a href="#cb3-465"></a><span class="fu">## Aufgaben</span></span>
+<span id="cb3-466"><a href="#cb3-466"></a></span>
+<span id="cb3-467"><a href="#cb3-467"></a>::: {.callout-note}</span>
+<span id="cb3-468"><a href="#cb3-468"></a><span class="fu">## Aufgabe 1: Verschlüsseln</span></span>
+<span id="cb3-469"><a href="#cb3-469"></a></span>
+<span id="cb3-470"><a href="#cb3-470"></a>Verschlüsseln Sie das Wort <span class="in">`GEHEIM`</span> mit Bobs öffentlichem Schlüssel</span>
+<span id="cb3-471"><a href="#cb3-471"></a>$(n, e) = (33, 3)$. Rechnen Sie von Hand und kontrollieren Sie mit</span>
+<span id="cb3-472"><a href="#cb3-472"></a>@tbl-rsa-tabelle.</span>
+<span id="cb3-473"><a href="#cb3-473"></a></span>
+<span id="cb3-474"><a href="#cb3-474"></a>Welche Schwäche des buchstabenweisen Verschlüsselns sehen Sie im Ergebnis?</span>
+<span id="cb3-475"><a href="#cb3-475"></a>:::</span>
+<span id="cb3-476"><a href="#cb3-476"></a></span>
+<span id="cb3-477"><a href="#cb3-477"></a>::: {.callout-note}</span>
+<span id="cb3-478"><a href="#cb3-478"></a><span class="fu">## Aufgabe 2: Entschlüsseln</span></span>
+<span id="cb3-479"><a href="#cb3-479"></a></span>
+<span id="cb3-480"><a href="#cb3-480"></a>Bob erhält den Geheimtext <span class="in">`29 24 0`</span>. Entschlüsseln Sie ihn mit dem privaten</span>
+<span id="cb3-481"><a href="#cb3-481"></a>Schlüssel $d = 7$. Verwenden Sie den Trick aus dem Abschnitt «Grosse</span>
+<span id="cb3-482"><a href="#cb3-482"></a>Potenzen von Hand».</span>
+<span id="cb3-483"><a href="#cb3-483"></a>:::</span>
+<span id="cb3-484"><a href="#cb3-484"></a></span>
+<span id="cb3-485"><a href="#cb3-485"></a>::: {.callout-note}</span>
+<span id="cb3-486"><a href="#cb3-486"></a><span class="fu">## Aufgabe 3: Ein eigenes Schlüsselpaar</span></span>
+<span id="cb3-487"><a href="#cb3-487"></a></span>
+<span id="cb3-488"><a href="#cb3-488"></a>Erzeugen Sie ein Schlüsselpaar mit den Primzahlen $p = 7$ und $q = 13$ und</span>
+<span id="cb3-489"><a href="#cb3-489"></a>dem öffentlichen Exponenten $e = 5$.</span>
+<span id="cb3-490"><a href="#cb3-490"></a></span>
+<span id="cb3-491"><a href="#cb3-491"></a>a) Berechnen Sie $n$ und $\varphi$.</span>
+<span id="cb3-492"><a href="#cb3-492"></a>b) Prüfen Sie, dass $e = 5$ zulässig ist.</span>
+<span id="cb3-493"><a href="#cb3-493"></a>c) Bestimmen Sie $d$.</span>
+<span id="cb3-494"><a href="#cb3-494"></a>d) Verschlüsseln Sie das Wort <span class="in">`KRYPTO`</span>. Python-Kontrolle mit <span class="in">`pow`</span> ist</span>
+<span id="cb3-495"><a href="#cb3-495"></a>   erlaubt.</span>
+<span id="cb3-496"><a href="#cb3-496"></a>:::</span>
+<span id="cb3-497"><a href="#cb3-497"></a></span>
+<span id="cb3-498"><a href="#cb3-498"></a>::: {.callout-note}</span>
+<span id="cb3-499"><a href="#cb3-499"></a><span class="fu">## Aufgabe 4: Eve greift an</span></span>
+<span id="cb3-500"><a href="#cb3-500"></a></span>
+<span id="cb3-501"><a href="#cb3-501"></a>Eve fängt eine Nachricht ab, die mit dem öffentlichen Schlüssel</span>
+<span id="cb3-502"><a href="#cb3-502"></a>$(n, e) = (55, 7)$ verschlüsselt wurde.</span>
+<span id="cb3-503"><a href="#cb3-503"></a></span>
+<span id="cb3-504"><a href="#cb3-504"></a>a) Zerlegen Sie $n$ in seine Primfaktoren.</span>
+<span id="cb3-505"><a href="#cb3-505"></a>b) Berechnen Sie damit den privaten Schlüssel $d$.</span>
+<span id="cb3-506"><a href="#cb3-506"></a>c) Erklären Sie in zwei bis drei Sätzen, warum dieser Angriff bei einem</span>
+<span id="cb3-507"><a href="#cb3-507"></a>   echten RSA-Schlüssel nicht funktioniert.</span>
+<span id="cb3-508"><a href="#cb3-508"></a>:::</span>
+<span id="cb3-509"><a href="#cb3-509"></a></span>
+<span id="cb3-510"><a href="#cb3-510"></a>::: {.callout-note}</span>
+<span id="cb3-511"><a href="#cb3-511"></a><span class="fu">## Aufgabe 5: Unterschrift prüfen</span></span>
+<span id="cb3-512"><a href="#cb3-512"></a></span>
+<span id="cb3-513"><a href="#cb3-513"></a>Sie erhalten von Bob (öffentlicher Schlüssel $(33, 3)$) zwei Nachrichten</span>
+<span id="cb3-514"><a href="#cb3-514"></a>mit Unterschrift:</span>
+<span id="cb3-515"><a href="#cb3-515"></a></span>
+<span id="cb3-516"><a href="#cb3-516"></a><span class="ss">- </span>Nachricht 4, Unterschrift 16</span>
+<span id="cb3-517"><a href="#cb3-517"></a><span class="ss">- </span>Nachricht 5, Unterschrift 20</span>
+<span id="cb3-518"><a href="#cb3-518"></a></span>
+<span id="cb3-519"><a href="#cb3-519"></a>Welche Unterschrift ist echt?</span>
+<span id="cb3-520"><a href="#cb3-520"></a>:::</span>
+<span id="cb3-521"><a href="#cb3-521"></a></span>
+<span id="cb3-522"><a href="#cb3-522"></a>::: {.callout-note}</span>
+<span id="cb3-523"><a href="#cb3-523"></a><span class="fu">## Aufgabe 6: Kritische Würdigung</span></span>
+<span id="cb3-524"><a href="#cb3-524"></a></span>
+<span id="cb3-525"><a href="#cb3-525"></a>Vergleichen Sie die Caesar-Chiffre, die Vigenère-Chiffre und RSA. Gehen Sie</span>
+<span id="cb3-526"><a href="#cb3-526"></a>dabei auf folgende Fragen ein:</span>
+<span id="cb3-527"><a href="#cb3-527"></a></span>
+<span id="cb3-528"><a href="#cb3-528"></a><span class="ss">- </span>Wie viele Schlüssel braucht eine Gruppe von 100 Personen?</span>
+<span id="cb3-529"><a href="#cb3-529"></a><span class="ss">- </span>Wie muss der Schlüssel übergeben werden?</span>
+<span id="cb3-530"><a href="#cb3-530"></a><span class="ss">- </span>Worauf beruht die Sicherheit, und welcher Angriff ist bekannt?</span>
+<span id="cb3-531"><a href="#cb3-531"></a>:::</span>
+<span id="cb3-532"><a href="#cb3-532"></a></span>
+<span id="cb3-533"><a href="#cb3-533"></a><span class="fu">### Lösungen</span></span>
+<span id="cb3-534"><a href="#cb3-534"></a></span>
+<span id="cb3-535"><a href="#cb3-535"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb3-536"><a href="#cb3-536"></a><span class="fu">## Lösung Aufgabe 1</span></span>
+<span id="cb3-537"><a href="#cb3-537"></a></span>
+<span id="cb3-538"><a href="#cb3-538"></a><span class="pp">|</span> <span class="pp">|</span> G <span class="pp">|</span> E <span class="pp">|</span> H <span class="pp">|</span> E <span class="pp">|</span> I <span class="pp">|</span> M <span class="pp">|</span></span>
+<span id="cb3-539"><a href="#cb3-539"></a><span class="pp">|</span>:--<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span>--:<span class="pp">|</span></span>
+<span id="cb3-540"><a href="#cb3-540"></a><span class="pp">|</span> $m$ <span class="pp">|</span> 6 <span class="pp">|</span> 4 <span class="pp">|</span> 7 <span class="pp">|</span> 4 <span class="pp">|</span> 8 <span class="pp">|</span> 12 <span class="pp">|</span></span>
+<span id="cb3-541"><a href="#cb3-541"></a><span class="pp">|</span> $c$ <span class="pp">|</span> 18 <span class="pp">|</span> 31 <span class="pp">|</span> 13 <span class="pp">|</span> 31 <span class="pp">|</span> 17 <span class="pp">|</span> 12 <span class="pp">|</span></span>
+<span id="cb3-542"><a href="#cb3-542"></a></span>
+<span id="cb3-543"><a href="#cb3-543"></a>Geheimtext: <span class="in">`18 31 13 31 17 12`</span>.</span>
+<span id="cb3-544"><a href="#cb3-544"></a></span>
+<span id="cb3-545"><a href="#cb3-545"></a>Schwächen: Die beiden <span class="in">`E`</span> werden beide zur 31; das Muster des Wortes bleibt</span>
+<span id="cb3-546"><a href="#cb3-546"></a>sichtbar (Substitution). Das <span class="in">`M`</span> bleibt als 12 unverändert.</span>
+<span id="cb3-547"><a href="#cb3-547"></a>:::</span>
+<span id="cb3-548"><a href="#cb3-548"></a></span>
+<span id="cb3-549"><a href="#cb3-549"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb3-550"><a href="#cb3-550"></a><span class="fu">## Lösung Aufgabe 2</span></span>
+<span id="cb3-551"><a href="#cb3-551"></a></span>
+<span id="cb3-552"><a href="#cb3-552"></a>$29^7 \bmod 33$:</span>
+<span id="cb3-553"><a href="#cb3-553"></a></span>
+<span id="cb3-554"><a href="#cb3-554"></a><span class="ss">- </span>$29^2 = 841 = 25 \cdot 33 + 16 \Rightarrow 16$</span>
+<span id="cb3-555"><a href="#cb3-555"></a><span class="ss">- </span>$29^4 \Rightarrow 16^2 = 256 = 7 \cdot 33 + 25 \Rightarrow 25$</span>
+<span id="cb3-556"><a href="#cb3-556"></a><span class="ss">- </span>$29^7 = 29^4 \cdot 29^2 \cdot 29 \Rightarrow 25 \cdot 16 \cdot 29$;</span>
+<span id="cb3-557"><a href="#cb3-557"></a>  $25 \cdot 16 = 400 \Rightarrow 4$; $4 \cdot 29 = 116 \Rightarrow 17$</span>
+<span id="cb3-558"><a href="#cb3-558"></a></span>
+<span id="cb3-559"><a href="#cb3-559"></a>$17 \Rightarrow$ <span class="in">`R`</span>. Ebenso $24^7 \bmod 33 = 18 \Rightarrow$ <span class="in">`S`</span> und</span>
+<span id="cb3-560"><a href="#cb3-560"></a>$0^7 = 0 \Rightarrow$ <span class="in">`A`</span>.</span>
+<span id="cb3-561"><a href="#cb3-561"></a></span>
+<span id="cb3-562"><a href="#cb3-562"></a>Klartext: <span class="in">`RSA`</span>.</span>
+<span id="cb3-563"><a href="#cb3-563"></a>:::</span>
+<span id="cb3-564"><a href="#cb3-564"></a></span>
+<span id="cb3-565"><a href="#cb3-565"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb3-566"><a href="#cb3-566"></a><span class="fu">## Lösung Aufgabe 3</span></span>
+<span id="cb3-567"><a href="#cb3-567"></a></span>
+<span id="cb3-568"><a href="#cb3-568"></a>a) $n = 7 \cdot 13 = 91$, $\varphi = 6 \cdot 12 = 72$</span>
+<span id="cb3-569"><a href="#cb3-569"></a>b) $72 = 2^3 \cdot 3^2$; 5 ist weder durch 2 noch durch 3 teilbar, also</span>
+<span id="cb3-570"><a href="#cb3-570"></a>   kein gemeinsamer Teiler.</span>
+<span id="cb3-571"><a href="#cb3-571"></a>c) $5 \cdot 29 = 145 = 2 \cdot 72 + 1$, also $d = 29$.</span>
+<span id="cb3-572"><a href="#cb3-572"></a>d) <span class="in">`K R Y P T O`</span> = <span class="in">`10 17 24 15 19 14`</span> wird zu <span class="in">`82 75 33 71 80 14`</span>.</span>
+<span id="cb3-573"><a href="#cb3-573"></a>   Das <span class="in">`O`</span> bleibt auch hier unverändert.</span>
+<span id="cb3-574"><a href="#cb3-574"></a>:::</span>
+<span id="cb3-575"><a href="#cb3-575"></a></span>
+<span id="cb3-576"><a href="#cb3-576"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb3-577"><a href="#cb3-577"></a><span class="fu">## Lösung Aufgabe 4</span></span>
+<span id="cb3-578"><a href="#cb3-578"></a></span>
+<span id="cb3-579"><a href="#cb3-579"></a>a) $55 = 5 \cdot 11$</span>
+<span id="cb3-580"><a href="#cb3-580"></a>b) $\varphi = 4 \cdot 10 = 40$. Gesucht: $7 \cdot d \bmod 40 = 1$.</span>
+<span id="cb3-581"><a href="#cb3-581"></a>   $7 \cdot 23 = 161 = 4 \cdot 40 + 1$, also $d = 23$.</span>
+<span id="cb3-582"><a href="#cb3-582"></a>c) Bei einem echten Schlüssel hat $n$ über 600 Dezimalstellen. Für die</span>
+<span id="cb3-583"><a href="#cb3-583"></a>   Zerlegung so grosser Zahlen ist kein schnelles Verfahren bekannt; selbst</span>
+<span id="cb3-584"><a href="#cb3-584"></a>   der aktuelle Rekord liegt bei 250 Stellen und brauchte enorme</span>
+<span id="cb3-585"><a href="#cb3-585"></a>   Rechenleistung. Ohne $p$ und $q$ kann Eve $\varphi$ und damit $d$ nicht</span>
+<span id="cb3-586"><a href="#cb3-586"></a>   berechnen.</span>
+<span id="cb3-587"><a href="#cb3-587"></a>:::</span>
+<span id="cb3-588"><a href="#cb3-588"></a></span>
+<span id="cb3-589"><a href="#cb3-589"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb3-590"><a href="#cb3-590"></a><span class="fu">## Lösung Aufgabe 5</span></span>
+<span id="cb3-591"><a href="#cb3-591"></a></span>
+<span id="cb3-592"><a href="#cb3-592"></a><span class="ss">- </span>$16^3 = 4096 = 124 \cdot 33 + 4 \Rightarrow 4$. Das ergibt die Nachricht 4.</span>
+<span id="cb3-593"><a href="#cb3-593"></a>  **Echt.**</span>
+<span id="cb3-594"><a href="#cb3-594"></a><span class="ss">- </span>$20^3 = 8000 = 242 \cdot 33 + 14 \Rightarrow 14$. Das ergibt 14, nicht 5.</span>
+<span id="cb3-595"><a href="#cb3-595"></a>  **Gefälscht.** Die echte Unterschrift zu 5 wäre $5^7 \bmod 33 = 14$.</span>
+<span id="cb3-596"><a href="#cb3-596"></a>:::</span>
+<span id="cb3-597"><a href="#cb3-597"></a></span>
+<span id="cb3-598"><a href="#cb3-598"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb3-599"><a href="#cb3-599"></a><span class="fu">## Lösung Aufgabe 6 (Stichworte)</span></span>
+<span id="cb3-600"><a href="#cb3-600"></a></span>
+<span id="cb3-601"><a href="#cb3-601"></a><span class="pp">|</span> <span class="pp">|</span> Caesar <span class="pp">|</span> Vigenère <span class="pp">|</span> RSA <span class="pp">|</span></span>
+<span id="cb3-602"><a href="#cb3-602"></a><span class="pp">|</span>:--<span class="pp">|</span>:--<span class="pp">|</span>:--<span class="pp">|</span>:--<span class="pp">|</span></span>
+<span id="cb3-603"><a href="#cb3-603"></a><span class="pp">|</span> Schlüssel für 100 Personen <span class="pp">|</span> 4950 <span class="pp">|</span> 4950 <span class="pp">|</span> 100 Schlüsselpaare <span class="pp">|</span></span>
+<span id="cb3-604"><a href="#cb3-604"></a><span class="pp">|</span> Übergabe <span class="pp">|</span> geheim, vorab <span class="pp">|</span> geheim, vorab <span class="pp">|</span> öffentlicher Schlüssel offen <span class="pp">|</span></span>
+<span id="cb3-605"><a href="#cb3-605"></a><span class="pp">|</span> Sicherheit beruht auf <span class="pp">|</span> Geheimhaltung der Verschiebung <span class="pp">|</span> Geheimhaltung und Länge des Schlüsselworts <span class="pp">|</span> Schwierigkeit der Primfaktorzerlegung <span class="pp">|</span></span>
+<span id="cb3-606"><a href="#cb3-606"></a><span class="pp">|</span> bekannter Angriff <span class="pp">|</span> Brute Force (25 Versuche), Häufigkeitsanalyse <span class="pp">|</span> Kasiski-Test, dann Häufigkeitsanalyse <span class="pp">|</span> keiner für grosse Schlüssel; Quantencomputer (Shor) in Zukunft <span class="pp">|</span></span>
+<span id="cb3-607"><a href="#cb3-607"></a>:::</span>
+</code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SkriptenMk/I_eW_25-29/edit/main/files/lektionen_hs26/261106_rsa/261106_rsa.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_eW_25-29/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

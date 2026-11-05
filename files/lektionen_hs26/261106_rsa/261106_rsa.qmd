@@ -1,0 +1,600 @@
+# Die RSA-Verschlüsselung {#sec-rsa}
+
+## Das Problem: Wie kommt der Schlüssel zum Empfänger?
+
+Die Caesar- und die Vigenère-Chiffre haben etwas gemeinsam, das wir bisher
+kaum beachtet haben: Sender und Empfänger brauchen denselben Schlüssel.
+Wer mit dem Schlüssel `BUELRAIN` verschlüsselt, muss diesen Schlüssel dem
+Empfänger vorher irgendwie mitteilen. Man spricht deshalb von
+symmetrischer Verschlüsselung: Der Schlüssel zum Abschliessen und der
+Schlüssel zum Aufschliessen sind gleich.
+
+Daraus ergibt sich ein Henne-Ei-Problem:
+
+- Um den Schlüssel sicher zu übermitteln, bräuchte man einen sicheren Kanal.
+- Hätte man einen sicheren Kanal, bräuchte man keine Verschlüsselung.
+
+Früher löste man das Problem mit Boten, Codebüchern und persönlichen
+Treffen. Für das Internet taugt das nicht. Wenn Sie zum ersten Mal bei einem
+Onlineshop einkaufen, haben Sie mit diesem Shop nie einen Schlüssel
+vereinbart. Trotzdem wird Ihre Kreditkartennummer verschlüsselt übertragen.
+
+Dazu kommt ein Mengenproblem. Wenn in einer Klasse mit 25 Personen jede mit
+jeder geheim kommunizieren will, braucht jedes Paar einen eigenen
+Schlüssel:
+
+$$
+\frac{25 \cdot 24}{2} = 300 \text{ Schlüssel}
+$$
+
+Bei einer Million Teilnehmerinnen und Teilnehmern wären es rund 500
+Milliarden.
+
+## Die Idee: zwei verschiedene Schlüssel
+
+1976 veröffentlichten Whitfield Diffie und Martin Hellman eine Idee, die die
+Kryptologie grundlegend veränderte: Was wäre, wenn man zum Verschlüsseln
+einen *anderen* Schlüssel verwenden könnte als zum Entschlüsseln?
+
+Das Bild dazu ist ein offenes Vorhängeschloss:
+
+- Bob kauft viele gleiche Vorhängeschlösser und verteilt sie offen an alle,
+  die ihm schreiben wollen. Den einzigen Schlüssel dazu behält er für sich.
+- Alice legt ihre Nachricht in eine Kiste und drückt eines von Bobs
+  Schlössern zu. Dazu braucht sie keinen Schlüssel.
+- Ab jetzt kann nur noch Bob die Kiste öffnen. Nicht einmal Alice selbst
+  kommt wieder an die Nachricht.
+
+In der Kryptologie heissen die beiden Teile öffentlicher bzw. privater Schlüssel.:
+
+| Teil | Bild | Wer kennt ihn? |
+|:-----|:-----|:---------------|
+| **öffentlicher Schlüssel** (*public key*) | das offene Schloss | alle |
+| **privater Schlüssel** (*private key*) | der Schlüssel zum Schloss | nur Bob |
+
+: Die beiden Schlüssel eines asymmetrischen Verfahrens {#tbl-rsa-schluessel}
+
+Man spricht von **asymmetrischer Verschlüsselung** oder
+**Public-Key-Kryptografie**. Das Mengenproblem verschwindet dabei: In der
+Klasse mit 25 Personen braucht jede Person genau ein Schlüsselpaar, also 25
+statt 300.
+
+```{mermaid}
+%%| label: fig-rsa-ablauf
+%%| fig-cap: "Ablauf einer Public-Key-Verschlüsselung. Eve kann alles mithören, was über die Leitung geht."
+sequenceDiagram
+    participant A as Alice
+    participant E as Eve (hört mit)
+    participant B as Bob
+    Note over B: erzeugt Schlüsselpaar<br/>öffentlich: (n, e)<br/>privat: d
+    B->>A: öffentlicher Schlüssel (n, e)
+    Note over E: kennt (n, e)
+    Note over A: verschlüsselt m mit (n, e)
+    A->>B: Geheimtext c
+    Note over E: kennt c,<br/>aber nicht d
+    Note over B: entschlüsselt c mit d
+```
+
+Die Idee von Diffie und Hellman war zunächst nur ein Wunsch. Es fehlte ein
+mathematisches Verfahren, das sich wie ein solches Vorhängeschloss verhält.
+Dieses Verfahren fanden 1977 Ron **R**ivest, Adi **S**hamir und Leonard
+**A**dleman am MIT. Nach ihren Anfangsbuchstaben heisst es **RSA**.
+
+## Das Werkzeug: Rechnen mit Rest
+
+Bei der Caesar-Chiffre haben Sie bereits mit Rest gerechnet: Wenn man `X`
+um 3 verschiebt, landet man nicht bei Position 26, sondern wieder bei `A`.
+Man rechnet *modulo 26*:
+
+$$
+(23 + 3) \bmod 26 = 26 \bmod 26 = 0 \quad\Rightarrow\quad \texttt{A}
+$$
+
+$a \bmod n$ ist der Rest, der bei der Division von $a$ durch $n$ übrig
+bleibt. Ein Alltagsbeispiel ist die Uhr: 10 Uhr plus 5 Stunden ergibt nicht
+15 Uhr, sondern 3 Uhr, denn $15 \bmod 12 = 3$.
+
+RSA verwendet genau dieses Rechnen mit Rest, aber statt mit Addition mit
+**Potenzen**. Ein Beispiel:
+
+$$
+7^3 = 343 \qquad 343 \bmod 33 = 343 - 10 \cdot 33 = 13
+$$
+
+Also ist $7^3 \bmod 33 = 13$.
+
+::: {.callout-tip}
+## Grosse Potenzen von Hand
+
+Bei Potenzen werden die Zahlen schnell riesig. Der Trick: Man darf **nach
+jedem Zwischenschritt** den Rest bilden. Das Ergebnis bleibt gleich, die
+Zahlen bleiben klein. So berechnet man zum Beispiel $13^7 \bmod 33$:
+
+| Schritt | Rechnung | Rest mod 33 |
+|:--------|:---------|------------:|
+| $13^2$ | $169 = 5 \cdot 33 + 4$ | $4$ |
+| $13^4 = (13^2)^2$ | $4^2 = 16$ | $16$ |
+| $13^7 = 13^4 \cdot 13^2 \cdot 13$ | $16 \cdot 4 \cdot 13 = 832 = 25 \cdot 33 + 7$ | $7$ |
+
+Also ist $13^7 \bmod 33 = 7$. Ohne den Trick hätte man mit
+$13^7 = 62\,748\,517$ rechnen müssen.
+:::
+
+## Das Verfahren von Hand
+
+Wir spielen RSA mit sehr kleinen Zahlen durch. Bob erzeugt sein
+Schlüsselpaar, Alice schickt ihm eine Nachricht.
+
+### Schritt 1: Bob erzeugt sein Schlüsselpaar
+
+**a) Zwei Primzahlen wählen.** Bob wählt zwei verschiedene Primzahlen und
+hält sie geheim:
+
+$$
+p = 3 \qquad q = 11
+$$
+
+**b) Das Produkt bilden.** Das Produkt heisst **RSA-Modul**:
+
+$$
+n = p \cdot q = 3 \cdot 11 = 33
+$$
+
+**c) Die Hilfszahl $\varphi$ berechnen.** Man spricht «phi»:
+
+$$
+\varphi = (p - 1) \cdot (q - 1) = 2 \cdot 10 = 20
+$$
+
+**d) Den öffentlichen Exponenten $e$ wählen.** $e$ muss grösser als 1 sein
+und darf mit $\varphi = 20$ keinen gemeinsamen Teiler haben. $e = 2$ geht
+nicht (gemeinsamer Teiler 2), $e = 3$ geht:
+
+$$
+e = 3
+$$
+
+**e) Den privaten Exponenten $d$ berechnen.** Gesucht ist eine Zahl $d$, für
+die gilt:
+
+$$
+e \cdot d \bmod \varphi = 1
+$$
+
+Bob probiert der Reihe nach:
+
+| $d$ | 1 | 2 | 3 | 4 | 5 | 6 | **7** |
+|:----|--:|--:|--:|--:|--:|--:|------:|
+| $3 \cdot d$ | 3 | 6 | 9 | 12 | 15 | 18 | **21** |
+| $3 \cdot d \bmod 20$ | 3 | 6 | 9 | 12 | 15 | 18 | **1** |
+
+: Suche nach dem privaten Exponenten {#tbl-rsa-d}
+
+Also ist $d = 7$.
+
+Damit hat Bob sein Schlüsselpaar:
+
+| | Inhalt | Status |
+|:--|:--|:--|
+| öffentlicher Schlüssel | $(n, e) = (33, 3)$ | wird veröffentlicht |
+| privater Schlüssel | $d = 7$ | bleibt geheim |
+| Hilfszahlen | $p = 3$, $q = 11$, $\varphi = 20$ | werden vernichtet oder geheim gehalten |
+
+: Bobs Schlüsselpaar {#tbl-rsa-bob}
+
+### Schritt 2: Alice verschlüsselt
+
+Alice will Bob das Wort `HALLO` schicken. Wie bei der Caesar-Chiffre
+übersetzt sie die Buchstaben zuerst in Zahlen (`A` = 0, `B` = 1, …,
+`Z` = 25). Dann rechnet sie für jede Zahl $m$ mit Bobs öffentlichem
+Schlüssel:
+
+$$
+c = m^e \bmod n
+$$
+
+| Buchstabe | $m$ | $m^3$ | $c = m^3 \bmod 33$ |
+|:---------:|----:|------:|-------------------:|
+| `H` | 7  | 343  | 13 |
+| `A` | 0  | 0    | 0  |
+| `L` | 11 | 1331 | 11 |
+| `L` | 11 | 1331 | 11 |
+| `O` | 14 | 2744 | 5  |
+
+: Alice verschlüsselt HALLO {#tbl-rsa-hallo}
+
+Alice schickt den Geheimtext `13 0 11 11 5`. Der Geheimtext besteht aus
+**Zahlen**, nicht aus Buchstaben, denn das Ergebnis kann zwischen 0 und 32
+liegen.
+
+### Schritt 3: Bob entschlüsselt
+
+Bob rechnet für jede empfangene Zahl $c$ mit seinem privaten Schlüssel:
+
+$$
+m = c^d \bmod n
+$$
+
+Für die erste Zahl haben wir die Rechnung oben bereits gemacht:
+
+$$
+13^7 \bmod 33 = 7 \quad\Rightarrow\quad \texttt{H}
+$$
+
+Und für die letzte:
+
+$$
+5^7 = 78\,125 = 2367 \cdot 33 + 14 \quad\Rightarrow\quad 14 \quad\Rightarrow\quad \texttt{O}
+$$
+
+Bob erhält wieder `HALLO`.
+
+### Was Eve weiss
+
+Eve hat alles mitgehört. Sie kennt den öffentlichen Schlüssel $(33, 3)$ und
+den Geheimtext `13 0 11 11 5`. Um zu entschlüsseln, bräuchte sie $d$. Um $d$
+zu berechnen, bräuchte sie $\varphi$. Und um $\varphi$ zu berechnen,
+bräuchte sie $p$ und $q$.
+
+Die ganze Sicherheit von RSA hängt also an einer Frage:
+
+> **Kann man aus $n$ die beiden Primzahlen $p$ und $q$ herausfinden?**
+
+Bei $n = 33$ ist das natürlich trivial. Wie es bei grossen Zahlen aussieht,
+klären wir in @sec-rsa-sicherheit.
+
+## Die Formeln im Überblick
+
+| | Formel | wer? |
+|:--|:--|:--|
+| Modul | $n = p \cdot q$ | Bob |
+| Hilfszahl | $\varphi = (p-1)(q-1)$ | Bob |
+| öffentlicher Exponent | $e$ ohne gemeinsamen Teiler mit $\varphi$ | Bob |
+| privater Exponent | $e \cdot d \bmod \varphi = 1$ | Bob |
+| Verschlüsseln | $c = m^e \bmod n$ | Alice (und alle anderen) |
+| Entschlüsseln | $m = c^d \bmod n$ | nur Bob |
+
+: RSA in sechs Zeilen {#tbl-rsa-formeln}
+
+Dabei muss die Zahl $m$ kleiner als $n$ sein. Bei $n = 33$ ist das für
+unsere Buchstaben 0 bis 25 erfüllt.
+
+::: {.callout-note collapse="true"}
+## Für Interessierte: Warum funktioniert das?
+
+Dass $\left(m^e\right)^d \bmod n$ wieder $m$ ergibt, folgt aus einem Satz,
+den Leonhard Euler im 18. Jahrhundert bewiesen hat. Er besagt, dass für jede
+Zahl $m$ ohne gemeinsamen Teiler mit $n$ gilt:
+
+$$
+m^{\varphi} \bmod n = 1
+$$
+
+Weil $e \cdot d = k \cdot \varphi + 1$ für irgendeine ganze Zahl $k$ gilt,
+folgt:
+
+$$
+m^{e \cdot d} = m^{k \cdot \varphi + 1} = \left(m^{\varphi}\right)^k \cdot m
+\;\equiv\; 1^k \cdot m = m \pmod n
+$$
+
+In unserem Beispiel ist $e \cdot d = 21 = 1 \cdot 20 + 1$. Man kann zeigen,
+dass die Rechnung auch für die Zahlen $m$ aufgeht, die mit $n$ einen
+gemeinsamen Teiler haben.
+:::
+
+::: {.callout-tip}
+## Kontrollieren mit Python
+
+Sie müssen RSA nicht programmieren. Zum Überprüfen Ihrer Handrechnungen
+ist aber die eingebaute Funktion `pow` praktisch. Mit drei Argumenten
+rechnet sie direkt modulo:
+
+```python
+pow(7, 3, 33)    # 7 hoch 3 modulo 33 → 13
+pow(13, 7, 33)   # 13 hoch 7 modulo 33 → 7
+```
+:::
+
+## Die ganze Tabelle: eine Überraschung
+
+Weil Alice jeden Buchstaben einzeln verschlüsselt, kann man für den
+Schlüssel $(33, 3)$ eine vollständige Tabelle erstellen:
+
+| Klartext | A | B | C | D | E | F | G | H | I | J | K | L | M |
+|:--|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| $m$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+| $c$ | **0** | **1** | 8 | 27 | 31 | 26 | 18 | 13 | 17 | 3 | **10** | **11** | **12** |
+
+| Klartext | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+|:--|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| $m$ | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 |
+| $c$ | 19 | 5 | 9 | 4 | 29 | 24 | 28 | 14 | **21** | **22** | **23** | 30 | 16 |
+
+: Verschlüsselungstabelle für den Schlüssel (33, 3); fett: Buchstaben, die sich nicht verändern {#tbl-rsa-tabelle}
+
+Zwei Dinge fallen auf:
+
+1. **Acht Buchstaben bleiben unverändert:** `A`, `B`, `K`, `L`, `M`, `V`,
+   `W` und `X`. Darum stand im Geheimtext von `HALLO` die 0 und zweimal die
+   11 – man kann `A` und `LL` direkt ablesen.
+2. **Jeder Buchstabe wird immer gleich verschlüsselt.** Das `E` wird immer
+   zur 31. Damit ist buchstabenweises RSA nichts anderes als eine
+   **monoalphabetische Substitution**, wie die Caesar-Chiffre auch. Die
+   Häufigkeitsanalyse, die Sie bereits kennen, knackt es mühelos: Die
+   häufigste Zahl im Geheimtext steht für `E`.
+
+Die Mathematik von RSA ist also stark, aber die Art, wie wir sie hier
+eingesetzt haben, ist schwach. In der Praxis verschlüsselt man deshalb
+nie einzelne Buchstaben. Man fasst lange Textblöcke zu einer einzigen
+riesigen Zahl zusammen und mischt vor dem Verschlüsseln zusätzlich
+Zufallsdaten bei (das sogenannte *Padding*). So wird derselbe Klartext
+jedes Mal anders verschlüsselt.
+
+## Wie sicher ist RSA? {#sec-rsa-sicherheit}
+
+### Multiplizieren ist leicht, Zerlegen ist schwer
+
+Die Sicherheit von RSA beruht auf einer Asymmetrie, die Sie selbst
+ausprobieren können:
+
+- Berechnen Sie $61 \cdot 53$. Das dauert mit Papier und Bleistift eine
+  halbe Minute.
+- Zerlegen Sie $3233$ in zwei Primzahlen. Das dauert deutlich länger, weil
+  man ausprobieren muss.
+
+(Es ist dieselbe Aufgabe: $61 \cdot 53 = 3233$.)
+
+Mit dem Computer verschiebt sich diese Grenze, aber die Asymmetrie bleibt.
+Zwei Primzahlen mit je 300 Stellen multipliziert ein Computer in
+Sekundenbruchteilen. Für die umgekehrte Richtung, die
+**Primfaktorzerlegung**, ist kein schnelles Verfahren bekannt. Mathematiker
+nennen so etwas eine **Falltürfunktion**: In die eine Richtung fällt man
+leicht hinein, zurück kommt man nur mit dem Geheimnis – hier mit $p$ und
+$q$.
+
+### Wie gross sind die Zahlen in der Praxis?
+
+Heute verwendet man für $n$ mindestens 2048 Bit, das sind rund **617
+Dezimalstellen**. Behörden wie das deutsche Bundesamt für Sicherheit in der
+Informationstechnik (BSI) empfehlen für neue Systeme inzwischen mindestens
+3000 Bit.
+
+Zum Vergleich: Der Rekord für eine öffentlich bekannte Zerlegung liegt bei
+einer Zahl mit 250 Dezimalstellen (829 Bit). Sie wurde 2020 von einem
+Forschungsteam zerlegt, das dafür Rechenzeit im Umfang von rund 2700
+Prozessorkern-Jahren brauchte.
+
+Beachten Sie den Unterschied zur Vigenère-Chiffre: Dort war der
+Schlüsselraum zwar gross, aber ein cleverer Angriff (Kasiski) machte das
+Ausprobieren überflüssig. Bei RSA sucht die Mathematik seit fast fünfzig
+Jahren nach einem solchen Trick – bisher ohne Erfolg.
+
+### Die Bedrohung durch Quantencomputer
+
+1994 zeigte der Mathematiker Peter Shor, dass ein ausreichend grosser
+**Quantencomputer** die Primfaktorzerlegung schnell erledigen könnte. Einen
+solchen Quantencomputer gibt es bis heute nicht. Weil verschlüsselte Daten
+aber heute abgefangen und in zwanzig Jahren entschlüsselt werden könnten,
+hat das amerikanische Normungsinstitut NIST 2024 erste
+Verschlüsselungsverfahren standardisiert, die auch gegen Quantencomputer
+sicher sein sollen. Man spricht von **Post-Quanten-Kryptografie**.
+
+### Die Schwachstelle Mensch und Software
+
+Die meisten erfolgreichen Angriffe auf RSA knacken nicht die Mathematik,
+sondern die Umsetzung:
+
+- schlechte Zufallszahlen bei der Wahl von $p$ und $q$,
+- zu kleine Schlüssel,
+- fehlendes Padding (siehe @tbl-rsa-tabelle),
+- gestohlene private Schlüssel.
+
+## RSA im Alltag
+
+### Digitale Signaturen
+
+RSA kann noch etwas, das symmetrische Verfahren nicht können. Dreht man die
+Rollen der Schlüssel um, entsteht eine **digitale Unterschrift**:
+
+- Bob «verschlüsselt» eine Nachricht mit seinem **privaten** Schlüssel.
+- Alle können sie mit Bobs **öffentlichem** Schlüssel prüfen.
+- Weil nur Bob den privaten Schlüssel kennt, kann nur er diese Unterschrift
+  erzeugt haben.
+
+Ein Beispiel mit unseren Zahlen: Bob will die Zahl 9 unterschreiben.
+
+$$
+\text{Unterschrift: } s = 9^7 \bmod 33 = 15
+$$
+
+Er schickt die Nachricht 9 zusammen mit der Unterschrift 15. Alice prüft mit
+Bobs öffentlichem Schlüssel:
+
+$$
+15^3 \bmod 33 = 3375 \bmod 33 = 9 \quad\checkmark
+$$
+
+Die Prüfung ergibt wieder die Nachricht. Also stammt die Unterschrift von
+Bob, und die Nachricht wurde unterwegs nicht verändert. Hätte Eve die
+Nachricht auf 8 geändert, würde die Prüfung nicht mehr passen.
+
+### Hybride Verschlüsselung
+
+RSA hat einen Nachteil: Es ist **langsam**, etwa tausendmal langsamer als
+moderne symmetrische Verfahren wie AES. Darum kombiniert man in der Praxis
+beide Welten:
+
+1. Der Browser erzeugt einen zufälligen symmetrischen Schlüssel.
+2. Er verschlüsselt diesen Schlüssel mit dem öffentlichen Schlüssel des
+   Servers und schickt ihn hin. Das ist eine sehr kurze Nachricht, also
+   spielt die Langsamkeit keine Rolle.
+3. Ab jetzt verschlüsseln beide mit dem gemeinsamen symmetrischen
+   Schlüssel.
+
+Das Henne-Ei-Problem vom Anfang dieses Kapitels ist damit gelöst: Das
+asymmetrische Verfahren sorgt für die sichere Schlüsselübergabe, das
+symmetrische für die schnelle Verschlüsselung der eigentlichen Daten.
+Jedes Mal, wenn Ihr Browser ein Schloss-Symbol neben der Adresse zeigt
+(`https://`), läuft im Hintergrund ein solches Verfahren ab.
+
+## Geschichte
+
+| Jahr | Ereignis |
+|:-----|:---------|
+| 1973 | Clifford Cocks, Mathematiker beim britischen Nachrichtendienst GCHQ, entwickelt ein Verfahren, das RSA entspricht. Es bleibt geheim. |
+| 1976 | Whitfield Diffie und Martin Hellman veröffentlichen die Idee der Public-Key-Kryptografie. |
+| 1977 | Rivest, Shamir und Adleman finden RSA. Martin Gardner stellt es im *Scientific American* einem breiten Publikum vor. |
+| 1994 | Peter Shor zeigt, dass Quantencomputer RSA brechen könnten. |
+| 1997 | Die britische Regierung macht die Arbeit von Cocks öffentlich. |
+| 2000 | Das Patent auf RSA läuft aus; das Verfahren ist frei nutzbar. |
+
+: Meilensteine der Public-Key-Kryptografie {#tbl-rsa-geschichte}
+
+Wie bei der Vigenère-Chiffre, die eigentlich auf Bellaso zurückgeht, trägt
+also auch RSA nicht den Namen seines ersten Erfinders. Bei Cocks lag es
+allerdings nicht an einer Verwechslung, sondern an der Geheimhaltung.
+
+## Aufgaben
+
+::: {.callout-note}
+## Aufgabe 1: Verschlüsseln
+
+Verschlüsseln Sie das Wort `GEHEIM` mit Bobs öffentlichem Schlüssel
+$(n, e) = (33, 3)$. Rechnen Sie von Hand und kontrollieren Sie mit
+@tbl-rsa-tabelle.
+
+Welche Schwäche des buchstabenweisen Verschlüsselns sehen Sie im Ergebnis?
+:::
+
+::: {.callout-note}
+## Aufgabe 2: Entschlüsseln
+
+Bob erhält den Geheimtext `29 24 0`. Entschlüsseln Sie ihn mit dem privaten
+Schlüssel $d = 7$. Verwenden Sie den Trick aus dem Abschnitt «Grosse
+Potenzen von Hand».
+:::
+
+::: {.callout-note}
+## Aufgabe 3: Ein eigenes Schlüsselpaar
+
+Erzeugen Sie ein Schlüsselpaar mit den Primzahlen $p = 7$ und $q = 13$ und
+dem öffentlichen Exponenten $e = 5$.
+
+a) Berechnen Sie $n$ und $\varphi$.
+b) Prüfen Sie, dass $e = 5$ zulässig ist.
+c) Bestimmen Sie $d$.
+d) Verschlüsseln Sie das Wort `KRYPTO`. Python-Kontrolle mit `pow` ist
+   erlaubt.
+:::
+
+::: {.callout-note}
+## Aufgabe 4: Eve greift an
+
+Eve fängt eine Nachricht ab, die mit dem öffentlichen Schlüssel
+$(n, e) = (55, 7)$ verschlüsselt wurde.
+
+a) Zerlegen Sie $n$ in seine Primfaktoren.
+b) Berechnen Sie damit den privaten Schlüssel $d$.
+c) Erklären Sie in zwei bis drei Sätzen, warum dieser Angriff bei einem
+   echten RSA-Schlüssel nicht funktioniert.
+:::
+
+::: {.callout-note}
+## Aufgabe 5: Unterschrift prüfen
+
+Sie erhalten von Bob (öffentlicher Schlüssel $(33, 3)$) zwei Nachrichten
+mit Unterschrift:
+
+- Nachricht 4, Unterschrift 16
+- Nachricht 5, Unterschrift 20
+
+Welche Unterschrift ist echt?
+:::
+
+::: {.callout-note}
+## Aufgabe 6: Kritische Würdigung
+
+Vergleichen Sie die Caesar-Chiffre, die Vigenère-Chiffre und RSA. Gehen Sie
+dabei auf folgende Fragen ein:
+
+- Wie viele Schlüssel braucht eine Gruppe von 100 Personen?
+- Wie muss der Schlüssel übergeben werden?
+- Worauf beruht die Sicherheit, und welcher Angriff ist bekannt?
+:::
+
+### Lösungen
+
+::: {.callout-tip collapse="true"}
+## Lösung Aufgabe 1
+
+| | G | E | H | E | I | M |
+|:--|--:|--:|--:|--:|--:|--:|
+| $m$ | 6 | 4 | 7 | 4 | 8 | 12 |
+| $c$ | 18 | 31 | 13 | 31 | 17 | 12 |
+
+Geheimtext: `18 31 13 31 17 12`.
+
+Schwächen: Die beiden `E` werden beide zur 31; das Muster des Wortes bleibt
+sichtbar (Substitution). Das `M` bleibt als 12 unverändert.
+:::
+
+::: {.callout-tip collapse="true"}
+## Lösung Aufgabe 2
+
+$29^7 \bmod 33$:
+
+- $29^2 = 841 = 25 \cdot 33 + 16 \Rightarrow 16$
+- $29^4 \Rightarrow 16^2 = 256 = 7 \cdot 33 + 25 \Rightarrow 25$
+- $29^7 = 29^4 \cdot 29^2 \cdot 29 \Rightarrow 25 \cdot 16 \cdot 29$;
+  $25 \cdot 16 = 400 \Rightarrow 4$; $4 \cdot 29 = 116 \Rightarrow 17$
+
+$17 \Rightarrow$ `R`. Ebenso $24^7 \bmod 33 = 18 \Rightarrow$ `S` und
+$0^7 = 0 \Rightarrow$ `A`.
+
+Klartext: `RSA`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Lösung Aufgabe 3
+
+a) $n = 7 \cdot 13 = 91$, $\varphi = 6 \cdot 12 = 72$
+b) $72 = 2^3 \cdot 3^2$; 5 ist weder durch 2 noch durch 3 teilbar, also
+   kein gemeinsamer Teiler.
+c) $5 \cdot 29 = 145 = 2 \cdot 72 + 1$, also $d = 29$.
+d) `K R Y P T O` = `10 17 24 15 19 14` wird zu `82 75 33 71 80 14`.
+   Das `O` bleibt auch hier unverändert.
+:::
+
+::: {.callout-tip collapse="true"}
+## Lösung Aufgabe 4
+
+a) $55 = 5 \cdot 11$
+b) $\varphi = 4 \cdot 10 = 40$. Gesucht: $7 \cdot d \bmod 40 = 1$.
+   $7 \cdot 23 = 161 = 4 \cdot 40 + 1$, also $d = 23$.
+c) Bei einem echten Schlüssel hat $n$ über 600 Dezimalstellen. Für die
+   Zerlegung so grosser Zahlen ist kein schnelles Verfahren bekannt; selbst
+   der aktuelle Rekord liegt bei 250 Stellen und brauchte enorme
+   Rechenleistung. Ohne $p$ und $q$ kann Eve $\varphi$ und damit $d$ nicht
+   berechnen.
+:::
+
+::: {.callout-tip collapse="true"}
+## Lösung Aufgabe 5
+
+- $16^3 = 4096 = 124 \cdot 33 + 4 \Rightarrow 4$. Das ergibt die Nachricht 4.
+  **Echt.**
+- $20^3 = 8000 = 242 \cdot 33 + 14 \Rightarrow 14$. Das ergibt 14, nicht 5.
+  **Gefälscht.** Die echte Unterschrift zu 5 wäre $5^7 \bmod 33 = 14$.
+:::
+
+::: {.callout-tip collapse="true"}
+## Lösung Aufgabe 6 (Stichworte)
+
+| | Caesar | Vigenère | RSA |
+|:--|:--|:--|:--|
+| Schlüssel für 100 Personen | 4950 | 4950 | 100 Schlüsselpaare |
+| Übergabe | geheim, vorab | geheim, vorab | öffentlicher Schlüssel offen |
+| Sicherheit beruht auf | Geheimhaltung der Verschiebung | Geheimhaltung und Länge des Schlüsselworts | Schwierigkeit der Primfaktorzerlegung |
+| bekannter Angriff | Brute Force (25 Versuche), Häufigkeitsanalyse | Kasiski-Test, dann Häufigkeitsanalyse | keiner für grosse Schlüssel; Quantencomputer (Shor) in Zukunft |
+:::
