@@ -45,35 +45,18 @@ Das Bild dazu ist ein offenes Vorhängeschloss:
 - Ab jetzt kann nur noch Bob die Kiste öffnen. Nicht einmal Alice selbst
   kommt wieder an die Nachricht.
 
-In der Kryptologie heissen die beiden Teile öffentlicher bzw. privater Schlüssel.:
+In der Kryptologie heissen die beiden Teile öffentlicher (public key)
+bzw. privater Schlüssel (private key). Im Bild des Vorhängeschlosses
+entspricht der öffentliche Schlüssel den Vorhängeschlössern, die
+grundsätzlich allen zur Verfügung stehen und der private Schlüssel, dem
+einen Schlüssel, der alle diese Schlösser öffnet und nur Bob zur
+Verfügung steht.
 
-| Teil | Bild | Wer kennt ihn? |
-|:-----|:-----|:---------------|
-| **öffentlicher Schlüssel** (*public key*) | das offene Schloss | alle |
-| **privater Schlüssel** (*private key*) | der Schlüssel zum Schloss | nur Bob |
 
-: Die beiden Schlüssel eines asymmetrischen Verfahrens {#tbl-rsa-schluessel}
-
-Man spricht von **asymmetrischer Verschlüsselung** oder
-**Public-Key-Kryptografie**. Das Mengenproblem verschwindet dabei: In der
+Man spricht daher von asymmetrischer Verschlüsselung oder
+Public-Key-Kryptografie. Das Mengenproblem verschwindet dabei: In der
 Klasse mit 25 Personen braucht jede Person genau ein Schlüsselpaar, also 25
 statt 300.
-
-```{mermaid}
-%%| label: fig-rsa-ablauf
-%%| fig-cap: "Ablauf einer Public-Key-Verschlüsselung. Eve kann alles mithören, was über die Leitung geht."
-sequenceDiagram
-    participant A as Alice
-    participant E as Eve (hört mit)
-    participant B as Bob
-    Note over B: erzeugt Schlüsselpaar<br/>öffentlich: (n, e)<br/>privat: d
-    B->>A: öffentlicher Schlüssel (n, e)
-    Note over E: kennt (n, e)
-    Note over A: verschlüsselt m mit (n, e)
-    A->>B: Geheimtext c
-    Note over E: kennt c,<br/>aber nicht d
-    Note over B: entschlüsselt c mit d
-```
 
 Die Idee von Diffie und Hellman war zunächst nur ein Wunsch. Es fehlte ein
 mathematisches Verfahren, das sich wie ein solches Vorhängeschloss verhält.
@@ -92,33 +75,181 @@ $$
 
 $a \bmod n$ ist der Rest, der bei der Division von $a$ durch $n$ übrig
 bleibt. Ein Alltagsbeispiel ist die Uhr: 10 Uhr plus 5 Stunden ergibt nicht
-15 Uhr, sondern 3 Uhr, denn $15 \bmod 12 = 3$.
+15 Uhr, sondern 3 Uhr, denn $10 \oplus_{12} 5 = (10 + 5) \bmod 12 = 3$.
 
 RSA verwendet genau dieses Rechnen mit Rest, aber statt mit Addition mit
-**Potenzen**. Ein Beispiel:
+Potenzen. Ein Beispiel:
 
 $$
-7^3 = 343 \qquad 343 \bmod 33 = 343 - 10 \cdot 33 = 13
+7^3 \bmod 33 = 343 \bmod 33 = 13 \text{, denn } 343 = 10 \cdot 33 + 13
 $$
 
 Also ist $7^3 \bmod 33 = 13$.
 
-::: {.callout-tip}
-## Grosse Potenzen von Hand
+### Grosse Potenzen von Hand {#sec-rsa-potenzen}
 
-Bei Potenzen werden die Zahlen schnell riesig. Der Trick: Man darf **nach
-jedem Zwischenschritt** den Rest bilden. Das Ergebnis bleibt gleich, die
-Zahlen bleiben klein. So berechnet man zum Beispiel $13^7 \bmod 33$:
+Bei $7^3$ ging das noch bequem. Beim Entschlüsseln werden wir aber
+Rechnungen wie $13^7 \bmod 33$ brauchen, und
 
-| Schritt | Rechnung | Rest mod 33 |
-|:--------|:---------|------------:|
-| $13^2$ | $169 = 5 \cdot 33 + 4$ | $4$ |
-| $13^4 = (13^2)^2$ | $4^2 = 16$ | $16$ |
-| $13^7 = 13^4 \cdot 13^2 \cdot 13$ | $16 \cdot 4 \cdot 13 = 832 = 25 \cdot 33 + 7$ | $7$ |
+$$
+13^7 = 62\,748\,517
+$$
 
-Also ist $13^7 \bmod 33 = 7$. Ohne den Trick hätte man mit
-$13^7 = 62\,748\,517$ rechnen müssen.
+ist bereits eine Zahl, die man ungern von Hand durch 33 teilt. Bei echtem
+RSA haben Basis *und* Exponent Hunderte von Stellen. Die Potenz direkt
+auszurechnen ist dann unmöglich: Das Ergebnis hätte mehr Stellen, als es
+Atome im Universum gibt.
+
+Zwei Ideen machen die Rechnung trotzdem einfach. Die erste hält die
+**Zahlen klein**, die zweite hält die **Anzahl Rechenschritte klein**.
+
+#### Idee 1: Den Rest darf man jederzeit bilden
+
+Wir wollen $17 \cdot 19 \bmod 5$ berechnen. Es gibt zwei Wege:
+
+- **Zuerst multiplizieren, dann den Rest bilden:**
+  $17 \cdot 19 = 323 = 64 \cdot 5 + 3$, also Rest $3$.
+- **Zuerst die Reste bilden, dann multiplizieren:**
+  $17 \bmod 5 = 2$ und $19 \bmod 5 = 4$. Dann ist
+  $2 \cdot 4 = 8 = 1 \cdot 5 + 3$, also ebenfalls Rest $3$.
+
+Beide Wege führen zum gleichen Ergebnis. Das ist kein Zufall. Schreiben wir
+die beiden Zahlen als «Vielfaches von 5 plus Rest»:
+
+$$
+17 = 3 \cdot 5 + 2 \qquad 19 = 3 \cdot 5 + 4
+$$
+
+Beim Ausmultiplizieren entstehen vier Summanden:
+
+$$
+17 \cdot 19 = (3 \cdot 5 + 2) \cdot (3 \cdot 5 + 4)
+= \underbrace{3 \cdot 5 \cdot 3 \cdot 5}_{\text{enthält } 5}
++ \underbrace{3 \cdot 5 \cdot 4}_{\text{enthält } 5}
++ \underbrace{2 \cdot 3 \cdot 5}_{\text{enthält } 5}
++ 2 \cdot 4
+$$
+
+Die ersten drei Summanden enthalten alle den Faktor 5. Sie sind also
+Vielfache von 5 und tragen zum Rest nichts bei. Für den Rest zählt nur der
+letzte Summand $2 \cdot 4$ – und das ist genau das Produkt der beiden Reste.
+
+Allgemein gilt für beliebige ganze Zahlen $a$, $b$ und $n$:
+
+$$
+(a \cdot b) \bmod n = \big((a \bmod n) \cdot (b \bmod n)\big) \bmod n
+$$
+
+Für uns heisst das: Wir dürfen **nach jeder einzelnen Multiplikation** den
+Rest bilden und mit diesem Rest weiterrechnen. Das Endergebnis ändert sich
+nicht, aber die Zwischenergebnisse bleiben immer kleiner als $n$.
+
+::: {.callout-note}
+## Dieselbe Idee bei der Uhr
+
+Es ist 10 Uhr. Wie spät ist es in 3 mal 9 Stunden? Man kann
+$3 \cdot 9 = 27$ Stunden rechnen und dann $(10 + 27) \bmod 12 = 1$. Man
+kann aber auch nach jedem 9-Stunden-Schritt auf die Uhr schauen: 10 → 7
+→ 4 → 1. Die Uhr «vergisst» die vollen Runden, und trotzdem stimmt das
+Ergebnis.
 :::
+
+#### Idee 2: Den Exponenten geschickt zerlegen
+
+Mit Idee 1 könnte man $13^7$ so berechnen: sechsmal mit 13 multiplizieren
+und jedes Mal den Rest bilden. Das geht, aber bei einem Exponenten mit
+Hunderten von Stellen bräuchte man unvorstellbar viele Multiplikationen.
+
+Hier helfen zwei Potenzgesetze, die Sie aus der Mathematik kennen:
+
+$$
+a^x \cdot a^y = a^{x+y} \qquad\qquad \left(a^x\right)^2 = a^{2x}
+$$
+
+Das zweite Gesetz bedeutet: Wer eine Potenz **quadriert**, verdoppelt den
+Exponenten. Aus $13^1$ wird durch Quadrieren $13^2$, daraus $13^4$, daraus
+$13^8$ und so weiter. Mit jeder Multiplikation verdoppelt sich der
+Exponent.
+
+Das erste Gesetz erlaubt es, den Exponenten in eine Summe zu zerlegen.
+Wir zerlegen die 7 in Zahlen aus der Verdopplungsreihe 1, 2, 4, 8, …:
+
+$$
+7 = 4 + 2 + 1 \qquad\Rightarrow\qquad 13^7 = 13^4 \cdot 13^2 \cdot 13^1
+$$
+
+::: {.callout-note}
+## Ein alter Bekannter: das Binärsystem
+
+Die Zerlegung in die Zahlen 1, 2, 4, 8, … ist nichts anderes als die
+Darstellung des Exponenten im **Binärsystem**: $7 = 111_2$, also
+$1 \cdot 4 + 1 \cdot 2 + 1 \cdot 1$. Jede Eins im Binärcode sagt, welche
+Quadratzahl man für das Endergebnis braucht. Deshalb heisst das Verfahren
+auch **Quadrieren und Multiplizieren** (*square and multiply*).
+:::
+
+#### Beide Ideen zusammen: $13^7 \bmod 33$ Schritt für Schritt
+
+**Schritt 1: Die Quadrate berechnen.** Wir beginnen bei $13$ und
+quadrieren so lange, bis wir alle benötigten Potenzen ($13^1$, $13^2$,
+$13^4$) haben. Nach jedem Schritt bilden wir den Rest (Idee 1).
+
+| Potenz | Rechnung | Rest mod 33 |
+|:-------|:---------|------------:|
+| $13^1$ | $13$ | $13$ |
+| $13^2$ | $13 \cdot 13 = 169 = 5 \cdot 33 + 4$ | $4$ |
+| $13^4 = \left(13^2\right)^2$ | wir quadrieren den *Rest* von $13^2$: $4 \cdot 4 = 16$ | $16$ |
+
+: Schritt 1: fortgesetztes Quadrieren {#tbl-rsa-quadrieren}
+
+Beachten Sie die letzte Zeile: Für $13^4$ rechnen wir nicht
+$169 \cdot 169 = 28\,561$, sondern nur $4 \cdot 4$. Das ist Idee 1 in
+Aktion.
+
+**Schritt 2: Die benötigten Potenzen multiplizieren.** Nach der Zerlegung
+$13^7 = 13^4 \cdot 13^2 \cdot 13^1$ multiplizieren wir die Reste aus
+Schritt 1 – wieder mit Restbildung nach jeder Multiplikation:
+
+| Rechnung | Ergebnis | Rest mod 33 |
+|:---------|:---------|------------:|
+| $13^4 \cdot 13^2 \;\to\; 16 \cdot 4$ | $64 = 1 \cdot 33 + 31$ | $31$ |
+| $13^6 \cdot 13^1 \;\to\; 31 \cdot 13$ | $403 = 12 \cdot 33 + 7$ | $7$ |
+
+: Schritt 2: Zusammensetzen {#tbl-rsa-zusammensetzen}
+
+Also ist
+
+$$
+13^7 \bmod 33 = 7
+$$
+
+**Bilanz:** Wir haben nur vier kleine Multiplikationen gebraucht (zwei zum
+Quadrieren, zwei zum Zusammensetzen), und keine Zahl war grösser als 403.
+Der direkte Weg hätte über $62\,748\,517$ geführt.
+
+Bei echtem RSA ist der Gewinn gewaltig. Ein Exponent mit 2048 Bit braucht
+höchstens 2048 Quadrierungen und 2048 Multiplikationen – für einen
+Computer eine Sache von Millisekunden.
+
+:::: {.callout-note}
+## Probieren Sie es selbst: $5^7 \bmod 33$
+
+Gehen Sie gleich vor wie oben. Die Zerlegung ist wieder $7 = 4 + 2 + 1$.
+
+::: {.callout-tip collapse="true"}
+## Lösung
+
+| | Rechnung | Rest mod 33 |
+|:--|:--|--:|
+| $5^1$ | $5$ | $5$ |
+| $5^2$ | $25$ | $25$ |
+| $5^4$ | $25 \cdot 25 = 625 = 18 \cdot 33 + 31$ | $31$ |
+| $5^4 \cdot 5^2$ | $31 \cdot 25 = 775 = 23 \cdot 33 + 16$ | $16$ |
+| $5^6 \cdot 5^1$ | $16 \cdot 5 = 80 = 2 \cdot 33 + 14$ | $14$ |
+
+Also ist $5^7 \bmod 33 = 14$.
+:::
+::::
 
 ## Das Verfahren von Hand
 
@@ -140,7 +271,7 @@ $$
 n = p \cdot q = 3 \cdot 11 = 33
 $$
 
-**c) Die Hilfszahl $\varphi$ berechnen.** Man spricht «phi»:
+**c) Die Hilfszahl $\varphi$** (griechischer Buchstaben phi) **berechnen.**:
 
 $$
 \varphi = (p - 1) \cdot (q - 1) = 2 \cdot 10 = 20
@@ -348,15 +479,15 @@ ausprobieren können:
 Mit dem Computer verschiebt sich diese Grenze, aber die Asymmetrie bleibt.
 Zwei Primzahlen mit je 300 Stellen multipliziert ein Computer in
 Sekundenbruchteilen. Für die umgekehrte Richtung, die
-**Primfaktorzerlegung**, ist kein schnelles Verfahren bekannt. Mathematiker
-nennen so etwas eine **Falltürfunktion**: In die eine Richtung fällt man
+Primfaktorzerlegung, ist kein schnelles Verfahren bekannt. Mathematiker
+nennen so etwas eine Falltürfunktion: In die eine Richtung fällt man
 leicht hinein, zurück kommt man nur mit dem Geheimnis – hier mit $p$ und
 $q$.
 
 ### Wie gross sind die Zahlen in der Praxis?
 
-Heute verwendet man für $n$ mindestens 2048 Bit, das sind rund **617
-Dezimalstellen**. Behörden wie das deutsche Bundesamt für Sicherheit in der
+Heute verwendet man für $n$ mindestens 2048 Bit, das sind rund 617
+Dezimalstellen. Behörden wie das deutsche Bundesamt für Sicherheit in der
 Informationstechnik (BSI) empfehlen für neue Systeme inzwischen mindestens
 3000 Bit.
 
@@ -373,12 +504,12 @@ Jahren nach einem solchen Trick – bisher ohne Erfolg.
 ### Die Bedrohung durch Quantencomputer
 
 1994 zeigte der Mathematiker Peter Shor, dass ein ausreichend grosser
-**Quantencomputer** die Primfaktorzerlegung schnell erledigen könnte. Einen
+Quantencomputer die Primfaktorzerlegung schnell erledigen könnte. Einen
 solchen Quantencomputer gibt es bis heute nicht. Weil verschlüsselte Daten
 aber heute abgefangen und in zwanzig Jahren entschlüsselt werden könnten,
 hat das amerikanische Normungsinstitut NIST 2024 erste
 Verschlüsselungsverfahren standardisiert, die auch gegen Quantencomputer
-sicher sein sollen. Man spricht von **Post-Quanten-Kryptografie**.
+sicher sein sollen. Man spricht von Post-Quanten-Kryptografie.
 
 ### Die Schwachstelle Mensch und Software
 
@@ -395,10 +526,10 @@ sondern die Umsetzung:
 ### Digitale Signaturen
 
 RSA kann noch etwas, das symmetrische Verfahren nicht können. Dreht man die
-Rollen der Schlüssel um, entsteht eine **digitale Unterschrift**:
+Rollen der Schlüssel um, entsteht eine digitale Unterschrift:
 
-- Bob «verschlüsselt» eine Nachricht mit seinem **privaten** Schlüssel.
-- Alle können sie mit Bobs **öffentlichem** Schlüssel prüfen.
+- Bob «verschlüsselt» eine Nachricht mit seinem privaten Schlüssel.
+- Alle können sie mit Bobs öffentlichem Schlüssel prüfen.
 - Weil nur Bob den privaten Schlüssel kennt, kann nur er diese Unterschrift
   erzeugt haben.
 
@@ -421,7 +552,7 @@ Nachricht auf 8 geändert, würde die Prüfung nicht mehr passen.
 
 ### Hybride Verschlüsselung
 
-RSA hat einen Nachteil: Es ist **langsam**, etwa tausendmal langsamer als
+RSA hat einen Nachteil: Es ist langsam, etwa tausendmal langsamer als
 moderne symmetrische Verfahren wie AES. Darum kombiniert man in der Praxis
 beide Welten:
 
